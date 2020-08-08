@@ -1,0 +1,1817 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91/">数理逻辑</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '2';// 全局变量,latex公式渲染方式
+</script>
+
+
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+<script>
+  console.log("katex rendering");
+  // 删除<p>内部换行,使katex正确渲染
+  $(document).ready(setTimeout(function()
+  {
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
+      });
+    }
+
+    // 渲染latex公式
+    renderMathInElement(document.body,
+    {
+      // ...options...
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+        // { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+
+    // 删除latex公式里面的回车
+    var all_katex = document.querySelectorAll(".katex");
+    all_katex.forEach(function(temp_p) {
+      temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "");
+    });
+
+    // 恢复回车
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
+      });
+    }
+  }, 500));// 删除元素不能进行得太早,不然会和highlight的dfs冲突
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">数理逻辑复习</span>
+  <br>
+  <span class="post_date">2019-06-09</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <blockquote>
+<p>搬运自<a target="_blank" rel="noopener" href="https://blog.zhengzangw.com/">Fermat</a></p>
+</blockquote>
+<h1 id="Propositional-Logic-PL"><a href="#Propositional-Logic-PL" class="headerlink" title="Propositional Logic (PL)"></a>Propositional Logic (PL)</h1><h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><ul>
+<li>字母表:命题符+联结词+辅助符<ul>
+<li>命题符:$\text{PS}$ (propositional symbol):${P_n|n\in\mathbb{N}}$</li>
+</ul>
+</li>
+<li>命题集 $\text{PROP}$ (proposition):为函数 $C_{\neg},C_{*}$ 下 $PS$ 的归纳闭包<ul>
+<li>$C_{\neg}(A)=(\neg A),C_{*}(A,B)=(A*B),*\in{\vee,\wedge,\rightarrow}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>括号引理:$A$为命题,则$A$中左右括号个数相等</li>
+<li>构造序列:$A\in PROP\iff \exists A_0,\cdots,A_n,n\in\mathbb{N},A=A_n$ 且对于任意的 $A_i,i\leq n$ 至少满足下列三条之一<ul>
+<li>$A_i\in PS$</li>
+<li>$\exists k &lt; i,A_i=A_k$</li>
+<li>$\exists k,l &lt; i, A_i=(A_k*A_l)$</li>
+</ul>
+</li>
+<li>结构归纳:事实上是对$A$的构造长度作归纳,是自然数上的归纳<ul>
+<li>数学归纳法:<ul>
+<li>Basis</li>
+<li>I.H.</li>
+<li>Ind. Step</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="语义"><a href="#语义" class="headerlink" title="语义"></a>语义</h2><ul>
+<li>真值集$B={T,F}$<ul>
+<li>$\neg:H_\neg:B\rightarrow B$</li>
+<li>$*:H_{*}:B^2\rightarrow B$s</li>
+</ul>
+</li>
+<li>赋值(模型):函数$v:\text{PS}\rightarrow B$</li>
+<li>命题的解释:函数$\hat v:\text{PROP}\rightarrow B$<ul>
+<li>$\hat v(P_n)=v(P_n),n\in \mathbb{N}$</li>
+<li>$\hat v(\neg A)=H_\neg(\hat v(A))$</li>
+<li>$\hat v(A*B)=H_\neg(\hat v(A),\hat v(B))$</li>
+<li>$FV$(free variable):$FV(A)=${$P\in PS|P$出现在$A$中}</li>
+</ul>
+</li>
+<li>满足:<ul>
+<li>$v\vDash \phi$(等价于$\hat v(A)=T$)</li>
+<li>$v\vDash P\iff v(P)=T$</li>
+<li>$v\vDash \neg \phi \iff v\not\vDash \phi$</li>
+<li>$v\vDash \phi_1 \wedge/\vee \phi_2\iff v\vDash \phi_1 \text{and/or}\ \phi_2$</li>
+<li>$v\vDash \phi_1 \rightarrow \phi_2\iff v\not\vDash\phi_1\ \text{or}\ v\vDash\phi_2$</li>
+<li>tautology:$\vDash\phi\iff\forall v:v\vDash\phi$</li>
+<li>可满足:$\exists v,v\vDash A$</li>
+<li>语义结论:$\Gamma\subset PROP,\Gamma\vDash A\iff\forall v$有$\forall B\in\Gamma,\hat v(B)=T$则$\hat v(A)=T$</li>
+</ul>
+</li>
+</ul>
+<h3 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h3><ul>
+<li><p>$v\upharpoonright FV(A)$:$v$的限制</p>
+<ul>
+<li>$v_1\upharpoonright FV(A)=v_2\upharpoonright FV(A)$则$\hat v_1(A)=\hat v_2(A)$</li>
+</ul>
+</li>
+<li><p>$n$元真值函数:$A\in \text{PROP}, FV(A)={Q_1,\cdots,Q_n},H_A:B^n\rightarrow B,\forall (a_1,\cdots,a_n)\in B^n, H_A(a_1,\cdots,a_n)=\hat v(A),v$满足$v(Q_i)=a_i(1\leq i\leq n)$.$H_A$为由$A$定义的真值函数</p>
+</li>
+<li><p>析合范式($\vee\wedge-nf$):$A$呈形$\bigvee_{i=1}^m(\bigwedge_{k=1}^nP_{i,k}),P_{i,k}$为命题符或命题符之否定</p>
+<ul>
+<li>$f:B^n\rightarrow B$,存在析合范式$A$,$f=H_A$</li>
+</ul>
+</li>
+<li><p>合析范式($\wedge\vee-nf$):$A$呈形$\bigwedge_{j=1}^l(\bigvee_{k=1}^nQ_{j,k})$</p>
+<ul>
+<li>$f:B^n\rightarrow B$,存在合析范式$A$,$f=H_A$</li>
+</ul>
+</li>
+<li><p>求析合范式,合析范式</p>
+</li>
+<li><p>逻辑等价:$A\simeq B$指$\forall v,v\vDash A$ iff $v\vDash B$</p>
+</li>
+<li><p>任何命题均有逻辑等价的析合范式/合析范式</p>
+</li>
+<li><p>联结词的函数完全组</p>
+<ul>
+<li>$\{\neg,\wedge,\vee\},\{\neg,\wedge\},\{\neg,\vee\},\{\neg,\rightarrow\}$</li>
+</ul>
+</li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="自然推理系统"><a href="#自然推理系统" class="headerlink" title="自然推理系统"></a>自然推理系统</h3><ul>
+<li><p>sequent:二元组$(\Gamma,\Delta)$,记为$\Gamma\vdash\Delta$,$\Gamma,\Delta$为命题的有穷集合.$\Gamma$为前件,$\Delta$为后件</p>
+</li>
+<li><p>公理:$\Gamma,A,\Delta\vdash\Lambda,A,\Theta$</p>
+</li>
+<li><p>规则:</p>
+<ul>
+<li>$\neg L:\dfrac{\Gamma,\Delta\vdash\Lambda,A}{\Gamma,\neg A,\Delta\vdash\Lambda}$</li>
+<li>$\neg R$</li>
+<li>$\vee L$</li>
+<li>$\vee R$</li>
+<li>$\wedge L$</li>
+<li>$\wedge R$</li>
+<li>$\rightarrow L: \dfrac{\Gamma,\Delta,\Gamma\ \Gamma,B,\Delta\vdash\Lambda}{\Gamma,A\rightarrow B,\Delta\Lambda}$</li>
+<li>$\rightarrow R$</li>
+<li>$Cut:\dfrac{\Gamma\vdash\Lambda,A\ \Delta,A\vdash\Theta}{\Gamma,\Delta\vdash\Lambda,\Theta}$</li>
+</ul>
+</li>
+<li><p>反例:存在赋值$v$,$v\vDash(A_1\wedge\cdots\wedge A_m)\wedge(\neg B_1\wedge\cdots B_n)$,$v$反驳$\Gamma\vdash \Delta$</p>
+</li>
+<li><p>valid:$\forall v,v\vdash(A_1\wedge\cdots\wedge A_n)\rightarrow(B_1\vee\cdots\vee B_n)$,$v$满足$v\vdash\Delta$或$v\vDash\Delta$</p>
+</li>
+<li><p>soundness:$\Gamma\vdash\Delta\Rightarrow\Gamma\vDash\Delta$</p>
+</li>
+<li><p>completeness:$\Gamma\vDash\Delta\Rightarrow\Gamma\vdash\Delta$</p>
+</li>
+<li><p>compactness:$\Gamma$的任意有穷子集可满足则$\Gamma$可满足</p>
+</li>
+</ul>
+<h3 id="命题逻辑的永真推理系统-H"><a href="#命题逻辑的永真推理系统-H" class="headerlink" title="命题逻辑的永真推理系统$H$"></a>命题逻辑的永真推理系统$H$</h3><ul>
+<li><p>公理模式</p>
+<ul>
+<li>A1 : $A\rightarrow B$</li>
+<li>A2 : $(A\rightarrow(B\rightarrow C))\rightarrow(B\rightarrow(A\rightarrow C))$</li>
+<li>A3 : $(A\rightarrow B)\rightarrow((B\rightarrow C)\rightarrow(A\rightarrow C))$</li>
+<li>A4 : $(A\rightarrow(A\rightarrow B))\rightarrow(A\rightarrow B)$</li>
+<li>A5 : $(A\rightarrow\neg B)\rightarrow(B\rightarrow\neg A)$</li>
+<li>A6 : $(\neg\neg A)\rightarrow A$</li>
+<li>A7 : $(A\wedge B)\rightarrow A$</li>
+<li>A8 : $(A\wedge B)\rightarrow B$</li>
+<li>A9 : $A\rightarrow(B\rightarrow(A\wedge B))$</li>
+<li>A10: $A\rightarrow(A\vee B)$</li>
+<li>A11: $B\rightarrow(A\vee B)$</li>
+<li>A12: $(A\rightarrow C)\rightarrow((B\rightarrow C)\rightarrow ((A\vee B)\rightarrow C))$</li>
+</ul>
+</li>
+<li><p>定理</p>
+<ul>
+<li>T13: $(A\rightarrow B)\rightarrow((C\rightarrow A)\rightarrow(C\rightarrow B))$</li>
+<li>T14: $(A\rightarrow B)\rightarrow((D\rightarrow(C\rightarrow A))\rightarrow(D\rightarrow(C\rightarrow B)))$</li>
+<li>T15: $\vdash A\rightarrow (B\rightarrow A)$</li>
+<li>T16: $\vdash (A\rightarrow(B\rightarrow(A\wedge B)))\rightarrow(A\rightarrow(B\rightarrow A))$</li>
+<li>T17: $\vdash (\neg A\rightarrow\neg B)\rightarrow(B\rightarrow A)$</li>
+<li>T18: $\vdash A\rightarrow\neg\neg A$</li>
+<li>T19: $\vdash (A\rightarrow B)\rightarrow(\neg B\rightarrow\neg A)$</li>
+<li>T20: $\vdash A\vee\neg A$</li>
+<li>T21: $A,\neg A\vdash\neg B$</li>
+<li>T22: $A,\neg A\vdash B$</li>
+<li>T23: $(B\rightarrow\neg B)\rightarrow\neg B$</li>
+<li>T24: $\vdash(A\rightarrow (C\wedge\neg C))\rightarrow\neg A$</li>
+<li>T25: $(B\vee A)\rightarrow(\neg A\rightarrow B)$</li>
+<li>T26: $(A\rightarrow B)\rightarrow(B\vee\neg A)$</li>
+<li>T27: $(A\vee B)\rightarrow(B\vee A)$</li>
+<li>T28: $(A\rightarrow(B\rightarrow C))\rightarrow((A\wedge B)\rightarrow C)$</li>
+<li>T29: $(C\vee A)\rightarrow((C\vee B)\rightarrow(C\vee(A\wedge B)))$</li>
+<li>T30: $(C\vee A)\rightarrow((B\rightarrow C)\rightarrow((A\rightarrow B)\rightarrow C))$</li>
+<li>T31: $(A\rightarrow(C\vee B))\rightarrow(C\vee(A\rightarrow B))$</li>
+</ul>
+</li>
+<li><p>规则</p>
+<ul>
+<li>MP:$\dfrac{A\rightarrow B\qquad A}{B}$</li>
+</ul>
+</li>
+<li><p>$\Gamma\vdash_H A$:$\exists P_1,\cdots,P_n=A,i\leq n$,$P_i$为$H$公理或$P_i\in\Gamma$或$\exists j,k &lt; i,P_j=(P_k\rightarrow P_i)$即$P_i$由前$P_j$和$P_k$实施MP而得</p>
+<ul>
+<li>$H$唯一确定,则$\Gamma\vdash A$或$\Gamma\rightarrow A$</li>
+<li>序列$P_1,\cdots,P_n$为证明过程,$n$为证明长度</li>
+<li>$\text{Th}(\Gamma)={A|\Gamma\vdash A}, A\in\text{Th}$为$Gamma-$定理,$\vdash A$则$A$ 为定理</li>
+</ul>
+</li>
+<li><p>引理</p>
+<ul>
+<li>$\Gamma\vdash C\rightarrow(B\rightarrow A)$且$\Gamma\vdash C\rightarrow B$则$\Gamma\vdash C\rightarrow A$</li>
+</ul>
+</li>
+<li><p>推理定理:$\Gamma,C\vdash A$则$\Gamma\vdash C\rightarrow A$</p>
+<ul>
+<li>$\Gamma,C=\Gamma\cup{C}$</li>
+</ul>
+</li>
+<li><p>$G’$与$H$</p>
+<ul>
+<li>$\vdash_H A\iff\vdash A$</li>
+<li>$\Gamma\vdash\Delta$则$\Gamma\vdash\overline{\Delta}$<ul>
+<li>$\overline{\Delta}=\perp=(C\wedge\neg C)$if$\Delta=\emptyset$else$\bigvee_{i=1}^nB_i,\Delta={B_1,\cdots,B_n}$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="First-Order-Logic"><a href="#First-Order-Logic" class="headerlink" title="First-Order-Logic"></a>First-Order-Logic</h1><h2 id="语言-1"><a href="#语言-1" class="headerlink" title="语言"></a>语言</h2><ul>
+<li><p>字母表</p>
+<ul>
+<li>逻辑符集合<ul>
+<li>变元集$V$</li>
+<li>联结词,量词,等词,辅助词</li>
+</ul>
+</li>
+<li>非逻辑符集合$\mathscr{L}$<ul>
+<li>常元集合$\mathscr{L}_c$</li>
+<li>函数集合$\mathscr{L}_f$,$\mu(f) &gt; 0$为$f$的元数</li>
+<li>谓词集合$\mathscr{L}_P$,$\mu(P)\ge0$为$f$的元数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>项$T$:变元符$\cup$常元符$\cup f(v_1,\cdots)$</p>
+<ul>
+<li>自由变元<ul>
+<li>$\text{FV}(x)={x}$,$\text{FV}(c)={x}$</li>
+<li>$\text{FV}(f(t_1,\cdots))=\bigcup_{i=1}^n\text{FV}(t_i)$</li>
+</ul>
+</li>
+<li>闭项:$\text{FV}(t)=\emptyset$</li>
+<li>替换:$s[\frac{t}{x}]$</li>
+</ul>
+</li>
+<li><p>公式$\Psi$:${t_1\doteq t_2}\cup P(t_1,\cdots) \cup$公式在联结词,量词的组合</p>
+<ul>
+<li>自由变元<ul>
+<li>$\text{FV}(t_1\doteq t_2)=\text{FV}(t_1)\cup\text{FV}t_2$</li>
+<li>$\text{FV}(P(t_1,\cdots))=\bigcup_{i=1}^n\text{FV}(t_i)$</li>
+<li>联结词取并</li>
+<li>$\text{FV}(Qx.A)=FV(A)\backslash{x}$</li>
+</ul>
+</li>
+<li>句子:$\text{FV}(A)=\emptyset$</li>
+<li>替换:$A[\frac{t}{x}]$<ul>
+<li>$(Qx.A)[\frac{t}{x}]=Qx.A$</li>
+<li>$(Qy.A)[\frac{t}{x}]=Qy.(A[\frac{t}{x}]),y\not\in\text{FV}(t)$</li>
+<li>$(Qy.A)[\frac{t}{x}]=Qz.(A[\frac{z}{y}][\frac{t}{x}]),y\in\text{FV}(t)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="语义-1"><a href="#语义-1" class="headerlink" title="语义"></a>语义</h2><ul>
+<li>结构:$\mathbb{M}=(M,I)$对$\mathscr{L}$做解释<ul>
+<li>论域$M$为非空集</li>
+<li>$I$为定义域为$\mathscr{L}$的映射<ul>
+<li>$c\in\mathscr{L}_c,c_{\mathbb{M}}=I(c)\in M$</li>
+<li>$f\in\mathscr{L}_f,f_{\mathbb{M}}=I(f):M^n\rightarrow M$</li>
+<li>$P\in\mathscr{L}_p,\mu(P) &gt; 0,P_{\mathbb{M}}=I(P)\subseteq M^n$</li>
+<li>$P\in\mathscr{L}_p,\mu(P)=0,I(P)\in B={T,F}$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>模型:$(\mathbb{M},\sigma)$是对一阶语言的解释<ul>
+<li>$\sigma:V\rightarrow M$为赋值</li>
+</ul>
+</li>
+<li>解释<ul>
+<li>项:$t_{\mathbb{M}[\sigma]}\in M$<ul>
+<li>$x_{\mathbb{M}[\sigma]}=\sigma(x)$</li>
+<li>$c_{\mathbb{M}[\sigma]}=c_M$</li>
+<li>$(f(t_1,\cdots))_{\mathbb{M}[\sigma]}=f_M((t_1)_{\mathbb{M}[\sigma]},\cdots)$</li>
+</ul>
+</li>
+<li>公式:$A_{\mathbb{M}[\sigma]}\in{T,F}$<ul>
+<li>排中律</li>
+<li>联结词:同古典逻辑</li>
+<li>$(P(t_1,\cdots))_{\mathbb{M}[\sigma]}=T\iff \langle (t_1)_{\mathbb{M}[\sigma]},\cdots,\rangle\in P_M$</li>
+<li>$(t_1\doteq t_2)_{\mathbb{M}[\sigma]}=T\iff (t_1)_{\mathbb{M}[\sigma]}=(t_2)_{\mathbb{M}[\sigma]}$</li>
+<li>$(\forall x.A)_{\mathbb{M}[\sigma]}=T\iff$对所有$a\in M,A_\mathbb{M}[\sigma[x:=a]]=T$</li>
+<li>$(\exists x.A)_{\mathbb{M}[\sigma]}=T\iff$对某个$a\in M,A_\mathbb{M}[\sigma[x:=a]]=T$</li>
+<li>$(\sigma[x_i:=a])(x_j)=a\iff i=j$,otherwise$\sigma(x_j)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可满足:$A_{\mathbb{M}[\sigma]}=T,M\vDash_\sigma A$<ul>
+<li>$M\vDash A$</li>
+<li>$M\vDash_\sigma \Gamma$</li>
+<li>$\vDash A$, $\vDash \Gamma$</li>
+<li>$\Gamma\vDash A$指$\forall (M,\sigma), M\vDash_\sigma\Gamma,$则$M\vDash_\sigma A$</li>
+<li>$\Gamma\vDash A\iff\Gamma\cup{\neg A}$不可满足</li>
+</ul>
+</li>
+</ul>
+<h3 id="Godel编码"><a href="#Godel编码" class="headerlink" title="Godel编码"></a>Godel编码</h3><ul>
+<li>$\langle a_0,\cdots,a_n\rangle=\prod_{i=0}^nP_i^{a_i}$</li>
+<li>$\text{ep}:\mathbb{N}^2\rightarrow\mathbb{N}$为$x$的素因子分解式中$P_n$的幂次</li>
+<li>Godel编码: #<ul>
+<li>Godel编码与语法对象一一对应</li>
+</ul>
+</li>
+</ul>
+<h3 id="替换定理"><a href="#替换定理" class="headerlink" title="替换定理"></a>替换定理</h3><ul>
+<li>$(t[\frac{s}{x}])_{\mathbb{M}[\sigma]}=t_{M[\sigma[x:=s_{\mathbb{M}[\sigma]}]]}$</li>
+<li>$(A[\frac{t}{x}])_{\mathbb{M}[\sigma]}=A_M[\sigma[x:=t_{\mathbb{M}[\sigma]}]]$</li>
+</ul>
+<h3 id="Hintikka集"><a href="#Hintikka集" class="headerlink" title="Hintikka集"></a>Hintikka集</h3><ul>
+<li>公式集$\Psi$为Hintikka集指其满足以下19条<ul>
+<li>2$\neg$,2$\rightarrow$,2$\wedge$,2$\vee$,(2$\leftrightarrow$),2$\exists$,2$\forall$,3$\doteq$,f,P</li>
+</ul>
+</li>
+<li>Hintikka集可满足</li>
+<li>T上二元关系:$s\sim t\iff s\doteq t\iff [s]=[t]$</li>
+</ul>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><h3 id="自然推理系统-1"><a href="#自然推理系统-1" class="headerlink" title="自然推理系统"></a>自然推理系统</h3><ul>
+<li><p>公理:$\Gamma,A,\Delta\vdash\Lambda,A,\Theta$</p>
+</li>
+<li><p>规则:</p>
+<ul>
+<li>$\neg L:\dfrac{\Gamma,\Delta\vdash\Lambda,A}{\Gamma,\neg A,\Delta\vdash\Lambda}$</li>
+<li>$\neg R$</li>
+<li>$\vee L$</li>
+<li>$\vee R$</li>
+<li>$\wedge L$</li>
+<li>$\wedge T$</li>
+<li>$\rightarrow L: \dfrac{\Gamma,\Delta,\Gamma\quad\Gamma,B,\Delta\vdash\Lambda}{\Gamma,A\rightarrow B,\Delta\Lambda}$</li>
+<li>$\rightarrow R$</li>
+<li>$\forall L: \dfrac{\Gamma,A[t/x],\forall x A(x),\Delta\vdash\Lambda}{\Gamma,\forall xA(x),\Delta\vdash\Lambda}$</li>
+<li>$\forall R: \dfrac{\Gamma\vdash,A[y/x],\Theta}{\Gamma\vdash\Lambda,\forall x A(x),\Theta}$,$y$为新变元</li>
+<li>$\exists L:\dfrac{\Gamma,A[y/x],\Delta\vdash\Lambda}{\Gamma,\exists xA(x),\Delta\vdash\Gamma}$,$y$为新变元</li>
+<li>$\exists R:\dfrac{\Gamma\vdash\Lambda,A[t/x],\exists xA(x),\Theta}{\Gamma\vdash\Lambda,\exists xA(x),\Theta}$</li>
+<li>$\text{Cut}:\dfrac{\Gamma\vdash\Lambda,A\ \Delta,A\vdash\Theta}{\Gamma,\Delta\vdash\Lambda,\Theta}$</li>
+</ul>
+</li>
+<li><p>Cut规则可由其它规则导出</p>
+</li>
+<li><p>$\Gamma\vdash \Lambda$可证:存在证明树</p>
+</li>
+<li><p>$A_1,\cdots,A_m\vdash B_1,\cdots,B_n\iff \wedge_{i=1}^mA_i\vdash\wedge_{i=1}^nB_i$</p>
+</li>
+<li><p>$\Gamma\vdash\Delta\Rightarrow \Gamma,\Theta\vdash \Delta,\Psi$</p>
+</li>
+<li><p>导出规则$(A(t)=A[\frac{t}{x}])$</p>
+<ul>
+<li>反证法:$\dfrac{\neg A,\Gamma\vdash B,\neg A,\Gamma\vdash\neg B}{\Gamma\vdash A}$</li>
+<li>分情况:$\dfrac{A,\Gamma\vdash B\qquad\neg A,\Gamma\vdash B}{\Gamma\vdash B}$</li>
+<li>逆否推演:$\dfrac{\Gamma\vdash A\rightarrow B}{\Gamma\vdash\neg B\rightarrow\neg A}$</li>
+<li>矛盾规则:$\dfrac{\Gamma\vdash A\qquad\Gamma\vdash\neg A}{\Gamma\vdash B}$</li>
+<li>MP:$\dfrac{\Gamma\vdash A\qquad\Gamma\vdash A\rightarrow B}{\Gamma\vdash B}$</li>
+<li>三段论:$\dfrac{\Gamma\vdash A(t)\qquad\Gamma\vdash\forall x(A(x)\rightarrow B(x))}{\Gamma\vdash B(t)}$</li>
+</ul>
+</li>
+<li><p>$\Gamma\vdash\Delta$有效:$\vDash(\wedge_{i=1}^nA_i)\rightarrow(\vee_{j=1}^mB_j)$</p>
+<ul>
+<li>${}\vdash{}$非有效</li>
+<li>有反例即非有效</li>
+</ul>
+</li>
+<li><p>除Cut外规则上矢列有效$\iff$下矢列有效</p>
+</li>
+<li><p>Soundness:$\Gamma\vdash\Delta$则$\Gamma\vDash\Delta$</p>
+</li>
+</ul>
+<h4 id="完全性定理"><a href="#完全性定理" class="headerlink" title="完全性定理"></a>完全性定理</h4><ul>
+<li><p>$\Gamma$为公式集</p>
+</li>
+<li><p>$\text{Incon}(\Gamma)$矛盾指$\Delta\vdash$</p>
+<ul>
+<li>$\iff\forall A$存在$\Gamma$有穷子集$\Delta,\Delta\vdash A$</li>
+</ul>
+</li>
+<li><p>$\text{Con}(\Gamma)$协调指$\Gamma$不矛盾</p>
+</li>
+<li><p>极大协调</p>
+<ul>
+<li>$\text{Con}(\Gamma)$</li>
+<li>$\text{Con}(\Delta)$且$\Gamma\subseteq\Delta$则$\Gamma=\Delta$</li>
+<li>当且仅当<ul>
+<li>$\text{Con}(\Gamma)$</li>
+<li>$(\forall A)\text{Con}(\Gamma\cup{A}),A\in\Gamma$</li>
+</ul>
+</li>
+<li>当且仅当<ul>
+<li>$\text{Con}(\Gamma)$</li>
+<li>$\forall A,A\in\Gamma\vee\neg A\in\Gamma$</li>
+</ul>
+</li>
+<li>存在$\Gamma$有穷子集$\Delta\vdash A\iff A\in\Gamma$</li>
+</ul>
+</li>
+<li><p>若$\Gamma$可满足,$\text{Con}(\Gamma)$;若$\text{Incon}(\Gamma)$,不可满足</p>
+</li>
+<li><p>$\Gamma\vdash A$,则$\text{Con}(\Gamma\cup{A})$;$G\vdash A$不可证,则$\text{Con}(\Gamma\cup {\neg A})$</p>
+</li>
+<li><p>Gentzen系统$Ge$为$G$加上以下三个等词公理</p>
+<ul>
+<li>$\vdash s\doteq s$</li>
+<li>$s_1\doteq t_1,\cdots,s_n\doteq t_n\vdash f(s_1,\cdots,s_n)\doteq f(t_1,\cdots,t_n)$</li>
+<li>$s_1\doteq t_1,\cdots,s_n\doteq t_n, p(s_1,\cdots,s_n)\vdash p(t_1,\cdots,t_n)$</li>
+</ul>
+</li>
+<li><p>$Ge$中可证以下矢列</p>
+<ul>
+<li>$\vdash(s\doteq t)\rightarrow(t\doteq s)$</li>
+<li>$\vdash(s\doteq t)\rightarrow(t\doteq u\rightarrow s\doteq u)$</li>
+</ul>
+</li>
+<li><p>$\Gamma e$为以下句子集合</p>
+<ul>
+<li>$\forall x(x\doteq x),\forall\vec x\forall\vec y(\vec x\dot=\vec y\rightarrow f(\vec x)\doteq f(\vec y))$,这里$f$为任何函数</li>
+<li>$\forall\vec x\forall\vec y(\vec x\doteq\vec y\rightarrow(p(\vec x)\rightarrow p(\vec y)))$,这里$p$为任何谓词</li>
+<li>我们有$\Gamma\vdash\Delta$在$Ge$中可证$\iff\Gamma e,\Gamma\vdash\Delta$在$G$中可证</li>
+</ul>
+</li>
+<li><p>Henkin集</p>
+<ul>
+<li>$\Gamma$极大协调</li>
+<li>若$\exists x.A\in\Gamma$,则有项$t$使$A[\frac{t}{x}]\in\Gamma$</li>
+</ul>
+</li>
+<li><p>$\text{Con}(\Phi)$,则存在$\mathscr{L’}=\mathscr{L}\cup{c_n|c\in N}$的公式集$\Psi$,使$\Psi\supseteq\Psi$且$\Psi$为$\mathscr{L’}$的Henkin集</p>
+</li>
+<li><p>Henkin集为Hintikka集</p>
+</li>
+<li><p>$\Gamma$协调则$\Gamma$可满足</p>
+</li>
+<li><p>Completeness:$\Gamma\vdash A\iff\Gamma\vDash A$</p>
+</li>
+<li><p>Compactness:若对任何$\Gamma$的有穷子集$\Delta$,$\Delta$可满足,则$\Gamma$可满足</p>
+</li>
+</ul>
+<h3 id="一阶逻辑的永真推理系统-PK"><a href="#一阶逻辑的永真推理系统-PK" class="headerlink" title="一阶逻辑的永真推理系统$PK$"></a>一阶逻辑的永真推理系统$PK$</h3><ul>
+<li><p>$A$ 的全称化:$\forall x_1\forall x_2\cdots\forall x_n.A$</p>
+<ul>
+<li>$n=0$即为$A$</li>
+</ul>
+</li>
+<li><p>公理</p>
+<ul>
+<li>第一组<ul>
+<li>A1:$A\rightarrow B$</li>
+<li>A2:$(A\rightarrow(B\rightarrow C))\rightarrow(B\rightarrow(A\rightarrow C))$</li>
+<li>A3:$(A\rightarrow B)\rightarrow((B\rightarrow C)\rightarrow(A\rightarrow C))$</li>
+<li>A4:$(A\rightarrow(A\rightarrow B))\rightarrow(A\rightarrow B)$</li>
+<li>A5:$(A\rightarrow\neg B)\rightarrow(B\rightarrow\neg A)$</li>
+<li>A6:$(\neg\neg A)\rightarrow A$</li>
+<li>A7:$(A\wedge B)\rightarrow A$</li>
+<li>A8:$(A\wedge B)\rightarrow B$</li>
+<li>A9:$A\rightarrow(B\rightarrow(A\wedge B))$</li>
+<li>A10:$A\rightarrow(A\vee B)$</li>
+<li>A11:$B\rightarrow(A\vee B)$</li>
+<li>A12:$(A\rightarrow C)\rightarrow((B\rightarrow C)\rightarrow ((A\vee B)\rightarrow C))$</li>
+</ul>
+</li>
+<li>第二组<ul>
+<li>A13:$\forall A\rightarrow A[\frac{t}{x}]$</li>
+<li>A14:$A[\frac{t}{x}]\rightarrow\exists xA$</li>
+<li>A15:$A\rightarrow\forall xA,x\not\in\text{FV}(A)$</li>
+<li>A16:$\exists xA\rightarrow A,x\not\in\text{FV}(A)$</li>
+<li>A17:$\forall(A\rightarrow B)\rightarrow(\forall xA\rightarrow\forall xB)$</li>
+<li>A18:$\exists(A\rightarrow B)\rightarrow(\exists A\rightarrow\exists B)$</li>
+</ul>
+</li>
+<li>第三组等词定理<ul>
+<li>A19:$x\dot=x$</li>
+<li>A20:$(x_1\dot=y_1)\rightarrow\cdots((x_n\dot=y_n)\rightarrow(f(x_1,\cdots,x_n)\dot=f(y_1,\cdots,y_n))$</li>
+<li>A21:$(x_1\dot=y_1)\rightarrow\cdots((x_n\dot=y_n)\rightarrow(P(x_1,\cdots,x_n)\dot=P(y_1,\cdots,y_n))$</li>
+</ul>
+</li>
+<li>第四组:前面各组公理的全称化</li>
+</ul>
+</li>
+<li><p>规则:MP:$\dfrac{A\rightarrow B\qquad A}{B}$</p>
+</li>
+<li><p>$\Gamma\vdash_{\text{PK}}A$指存在序列$A_1,\cdots,A_n=A$,$i\leq n$时满足以下任一条</p>
+<ul>
+<li>$A_i$为公理</li>
+<li>$A_i\in\Gamma$</li>
+<li>$\exists j,k &lt; i,A_j=(A_k\rightarrow A_i)$</li>
+</ul>
+</li>
+<li><p>定理:$\Gamma,C\vdash A$则$\Gamma\vdash C\rightarrow A$</p>
+</li>
+<li><p>泛化性定理:$x\not\in\text{FV}(\Gamma)$,若$\Gamma\vdash A$则$\Gamma\vdash\forall xA$</p>
+</li>
+<li><p>上层定理</p>
+<ul>
+<li>常元$c$不在$\Gamma,A$中出现,若$\Gamma\vdash A[\frac{c}{x}]$则$\Gamma\vdash\forall xA$</li>
+<li>常元$c$不在$\Gamma,A,B$中出现且$x\not\in\text{FV}(B)$,若$\Gamma,A[\frac{c}{x}]\vdash B$则$\Gamma,\exists xA\vdash B$</li>
+<li>$\vdash\forall x.A\leftrightarrow\neg\exists x\neg A$</li>
+<li>$\vdash\exists x.A\leftrightarrow\neg\forall x\neg A$</li>
+</ul>
+</li>
+<li><p>$\vdash A$在$G$中可证$\iff A$在PK中可证</p>
+</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="初等算术语言-mathcal-A"><a href="#初等算术语言-mathcal-A" class="headerlink" title="初等算术语言$\mathcal{A}$"></a>初等算术语言$\mathcal{A}$</h3><p>初等算术的标准模型</p>
+<h3 id="群论语言-mathcal-B"><a href="#群论语言-mathcal-B" class="headerlink" title="群论语言$\mathcal{B}$"></a>群论语言$\mathcal{B}$</h3><h3 id="集合论"><a href="#集合论" class="headerlink" title="集合论"></a>集合论</h3><h4 id="Cantor集合论"><a href="#Cantor集合论" class="headerlink" title="Cantor集合论"></a>Cantor集合论</h4><ul>
+<li>外延原则:$A=B\leftrightarrow\forall x(x\in A\rightarrow x\in B)$</li>
+<li>概括原则:$\forall P,\exists S, a\in S\rightarrow P(a),$记为$S={x|P(x)}$</li>
+<li>Russell悖论:$P(x)=x\not\in x$</li>
+</ul>
+<h4 id="公理集合论"><a href="#公理集合论" class="headerlink" title="公理集合论"></a>公理集合论</h4><ul>
+<li><p>集合论语言</p>
+<ul>
+<li>谓词$\in$(2)</li>
+<li>常元$\emptyset$</li>
+<li>函数符<ul>
+<li>对偶函数符,(2)</li>
+<li>幂集函数符$\mathcal{P}$(1)</li>
+<li>并集函数符$\cup$(1)</li>
+</ul>
+</li>
+<li>变元符$x,y,z,A,B,C$</li>
+</ul>
+</li>
+<li><p>约定</p>
+<ul>
+<li>$A\subseteq B$即$\forall x(x\in A\rightarrow x\in B)$</li>
+<li>${a}$即${a,a}$</li>
+<li>$a^+$即$a\cup{a}$</li>
+<li>$A\cup B$即${x|x\in A\vee x\in B}$</li>
+<li>$(\forall x\in A)\phi$即$\forall x(x\in A\rightarrow\phi)$</li>
+<li>$(\exists x\in A)\phi$即$\exists x(x\in A\wedge\phi)$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>ZF公理</p>
+<ul>
+<li><p>外延性公理$\forall A\forall B(\forall x(x\in A\leftrightarrow x\in B)\rightarrow A=B)$</p>
+</li>
+<li><p>空集公理$\exists B\forall x(\neg(x\in B))$</p>
+<ul>
+<li>若有常元$\emptyset$可记为$\forall x(x\not\in \emptyset)$</li>
+</ul>
+</li>
+<li><p>对偶公理$\forall u\forall v\exists B\exists x(x\in B\leftrightarrow(x=u\vee x=v))$</p>
+<ul>
+<li>若有函数,则可记为$\forall u\forall v\exists x(x\in{u,v}\leftrightarrow(x=u\vee x=v))$</li>
+</ul>
+</li>
+<li><p>$\forall A\exists B\forall x(x\in B\leftrightarrow(\exists b\in A)(x\in b))$</p>
+<ul>
+<li>若有函数$\cup$则可记为$\forall A\exists B\forall x(x\in B\leftrightarrow(\exists b\in A)(x\in b))$</li>
+</ul>
+</li>
+<li><p>幂集公理$\forall a\exists B\forall x(x\in B\leftrightarrow x\subseteq a)$</p>
+<ul>
+<li>若有函数$\mathcal{P}$则可记为$\forall x(x\in \mathcal{P}(a)\leftrightarrow x\subseteq a)$</li>
+</ul>
+</li>
+<li><p>子集公理S-公式$\phi$,$\text{FV}(\phi)\subseteq{x_1,\cdots,x_k,x},B\not\in\text{FV}(\phi)$,有$\forall\vec x\forall C\exists B\forall x(x\in B\leftrightarrow(x\in C\wedge\phi))$</p>
+<ul>
+<li>以Cantor记号记:$B={x\in C|\phi}$</li>
+<li>避免Russell悖论</li>
+</ul>
+</li>
+<li><p>无穷公理:$\exists A(\emptyset\in A\wedge(\forall a\in A)(a^+\in A))$</p>
+<ul>
+<li>不唯一</li>
+<li>$\text{Ind}(A)=\emptyset\in A\wedge(\forall a\in A)(a^+\in A)$,满足者称归纳集</li>
+<li>$\mathbb{N}={x|x\in A\wedge\forall B(\text{Ind(B)}\rightarrow x\in B)}$</li>
+<li>Peano算术模型:$(\mathbb{N},0,\text{Suc})$<ul>
+<li>Peano 公理<ul>
+<li>$(e\in S)$</li>
+<li>$(\forall a\in S)(f(a)\in S)$</li>
+<li>$(\forall b\in S)(\forall c\in S)(f(b)=f(c)\to b=c)$</li>
+<li>$(\forall a\in S)(f(a)\not=e)$</li>
+<li>$(\forall A\subseteq S)(((e\in A)\wedge(\forall a\in A)(f(a)\in A))\to(A=S))$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ZFC:ZF+AC</p>
+<ul>
+<li>选择公理(AC):$\forall A\exists\tau((\tau:P(A)-{\emptyset}\rightarrow A)\wedge(\forall B\in (P(A)-{\emptyset}))(\tau(B)\in B))$</li>
+<li>Zorn 引理:设$S$为偏序集,$S$中每个链皆有界,则$S$有极大元<ul>
+<li>等价于选择公理</li>
+</ul>
+</li>
+<li>独立性结果<ul>
+<li>$\text{con}(ZF)\Rightarrow\text{con}(ZF+AC)$</li>
+<li>$\text{con}(ZF)\Rightarrow\text{con}(ZF+\neg AC)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Herbrand定理"><a href="#Herbrand定理" class="headerlink" title="Herbrand定理"></a>Herbrand定理</h1><ul>
+<li><p>前束范式:一阶语言的公式呈形$Q_1x_1.(Q_2x_2.(\cdots,Q_nx_n.(B)))$,$Q_i\in{\forall,\exists}(i\leq n),B$中无量词</p>
+<ul>
+<li>记为$Q_1x_1\cdots Q_nx_n.B$</li>
+<li>$Q^*$ 为$Q$的对偶</li>
+</ul>
+</li>
+<li><p>命题</p>
+<ul>
+<li>$x\not\in\text{FV}(B)$,则$\vdash Qx.B\leftrightarrow B$</li>
+<li>$y$ 为新变元,$\vdash Qx.B\leftrightarrow Qy.B[\frac{y}{x}]$</li>
+<li>$\vdash\neg\forall x.A\leftrightarrow\exists x.\neg A.$</li>
+<li>$\vdash\neg\exists x.A\leftrightarrow\forall x.\neg A.$</li>
+<li>$x\not\in\text{FV}(B)$,则$\vdash (Qx.A\cdot B)\leftrightarrow Qx.(A\cdot B)$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>$\forall A,\exists B,\vdash A\leftrightarrow Q_1x_1\cdots Q_nx_n.B$,$x_1,\cdots,x_n$互异且$B$中无量词</p>
+</li>
+<li><p>Skolem范式:前束范式的Skolem范式$A^s$归纳定义如下:</p>
+<ul>
+<li>若$A$中无量词,则$A^s=A$</li>
+<li>$(\forall x.A)^s=\forall x.(A^s)$</li>
+<li>若$\text{FV}(\exists x.A)=\emptyset$,则$(\exists x.A)^s$为$(A[\frac{c}{x}])^s$,$c$ 为新常元</li>
+<li>若$\text{FV}(\exists x.A)={x_1,\cdots,x_n}$,则$(\exists x.A)^s=(A[\frac{f(x_1,\cdots,x_n)}{x}])^s$,$f$为$n$元新函数</li>
+</ul>
+</li>
+<li><p>$A$为闭前束范式(即无自由变元),$A$可满足$\iff A^s$可满足</p>
+</li>
+<li><p>Herbrand域$H_A$</p>
+<ul>
+<li>$A$中无常元,则$H_0={c_0},c_0\in\mathscr{L}_c$</li>
+<li>$A$中有常元,则$H_0=${$c|c\in\mathscr{L}_{c}$且出现在$A$中}</li>
+<li>$H_{n+1}=H_n\cup${$f(t_1,\cdots,t_m)|f$为$A$中的$m$元函数且$t_1,\cdots,t_m\in H_n$}</li>
+<li>$H_A=\cup{H_n|n\in N}$<ul>
+<li>其中元素为$\mathscr{L}$-闭项</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>$A$对应于$\mathbb{M}$的Herbrand结构$\mathbb{H}_A=(H_A,I_A)$  </p>
+<ul>
+<li>$I_A(c)=c$若$c\in H_A$否则$c_0$</li>
+<li>$I_A(f)(t_1,\cdots,t_m)=f(t_1,\cdots,t_m)$若$f$出现在$A$中否则$c_0$</li>
+<li>$I_A(P)={ &lt; t_1,\cdots,t_m &gt; \in H_A^m|\mathbb{M}\vDash P(t_1,\cdots,t_m)}$</li>
+</ul>
+</li>
+<li><p>$\mathscr{L}$-闭公式$A$为Skolem范式,$\mathbb{M}\vDash A$则$\mathbb{H}_A\vDash A$</p>
+<ul>
+<li>$\mathscr{L}$-闭公式$A$为Skolem范式,$A$可满足$\iff A$在某个Herbrand结构中满足</li>
+</ul>
+</li>
+<li><p>Herbrand定理:$\mathscr{L}$-闭公式$A$为Skolem范式$\forall x_1\cdots\forall x_n.B$,$B$中无量词,令$\Gamma={B[\frac{t_1}{x_1}]\cdots[\frac{t_n}{x_n}]|t_1,\cdots,t_n\in H_A}$,$A$可满足$\iff\Gamma$可满足</p>
+</li>
+</ul>
+<h1 id="模态语言"><a href="#模态语言" class="headerlink" title="模态语言"></a>模态语言</h1><table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">分支</th>
+<th align="center">应用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">可能与必然</td>
+<td align="center">基本模态逻辑</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">过去与将来</td>
+<td align="center">时态逻辑(temporal)</td>
+<td align="center">软硬件系统形式化验证</td>
+</tr>
+<tr>
+<td align="center">知道与相信</td>
+<td align="center">认知逻辑(epistemic)</td>
+<td align="center">知识表示</td>
+</tr>
+<tr>
+<td align="center">义务与允许</td>
+<td align="center">道义逻辑(deontic)</td>
+<td align="center">分布式智能系统进行协同与控制的规范系统</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>模态逻辑特征</p>
+<ul>
+<li>模态逻辑是用于描述关系结构的简单而富于表达力的语言</li>
+<li>模态语言为关系结构提供了一种内部和局部的视角</li>
+<li>模态逻辑并不是孤立的形式化系统</li>
+</ul>
+</li>
+<li><p>关系结构$\mathfrak{F}=(W,R_1,\cdots,R_n)$,$W$为domain/universe,$R_i$为$\mathfrak{F}$上的关系</p>
+<ul>
+<li>$W$中的元素可以为不同名称如点,状态,世界,时间,状况等.关系结构通常可以表示为简单图形</li>
+<li>严格偏序<ul>
+<li>全序</li>
+</ul>
+</li>
+<li>标注转换系统(LTS)$(W,{R_a|a\in A}),a\in A,R_a\subseteq W\times W$</li>
+<li>时间的内在结构为全序集$(S, &lt; )$<ul>
+<li>假设:<br>1.时间离散<br>2.有一个没有前驱的时刻<br>3.有无穷后续时刻进入未来</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="基本模态逻辑"><a href="#基本模态逻辑" class="headerlink" title="基本模态逻辑"></a>基本模态逻辑</h2><h3 id="语言-2"><a href="#语言-2" class="headerlink" title="语言"></a>语言</h3><ul>
+<li>命题符集合$\Phi$</li>
+<li>一元模态算子$\diamonds$<ul>
+<li>读作<code>可能</code></li>
+<li>对偶算子$\square\varphi:=\neg\diamonds\neg\varphi$<ul>
+<li>读作<code>不可能不/必然</code></li>
+</ul>
+</li>
+<li>$\varphi\wedge\psi:=\neg(\neg\varphi\vee\neg\psi)$</li>
+<li>$\top:=\neg\perp$</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>合式公式(well-formed formula) $\varphi::=p|\perp|\neg\varphi|\varphi\vee\phi|\diamonds\varphi$</li>
+<li>部分合式公式<ul>
+<li>$K:\square(\varphi\rightarrow\phi)\rightarrow(\square\varphi\rightarrow\square\phi)$</li>
+<li>$T:\square\varphi\rightarrow\phi$</li>
+<li>$4:\square\phi\rightarrow\square\square\phi$</li>
+<li>$B:\varphi\rightarrow\square\diamonds\varphi$</li>
+<li>$D:\square\varphi\rightarrow\diamonds\varphi$</li>
+<li>$5:\diamonds\varphi\rightarrow\square\diamonds\phi$</li>
+</ul>
+</li>
+</ul>
+<h3 id="语义-2"><a href="#语义-2" class="headerlink" title="语义"></a>语义</h3><ul>
+<li><p>Kripke模型:$\mathfrak{M}=(W,R,L)$</p>
+<ul>
+<li>$L:W\rightarrow 2^\Phi$为标记函数,把$W$每个点标记上再该点为真的命题符</li>
+<li>状态 $\omega\in W$</li>
+</ul>
+</li>
+<li><p>$\mathfrak{M},\omega\Vdash\varphi$基本模态公式$\varphi$在状态$\omega$被满足</p>
+<ul>
+<li>$\mathfrak{M},\omega\Vdash p,p\in\Phi\iff p\in L(W)$</li>
+<li>$\mathfrak{M},\omega\Vdash \perp$从不成立</li>
+<li>$\mathfrak{M},\omega\Vdash\neg\varphi\iff \mathfrak{M},\omega\Vdash\phi$不成立</li>
+<li>$\mathfrak{M},\omega\Vdash\varphi\vee\psi\iff\mathfrak{M},\omega\Vdash\varphi$或$\mathfrak{M},\omega\Vdash\psi$</li>
+<li>$\mathfrak{M},\omega\Vdash\diamond\varphi\iff$存在$v\in W,Rwv,\mathfrak{M},\omega\Vdash\varphi$<ul>
+<li>$\mathfrak{M},\omega\Vdash\square\varphi\iff$对于任意的$v\in W,Rw v,\mathfrak{M},\omega\Vdash\varphi$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>盲状态:不能到达任意后续状态的状态,$\square\varphi$空真</p>
+</li>
+<li><p>$\mathfrak{F},\omega\Vdash\varphi$:任意$L$,$\mathfrak{M},\omega\Vdash\varphi$</p>
+</li>
+<li><p>$\mathfrak{F}\Vdash\varphi$:任意的$\omega$, $\mathfrak{F},\omega\Vdash\varphi$</p>
+</li>
+<li><p>$\mathbb{F}\Vdash\varphi$:任意的$\mathfrak{F}\in\mathbb{F},\mathfrak{F}\Vdash\varphi$</p>
+<ul>
+<li>$\Lambda_\mathbb{F}$:$\mathbb{F}$的逻辑,对$\mathbb{F}$有效的所有公式的集合</li>
+</ul>
+</li>
+<li><p>$\Vdash\varphi$:任意的$\mathbb{F}$,$\mathbb{F}\Vdash\varphi$</p>
+</li>
+</ul>
+<h2 id="线性时间时态逻辑"><a href="#线性时间时态逻辑" class="headerlink" title="线性时间时态逻辑"></a>线性时间时态逻辑</h2><h3 id="语言-3"><a href="#语言-3" class="headerlink" title="语言"></a>语言</h3><ul>
+<li><p>线性时间时态算子</p>
+<ul>
+<li>$\mathcal{U}$:until</li>
+<li>$\bigcirc$:next-time</li>
+</ul>
+</li>
+<li><p>常用时态算子</p>
+<ul>
+<li>$\diamond\phi:=\top\mathcal{U}\phi$:Finally</li>
+<li>$\square\phi:=\neg\diamond\neg\phi$:Globally</li>
+<li>$\overset{\infty}{\diamond}\phi:=\square\diamond\phi$:Infinitely Often</li>
+<li>$\overset{\infty}{\square}\phi:=\diamond\square\phi$:Almost Everywhere</li>
+<li>$\phi_1\mathcal{R}\phi_2:=\neg(\neg\phi_1\mathcal{U}\neg\phi_2)$</li>
+</ul>
+</li>
+<li><p>$\psi::=p|\perp|\neg\psi|\psi_1\vee\psi_2|\bigcirc|\psi_1\mathcal{U}\psi_2,p\in\Phi$</p>
+</li>
+</ul>
+<h3 id="语义-3"><a href="#语义-3" class="headerlink" title="语义"></a>语义</h3><ul>
+<li><p>模型$\mathfrak{M}=(S,x,L)$</p>
+<ul>
+<li>$S$: 非空状态集</li>
+<li>$x:N\rightarrow S$:状态的无穷序列</li>
+<li>$L:W\rightarrow2^\Phi$</li>
+</ul>
+</li>
+<li><p>$\mathfrak{M},x\vDash\psi$:在模型$\mathfrak{M}$的时间线上,公式$\psi$为真(Linear-time Temporal Logic (LTL))</p>
+<ul>
+<li>$\mathfrak{M},x\vDash p,p\in\Psi\iff p\in L(s_0)$</li>
+<li>$\mathfrak{M},x\vDash\perp$从不成立</li>
+<li>$\mathfrak{M},x\vDash \neg\psi\iff\mathfrak{M},x\vDash \psi$不成立</li>
+<li>$\mathfrak{M},x\vDash \psi_1\vee\psi_2\iff\mathfrak{M},x\vDash \psi_1$或$\mathfrak{M},x\vDash \psi_2$</li>
+<li>$\mathfrak{M},x\vDash \psi_1\mathcal{U}\psi_2\iff\exists j(\mathfrak{M},x^j\vDash \psi_2$且$\forall k &lt; j(\mathfrak{M},x^k\vDash \psi_1))$</li>
+<li>$\mathfrak{M},x\vDash\bigcirc\psi\iff\mathfrak{M},x^1\vDash\psi$<ul>
+<li>$x^i$表示$s$的后缀$s_i,s_{i+1},\cdots$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="分支时间时态逻辑"><a href="#分支时间时态逻辑" class="headerlink" title="分支时间时态逻辑"></a>分支时间时态逻辑</h2><h3 id="语言-4"><a href="#语言-4" class="headerlink" title="语言"></a>语言</h3><ul>
+<li><p>命题符$\Psi$</p>
+</li>
+<li><p>线性时态算子</p>
+</li>
+<li><p>路径选择算子$\exists$:for some futures</p>
+<ul>
+<li>$\forall\psi:=\neg\exists\neg\psi$:for all futures</li>
+</ul>
+</li>
+<li><p>路径公式:$\psi::=\phi|\psi_1\vee\psi_2|\neg\psi|\bigcirc\psi|\psi_1\mathcal{U}\psi_2$</p>
+</li>
+<li><p>状态公式:$\varphi::=p|\perp|\phi_1\vee\phi_2|\neg\varphi|\exists\psi$</p>
+</li>
+</ul>
+<h4 id="子语言"><a href="#子语言" class="headerlink" title="子语言"></a>子语言</h4><ul>
+<li><p>路径公式:$\psi::=\bigcirc\varphi,\varphi_1\mathcal{U}\varphi_2$</p>
+<ul>
+<li>不允许线性时态算子的布尔组合和嵌套</li>
+<li>状态公式不变</li>
+</ul>
+</li>
+<li><p>等价于:</p>
+<ul>
+<li>基本时态算子:$\exists\bigcirc,\exists\square,\exists\mathcal{U}$</li>
+<li>$\forall\bigcirc\varphi:=\neg\exists\bigcirc\neg\varphi$</li>
+<li>$\forall\square\varphi:=\neg\exists\diamond\neg\varphi$</li>
+<li>$\forall\diamond\varphi:=\neg\exists\square\neg\varphi$</li>
+<li>$\exists\diamond\varphi:=\exists(\perp\mathcal{U}\varphi)$</li>
+<li>$\forall(\varphi_1\mathcal{U}\varphi_2):=\neg\exists(\neg\varphi_2\mathcal{U}\neg\varphi_2)\wedge\neg\exists\square\neg\varphi_2$</li>
+</ul>
+</li>
+<li><p>$\varphi::=p|\perp|\neg\varphi|\varphi_1\vee\varphi_2|\exists\bigcirc\varphi|\exists\square\varphi|\exists(\varphi_1\mathcal{U}\varphi_2)$</p>
+</li>
+</ul>
+<h3 id="语义-Coputation-Tree-Logic-CTL"><a href="#语义-Coputation-Tree-Logic-CTL" class="headerlink" title="语义 Coputation-Tree-Logic-CTL"></a>语义 Coputation-Tree-Logic-CTL</h3><ul>
+<li><p>Kripke模型:$\mathfrak{M}=(S,R,L)$</p>
+<ul>
+<li>$S$:非空状态集<ul>
+<li>$R\subset S\times S$是一个完全的二元关系</li>
+</ul>
+</li>
+<li>完全:$\forall s\in S\exists t\in S:(s,t)\in R$</li>
+<li>$L:S\rightarrow2^\Phi$</li>
+</ul>
+</li>
+<li><p>全路径(full path)$x=(s_0,s_1,\cdots)$:$\forall i\in\mathbb{N}:(s_i,s_{i+1})\in R$</p>
+</li>
+<li><p>$\mathfrak{M},s_0\vDash\varphi$:在$\mathfrak{M}$的状态$s_0$为真</p>
+<ul>
+<li>(S1)<ul>
+<li>$\mathfrak{M},s_0\vDash p\iff p\in L(s_0)$</li>
+<li>$\mathfrak{M},s_0\vDash\perp$从不成立</li>
+</ul>
+</li>
+<li>(S2)<ul>
+<li>$\mathfrak{M},s_0\vDash\varphi_1\vee\varphi_2\iff\mathfrak{M},s_0\vDash\varphi_1$或$\mathfrak{M},s_0\vDash\varphi_2$</li>
+<li>$\mathfrak{M},s_0\vDash\neg\varphi\iff\mathfrak{M},s_0\vDash\varphi$不成立</li>
+</ul>
+</li>
+<li>(S3) $\mathfrak{M},s_0\vDash\exists\psi\iff\mathfrak{M}$中存在全路径$x,\mathfrak{M},x\vDash\psi$</li>
+</ul>
+</li>
+<li><p>$\mathfrak{M},x\vDash\psi$:在$\mathfrak{M}$中的全路径$x$为真</p>
+<ul>
+<li>(P1) $\mathfrak{M},x\vDash\varphi\iff\mathfrak{M},s_0\vDash\varphi$</li>
+<li>(P2)<ul>
+<li>$\mathfrak{M},x\vDash\psi_1\vee\psi_2\iff\mathfrak{M},x\vDash\psi_1$或$\mathfrak{M},x\vDash\psi_2$</li>
+<li>$\mathfrak{M},x\vDash\neg\psi\iff\mathfrak{M},x\vDash\psi$不成立</li>
+</ul>
+</li>
+<li>(P3)<ul>
+<li>$\mathfrak{M},x\vDash\psi_1\mathcal{U}\psi_2\iff\exists j(\mathfrak{M},x^j\vDash\psi_2$且$\forall k &lt; j(\mathfrak{M},x^k\vDash\psi_1))$</li>
+<li>$\mathfrak{M},x\vDash\bigcirc\varphi\iff\mathfrak{M},x^1\vDash\psi$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="CTL"><a href="#CTL" class="headerlink" title="CTL"></a>CTL</h4><ul>
+<li>S1,S2,S3</li>
+<li>S4<ul>
+<li>$\mathfrak{M},s_0\vDash\exists\bigcirc\varphi\iff\exists s_1,Rs_0s_1,\mathfrak{M},s_1\vDash\varphi$</li>
+<li>$\mathfrak{M},s_0\vDash\exists\square\exists x,\forall i\in\mathbb{N}:\mathfrak{M},s_0\vDash\psi$</li>
+<li>$\mathfrak{M},s_0\vDash\exists(\varphi_1\mathcal{U}\varphi_2)\iff\exists x,\exists j(\mathfrak{M},s_j\vDash\psi_2$且$\forall k &lt; j(\mathfrak{M},s_k\vDash\psi_1))$</li>
+</ul>
+</li>
+</ul>
+<h2 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h2><h3 id="Hilbert公理系统K"><a href="#Hilbert公理系统K" class="headerlink" title="Hilbert公理系统K"></a>Hilbert公理系统K</h3><ul>
+<li><p>公理</p>
+<ul>
+<li>(TAUT)所有重言式</li>
+<li>(K)$\square(p\rightarrow q)\rightarrow(\square p\rightarrow q)$</li>
+<li>(Dual)$\diamond p\leftrightarrow\neg\square\neg p$</li>
+</ul>
+</li>
+<li><p>规则</p>
+<ul>
+<li>(MP, Modus Ponens):$\dfrac{\varphi\rightarrow\psi,\varphi}{\psi}$</li>
+<li>(US, Uniform Substitutious): $\dfrac{\varphi}{\theta}$<ul>
+<li>$\theta$为将$\varphi$中命题符一致地替换为任意的公式而得到的公式</li>
+</ul>
+</li>
+<li>(N, Generalization):$\dfrac{\varphi}{\square\varphi}$</li>
+</ul>
+</li>
+<li><p><strong>K</strong>-系统对于所有的框架可靠且完全</p>
+<ul>
+<li>对应基本模态逻辑</li>
+</ul>
+</li>
+<li><p>最小的正规模态逻辑为<strong>K</strong></p>
+</li>
+</ul>
+<h3 id="K-Gamma"><a href="#K-Gamma" class="headerlink" title="K$\Gamma$"></a>K$\Gamma$</h3><ul>
+<li><strong>K4</strong><ul>
+<li>增加公理$\diamond\diamond p\rightarrow\diamond p$</li>
+<li>对应传递框架</li>
+</ul>
+</li>
+</ul>
+<h3 id="正规模态逻辑-Lambda"><a href="#正规模态逻辑-Lambda" class="headerlink" title="正规模态逻辑$\Lambda$"></a>正规模态逻辑$\Lambda$</h3><ul>
+<li>包含TAUT,K,Dual</li>
+<li>对规则MP,US,N封闭</li>
+</ul>
+<h3 id="标准翻译"><a href="#标准翻译" class="headerlink" title="标准翻译"></a>标准翻译</h3><ul>
+<li><p>$\mathcal{L}^1(\Phi)$为一阶语言</p>
+<ul>
+<li>具有一元谓词$P_0,P_1,\cdots$对应$\Phi$中命题符$p_0,p_1,\cdots$</li>
+<li>具有二元关系$R$对应$\diamond$</li>
+</ul>
+</li>
+<li><p>标准翻译$\text{ST}_x$:</p>
+<ul>
+<li>$\text{ST}_x(p)=Px$</li>
+<li>$\text{ST}_x(\perp)=x\not=x$</li>
+<li>$\text{ST}_x(\neg\phi)=\neg\text{ST}_x(\phi)$</li>
+<li>$\text{ST}_x(\phi\vee\psi)=\text{ST}_x(\phi)\vee\text{ST}_x(\psi)$</li>
+<li>$\text{ST}_x(\diamond\phi)=\exists y(Rxy\wedge\text{ST}_y(\phi))$</li>
+</ul>
+</li>
+<li><p>$\mathfrak{M},\omega\Vdash\varphi\iff\mathfrak{M}\vDash\text{ST}_x(\varphi)[\omega]$</p>
+</li>
+<li><p>$\forall\mathfrak{M},\omega\Vdash\varphi\iff\mathfrak{M}\vDash\forall x\text{ST}_x(\varphi)[\omega]$</p>
+</li>
+</ul>
+<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><ul>
+<li>文章结构:Fundamental Thm, Main Thm, Theorem, Lemma, Proposition, Law, Thesis</li>
+<li>三次数学危机<ul>
+<li>小数$\to$无理数<ul>
+<li>希伯索斯</li>
+</ul>
+</li>
+<li>牛顿-莱布尼茨 无穷概念<ul>
+<li>柯西</li>
+</ul>
+</li>
+<li>集合论 罗素悖论<ul>
+<li>公理逻辑论</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

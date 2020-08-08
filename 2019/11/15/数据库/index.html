@@ -1,0 +1,1880 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">数据库</span>
+  <br>
+  <span class="post_date">2019-11-15</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="1-数据库系统概述"><a href="#1-数据库系统概述" class="headerlink" title="1 数据库系统概述"></a>1 数据库系统概述</h1><h2 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h2><ul>
+<li>数据库系统(Database System, DBS)<br>DBS的组成部分<ul>
+<li>数据库</li>
+<li>数据库管理系统</li>
+<li>数据库管理员</li>
+<li>软件平台</li>
+<li>硬件平台</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-4-数据库内部结构体系"><a href="#1-4-数据库内部结构体系" class="headerlink" title="1.4 数据库内部结构体系"></a>1.4 数据库内部结构体系</h2><ul>
+<li>数据库系统的三级模式<ul>
+<li>概念模式(模式)</li>
+<li>外模式(子模式,用户模式)</li>
+<li>内模式(物理模式)</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-数据模型"><a href="#2-数据模型" class="headerlink" title="2 数据模型"></a>2 数据模型</h1><h2 id="2-1-数据模型的基本概念"><a href="#2-1-数据模型的基本概念" class="headerlink" title="2.1 数据模型的基本概念"></a>2.1 数据模型的基本概念</h2><ul>
+<li><p>概念模型</p>
+<ul>
+<li>常用的概念模型:实体-联系(E-R)模型,面向对象模型等</li>
+</ul>
+</li>
+<li><p>逻辑模型</p>
+<ul>
+<li>常用的逻辑模型:关系模型,对象关系模型</li>
+</ul>
+</li>
+<li><p>物理模型:由DBMS负责实现</p>
+</li>
+</ul>
+<h2 id="2-3-1-实体-联系-E-R-模型"><a href="#2-3-1-实体-联系-E-R-模型" class="headerlink" title="2.3.1 实体-联系(E-R)模型"></a>2.3.1 实体-联系(E-R)模型</h2><p>关键字:关键字时可用于区分同一个实体集中不同实体的最小属性集合<br>函数对应:<code>m</code></p>
+<h2 id="2-3-2-扩充E-R模型"><a href="#2-3-2-扩充E-R模型" class="headerlink" title="2.3.2 扩充E-R模型"></a>2.3.2 扩充E-R模型</h2><h3 id="扩充的实体-联系-EE-R-模型"><a href="#扩充的实体-联系-EE-R-模型" class="headerlink" title="扩充的实体-联系(EE-R)模型"></a>扩充的实体-联系(EE-R)模型</h3><ol>
+<li><p>IS-A联系:如果实体集$B$时实体集$A$的一个子集,且具有比实体集$A$更多的属性,则我们称实体集$A$与实体集$B$之间存在着一种特殊的<strong>IS-A联系</strong>,其中:</p>
+<ul>
+<li>实体集$A$被称为<strong>超(实体)集</strong></li>
+<li>实体集$B$被称为<strong>子(实体)集</strong><br>子集$B$可以通过IS-A联系<strong>继承</strong>超集$A$中的所有属性</li>
+</ul>
+</li>
+<li><p>弱实体(Weak Entity)</p>
+<ul>
+<li>如果一个实体$A$的存在需要依赖于其他某个实体的存在,那么实体$A$被称为弱实体</li>
+</ul>
+</li>
+<li><p>属性的划分</p>
+</li>
+<li><p>属性基数(Cardinality of Attributes)</p>
+</li>
+<li><p>Cardinality of Entity Participation in a Relationship(实体在一个联系中的参与基数)<br>参与方式:<code>(0,m)</code></p>
+</li>
+</ol>
+<h2 id="2-3-3-面向对象模型"><a href="#2-3-3-面向对象模型" class="headerlink" title="2.3.3 面向对象模型"></a>2.3.3 面向对象模型</h2><h2 id="2-3-4-谓词模型"><a href="#2-3-4-谓词模型" class="headerlink" title="2.3.4 谓词模型"></a>2.3.4 谓词模型</h2><h2 id="2-4-1-关系模型与关系模型数据库系统"><a href="#2-4-1-关系模型与关系模型数据库系统" class="headerlink" title="2.4.1 关系模型与关系模型数据库系统"></a>2.4.1 关系模型与关系模型数据库系统</h2><h3 id="关系中的基本概念"><a href="#关系中的基本概念" class="headerlink" title="关系中的基本概念"></a>关系中的基本概念</h3><ul>
+<li>关系模式</li>
+<li>关系数据库模式</li>
+<li>元组</li>
+<li>关键字(键/key)<ul>
+<li>主关键字</li>
+<li>外关键字</li>
+</ul>
+</li>
+</ul>
+<h1 id="3-关系数据库系统"><a href="#3-关系数据库系统" class="headerlink" title="3 关系数据库系统"></a>3 关系数据库系统</h1><h2 id="3-3-0-1-关系数据结构"><a href="#3-3-0-1-关系数据结构" class="headerlink" title="3.3.0.1 关系数据结构"></a>3.3.0.1 关系数据结构</h2><h3 id="表结构"><a href="#表结构" class="headerlink" title="表结构"></a>表结构</h3><ul>
+<li><p>表框架(Frame)</p>
+</li>
+<li><p>元组(Tuple)</p>
+<ul>
+<li>在表框架中可按行(row)存放数据,其中的每一行数据被称为一个元组</li>
+<li>在一$n$元表中,一个元组由$n$个元组分量组成,其中:第$j$个元组分量就对应着表框架中的第$j$个属性($j=1,2…n$)</li>
+</ul>
+</li>
+</ul>
+<h3 id="关系-Relation"><a href="#关系-Relation" class="headerlink" title="关系(Relation)"></a>关系(Relation)</h3><ul>
+<li>具有$n$个属性的关系称为$n$元关系</li>
+<li><strong>关系名</strong>及其所有属性的<strong>属性名</strong>构成了<strong>关系框架</strong>.设关系的名为$R$,其属性名为$A_1,A_2…A_n$,则该关系的框架是$R(A_1,A_2…A_n)$</li>
+</ul>
+<h3 id="键-Key"><a href="#键-Key" class="headerlink" title="键(Key)"></a>键(Key)</h3><p>在二维表中凡能唯一最小标识元组的属性集称为该表的<strong>键</strong>,或称<strong>关键字</strong></p>
+<ul>
+<li>候选键(Candidate Key)</li>
+<li>主键(Primary key)</li>
+</ul>
+<p>每一张二维表都至少存在一个键</p>
+<ul>
+<li>外键(Foreign Key)<ul>
+<li>如果表$A$中的属性集$F$时表$B$的键,则称该属性集$F$为表$A$的<strong>外键</strong>(或称<strong>外关键字</strong>)</li>
+<li>其中<ul>
+<li>表$A$被称为引用表,表$B$被称为被引用表</li>
+<li>表$A$和表$B$可以是同一张二维表</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-3-0-2-关系操纵"><a href="#3-3-0-2-关系操纵" class="headerlink" title="3.3.0.2 关系操纵"></a>3.3.0.2 关系操纵</h2><h3 id="空值处理"><a href="#空值处理" class="headerlink" title="空值处理"></a>空值处理</h3><ul>
+<li>在算术表达式中出现空值,其运算结果也为空值</li>
+<li>在逻辑运算表达式中出现空值,其运算结果为逻辑假</li>
+</ul>
+<h2 id="3-3-0-3-关系中的数据约束"><a href="#3-3-0-3-关系中的数据约束" class="headerlink" title="3.3.0.3 关系中的数据约束"></a>3.3.0.3 关系中的数据约束</h2><h3 id="三类数据完整性约束"><a href="#三类数据完整性约束" class="headerlink" title="三类数据完整性约束"></a>三类数据完整性约束</h3><ul>
+<li><p>实体完整性约束:主键中的属性不能有空值</p>
+</li>
+<li><p>参照完整性约束:外键要么取空值,要么是被引用表中当前存在的某元组上的主键值</p>
+</li>
+<li><p>用户定义的完整性:用户自己定义的属性取值约束</p>
+</li>
+</ul>
+<h2 id="3-3-1-关系的表示"><a href="#3-3-1-关系的表示" class="headerlink" title="3.3.1 关系的表示"></a>3.3.1 关系的表示</h2><h3 id="笛卡尔乘积"><a href="#笛卡尔乘积" class="headerlink" title="笛卡尔乘积"></a>笛卡尔乘积</h3><p>$D_1\times D_2\times…\times D_n$</p>
+<ul>
+<li>$D_1,D_2,…,D_n$是$n$个集合</li>
+<li>设集合$D_i$的元素个数为$r_i(i=1,2,…,n)$,则他们的笛卡尔乘积的结果元素个数为$r_1\times r_2\times…\times r_n$</li>
+</ul>
+<h3 id="关系-R"><a href="#关系-R" class="headerlink" title="关系$R$"></a>关系$R$</h3><ul>
+<li><p>$n$元关系$R$是一个$n$元有序组的集合</p>
+</li>
+<li><p>设$n$元关系$R$的属性域分别是$D_1,D_2,…,D_n$,那么这$n$个域的笛卡尔乘积也是一个$n$元有序组的集合,并且与关系$R$存在联系:$R\subseteq D_1\times D_2\times…\times D_n$</p>
+</li>
+</ul>
+<h2 id="3-3-2-关系操纵的表示"><a href="#3-3-2-关系操纵的表示" class="headerlink" title="3.3.2 关系操纵的表示"></a>3.3.2 关系操纵的表示</h2><table>
+<thead>
+<tr>
+<th align="center">关系上的基本操作</th>
+<th align="center">关系代数中的基本运算</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">元组选择</td>
+<td align="center">选择运算</td>
+</tr>
+<tr>
+<td align="center">属性指定</td>
+<td align="center">投影运算</td>
+</tr>
+<tr>
+<td align="center">关系的合并</td>
+<td align="center">笛卡尔乘积</td>
+</tr>
+<tr>
+<td align="center">元组的插入</td>
+<td align="center">并运算</td>
+</tr>
+<tr>
+<td align="center">元组的删除</td>
+<td align="center">差运算</td>
+</tr>
+</tbody></table>
+<h3 id="相容表"><a href="#相容表" class="headerlink" title="相容表"></a>相容表</h3><h3 id="投影运算"><a href="#投影运算" class="headerlink" title="投影运算"></a>投影运算</h3><h3 id="选择运算"><a href="#选择运算" class="headerlink" title="选择运算"></a>选择运算</h3><h3 id="关系的笛卡尔乘积"><a href="#关系的笛卡尔乘积" class="headerlink" title="关系的笛卡尔乘积"></a>关系的笛卡尔乘积</h3><ul>
+<li><p>笛卡尔乘积满足交换律和结合律</p>
+</li>
+<li><p>如果关系$R$和$S$中存在相同的属性名,则必须在结果关系中对其中的一个进行换名</p>
+</li>
+</ul>
+<h2 id="3-3-3-关系模型与关系代数"><a href="#3-3-3-关系模型与关系代数" class="headerlink" title="3.3.3 关系模型与关系代数"></a>3.3.3 关系模型与关系代数</h2><h2 id="3-3-4-关系代数中的扩充运算"><a href="#3-3-4-关系代数中的扩充运算" class="headerlink" title="3.3.4 关系代数中的扩充运算"></a>3.3.4 关系代数中的扩充运算</h2><h3 id="交运算"><a href="#交运算" class="headerlink" title="交运算"></a>交运算</h3><h3 id="除运算"><a href="#除运算" class="headerlink" title="除运算"></a>除运算</h3><ul>
+<li>除运算的推导过程<br>若$Head(R)=\{A_1…A_nB_1…B_n\},Head(S)=\{B_1…B_m\}$<br>$R\div S=\pi_{A_1…A_n}(R)-\pi_{A_1…A_n}((\pi_{A_1…A_n}(R)\times S)-R)$<ol>
+<li>$T_{\max}=\pi_{A_1…A_n}(R)$</li>
+<li>$R_{\max}=T_{\max}\times S$</li>
+<li>$T_1=R_{\max}-R$</li>
+<li>$T_2=\pi_{A_1…A_n}(T_1)$</li>
+<li>$R\div S=T_{\max}-T_2$</li>
+</ol>
+</li>
+</ul>
+<h3 id="join运算"><a href="#join运算" class="headerlink" title="join运算"></a>join运算</h3><ul>
+<li><p>又称$\theta$-联接运算,可以将关系$R$和关系$S$根据join条件$F$合并为一个关系</p>
+</li>
+<li><p>联接条件$F$的构造方式</p>
+</li>
+<li><p>join运算的推导公式<br>$R\underset{F}{\bowtie}S=\sigma_F(R\times S)$</p>
+</li>
+<li><p>联接运算与笛卡尔乘积运算的关系</p>
+</li>
+</ul>
+<h3 id="natural-join运算"><a href="#natural-join运算" class="headerlink" title="natural join运算"></a>natural join运算</h3><ul>
+<li><p>功能:根据两个关系中的同名属性进行等值联接</p>
+</li>
+<li><p>运算结果</p>
+<ul>
+<li>结果关系中的元组</li>
+</ul>
+</li>
+<li><p>natural join运算的推导公式</p>
+</li>
+</ul>
+<h1 id="A-关系演算"><a href="#A-关系演算" class="headerlink" title="A 关系演算"></a>A 关系演算</h1><h2 id="A-1-一阶谓词演算"><a href="#A-1-一阶谓词演算" class="headerlink" title="A.1 一阶谓词演算"></a>A.1 一阶谓词演算</h2><h3 id="一阶谓词演算中的基本概念"><a href="#一阶谓词演算中的基本概念" class="headerlink" title="一阶谓词演算中的基本概念"></a>一阶谓词演算中的基本概念</h3><h3 id="A-1-3-谓词"><a href="#A-1-3-谓词" class="headerlink" title="A.1.3 谓词"></a>A.1.3 谓词</h3><h3 id="A-1-4-指派"><a href="#A-1-4-指派" class="headerlink" title="A.1.4 指派"></a>A.1.4 指派</h3><h2 id="A-2-关系的表示"><a href="#A-2-关系的表示" class="headerlink" title="A.2 关系的表示"></a>A.2 关系的表示</h2><h3 id="关系演算系统"><a href="#关系演算系统" class="headerlink" title="关系演算系统"></a>关系演算系统</h3><ul>
+<li><p>元组关系演算</p>
+</li>
+<li><p>域关系演算</p>
+</li>
+</ul>
+<h2 id="A-3-关系操纵的表示"><a href="#A-3-关系操纵的表示" class="headerlink" title="A.3 关系操纵的表示"></a>A.3 关系操纵的表示</h2><ul>
+<li><p>设$R$和$S$时两个模式相同的关系表,他们对应的谓词分别为$R(t)$和$S(t)$,则</p>
+<ol>
+<li>$R\cup S=\{t|R(t)\vee S(t)\}$</li>
+<li>$R-S=\{t|R(t)\wedge\lnot S(t)\}$</li>
+<li>$\sigma_F(R)=\{t|R(t)\wedge F\}$</li>
+<li>$\pi_{A_{i_1},A_{i_2},…,A_{i_k}}(R)=$<strong>TODO</strong></li>
+</ol>
+</li>
+<li><p>设有$m$元的关系$R$和$n$元的关系$S$,他们对应的谓词分别为$R(u)$和$S(v)$,则<br>$R\times S=$<strong>TODO</strong></p>
+</li>
+</ul>
+<h3 id="关系演算表达式"><a href="#关系演算表达式" class="headerlink" title="关系演算表达式"></a>关系演算表达式</h3><ul>
+<li>关系演算表达式$\{t|\varphi(t)\}$表示由公式$\varphi(t)$的所有成真指派所构成的集合</li>
+<li>可将$\{t|\varphi(t)\}$简写为$\varphi(t)$</li>
+</ul>
+<h3 id="关系演算的原子公式"><a href="#关系演算的原子公式" class="headerlink" title="关系演算的原子公式"></a>关系演算的原子公式</h3><h3 id="关系演算公式-简称为公式"><a href="#关系演算公式-简称为公式" class="headerlink" title="关系演算公式(简称为公式)"></a>关系演算公式(简称为公式)</h3><h2 id="A-4-关系演算的例子"><a href="#A-4-关系演算的例子" class="headerlink" title="A.4 关系演算的例子"></a>A.4 关系演算的例子</h2><h3 id="关系的联结"><a href="#关系的联结" class="headerlink" title="关系的联结"></a>关系的联结</h3><ol>
+<li>可以通过相关谓词的逻辑与运算实现两个关系的笛卡尔乘积<br>$R(p)\wedge S(q)$</li>
+<li>通过选择条件$F$实现两个关系的$\theta$-联结<br>$R(p)\wedge S(q)\wedge F$</li>
+<li>可以通过两个谓词中的公共变元(同名变元)实现两个关系的自然联结<br>$R(x,y,z)\wedge S(y,u,v)$</li>
+</ol>
+<ul>
+<li>自联结:谓词名不变,对部分变元进行重命名,从而实现关系的自联结(同名变元取值相等)</li>
+</ul>
+<h3 id="元组插入-删除与修改操作"><a href="#元组插入-删除与修改操作" class="headerlink" title="元组插入,删除与修改操作"></a>元组插入,删除与修改操作</h3><ul>
+<li><p>删除:$S(sno, sn, sd, sa)\wedge\lnot S(‘S_1’, sn, sd, sa)$</p>
+</li>
+<li><p>插入:$S(t)\vee R(t)$</p>
+</li>
+<li><p>修改:<br>$R(sno, sn, sd, sa)=\exists x(S(sno, sn, sd, x)\wedge sno=S_7\wedge sa=29)$<br>$(S(sno, sn, sd, sa)\wedge sno\not=S_7)\vee R(sno, sn, sd, sa))$</p>
+</li>
+</ul>
+<h2 id="A-5-关系演算的安全限制"><a href="#A-5-关系演算的安全限制" class="headerlink" title="A.5 关系演算的安全限制"></a>A.5 关系演算的安全限制</h2><h3 id="无限关系"><a href="#无限关系" class="headerlink" title="无限关系"></a>无限关系</h3><h3 id="无穷验证"><a href="#无穷验证" class="headerlink" title="无穷验证"></a>无穷验证</h3><h1 id="B-关系数据库语言SQL"><a href="#B-关系数据库语言SQL" class="headerlink" title="B 关系数据库语言SQL"></a>B 关系数据库语言SQL</h1><h2 id="B-2-SQL数据定义功能"><a href="#B-2-SQL数据定义功能" class="headerlink" title="B.2 SQL数据定义功能"></a>B.2 SQL数据定义功能</h2><h3 id="基表创建"><a href="#基表创建" class="headerlink" title="基表创建"></a>基表创建</h3><h2 id="B-3-SQL数据操纵功能"><a href="#B-3-SQL数据操纵功能" class="headerlink" title="B.3 SQL数据操纵功能"></a>B.3 SQL数据操纵功能</h2><h3 id="B-3-1-SQL的基本查询功能"><a href="#B-3-1-SQL的基本查询功能" class="headerlink" title="B.3.1 SQL的基本查询功能"></a>B.3.1 SQL的基本查询功能</h3><h4 id="B-3-1-2-常用谓词"><a href="#B-3-1-2-常用谓词" class="headerlink" title="B.3.1.2 常用谓词"></a>B.3.1.2 常用谓词</h4><h5 id="like谓词的使用方法"><a href="#like谓词的使用方法" class="headerlink" title="like谓词的使用方法"></a><code>like</code>谓词的使用方法</h5><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">column [ NOT ] like val1 [ escape val2 ]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>模板(pattern):<code>val1</code></p>
+<ul>
+<li><code>_</code>:可以匹配任意一个字符</li>
+<li><code>%</code>:可以匹配任意一个字符串(包括空字符串)</li>
+</ul>
+</li>
+<li><p>转移指示字符:<code>val2</code></p>
+<ul>
+<li>紧跟在<code>val2</code>之后的<code>_</code>或<code>%</code>不再是通配符,而是其自身</li>
+</ul>
+</li>
+</ul>
+<h4 id="B-3-1-5-自连接"><a href="#B-3-1-5-自连接" class="headerlink" title="B.3.1.5 自连接"></a>B.3.1.5 自连接</h4><h4 id="B-3-1-6-结果排序"><a href="#B-3-1-6-结果排序" class="headerlink" title="B.3.1.6 结果排序"></a>B.3.1.6 结果排序</h4><p><code>order by &lt;列名&gt; [ asc | desc ] &#123;, ...&#125;</code></p>
+<ul>
+<li>升序<code>asc</code>,降序<code>desc</code>,默认升序</li>
+</ul>
+<h3 id="B-3-2-分层结构查询与集合谓词使用"><a href="#B-3-2-分层结构查询与集合谓词使用" class="headerlink" title="B.3.2 分层结构查询与集合谓词使用"></a>B.3.2 分层结构查询与集合谓词使用</h3><h4 id="where子句中的集合谓词"><a href="#where子句中的集合谓词" class="headerlink" title="where子句中的集合谓词"></a><code>where</code>子句中的集合谓词</h4><ul>
+<li><code>in</code>谓词:标量与集合量之间的属于比较</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">expr [ not ] in ( subquery )</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>限定比较谓词:标量与集合中元素之间的量化比较</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">expr 运算符 some|any|all ( subquery )</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>exists</code>谓词:是否为空集的判断谓词</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">[ not ] exists ( subquery )</span><br></pre></td></tr></table></figure>
+
+<h3 id="B-3-3-select语句间的运算"><a href="#B-3-3-select语句间的运算" class="headerlink" title="B.3.3 select语句间的运算"></a>B.3.3 <code>select</code>语句间的运算</h3><ul>
+<li><code>union [all]</code></li>
+<li><code>intersect [all]</code></li>
+<li><code>except [all]</code></li>
+</ul>
+<blockquote>
+<p>不加<code>all</code>只选取不同的值</p>
+</blockquote>
+<h3 id="B-3-4-SQL计算-统计-分类的功能"><a href="#B-3-4-SQL计算-统计-分类的功能" class="headerlink" title="B.3.4 SQL计算,统计,分类的功能"></a>B.3.4 SQL计算,统计,分类的功能</h3><h4 id="B-3-4-1-统计功能"><a href="#B-3-4-1-统计功能" class="headerlink" title="B.3.4.1 统计功能"></a>B.3.4.1 统计功能</h4><ul>
+<li><p><code>count</code>统计:</p>
+<ul>
+<li><code>count(*)</code>:返回集合中的元组个数</li>
+<li><code>count(colname)</code>:返回在<code>colname</code>属性上取值非空的元组个数</li>
+<li><code>count(distinct colname)</code>:返回<code>colname</code>取值非空且互不相同的元组个数</li>
+</ul>
+</li>
+<li><p><code>sum</code>,<code>avg</code>,<code>max</code>,<code>min</code>统计</p>
+</li>
+<li><p><code>null</code>在统计函数中的处理:<strong>TODO</strong></p>
+</li>
+</ul>
+<h4 id="B-3-4-3-分类功能"><a href="#B-3-4-3-分类功能" class="headerlink" title="B.3.4.3 分类功能"></a>B.3.4.3 分类功能</h4><ul>
+<li><p>分类统计查询</p>
+<ul>
+<li>分组查询子句<figure class="highlight"><table><tr><td class="code"><pre><span class="line">group by colname &#123; ,</span><br><span class="line">  colname ...&#125;</span><br></pre></td></tr></table></figure>
+根据属性<code>colname</code>的取值的不同,将满足<code>where</code>条件的元组划分为不同的集合</li>
+</ul>
+</li>
+<li><p>分组选择子句:<code>having group_condition</code></p>
+</li>
+</ul>
+<h3 id="B-3-5-select语句使用的一般规则"><a href="#B-3-5-select语句使用的一般规则" class="headerlink" title="B.3.5 select语句使用的一般规则"></a>B.3.5 <code>select</code>语句使用的一般规则</h3><h2 id="B-4-SQL的更新功能"><a href="#B-4-SQL的更新功能" class="headerlink" title="B.4 SQL的更新功能"></a>B.4 SQL的更新功能</h2><ul>
+<li>元组删除</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> table_name</span><br><span class="line">[ <span class="keyword">where</span> search_condition ];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元组插入</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> table_name [ ( colname &#123;, colname ... &#125; ) ]</span><br><span class="line"><span class="keyword">values</span> ( expr | <span class="literal">null</span> &#123;, expr | <span class="literal">null</span> ...&#125; ) | subquery;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>元组修改</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> table_name</span><br><span class="line"><span class="keyword">set</span> colname = expr | <span class="literal">null</span> | subquery, ...</span><br><span class="line">[ <span class="keyword">where</span> search_condition ];</span><br></pre></td></tr></table></figure>
+
+<h2 id="B-5-视图"><a href="#B-5-视图" class="headerlink" title="B.5 视图"></a>B.5 视图</h2><h3 id="B-5-2-视图的删除"><a href="#B-5-2-视图的删除" class="headerlink" title="B.5.2 视图的删除"></a>B.5.2 视图的删除</h3><ul>
+<li>在执行视图的删除操作时,将连带删除定义在该视图上的其他视图</li>
+</ul>
+<h3 id="B-5-3-视图上的操作"><a href="#B-5-3-视图上的操作" class="headerlink" title="B.5.3 视图上的操作"></a>B.5.3 视图上的操作</h3><ul>
+<li><p>对视图可以作查询操作</p>
+<ul>
+<li>视图上的查询操作将首先被改写为基表上的查询操作,然后才能得到执行</li>
+</ul>
+</li>
+<li><p>一般不允许执行视图上的更新操作,只有在特殊情况下才可以进行</p>
+</li>
+<li><p>可更新视图</p>
+</li>
+</ul>
+<h1 id="4-数据库的安全性与完整性保护"><a href="#4-数据库的安全性与完整性保护" class="headerlink" title="4 数据库的安全性与完整性保护"></a>4 数据库的安全性与完整性保护</h1><h2 id="4-1-数据库的安全性"><a href="#4-1-数据库的安全性" class="headerlink" title="4.1 数据库的安全性"></a>4.1 数据库的安全性</h2><h3 id="4-1-2-数据库安全的基本概念与内容"><a href="#4-1-2-数据库安全的基本概念与内容" class="headerlink" title="4.1.2 数据库安全的基本概念与内容"></a>4.1.2 数据库安全的基本概念与内容</h3><ul>
+<li>客体:数据库中的数据及其载体</li>
+<li>主体:数据库中数据的访问者</li>
+</ul>
+<h3 id="4-1-4-SQL对数据库安全的支持"><a href="#4-1-4-SQL对数据库安全的支持" class="headerlink" title="4.1.4 SQL对数据库安全的支持"></a>4.1.4 SQL对数据库安全的支持</h3><ul>
+<li><p>操作对象</p>
+<ul>
+<li>表,视图</li>
+<li>属性</li>
+<li>域(type),udt(用户定义数据类型)</li>
+<li>存储过程/函数,触发器</li>
+</ul>
+</li>
+<li><p>授权语句<br><code>grant &lt;操作权限列表&gt; on &lt;操作对象&gt; to &lt;用户名列表&gt; [ with grant option ]</code></p>
+</li>
+<li><p>回收语句<br><code>revoke &lt;操作权限列表&gt; on &lt;操作对象&gt; from &lt;用户名列表&gt; [ restrict | cascade ]</code></p>
+<ul>
+<li><code>cascade</code>:连锁回收</li>
+<li><code>restrict</code>:在不存在连锁回收问题时才能回收权限,否则拒绝回收</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-2-数据库的完整性"><a href="#4-2-数据库的完整性" class="headerlink" title="4.2 数据库的完整性"></a>4.2 数据库的完整性</h2><p><strong>TODO</strong></p>
+<h1 id="5-事务处理-并发控制与故障恢复技术"><a href="#5-事务处理-并发控制与故障恢复技术" class="headerlink" title="5 事务处理,并发控制与故障恢复技术"></a>5 事务处理,并发控制与故障恢复技术</h1><h2 id="5-1-事务处理"><a href="#5-1-事务处理" class="headerlink" title="5.1 事务处理"></a>5.1 事务处理</h2><h3 id="5-1-1-事务"><a href="#5-1-1-事务" class="headerlink" title="5.1.1 事务"></a>5.1.1 事务</h3><ul>
+<li>事务<br>一个事务是指由一条SQL语句或者一组SQL语句所构成的一个执行过程,并具有ACID四个特性<br>由每个用户所执行的一个不能被打断的对数据库的操作序列被称为事务</li>
+</ul>
+<h3 id="5-1-2-事务的性质"><a href="#5-1-2-事务的性质" class="headerlink" title="5.1.2 事务的性质"></a>5.1.2 事务的性质</h3><ol>
+<li><p>原子性(<strong>A</strong>tomicity)</p>
+</li>
+<li><p>一致性(<strong>C</strong>onsistency)<br>数据库的一致的状态可以理解为数据库中所有数据的正确性,他要求数据库中的数据必须满足</p>
+<ul>
+<li>在数据库中显式定义的各种完整性约束</li>
+<li>用户心目中的隐式数据约束</li>
+</ul>
+</li>
+</ol>
+<h3 id="5-1-4-有关事务的语句"><a href="#5-1-4-有关事务的语句" class="headerlink" title="5.1.4 有关事务的语句"></a>5.1.4 有关事务的语句</h3><ol start="3">
+<li><p>隔离性(<strong>I</strong>solation)<br>一个事物的执行与并发执行的其他事务之间是相互独立的,互不干扰,这被称为事务执行的隔离性</p>
+</li>
+<li><p>持久性(<strong>D</strong>urability)</p>
+</li>
+</ol>
+<ul>
+<li>设置事务的隔离级别<ul>
+<li>readuncommitted:未提交读</li>
+<li>readcommitted:提交读</li>
+<li>readrepeatable:可重复读</li>
+<li>serializable:可序列化(可串行化)</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-1-5-事务的组成"><a href="#5-1-5-事务的组成" class="headerlink" title="5.1.5 事务的组成"></a>5.1.5 事务的组成</h3><ol>
+<li><p>事务控制操作</p>
+<ul>
+<li>事务的开始:<code>start T</code></li>
+<li>提交事务:<code>commit T</code></li>
+<li>回退(放弃)事务:<code>abort T</code></li>
+</ul>
+</li>
+<li><p>数据访问操作</p>
+<ul>
+<li><code>input(A)</code>:将数据对象<code>A</code>的值从磁盘中读入内存缓冲区</li>
+<li><code>output(A)</code>:将内存缓冲区中数据对象<code>A</code>的至写入磁盘</li>
+<li><code>read(A, t)</code>:将内存缓冲区中数据对象<code>A</code>的值读入内存变量<code>t</code><blockquote>
+<p>在一个<code>read</code>操作中,有可能隐含着一个<code>input</code>操作</p>
+</blockquote>
+</li>
+<li><code>write(A, t)</code>:将内存变量<code>t</code>的值写入内存缓冲区中数据对象<code>A</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="5-2-并发控制技术"><a href="#5-2-并发控制技术" class="headerlink" title="5.2 并发控制技术"></a>5.2 并发控制技术</h2><h3 id="5-2-1-事务的并发执行"><a href="#5-2-1-事务的并发执行" class="headerlink" title="5.2.1 事务的并发执行"></a>5.2.1 事务的并发执行</h3><ul>
+<li><p>多个事务的执行方式</p>
+<ul>
+<li>串行执行<ul>
+<li>以事务为单位,多个事务依次顺序执行</li>
+</ul>
+</li>
+<li>并发执行</li>
+<li>并发执行的可串行化<ul>
+<li>如果一组事务并发执行的结果等价于他们之间的某种串行执行的结果,则称其为可串行化调度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>并发控制的目标:实现并发事务的可串行化调度</p>
+</li>
+<li><p>调度:一个或多个事务中的数据库访问操作,按照这些操作在DBMS(database management system)被执行的时间先后,排序所形成的一个操作序列<br>给定一组并发事务$T_1,T_2…T_k$,他们之间的调度$H$必须满足</p>
+<ol>
+<li>必须包括所有事物的所有操作,包括每一个事务的结束命令(<code>commit</code>/<code>abort</code>)</li>
+<li>单个事物内部的操作顺序必须保持不变</li>
+</ol>
+</li>
+<li><p>串行调度</p>
+</li>
+<li><p>可串行化调度</p>
+</li>
+<li><p>事务及调度的表示方法</p>
+<ul>
+<li>事务用符号$T_1,T_2…$表示</li>
+<li>$r_i(X)$表示事务$T_i$读数据库对象$X$</li>
+<li>$w_i(X)$表示事务$T_i$写数据库对象$X$</li>
+</ul>
+</li>
+<li><p>冲突可串行化</p>
+<ul>
+<li>冲突(conflict):指调度中的一对<strong>相邻</strong>操作<code>(op1; op2)</code>,他们满足:如果交换它们两者的执行顺序,那么涉及的事务中至少有一个的行为会改变</li>
+<li>冲突的判断办法<ul>
+<li>同一事务的任意两个相邻的操作都是冲突</li>
+<li>不同事物对统一数据对象的<code>写</code>/<code>读-写</code>冲突</li>
+</ul>
+</li>
+<li>冲突等价:如果通过一系列<strong>相邻</strong>操作的非冲突交换能够将一个调度转换为另一个调度,称这两个调度是冲突等价的</li>
+<li>冲突可串行化:如果一个调度$S$冲突等价于这一组事务之间的一个串行调度,称$S$时冲突可串行化的<ul>
+<li>冲突可串行化调度必定是一个可串行化调度</li>
+<li>一个可串行化调度不一定是冲突可串行化的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>冲突可串行化的判断:优先图</p>
+</li>
+<li><p>视图等价</p>
+<ul>
+<li>一个冲突可串行化调度一定是视图可串行化调度</li>
+</ul>
+</li>
+<li><p>三种数据不一致现象</p>
+<ul>
+<li>丢失修改(lost updata)<ul>
+<li>一个事务的修改结果破坏了另一个事务的修改结果</li>
+<li>对多个事务并发修改同一个数据对象的情况未加控制</li>
+</ul>
+</li>
+<li>脏读(dirty read)<ul>
+<li>读到了错误的数据</li>
+<li>一个事务读取了另一个事务未提交的修改结果</li>
+</ul>
+</li>
+<li>不可重复读(unrepeatable read)<ul>
+<li>在一个事务的执行过程中,前后两次读同一个数据对象所获得的值出现了不一致</li>
+<li>在两次<code>读</code>操作之间插入了另一个事务的<code>写</code>操作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-2-封锁"><a href="#5-2-2-封锁" class="headerlink" title="5.2.2 封锁"></a>5.2.2 封锁</h3><ul>
+<li><p>排它锁(X锁)</p>
+</li>
+<li><p>共享锁(S锁)</p>
+</li>
+<li><p>锁相容矩阵</p>
+</li>
+<li><p>锁的申请与释放</p>
+</li>
+</ul>
+<h3 id="5-2-3-封锁协议"><a href="#5-2-3-封锁协议" class="headerlink" title="5.2.3 封锁协议"></a>5.2.3 封锁协议</h3><ul>
+<li><p>一级封锁协议<br>事务$T$在<code>写</code>数据对象$A$之前,必须先申请并获得$A$上的X锁,并维持到事务$T$的执行结束(包括<code>commit</code>与<code>rollback</code>)才释放加在$A$上的锁<br>防止丢失修改</p>
+</li>
+<li><p>二级封锁协议<br>事务$T$在<code>读</code>数据对象$A$之前,必须先申请并获得$A$上的S锁,在<code>读</code>操作完成后<strong>可以</strong>释放$A$上的S锁<br>防止丢失修改,脏读</p>
+</li>
+<li><p>三级封锁协议<br>事务$T$在<code>读</code>数据对象$A$之前,必须先申请并获得$A$上的<code>S</code>锁,并维持到事务$T$的执行结束才释放被加在$A$上的S锁<br>防止丢失修改,脏读,不可重复读</p>
+</li>
+</ul>
+<h3 id="5-2-4-两阶段封锁协议"><a href="#5-2-4-两阶段封锁协议" class="headerlink" title="5.2.4 两阶段封锁协议"></a>5.2.4 两阶段封锁协议</h3><p>以事务为单位来规定封锁的使用原则:对一个事务在执行过程中需要调用的所有锁申请和锁释放的动作顺序进行了约定</p>
+<p>根据锁的申请与释放操作的调用时间,可以将一个事务的执行过程划分为两个阶段</p>
+<ul>
+<li>第一个阶段:申请并获得锁</li>
+<li>第二个阶段:释放持有的锁</li>
+</ul>
+<p>在一个事务$T$中,如果所有的封锁请求都先于所有的解锁请求,则该事务被称为<strong>两阶段封锁事务</strong>,简称<strong>2PL事务</strong>(或者说<strong>采用两阶段封锁协议的事务</strong>)</p>
+<p>假设系统采用X锁和S锁,有关封锁的申请与释放操作表示如下:</p>
+<ul>
+<li><p>$sl_i(A)$:事务$T_i$申请数据对象$A$上的一个S锁</p>
+</li>
+<li><p>$xl_i(A)$:事务$T_i$申请数据对象$A$上的一个X锁</p>
+</li>
+<li><p>$u_i(A)$:事务$T_i$释放自己在数据对象$A$上所持有的锁</p>
+</li>
+<li><p>封锁的使用规定:在每一个事务$T_i$中</p>
+<ol>
+<li>采用如下的封锁协议<ul>
+<li>$r_i(A)$之前必须有$sl_i(A)$或$xl_i(A)$,而且在两者之间没有$u_i(A)$</li>
+<li>$w_i(A)$之前必须有$xl_i(A)$,而且在两者之间没有$u_i(A)$</li>
+<li>每一个$sl_i(A)$或$xl_i(A)$之后必须有一个$u_i(A)$</li>
+</ul>
+</li>
+<li>必须遵循两阶段封锁协议</li>
+<li>保证事务调度的合法性<ul>
+<li>如果$xl_i(A)$出现在调度中,那么后面不能再有$sl_i(A)$或$xl_j(A)$,除非中间插入了$u_i(A)$</li>
+<li>如果$sl_i(A)$出现在调度中,那么后面不能再有$xl_j(A)$,除非中间插入了$u_i(A)$</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<p>定理:由2PL事务所构成的任意合法调度$S$都是冲突可串行化的(用归纳法证明)</p>
+<h3 id="5-2-5-封锁粒度"><a href="#5-2-5-封锁粒度" class="headerlink" title="5.2.5 封锁粒度"></a>5.2.5 封锁粒度</h3><table>
+<thead>
+<tr>
+<th align="center">封锁粒度</th>
+<th align="center">系统并发度</th>
+<th align="center">并发控制的开销</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">大</td>
+<td align="center">低</td>
+<td align="center">小</td>
+</tr>
+<tr>
+<td align="center">小</td>
+<td align="center">高</td>
+<td align="center">大</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>多粒度封锁</p>
+<ul>
+<li>如果在一个系统中同时支持多种封锁粒度供事务选择使用,这种封锁方法被称为<strong>多粒度封锁</strong></li>
+<li>可以按照封锁粒度的大小构造出一颗<strong>多粒度树</strong>,以树中的每个节点作为封锁对象,可以构成一个<strong>多粒度封锁协议</strong></li>
+</ul>
+</li>
+<li><p>意向锁</p>
+<ul>
+<li>使用规定<ul>
+<li>如果对一个节点加意向锁,则说明该节点的下层节点正在被加锁</li>
+<li>对任一节点加锁时,必须先对它的上层节点加意向锁</li>
+</ul>
+</li>
+<li>三种常见的意向锁<ul>
+<li>意向共享锁(IS锁):如果对节点$N$加IS锁,表示准备在节点$N$的某些后裔节点上加S锁</li>
+<li>意向排它锁(IX锁):如果对节点$N$加IX锁,表示准备在节点$N$的某些后裔节点上加X锁</li>
+<li>共享意向排它锁(SIX锁):如果对节点$N$加SIX锁,表示对节点$N$本身加S锁,并准备在$N$的某些后裔节点上加X锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">其他事务已持有的锁$\to$</th>
+<th align="center">S锁</th>
+<th align="center">X锁</th>
+<th align="center">IS锁</th>
+<th align="center">IX锁</th>
+<th align="center">SIX锁</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">S锁</td>
+<td align="center">y</td>
+<td align="center">n</td>
+<td align="center">y</td>
+<td align="center">n</td>
+<td align="center">n</td>
+</tr>
+<tr>
+<td align="center">X锁</td>
+<td align="center">n</td>
+<td align="center">n</td>
+<td align="center">n</td>
+<td align="center">n</td>
+<td align="center">n</td>
+</tr>
+<tr>
+<td align="center">IS锁</td>
+<td align="center">y</td>
+<td align="center">n</td>
+<td align="center">y</td>
+<td align="center">y</td>
+<td align="center">y</td>
+</tr>
+<tr>
+<td align="center">IX锁</td>
+<td align="center">n</td>
+<td align="center">n</td>
+<td align="center">y</td>
+<td align="center">y</td>
+<td align="center">n</td>
+</tr>
+<tr>
+<td align="center">SIX锁</td>
+<td align="center">n</td>
+<td align="center">n</td>
+<td align="center">y</td>
+<td align="center">n</td>
+<td align="center">n</td>
+</tr>
+</tbody></table>
+<ul>
+<li>多粒度封锁协议<ul>
+<li>申请封锁的顺序:上-&gt;下</li>
+<li>释放封锁的顺序:下-&gt;上</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-2-6-活锁与死锁"><a href="#5-2-6-活锁与死锁" class="headerlink" title="5.2.6 活锁与死锁"></a>5.2.6 活锁与死锁</h3><h4 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h4><ul>
+<li><p>例子:$r_1(B),r_2(B),w_1(B)$</p>
+</li>
+<li><p>解除法</p>
+<ul>
+<li>超时死锁检测法<ul>
+<li>事务的执行时间超时</li>
+<li>锁申请的等待时间超时</li>
+</ul>
+</li>
+<li>等待图法</li>
+<li>时间戳死锁检测法<ul>
+<li>每个事物都具有一个用于死锁检测的时间戳</li>
+<li>如果事务$T$必须等待另一个事务$U$所持有的锁<ul>
+<li>等待-死亡方案:<ul>
+<li>如果$T$比$U$老,那么允许$T$等待$U$持有的锁</li>
+<li>如果$U$比$T$老,那么事务$T$死亡(被回滚)</li>
+</ul>
+</li>
+<li>伤害-等待方案:<ul>
+<li>如果$T$比$U$老,他将伤害$U$,$U$必须被回滚</li>
+<li>如果$U$比$T$老,那么$T$等待$U$持有的锁</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="活锁"><a href="#活锁" class="headerlink" title="活锁"></a>活锁</h4><ul>
+<li><p>例子:</p>
+<ul>
+<li>$T_1$(卖票):$xl_1(A),r_1(A),w_1(A),u_1(A)$</li>
+<li>$T_2$(剩余票额查询):$sl_2(A),r_2(A),u_2(A)$</li>
+<li>先启动一个$T_2$,再启动一个$T_1$:$T_1$处于等待状态,在已经运行的$T_2$结束之前,不断有新启动的$T_2$加进来</li>
+</ul>
+</li>
+<li><p>解决方法:先来先服务</p>
+</li>
+</ul>
+<h2 id="5-3-数据库恢复技术"><a href="#5-3-数据库恢复技术" class="headerlink" title="5.3 数据库恢复技术"></a>5.3 数据库恢复技术</h2><h3 id="5-3-2-数据库故障分类"><a href="#5-3-2-数据库故障分类" class="headerlink" title="5.3.2 数据库故障分类"></a>5.3.2 数据库故障分类</h3><ul>
+<li><p>小型故障</p>
+<ul>
+<li>事物内部故障</li>
+</ul>
+</li>
+<li><p>中性故障</p>
+<ul>
+<li>系统故障</li>
+<li>外部影响</li>
+</ul>
+</li>
+<li><p>大型故障</p>
+<ul>
+<li>磁盘故障</li>
+<li>计算机病毒</li>
+<li>黑客入侵</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-3-1-转储"><a href="#5-3-3-1-转储" class="headerlink" title="5.3.3.1 转储"></a>5.3.3.1 转储</h3><ul>
+<li><p>静态转储:无事务运行时</p>
+</li>
+<li><p>动态转储</p>
+</li>
+<li><p>海量转储:每次转储全部数据库</p>
+</li>
+<li><p>增量转储:更新过的</p>
+</li>
+</ul>
+<h3 id="5-3-3-2-日志"><a href="#5-3-3-2-日志" class="headerlink" title="5.3.3.2 日志"></a>5.3.3.2 日志</h3><h4 id="undo日志"><a href="#undo日志" class="headerlink" title="undo日志"></a>undo日志</h4><ul>
+<li><p>记录格式</p>
+<ul>
+<li>开始一个事务:<code>&lt;Start T&gt;</code></li>
+<li>提交事务$T$:<code>&lt;Commit T&gt;</code></li>
+<li>放弃事务$T$:<code>&lt;Abort T&gt;</code></li>
+<li>更新记录:<code>&lt;T, X, V&gt;</code>,事务$T$修改了数据库元素$X$的值,$X$的旧值是$V$</li>
+</ul>
+</li>
+<li><p>记载规则</p>
+<ol>
+<li>如果事务$T$修改了数据库元素$X$,则<code>&lt;T, X, V&gt;</code>必须在$X$的新值写到磁盘前写到磁盘</li>
+<li>如果事务$T$提交,则<code>&lt;Commit T&gt;</code>必须在事务$T$改变的所有DB元素写到磁盘后再写到磁盘</li>
+</ol>
+</li>
+<li><p>恢复过程</p>
+<ol>
+<li>将所有事务划分为两种类型<ul>
+<li>已提交事务:有<code>&lt;Start T&gt;</code>和<code>&lt;Commit T&gt;</code></li>
+<li>未提交事务:有<code>&lt;Start T&gt;</code>没有<code>&lt;Commit T&gt;</code></li>
+</ul>
+</li>
+<li>从undo日志的尾部向头部扫描整个日志,对每条更新记录<code>&lt;T, X, Y&gt;</code>:<ul>
+<li>如果<code>&lt;Commit T&gt;</code>已被扫描到,则继续扫描下一条日志记录</li>
+<li>否则,由恢复管理器将数据库中的$X$的值改为$V$</li>
+</ul>
+</li>
+<li>在日志的尾部为每个未结束的事务$T$写入一条日志记录<code>&lt;Abort T&gt;</code>,并刷新日志(flush log)</li>
+</ol>
+</li>
+<li><p>检查点<br>在日志中插入检查点的处理过程</p>
+<ol>
+<li>系统停止接受启动新事务的请求</li>
+<li>等所有当前活跃的事务提交或中止,并且在日志中写入<code>&lt;Commit T&gt;</code>或<code>&lt;Abort T&gt;</code></li>
+<li>将日志记录刷新到磁盘</li>
+<li>写入日志记录<code>&lt;CKPT&gt;</code>,并再次刷新日志</li>
+<li>重新开始接受新的事务</li>
+</ol>
+</li>
+<li><p>在故障恢复时,只要逆向扫描到第一条<code>&lt;CKPT&gt;</code>记录,就可以结束故障恢复工作</p>
+</li>
+<li><p>非静止检查点<br>设置非静止检查点的步骤</p>
+<ol>
+<li>写入日志记录<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code></li>
+<li>等待$T_1, …, T_k$所有事务的提交或终止,在这个过程中允许启动执行新的事务</li>
+<li>当$T_1, …, T_k$都已经完成时,写入日志记录<code>&lt;End CKPT&gt;</code>并刷新日志</li>
+</ol>
+</li>
+<li><p>带有非静止检查点undo日志的恢复</p>
+<ol>
+<li>先遇到<code>&lt;End CKPT&gt;</code>记录<ul>
+<li>继续向后(头部)扫描,直到出现与之相对应的<code>&lt;Start CKPT(...)&gt;</code>记录就可以结束故障恢复工作</li>
+</ul>
+</li>
+<li>先遇到<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code>记录,故障恢复工作需要撤销两类事务的操作<ul>
+<li>在<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code>记录之后启动的事务</li>
+<li>$T_1, …, T_k$中在系统崩溃前尚未完成的事务</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>undo日志的不足</p>
+<ul>
+<li>在将事务改变的所有数据写到磁盘前不能提交该事务</li>
+<li>在事务的提交过程中需要执行许多<code>写</code>磁盘操作,增加了事务提交的时间开销</li>
+</ul>
+</li>
+</ul>
+<h4 id="redo日志"><a href="#redo日志" class="headerlink" title="redo日志"></a>redo日志</h4><ul>
+<li><p>记录格式</p>
+<ul>
+<li>redo日志的记录格式与undo一样,唯一区别:在更新记录<code>&lt;T, X, V&gt;</code>中记载的是更新后的值</li>
+</ul>
+</li>
+<li><p>记载规则</p>
+<ul>
+<li>在修改磁盘上的任何数据库元素$X$之前,要保证所有与$X$这一修改有关的日志记录(包括提交记录<code>&lt;Commit T&gt;</code>)都必须出现在磁盘上</li>
+</ul>
+</li>
+<li><p>恢复过程</p>
+<ol>
+<li>先扫描一遍日志文件,确定所有已经提交的事务</li>
+<li>再从日志头部开始扫描,对每条更新记录<code>&lt;T, X, V&gt;</code><ul>
+<li>如果$T$时未提交事务,则继续扫描日志</li>
+<li>如果$T$是已提交的事务,则为数据库元素$X$写入新值$V$(有可能是冗余的<code>写</code>操作)</li>
+</ul>
+</li>
+<li>对每个未完成的事务(提交记录<code>&lt;Commit T&gt;</code>没有写入磁盘),在日志的尾部写入<code>&lt;Abort T&gt;</code>并刷新日志</li>
+</ol>
+</li>
+<li><p>非静止检查点</p>
+<ol>
+<li>写入日志记录<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code>($T_1, …, T_k$时当前所有活跃事务的标识符),并刷新日志.同时获得当时所有<strong>已提交</strong>事务的标识符集合$S$</li>
+<li>将集合**$S$**中的事务已经写到内存缓冲区但还没有写道数据库磁盘的数据库元素写入磁盘</li>
+<li>写入日志记录<code>&lt;End CKPT&gt;</code>并刷新日志,不需等待事务$T_1, …, T_k$或新开始事务的结束</li>
+</ol>
+</li>
+<li><p>带检查点redo日志的恢复</p>
+<ul>
+<li>找到最后一个被记入日志的<code>&lt;End CKPT&gt;</code>,假设与之对应的检查点记录时<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code>,<em>并找到最早出现的<code>&lt;Start Ti&gt;</code></em></li>
+<li>重做$T_1, …, T_k$,以及在<code>&lt;Start CKPT()&gt;</code>后开始的已经被提交事务</li>
+</ul>
+</li>
+<li><p>redo日志的不足</p>
+<ul>
+<li>要求事务提交和日志就刷新之前将所有修改过的数据保留在内存缓冲区中,可能增加事务需要的平均缓冲区的数量</li>
+<li>如果被访问的数据对象$X$不是完整的磁盘块,那么在undo日志与redo日志之间可能产生相互矛盾的请求</li>
+</ul>
+</li>
+</ul>
+<h4 id="undo-redo日志"><a href="#undo-redo日志" class="headerlink" title="undo/redo日志"></a>undo/redo日志</h4><ul>
+<li><p>记录格式</p>
+<ul>
+<li>更新记录的格式<code>&lt;T, X, v, w&gt;</code>,不仅记录更新前的值$v$,同时也要记录更新后的值$w$</li>
+</ul>
+</li>
+<li><p>记载规则</p>
+<ol>
+<li>在由于某个事务$T$所做的改变而修改磁盘上的数据库元素$X$之前,更新记录<code>&lt;T, X, v, w&gt;</code>必须出现在磁盘上</li>
+<li>在每一条<code>&lt;Commit T&gt;</code>后面必须紧跟一条Flush Log操作<blockquote>
+<p>事务提交(<code>Commit</code>)和写数据库磁盘(<code>Output</code>)的操作顺序是随机的</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p>恢复过程</p>
+<ol>
+<li>根据<code>&lt;Commit T&gt;</code>是否已经出现在磁盘中来确定事务$T$是否已经被提交</li>
+<li>从后往前,撤销(undo)所有未提交的事务</li>
+<li>从前往后,重做(redo)所有已提交的事务</li>
+</ol>
+</li>
+<li><p>检查点</p>
+<ol>
+<li>写入日志记录<code>&lt;Start CKPT(T1, ..., Tk)&gt;</code>($T_1, …, T_k$是当前所有活跃事务的标识符),并刷新日志</li>
+<li>将所有被修改过的缓冲区写到数据库的磁盘中去</li>
+<li>写入日志记录<code>&lt;End CKPT&gt;</code>并刷新日志</li>
+</ol>
+</li>
+<li><p>带检查点日志的恢复</p>
+</li>
+</ul>
+<h3 id="5-3-4-恢复策略"><a href="#5-3-4-恢复策略" class="headerlink" title="5.3.4 恢复策略"></a>5.3.4 恢复策略</h3><ul>
+<li><p>小型故障的恢复</p>
+<ul>
+<li>利用未结束事务的undo操作进行恢复</li>
+</ul>
+</li>
+<li><p>中型故障的恢复</p>
+<ul>
+<li>非正常中止的事务:undo</li>
+<li>已完成提交的事务:redo</li>
+</ul>
+</li>
+<li><p>大型故障的恢复</p>
+<ul>
+<li>先利用后备副本进行数据库恢复,再利用日志进行数据库的恢复</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-3-5-数据库镜像"><a href="#5-3-5-数据库镜像" class="headerlink" title="5.3.5 数据库镜像"></a>5.3.5 数据库镜像</h3><p>将整个数据库的数据(或主要数据)实时复制到另一个磁盘中</p>
+<h2 id="5-4-事务处理实现技术"><a href="#5-4-事务处理实现技术" class="headerlink" title="5.4 事务处理实现技术"></a><em>5.4 事务处理实现技术</em></h2><h1 id="6-数据库中的数据交换"><a href="#6-数据库中的数据交换" class="headerlink" title="6 数据库中的数据交换"></a>6 数据库中的数据交换</h1><h1 id="7-数据库的物理组织"><a href="#7-数据库的物理组织" class="headerlink" title="7 数据库的物理组织"></a>7 数据库的物理组织</h1><h1 id="8-关系数据库的规范化理论"><a href="#8-关系数据库的规范化理论" class="headerlink" title="8 关系数据库的规范化理论"></a>8 关系数据库的规范化理论</h1><h2 id="8-2-1-函数依赖"><a href="#8-2-1-函数依赖" class="headerlink" title="8.2.1 函数依赖"></a>8.2.1 函数依赖</h2><ul>
+<li><p>平凡.非平凡函数依赖</p>
+</li>
+<li><p>完全函数依赖<br>在关系模式$R(U)$中,如有$X\subseteq U,Y\subseteq U$,满足$X\to Y$,且对任何$X$的真子集$X’$都有$X’\not\to Y$,则称$Y$完全函数依赖于$X$,记作$X\overset{f}{\to}Y$</p>
+</li>
+<li><p>部分函数依赖</p>
+</li>
+<li><p>传递函数依赖<br>在关系模式$R(U)$中,如有$X\subseteq U,Y\subseteq U,X\subseteq U$且满足$X\to Y,Y\not\subset X,Y\not\to X,Y\to Z$,则称$Z$<strong>传递函数依赖</strong>于$X$.否则称为<strong>非传递函数依赖</strong>(直接函数依赖)</p>
+</li>
+<li><p>Armstrong公理系统</p>
+<ul>
+<li>基本规则<ul>
+<li>自反规则:如果$Y$是$X$子集,则$X\to Y$</li>
+<li>增广规则:如果$X\to Y$,则$XZ\to YZ$</li>
+<li>传递规则:如果$X\to Y,Y\to Z$,则$X\to Z$</li>
+</ul>
+</li>
+<li>扩充规则<ul>
+<li>分解规则:如果$X\to YZ$,则$X\to Y$且$X\to Z$</li>
+<li>合并规则:如果$X\to Y$且$X\to Z$,则$X\to YZ$</li>
+<li>伪传递规则:如果$X\to Y$且$WY\to Z$,则$WX\to Z$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>关键字(码,键,key)<br>在关系模式$R(U,F)$中,如有$K\subseteq U$且满足$K\overset{f}{\to}U$,则称$K$为关系$R$的关键字</p>
+</li>
+<li><p>主属性集</p>
+<ul>
+<li>由关系模式$R$的所有关键字中的属性所构成的集合被称为关系模式$R$的主属性集</li>
+<li>主属性集中的属性被称为关系模式$R$的<strong>主属性</strong></li>
+</ul>
+</li>
+<li><p>非主属性集</p>
+</li>
+</ul>
+<h3 id="计算属性集-X-在函数依赖集-F-上的闭包-X-F-简写为-X"><a href="#计算属性集-X-在函数依赖集-F-上的闭包-X-F-简写为-X" class="headerlink" title="计算属性集$X$在函数依赖集$F$上的闭包$X_F^+$(简写为$X^+$)"></a><strong>计算属性集$X$在函数依赖集$F$上的闭包$X_F^+$(简写为$X^+$)</strong></h3><p>$X^+=X$<br>repeat<br>&emsp;$oldX^+=X^+$<br>&emsp;foreach 函数依赖 $Y\to Z\in F$ do<br>&emsp;&emsp;if $Y\subseteq X^+$ then $X^+=X^+\cup Z$<br>until ($oldX^+ == X^+$)</p>
+<h3 id="寻找关系模式-R-U-F-的关键字-K"><a href="#寻找关系模式-R-U-F-的关键字-K" class="headerlink" title="寻找关系模式$R(U,F)$的关键字$K$"></a><strong>寻找关系模式$R(U,F)$的关键字$K$</strong></h3><p>输入:关系模式$R(U,F)$<br>输出:关系$R$的一个关键字$K$</p>
+<p>$K=U$<br>foreach 属性 $A\in K$ {<br>&emsp;计算 $(K-A)_F^+$<br>&emsp;if $(K-A)_F^+$ 包含了$R$的所有属性 then {<br>&emsp;&emsp;$K=K-A$<br>&emsp;}<br>}<br>return $K$</p>
+<p>优化算法:设$F$时关系上的<strong>最小函数依赖集</strong>.根据$F$中的函数依赖,可将$U$划分为</p>
+<ol>
+<li>只在函数依赖的左边出现过的属性的集合$U_L$</li>
+<li>只在函数依赖的右边出现过的属性的集合$U_R$</li>
+<li>在两边都出现的属性的集合$U_A$<br>其中</li>
+</ol>
+<ul>
+<li>$U_L$中的属性时没一个关键字的组成部分</li>
+<li>$U_R$中的属性不可能出现在任何一个关键字中</li>
+<li>在关键自己算算法中,只需针对$U_A$中的属性进行for循环计算</li>
+</ul>
+<p>$K=U-U_R$<br>foreach 属性 $A\in U_A$ {<br>&emsp;计算 $(K-A)_F^+$<br>&emsp;if $(K-A)_F^+$ 包含了$R$的所有属性 then {<br>&emsp;&emsp;$K=K-A$<br>&emsp;}<br>}<br>return $K$</p>
+<h2 id="8-2-2-与函数依赖有关的范式"><a href="#8-2-2-与函数依赖有关的范式" class="headerlink" title="8.2.2 与函数依赖有关的范式"></a>8.2.2 与函数依赖有关的范式</h2><ul>
+<li><p>第一范式<br>关系模式$R(U)$中的每个属性值都是一个不可分割的数据量<br>如果不满足第一范式,那么也就不能被称为关系</p>
+</li>
+<li><p>第二范式<br>关系模式$R(U)\in1NF$,且每个非主属性都完全函数依赖于关键字<br>判断一个关系$R$是否满足2NF:</p>
+<ol>
+<li>找到关系$R$的所有非主属性和所有<em>候选</em>关键字</li>
+<li>检查每一个非主属性$A$和每一个关键字$K$之间的函数依赖,判断是否存在<strong>非主属性对于关键字的部分函数依赖</strong></li>
+</ol>
+</li>
+</ul>
+<h3 id="模式分解的方法"><a href="#模式分解的方法" class="headerlink" title="模式分解的方法"></a><strong>模式分解的方法</strong></h3><p>设关系模式$R$属性集合为$Head(R),F$时其函数依赖集.将其分解到满足范式$M$的步骤如下</p>
+<ol>
+<li>找出所有不满足范式$M$要求的函数依赖关系</li>
+<li>选择一个不符合要求的函数依赖关系作如下的分解<br>假设$X\overset{f}{\to}Y\in F^+$且不满足范式$M$的要求,则将关系模式$R$分解为如下的两个子关系<ul>
+<li>$R_1(X\cup Y,\{X\to Y\})$</li>
+<li>$R_2(Head(R)-Y,F_2)$,其中$F_2=\{A\to B|A\to B\in F^+$且$(A\cup B)\subseteq Head(R_2)\}$</li>
+</ul>
+</li>
+<li>对于分解得到的子关系模式$R_2$重复上述的步骤1和2,直到所有的子关系模式都能满足范式$M$的要求</li>
+<li>合并那些具有相同关键字的子关系模式</li>
+</ol>
+<hr>
+<ul>
+<li><p>第三范式<br>设关系模式$R(U)\in$2NF,且每个非主属性都不<strong>传递</strong>函数依赖于关键字,则称关系模式$R(U)$满足第三范式<br>如果关系$R\not\in$3NF,那么在关系$R$中必然存在以下形式的函数依赖$X\overset{f}{\to}Y$,其中$Y$是单个的非主属性,$X$不是关系$R$的关键字</p>
+</li>
+<li><p>BCNF<br>设关系模式$R(U)$满足1NF,且若$X\to Y$是$X$必含有该关系模式的关键字,则称关系模式$R(U)$满足BCNF范式</p>
+</li>
+<li><p>若$R(U)\in$BCNF,则$R(U)\in$3NF</p>
+</li>
+</ul>
+<h2 id="8-2-3-多值依赖与第四范式"><a href="#8-2-3-多值依赖与第四范式" class="headerlink" title="8.2.3 多值依赖与第四范式"></a>8.2.3 多值依赖与第四范式</h2><ul>
+<li><p>多值依赖(<strong>MVD</strong>)</p>
+<ul>
+<li>设有关系模式$R(U),X,Y\subseteq U$</li>
+<li>$R(U)$满足<ol>
+<li>多$X$的一个确定值,存在$Y$的一组值与之对应</li>
+<li>且$Y$的这组值又与关系中的其他属性$(U-X-Y)$的取值不相关</li>
+</ol>
+</li>
+<li>称$Y$多值依赖于$X$,记为$X\to\to Y$</li>
+</ul>
+</li>
+<li><p>非平凡的多值依赖<br>设在关系模式$R(U)$中,$X\to\to Y$且$U-X-Y\not=\emptyset$,则称$X\to\to Y$是<strong>非平凡的多值依赖</strong>,否则称其为<strong>平凡的多值依赖</strong></p>
+</li>
+<li><p>多值依赖的性质<br>在一个关系模式$R(U)$中</p>
+<ol>
+<li>如有$X\to\to Y$,则必有$X\to\to(U-X-Y)$</li>
+<li>如有$X\to Y$,则必有$X\to\to Y$</li>
+</ol>
+</li>
+<li><p>有关FD和MVD的推导规则</p>
+</li>
+<li><p>第四范式<br>在$R(U)$中,如果$X\to\to Y$是非平凡多值依赖,则$X$必含有关键字,此时称关系模式$R$满足第四范式<br>特点</p>
+<ol>
+<li>函数依赖:要满足BCNF</li>
+<li>不是函数依赖的多值依赖:只允许出现<strong>平凡</strong>多值依赖</li>
+</ol>
+</li>
+</ul>
+<h2 id="8-3-1-函数依赖理论"><a href="#8-3-1-函数依赖理论" class="headerlink" title="8.3.1 函数依赖理论"></a>8.3.1 函数依赖理论</h2><ul>
+<li><p>函数依赖集的等价<br>如果两个函数依赖集$F_1$和$F_2$的闭包是相等的,称函数依赖集$F_1$等价于函数依赖集$F_2$</p>
+</li>
+<li><p>最小函数依赖集</p>
+<ul>
+<li>与函数依赖集$F$向等价的所有函数依赖集中的最小者被称为函数依赖集$F$的<strong>最小函数依赖集</strong></li>
+<li>也被称为<strong>最小覆盖</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="最小函数依赖集的判定条件"><a href="#最小函数依赖集的判定条件" class="headerlink" title="最小函数依赖集的判定条件"></a>最小函数依赖集的判定条件</h3><p>对于$F$中的每一个FD关系$X\to A$均作如下判断</p>
+<ol>
+<li>依赖因素$A$为单个属性</li>
+<li>不存在冗余的函数依赖:令$F_1=F-\{X\to A\}$,则$F_1^+\not=F^+$</li>
+<li>不存在部分函数依赖:对于决定因素$X$的每一个真子集$Y(Y\subset X)$均作如下判断:<br>令$F_2=F-\{X\to A\}\cup\{Y\to A\}$,则$F_2^+\not=F^+$</li>
+</ol>
+<p>如果$F$中的每一个函数依赖$X\to A$均符合上述要求,则$F$是一个最小函数依赖集</p>
+<ul>
+<li>条件1不是必需的,只是为了方便条件2和3的判断</li>
+</ul>
+<h3 id="寻找与函数依赖集-F-等价的最小函数依赖集-G"><a href="#寻找与函数依赖集-F-等价的最小函数依赖集-G" class="headerlink" title="寻找与函数依赖集$F$等价的最小函数依赖集$G$"></a><strong>寻找与函数依赖集$F$等价的最小函数依赖集$G$</strong></h3><p>输入:函数依赖集$F$<br>输出:与$F$等价的最小函数依赖集$G$<br>算法:</p>
+<ol>
+<li>消除$F$中的部分函数依赖(化简为完全函数依赖)</li>
+<li>消除冗余的函数依赖</li>
+</ol>
+<p>具体计算过程</p>
+<ol>
+<li>$G=F$<br>将$G$中每一个形如$X\to(A_1,A_2…A_n)$的函数依赖替换为$X\to A_1,X\to A_2…X\to A_n$</li>
+<li>对$G$中的每个函数依赖$X\to A$作如下处理<br>对$X$中的每一个属性$B$:<ol>
+<li>计算属性集的闭包$(X-B)_G^+$</li>
+<li>如果$A\in(X-B)_G^+$,则用新的函数依赖$(X-B)\to A$替换原来的$X\to A$</li>
+</ol>
+</li>
+<li>对$G$中的每个函数依赖$X\to A$作如下处理<ol>
+<li>令$N=G-\{X\to A\}$</li>
+<li>计算属性集的闭包$X_N^+$</li>
+<li>如果$A\in X_N^+$,那么$G=G-\{X\to A\}$</li>
+</ol>
+</li>
+<li>将$G$中的每一组$X\to A_1,X\to A_2…X\to A_n$合并为一个函数依赖$X\to(A_1,A_2…A_n)$</li>
+</ol>
+<h2 id="8-3-2-模式分解的研究"><a href="#8-3-2-模式分解的研究" class="headerlink" title="8.3.2 模式分解的研究"></a>8.3.2 模式分解的研究</h2><ul>
+<li><p>无损连接性:分解后,原关系中的信息不会被丢失<br>设$R$是一个关系模式,$F$时$R$的函数依赖集,$\rho=\{R_1,R_2…R_k\}$是对$R$的一个分解,如果对$R$中满足$F$的每一个关系实例$r$都有$r=\pi_{R_1}(r)\bowtie\pi_{R_2}(r)\bowtie…\bowtie\pi_{R_k}(r)$,则称$\rho$相对于$F$是<strong>无损联结分解</strong>,或称分解$\rho$具有无损联结性</p>
+</li>
+<li><p>依赖保持性:原有的函数依赖关系在分解后的关系模式上依然存在<br>设$\rho=\{R_1,R_2…R_k\},F$是$R$的函数依赖集,如果$F^+=(\pi_{R_1}(F)\cup\pi_{R_2}\cup…\cup\pi_{R_k}(F))^+$,则称分解$\rho$具有依赖保持性</p>
+</li>
+<li><p>无损联接性的充要条件:$\rho={R_1, R_2}:R_1\cap R_2\to(R_1-R_2)$或$R_1\cap R_2\to(R_2-R_1)$</p>
+</li>
+</ul>
+<h3 id="到3NF的分解算法"><a href="#到3NF的分解算法" class="headerlink" title="到3NF的分解算法"></a><strong>到3NF的分解算法</strong></h3><p>假设$S$时分解所获得的子关系模式的集合</p>
+<ol>
+<li>$F=F$的最小函数依赖集</li>
+<li>$S=\emptyset$</li>
+<li>对$F$中每一个函数依赖$X\to Y$<br>如果<strong>在集合$S$中找不到满足下述条件的子关系模式$Z$</strong><br>**$X\cup Y\subseteq Heading(Z)$**<br>则由$X$和$Y$构成一个新的子关系加入到$S$中($S=S\cup Heading(X\cup Y)$)</li>
+<li>如果<strong>找不到一个关键字$K$和一个子关系模式$Z$满足$K\subseteq Z$</strong><br>那么从关系$R$中任选一个候选关键字$K$单独构成一个子关系模式($S=S\cup Heading(K)$)</li>
+</ol>
+<h1 id="9-数据库设计"><a href="#9-数据库设计" class="headerlink" title="9 数据库设计"></a>9 数据库设计</h1><h2 id="9-2-需求分析"><a href="#9-2-需求分析" class="headerlink" title="9.2 需求分析"></a>9.2 需求分析</h2><p>确定需要在数据库保存其信息的客观事物及其相互关系</p>
+<h2 id="9-3-概念设计"><a href="#9-3-概念设计" class="headerlink" title="9.3 概念设计"></a>9.3 概念设计</h2><ul>
+<li>目的:建立一个抽象的概念数据模型</li>
+<li>工具<ul>
+<li>E-R模型</li>
+<li>EE-R模型</li>
+<li>面向对象模型</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-4-逻辑设计"><a href="#9-4-逻辑设计" class="headerlink" title="9.4 逻辑设计"></a>9.4 逻辑设计</h2><p>将EE-R模型转换成相等价的关系数据库模式</p>
+<h2 id="9-5-物理设计"><a href="#9-5-物理设计" class="headerlink" title="9.5 物理设计"></a>9.5 物理设计</h2><ul>
+<li>存取方法的设计</li>
+<li>存储结构的设计</li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

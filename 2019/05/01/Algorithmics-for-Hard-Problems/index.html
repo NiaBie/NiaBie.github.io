@@ -1,0 +1,1000 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">问题求解</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '2';// 全局变量,latex公式渲染方式
+</script>
+
+
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+<script>
+  console.log("katex rendering");
+  // 删除<p>内部换行,使katex正确渲染
+  $(document).ready(setTimeout(function()
+  {
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
+      });
+    }
+
+    // 渲染latex公式
+    renderMathInElement(document.body,
+    {
+      // ...options...
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+        // { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+
+    // 删除latex公式里面的回车
+    var all_katex = document.querySelectorAll(".katex");
+    all_katex.forEach(function(temp_p) {
+      temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "");
+    });
+
+    // 恢复回车
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
+      });
+    }
+  }, 500));// 删除元素不能进行得太早,不然会和highlight的dfs冲突
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">Algorithmics-for-Hard-Problems</span>
+  <br>
+  <span class="post_date">2019-05-01</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><h3 id="Definition-2-3-1-2"><a href="#Definition-2-3-1-2" class="headerlink" title="Definition 2.3.1.2"></a>Definition 2.3.1.2</h3><p>Let $\Sigma$ be an alphabet. A <strong>word</strong> over $\Sigma$ is any finite sequence of symbols of $\Sigma$. The <strong>empty word $\lambda$</strong> is the only word consisting of zero symbols. The set of all words over the alphabet $\Sigma$ is denoted by $\Sigma^{*}$</p>
+<h3 id="Definition-2-3-1-3"><a href="#Definition-2-3-1-3" class="headerlink" title="Definition 2.3.1.3"></a>Definition 2.3.1.3</h3><p>The <strong>length of a word $w$</strong> over an alphabet $\Sigma$, denoted by $|w|$, is the number of symbols in $w$. For every word $w\in\Sigma^{*}$, and every symbal $a\in\Sigma$, $\sharp_{a}(w)$ is the number of occurrences of the symbol $a$ in the word $w$</p>
+<h3 id="Definition-2-3-1-4"><a href="#Definition-2-3-1-4" class="headerlink" title="Definition 2.3.1.4"></a>Definition 2.3.1.4</h3><p>Let $\Sigma$ be an alphabet. Then, for any $n\in\mathbb{N}$<br>$$ \Sigma^n=\{x\in\Sigma^{*}||x|=n\} $$<br>We define $\Sigma^+=\Sigma^{*}-\{\lambda\}$</p>
+<h3 id="Definition-2-3-1-5-concatenation"><a href="#Definition-2-3-1-5-concatenation" class="headerlink" title="Definition 2.3.1.5 (concatenation)"></a>Definition 2.3.1.5 (concatenation)</h3><p>For every word $w\in\Sigma^{*}$, we define</p>
+<ul>
+<li>$w^0=\lambda$, and</li>
+<li>$w^{n + 1}=w\cdot w^n=ww^n$ for every positive integer $n$</li>
+</ul>
+<h3 id="Definition-2-3-1-9-language"><a href="#Definition-2-3-1-9-language" class="headerlink" title="Definition 2.3.1.9 (language)"></a>Definition 2.3.1.9 (language)</h3><p>Let $\Sigma$ be an alphabet, Every set $L\subseteq\Sigma^{*}$ is called a <strong>language</strong> over $\Sigma$. The <strong>complement of the language $L$ according to $\Sigma$</strong> is $L^C=\Sigma^{*}-L$</p>
+<p>Let $\Sigma_1$ and $\Sigma_2$ be alphabets, and let $L_1\subseteq\Sigma_1^{*}$ and $L_2\subseteq\Sigma_2^{*}$ be languages. The <strong>concatenation</strong> of $L_1$ and $L_2$ is<br>$$ L_1L_2=L_1\circ L_2=\{uv\in(\Sigma_1\cup\Sigma_2)^{*}|u\in L_1 and\ v\in L_2\} $$</p>
+<h3 id="Definition-2-3-1-10"><a href="#Definition-2-3-1-10" class="headerlink" title="Definition 2.3.1.10"></a>Definition 2.3.1.10</h3><p>Let $\Sigma=\{s_1,s_2…s_m\},m\ge1$, be an alphabet, and let $s_1 &lt; s_2 &lt; … &lt; s_m$ be a linear ordering on $\Sigma$. We define the <strong>canonical ordering</strong> on $\Sigma^{*}$ as follows. For all $u,v\in\Sigma^{*}$<br>$$u &lt; v\mbox{ if }|u| &lt; |v|$$<br>$$\mbox{or }|u|=|v|,u=xs_iu’,\mbox{ and }v=xs_jv’$$<br>$$\mbox{for some }x,u’,v’\in\Sigma^{*},\mbox{ and }i &lt; j$$</p>
+<h2 id="2-3-2"><a href="#2-3-2" class="headerlink" title="2.3.2"></a>2.3.2</h2><h3 id="Definition-2-3-2-1"><a href="#Definition-2-3-2-1" class="headerlink" title="Definition 2.3.2.1"></a>Definition 2.3.2.1</h3><p><strong>A decision problem</strong> is a triple $(L, U, \Sigma)$ where $\Sigma$ is an alphabet and $L\subseteq U\subseteq\Sigma^{*}$. An algorithm $A$ <strong>solves(decides)</strong> the decision problem $(L, U, \Sigma^{*}$ if, for every $x\in U$</p>
+<ul>
+<li>$A(x)=1$ if $x\in L$, and</li>
+<li>$A(x)=0$ if $x\in U-L(x\not\in L)$</li>
+</ul>
+<h3 id="Definition-2-3-2-2"><a href="#Definition-2-3-2-2" class="headerlink" title="Definition 2.3.2.2"></a>Definition 2.3.2.2</h3><p>An <strong>optimization problem</strong> is a 7-tuple $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$, where</p>
+<ul>
+<li>$\Sigma_I$ is an alphabet, called the <strong>input alphabet</strong> of $U$</li>
+<li>$\Sigma_O$ is an alphabet, called the <strong>output alphabet</strong> of $U$</li>
+<li>$L\subseteq\Sigma_I^{*}$ is the <strong>language of feasible problem instances</strong></li>
+<li>$L_I\subseteq L$ is the <strong>language of the(actual) problem instances of $U$</strong></li>
+<li>$M$ is a function from $L$ to (power set)$Pot(\Sigma_O^{*})$, and for every $x\in L$, $M(x)$ is some $x\in L$, assigns a positive real number cost($u,x$)</li>
+<li>cost is the <strong>cost function</strong> that, for every pair $(u,x)$, where $u\in M(x)$ for some $x\in L$, assigns a positive real number cost($u,x$)</li>
+<li>goal$\in${minimum,maximum}</li>
+</ul>
+<p>For every $x\in L_I$, a feasible solution $y\in M(x)$ is called <strong>optimal for $x$ and $U$</strong> if<br>$$ cost(y,x)=goal\{cost(z,x)|z\in M(x)\} $$<br>For an optimal solution $y\in M(x)$, we denote cost($u,x$) by Opt$_U(x)$ ,$U$ is called <strong>maxmization problem</strong> if goal=maximum, and $U$ is a <strong>minimization problem</strong> if goal=minimum. In what follows Output$_U(x)\subseteq M(x)$ denotes the set of all optimal solutions for the instance $x$ of $U$</p>
+<p>An algorithm $A$ is <strong>consistent</strong> for $U$ if, for every $x\in L_I$, the output $A(x)\in M(x)$. We say that an algorithm $B$ <strong>solves</strong> the optimization problem $U$ if</p>
+<ul>
+<li>$B$ is consistent for $U$, and</li>
+<li>for every $x\in L_1, B(x)$ is an optimal solution for $x$ and $U$</li>
+</ul>
+<h3 id="Definition-2-3-2-3"><a href="#Definition-2-3-2-3" class="headerlink" title="Definition 2.3.2.3"></a>Definition 2.3.2.3</h3><p>Let $U_1=(\Sigma_I,\Sigma_O,L,L_{I,1},M,cost,goal)$ and $U_2=(\Sigma_I,\Sigma_O,L,L_{I,2},M,cost,goal)$ be two optimization problems. We say that $U_1$ is a <strong>subproblem</strong> of $U_2$ if $L_{I,1}\subseteq L_{I,2}$</p>
+<h3 id="Theorem-2-3-3-3"><a href="#Theorem-2-3-3-3" class="headerlink" title="Theorem 2.3.3.3"></a>Theorem 2.3.3.3</h3><p>There is a decision problem $(L,\Sigma_{bool})$ such that, for every algorithm $A$ deciding $L$, there exists another algorithm $B$ deciding $L$, such that<br>$$ Time_B(n)=\log_2(Time_A(n)) $$<br>for infinitely many positive integers $n$</p>
+<h3 id="Definition-2-3-3-5"><a href="#Definition-2-3-3-5" class="headerlink" title="Definition 2.3.3.5"></a>Definition 2.3.3.5</h3><p>We define the complexity class $P$ of languages decidable in polynomial-time by<br>$$ P=\{L=L(M)|M\mbox{ is a TM(an algorithm) with }Time_M(n)\in O(n^c)\mbox{ for some positive integer c}\} $$</p>
+<p>A language (decision problem) $L$ is called <strong>tractable(practially solvable)</strong> if $L\in P$. A language $L$ is called <strong>intractable</strong> if $L\not\in P$</p>
+<h3 id="Definition-2-3-3-6"><a href="#Definition-2-3-3-6" class="headerlink" title="Definition 2.3.3.6"></a>Definition 2.3.3.6</h3><p>Let $M$ be a nondeterministic TM(algorithm).  We say that <strong>$M$ accepts a language $L, L = L(M)$</strong>, if</p>
+<ul>
+<li>for every $x\in L$, there exists at least one computation of $M$ that accepts $x$, and</li>
+<li>for every $y\not\in L$, all computations of $M$ reject $y$</li>
+</ul>
+<p>For every input $w\in L$, the ** time complexity Time$_M(w)$ of $M$ on $w$ ** is the time complexity of the shortest accepting computation of $M$ on $w$. The <strong>time complexity of $M$</strong> is the function Time$_M$ from $\mathbb{N}$ to $\mathbb{N}$ defined by<br>$$ Time_M(n)=\max\{Time_M(x)|x\in L(M)\cap\Sigma^n\} $$</p>
+<h3 id="Definition-2-3-3-7"><a href="#Definition-2-3-3-7" class="headerlink" title="Definition 2.3.3.7"></a>Definition 2.3.3.7</h3><p>Let $L\subseteq\Sigma^{*}$ be a language. An algorithm $A$ working on inputs from $\Sigma^{*}\times\{0,1\}$ is called a <strong>verifier for $L$</strong>, denoted $L=V(A)$, if<br>$$ L=\{w\in\Sigma^{*}|A\mbox{ accepts }(w,c)\mbox{ for some }c\in\{0,1\}^{*}\} $$<br>If $A$ accepts $(w,c)\in\Sigma^{*}\times\{0,1\}$, we say that $c$ is a <strong>proof(certificate)</strong> of the fact $w\in L$</p>
+<p>A verifier $A$ for $L$ is called a <strong>polynomial-time verifier</strong> if there exists a positive integer $d$ such that, for every $w\in L$, Time$_A(w,c)\in O(|w|^d)$ for a proof $c$ of $w\in L$</p>
+<p>We define the <strong>class of polynomially verifiable languages</strong> as<br>$$ VP=\{V(A)|A\mbox{ is a polynomial-time verifier}\} $$</p>
+<h3 id="Definition-2-3-3-10"><a href="#Definition-2-3-3-10" class="headerlink" title="Definition 2.3.3.10"></a>Definition 2.3.3.10</h3><p>Let $L_1\subseteq\Sigma_1^{*}$ and $L_2\subseteq\Sigma_2^{*}$ be two languages. We say that $L_1$ is <strong>polynomial-time reducible</strong> to $L_2, L_1\le_pL_2$, if there exists a polynomial-time algorithm $A$ that computes a mapping from $\Sigma_1^{*}$ to $\Sigma_2^{*}$ such that, for every $x\in\Sigma_1^{*}$<br>$$ x\in L_1\Leftrightarrow A(x)\in L_2 $$<br>A is called the <strong>polynomial-time reduction</strong> from $L_1$ to $L_2$</p>
+<ul>
+<li>A language $L$ is called <strong>NP-hard</strong> if, for every $U\in NP,U\le_pL$</li>
+<li>A language $L$ is called <strong>NP-complete</strong> if<ul>
+<li>$L\in NP$, and</li>
+<li>$L$ is NP-hard</li>
+</ul>
+</li>
+</ul>
+<h3 id="Lemma-2-3-3-11"><a href="#Lemma-2-3-3-11" class="headerlink" title="Lemma 2.3.3.11"></a>Lemma 2.3.3.11</h3><p>If $L$ is NP-hard and $L\in P$, then P=NP</p>
+<h3 id="Lemma-2-3-3-15"><a href="#Lemma-2-3-3-15" class="headerlink" title="Lemma 2.3.3.15"></a>Lemma 2.3.3.15</h3><p>Sat$\le_{p}$Clique</p>
+<h3 id="Lemma-2-3-3-16"><a href="#Lemma-2-3-3-16" class="headerlink" title="Lemma 2.3.3.16"></a>Lemma 2.3.3.16</h3><p>Clique$\le_{p}$VC</p>
+<h3 id="Lemma-2-3-3-19"><a href="#Lemma-2-3-3-19" class="headerlink" title="Lemma 2.3.3.19"></a>Lemma 2.3.3.19</h3><p>3Sat$\le_{p}$Sol-0/1-LP</p>
+<h3 id="Definition-2-3-3-21"><a href="#Definition-2-3-3-21" class="headerlink" title="Definition 2.3.3.21"></a>Definition 2.3.3.21</h3><p><strong>NPO</strong> is the class of optimization problems, where $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)\in$NPO if the following conditions hold</p>
+<ul>
+<li><p>$L_I\in$P</p>
+</li>
+<li><p>there exists a polynomial $p_U$ such that</p>
+<ul>
+<li>for every $x\in L_I$, and every $y\in M(x),|y|\le p_U(|x|)$, and</li>
+<li>there exists a polynomial-time algorithm that, for every $y\in\Sigma_O^{*}$ and every $x\in L_I$ such that $|y|\le p_U(|x|)$, decides whether $y\in M(x)$, and</li>
+</ul>
+</li>
+<li><p>the function cost is computable in polynomial time</p>
+</li>
+</ul>
+<h3 id="Definition-2-3-3-23"><a href="#Definition-2-3-3-23" class="headerlink" title="Definition 2.3.3.23"></a>Definition 2.3.3.23</h3><p><strong>PO</strong> is the class of optimization problems $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ such that</p>
+<ul>
+<li>$U\in$NPO, and</li>
+<li>there is a polynomial-time algorithm that, for every $x\in L_1$, computes an optimal solution for $x$</li>
+</ul>
+<h3 id="Definition-2-3-3-24"><a href="#Definition-2-3-3-24" class="headerlink" title="Definition 2.3.3.24"></a>Definition 2.3.3.24</h3><p>Let $U=(\Sigma_1,\Sigma_O,L,L_1,M,cost,goal)$ be an optimization problem from NPO, We define the <strong>threshold language of $U$</strong> as<br>$$ Lang_U=\{(x,a)\in L_1\times\Sigma_{bool}^{*}|Opt_U(x)\le Number(a)\} $$<br>if goal=minimum, and as<br>$$ Lang_U=\{(x,a)\in L_1\times\Sigma_{bool}^{*}|Opt_U(x)\ge Number(a)\} $$<br>if goal=maximum</p>
+<p>We say that $U$ is <strong>NP-hard</strong> if Lang$_U$ is NP-hard</p>
+<h3 id="Lemma-2-3-3-25"><a href="#Lemma-2-3-3-25" class="headerlink" title="Lemma 2.3.3.25"></a>Lemma 2.3.3.25</h3><p>If an optimization problem $U\in$PO, then Lang$_U\in$P</p>
+<h1 id="4"><a href="#4" class="headerlink" title="4"></a>4</h1><h2 id="4-2"><a href="#4-2" class="headerlink" title="4.2"></a>4.2</h2><h3 id="Definition-4-2-1-1"><a href="#Definition-4-2-1-1" class="headerlink" title="Definition 4.2.1.1"></a>Definition 4.2.1.1</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ be an optimization problem, and let $A$ be a consistent algorithm for $U$. For every $x\in L_I$, the <strong>relative error</strong> $\varepsilon_A(x)$ <strong>of $A$ on $x$</strong> is defined as<br>$$ \varepsilon_A=\dfrac{|cost(A(x))-Opt_U(x)|}{Opt_U(x)} $$</p>
+<ul>
+<li><p>For any $n\in\mathbb{N}$, we define <strong>the relative error of $A$</strong> as<br>$$ \varepsilon_A(n)=\max\{\varepsilon_A(x)|x\in L_I\cap(\Sigma_I)^n\} $$</p>
+</li>
+<li><p>For every $s\in L_I$, the <strong>approximation ratio</strong> $R_A(x)$ <strong>of $A$ on $x$</strong> is defined as<br>$$ R_A(x)=\max\{\dfrac{cst(A(x))}{Opt_U(x)},\dfrac{Opt_U(x)}{cost(A(x))}\} $$ </p>
+</li>
+<li><p>For any $n\in\mathbb{N}$, we define the <strong>approximation ratio of $A$</strong> as<br>$$ R_A(n)=\max\{R_A(x)|x\in L_I\cap(\Sigma_I)^n\} $$</p>
+</li>
+<li><p>For any positive real $\delta &gt; 1$, we say that $A$ is a <strong>$\delta$-approximation algorithm for $U$</strong> if $R_A(x)\le\delta$ for every $x\in L_I$</p>
+</li>
+<li><p>For every function $f:\mathbb{N}\to\mathbb{R}^+$, we say that $A$ si an <strong>$f(n)$-approximation algorithm for $U$</strong> if $R_A(n)\le f(n)$ for every $n\in\mathbb{N}$</p>
+</li>
+</ul>
+<h3 id="Definition-4-2-1-6"><a href="#Definition-4-2-1-6" class="headerlink" title="Definition 4.2.1.6"></a>Definition 4.2.1.6</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ be an optimization problem. An algorithm $A$ is called a <strong>polynomial-time approximation scheme (PTAS) for $U$</strong> if for every input pair $(x,\varepsilon)\in L_I\times\mathbb{R}^+, A$ computes a feasible solution $A(x)$ with a relative error at most $\varepsilon$, and $Time_A(x,\varepsilon^{-1})$ can be bounded by a function that is polynomial in $|x|$.</p>
+<p>If $Time_A(x,\varepsilon^{-1})$ can be bounded by a function that is polynomial in both $|x|$ and $\varepsilon^{-1}$, then we say that $A$ is a <strong>fully polynomial-time approximation scheme (FPTAS) for $U$</strong></p>
+<h3 id="Definition-4-2-3-1"><a href="#Definition-4-2-3-1" class="headerlink" title="Definition 4.2.3.1"></a>Definition 4.2.3.1</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ and $\bar{U}=(\Sigma_I,\Sigma_O,L,L,M,cost,goal)$ be two optimization problems with $L_I\subset L$. A <strong>distance function for $\bar{U}$ according to</strong> $L_I$ is any function $h_L:L\to\mathbb{R}^{\ge0}$ satisfying the properties</p>
+<ol>
+<li>$h_L(x)=0$ for every $x\in L_I$, and</li>
+<li>$h$ is polynomial-time computable</li>
+</ol>
+<p>Let $h$ be a distance function for $\bar{U}$ accoring to $L_I$. We define, for any $r\in\mathbb{R}^+$<br>$$ Ball_{r,h}(L_I)=\{w\in L|h(w)\le r\} $$<br>Let $A$ be a consistent algorithm for $\bar{U}$, and let $A$ be an $\varepsilon$-approximation algorithm for $U$ for some $\varepsilon\in\mathbb{R}^{-1}$. Let $p$ be a positive real. We say that $A$ is <strong>p-stable according to $h$</strong> if, for every real $0 &lt; r \le p$, there exists a $\delta_{r,\varepsilon}\in\mathbb{R}^{&gt; 1}$ such that $A$ is a $\delta_{r,\varepsilon}$-approximation for $U_r=(\Sigma_I,\Sigma_O,L,Ball_{r,h}(L_I),M,cost,goal)$</p>
+<p>$A$ is <strong>stable according to $h$</strong> if $A$ is $p$-stable according to $h$ for every $p\in\mathbb{R}^+$. We say that $A$ is <strong>unstable according to h</strong> if $A$ is not $p$-stable for any $p\in\mathbb{R}^+$</p>
+<p>For every positive integer $r$, and every function $f_r:\mathbb{N}\to\mathbb{R}^{&gt; 1}$ we say that $A$ is $(r,f_r(n))$<strong>-quasistable according to $h$</strong> if $A$ is an $f_r(n)$-approximation algorithm for $U_r=(\Sigma_I,\Sigma_O,L,Ball_{r,h}(L_I),M,cost,goal)$</p>
+<h3 id="Definition-4-2-3-6"><a href="#Definition-4-2-3-6" class="headerlink" title="Definition 4.2.3.6"></a>Definition 4.2.3.6</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,Ball_{r,h}(L_I),M,cost,goal)$ and $\bar{U}=(\Sigma_I,\Sigma_O,L,L,M,cost,goal)$ be two optimization problems with $L_I\subset L$. Let $h$ be a distance function for $\bar{U}$ according to $L_I$, and let $U_r=(\Sigma_I,\Sigma_O,L,Ball_{r,h}(L_I),M,cost,goal)$ for every $r\in\mathbb{R}^+$. Let $A=\{A_{\varepsilon}\}_{\varepsilon &gt; 0}$ be a PTAS for $U$</p>
+<p>If for every $r &gt; 0$ and every $\varepsilon &gt; 0, A_{\varepsilon}$ is a $\delta_{r,\varepsilon}$-approximation algorithm for $U_r$, we say that the PTAS $A$ is <strong>stable according to $h$</strong></p>
+<p>If $\delta_{r,\varepsilon}\le f(\varepsilon)\cdot g(r)$, where</p>
+<ul>
+<li>$f$ and $g$ are some functions from $\mathbb{R}^{\ge0}$ to $\mathbb{R}^+$, and</li>
+<li>$\lim_{\varepsilon\to0}f(\varepsilon)=0$<br>then we say that the PTAS $A$ is <strong>superstable according to $h$</strong></li>
+</ul>
+<p>5</p>
+<p>5.2</p>
+<h3 id="Definition-5-2-2-10"><a href="#Definition-5-2-2-10" class="headerlink" title="Definition 5.2.2.10"></a>Definition 5.2.2.10</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ be an optimization problem. For any positive real $\delta &gt; 1$ a randomized algorithm $A$ is called a <strong>randomized $\delta$-approximation algorithm for $U$</strong> if</p>
+<ol>
+<li>$Prob(A(x)\in M(x))=1$, and</li>
+<li>$Prob(R_A(x)\le\delta)\ge1/2</li>
+</ol>
+<p>for every $x\in L_I</p>
+<p>For every function $f:\mathbb{N}\to\mathbb{R}^+$, we say that $A$ is a <strong>randomized $f(n)$-approximation algorithm for $U$</strong> if<br>$$ Prob(A(x)\in M(x))=1\ and\ Prob(R_A(x)\le f(|x|))\ge1/2 $$<br>for every $x\in L_I$</p>
+<p>A randomized algorithm $A$ is called a <strong>randomized polynomial-time approximation scheme (RPTAS) for $U$</strong> if there exists a function $p:L_I\times\mathbb{R}^+\to\mathbb{N}$ such that for every input $(x,\delta)\in L_I\times\mathbb{R}^+$:</p>
+<ol>
+<li>$Prob(A(x,\delta)\in M(x))=1$ for every random choice $A$ computes a feasible solution of $U$</li>
+<li>$Prob(\varepsilon_A(x,\delta)\le\delta)\ge1/2$ a feasible solution, whose relative error is at most $\delta$, is produced with the probability at least 1/2</li>
+<li>$Time_A(x,\delta^{-1})\le p(|x|,\delta^{-1})$ and $p$ is a polynomial in $|x|$</li>
+</ol>
+<p>If $p(|x|,\delta^{-1})$ is polynomial in both its arguments $|x|$ and $\delta^{-1}$, then we say that $A$ is a <strong>randomized fully polynomial-time approximation scheme (RFPTAS) for $U$</strong></p>
+<h3 id="Definition-5-2-2-11"><a href="#Definition-5-2-2-11" class="headerlink" title="Definition 5.2.2.11"></a>Definition 5.2.2.11</h3><p>Let $U=(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$ be an approximation problem. For any positive real $\delta &gt; 1$, a randomized algorithm $A$ is called a <strong>randomized $\delta$-expected approximation algorithm for $U$</strong> if</p>
+<ol>
+<li>$Prob(A(x)\in M(x))=1$</li>
+<li>$E[R_A(x)]\le\delta$</li>
+</ol>
+<p>for every $x\in L_I$</p>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

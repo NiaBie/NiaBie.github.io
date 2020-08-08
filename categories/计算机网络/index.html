@@ -1,0 +1,828 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+  <!-- 不是文章页 -->
+
+  
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 主页 -->
+
+<!-- 文章列表 -->
+
+<div class="main_box border_box">
+
+  
+
+  
+    <!-- 单个文章 -->
+
+      
+      <div class="post_box">
+        <span class="archive_index">1.</span>
+        <a href="/2019/12/23/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" class="archive_title">
+          计算机网络
+        </a>
+        <span class="archive_date">2019-12-23</span>
+        <br>
+      </div>
+              
+    
+  
+
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

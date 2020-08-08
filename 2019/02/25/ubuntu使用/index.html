@@ -1,0 +1,1129 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/ubuntu/">ubuntu</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/wlan/">wlan</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">ubuntu使用</span>
+  <br>
+  <span class="post_date">2019-02-25</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="零散笔记"><a href="#零散笔记" class="headerlink" title="零散笔记"></a>零散笔记</h1><h2 id="摄像头-webcam"><a href="#摄像头-webcam" class="headerlink" title="摄像头(webcam)"></a>摄像头(webcam)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install v4l-util cheese</span><br><span class="line">sudo cheese</span><br></pre></td></tr></table></figure>
+
+<p>修改摄像头权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ls -ltrh /dev/video*</span><br><span class="line">sudo chmod 777 /dev/video0</span><br><span class="line">cheese</span><br></pre></td></tr></table></figure>
+
+<h2 id="在文件夹中执行脚本"><a href="#在文件夹中执行脚本" class="headerlink" title="在文件夹中执行脚本"></a>在文件夹中执行脚本</h2><p>在<code>文件</code>$\to$<code>首选项</code>$\to$<code>行为</code>$\to$<code>可执行文本文件</code></p>
+<h2 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h2><p>不要出现<code>fn</code>+<code>super</code>的组合</p>
+<h3 id="截屏"><a href="#截屏" class="headerlink" title="截屏"></a>截屏</h3><ul>
+<li>复制截图到剪切板:<code>ctrl</code>+<code>print</code></li>
+<li>复制窗口截图到剪切板:<code>ctrl</code>+<code>alt</code>+<code>print</code></li>
+<li>复制选区截图到剪切板:<code>shift</code>+<code>ctrl</code>+<code>print</code></li>
+<li>保存截图到<code>图片</code>:<code>print</code></li>
+<li>保存窗口截图到<code>图片</code>:<code>alt</code>+<code>print</code></li>
+<li>保存选区截图到<code>图片</code>:<code>shift</code>+<code>print</code></li>
+<li>录屏:<code>shift</code>+<code>ctrl</code>+<code>alt</code>+<code>r</code></li>
+</ul>
+<h3 id="禁用快捷键"><a href="#禁用快捷键" class="headerlink" title="禁用快捷键"></a>禁用快捷键</h3><p><code>backspace</code></p>
+<h2 id="WLAN"><a href="#WLAN" class="headerlink" title="WLAN"></a>WLAN</h2><h3 id="wifi连接"><a href="#wifi连接" class="headerlink" title="wifi连接"></a>wifi连接</h3><p><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/16584/how-to-connect-and-disconnect-to-a-network-manually-in-terminal">参考:askubuntu</a></p>
+<ul>
+<li><p>查看网卡名:<code>iwconfig</code></p>
+</li>
+<li><p>扫描:<code>nmcli dev wifi</code></p>
+</li>
+<li><p>连接:<code>nmcli dev wifi connect WLAN_NAME password PASSWORD</code></p>
+</li>
+<li><p>忘记:<code>nmcli c delete WLAN_NAME</code></p>
+</li>
+<li><p>关闭热点:<code>nmcli dev disconnect wlp2s0</code></p>
+</li>
+<li><p>关闭wlan:<code>nmcli radio wifi off</code></p>
+</li>
+<li><p>开启wlan:<code>nmcli radio wifi on</code></p>
+</li>
+</ul>
+<h3 id="热点"><a href="#热点" class="headerlink" title="热点"></a>热点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nm-connection-editor</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>+</code>-&gt;<code>Wifi</code>-&gt;<code>Mode</code>:<code>Hotspot</code></p>
+</li>
+<li><p>开启热点</p>
+<ul>
+<li><code>设置</code>-&gt;(右上角)<code>Connect to Hidden Network</code></li>
+<li><code>设置</code>$\to$<code>wifi</code>$\to$<code>打开wifi热点</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="共享wifi"><a href="#共享wifi" class="headerlink" title="共享wifi"></a>共享wifi</h3><ul>
+<li><code>create_ap</code>:<a target="_blank" rel="noopener" href="https://github.com/oblique/create_ap">github</a></li>
+</ul>
+<h2 id="误删PATH救急"><a href="#误删PATH救急" class="headerlink" title="误删PATH救急"></a>误删<code>PATH</code>救急</h2><ul>
+<li>Linux通用?</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/sbin:/bin:/usr/sbin:/usr/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不要忘记加<code>:PATH</code></p>
+</blockquote>
+<h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir /usr/share/fonts/&#123;name&#125;</span><br><span class="line">sudo cp &#123;font&#125;.ttf /usr/share/fonts/&#123;name&#125;</span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/&#123;name&#125;</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -fv</span><br></pre></td></tr></table></figure>
+
+<h2 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/jnbbwyth/article/details/6991425">enca等</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-7959-1.html">iconv</a></li>
+</ul>
+<hr>
+<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.sublimetext.com/docs/3/linux_repositories.html">sublime</a></li>
+<li>chromium:注意数据备份<code>.config/chromium</code><ul>
+<li><code>tamper monkey</code></li>
+<li><code>Adblock Plus</code></li>
+<li><code>SwitchyOmega</code></li>
+<li><code>crxMouse Top Gestures</code></li>
+<li><code>hoxx</code></li>
+</ul>
+</li>
+<li>dukto:3系统互传软件</li>
+<li>hyper:配置文件<code>~/.hyper.js</code></li>
+<li>vscode</li>
+<li><code>gnome-tweak</code>:如果还在用gnome<ul>
+<li><code>dash to panel</code></li>
+<li><code>topicons plus</code></li>
+<li><code>user themes</code></li>
+</ul>
+</li>
+<li>搜狗输入法:<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32782339/article/details/79489851">CSDN</a><ul>
+<li>官网下载deb</li>
+<li><code>sudo apt install -f &amp;&amp; sudo dpkg -i sougou.deb</code></li>
+<li><code>设置</code>-&gt;<code>区域和语言</code>-&gt;<code>键盘输入法系统</code>(点击任务栏的输入法图标-&gt;<code>Configure</code>)</li>
+</ul>
+</li>
+<li>日语输入法<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install fcitx-mozc</span><br><span class="line"><span class="comment"># sudo apt install fcitx-anthy</span></span><br><span class="line"><span class="comment"># im-config -n fcitx</span></span><br></pre></td></tr></table></figure>
+重启(<code>fcitx configuration</code>)<ul>
+<li>片假名切换:<code>f7</code></li>
+</ul>
+</li>
+<li><code>gparted</code>:磁盘分区</li>
+<li><code>exfat-utils</code>:支持<code>exfat</code>格式的u盘</li>
+</ul>
+<h2 id="deepin-wine软件"><a href="#deepin-wine软件" class="headerlink" title="deepin wine软件"></a><code>deepin wine</code>软件</h2><ul>
+<li>QQ</li>
+<li>TIM</li>
+<li>QQ轻聊版</li>
+<li>微信</li>
+<li>Foxmail</li>
+<li>百度网盘</li>
+<li>360压缩</li>
+<li>WinRAR</li>
+<li>迅雷极速版</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.lulinux.com/archives/1319">详细</a>,<a target="_blank" rel="noopener" href="https://github.com/wszqkzqk/deepin-wine-ubuntu">github</a></p>
+<h3 id="软件的文件存放位置"><a href="#软件的文件存放位置" class="headerlink" title="软件的文件存放位置"></a>软件的文件存放位置</h3><ul>
+<li>QQ:</li>
+</ul>
+<p><code>/home/lynx/.deepinwine/Deepin-QQ/dosdevices/c:/users/lynx/My Documents/Tencent Files/$account/FileRecv</code></p>
+<h3 id="deepin-wine字体异常处理"><a href="#deepin-wine字体异常处理" class="headerlink" title="deepin wine字体异常处理"></a><code>deepin wine</code>字体异常处理</h3><h4 id="修改注册表-TODO"><a href="#修改注册表-TODO" class="headerlink" title="修改注册表(TODO)"></a>修改注册表(TODO)</h4><ol>
+<li><p>新建(任何位置,文件名随意)<code>zh.reg</code><br>1.1. 字体链接</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLin]</span><br><span class="line">&quot;字体名&quot;&#x3D;&quot;字体文件&quot;</span><br></pre></td></tr></table></figure>
+
+<p>1.2. 字体(强制)替换</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line">&quot;字体名&quot;&#x3D;&quot;字体文件&quot;</span><br></pre></td></tr></table></figure>
+
+<p>1.3 字体(缺失)替换</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[HKEY_CURRENT_USER\Software\\Wine\\Fonts\\Replacements]</span><br><span class="line">&quot;字体名&quot;&#x3D;&quot;字体文件&quot;</span><br></pre></td></tr></table></figure></li>
+<li><p>修改注册表(貌似没用)</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">deepin-wine regedit zh.reg</span><br></pre></td></tr></table></figure>
+
+<h4 id="补充字体文件"><a href="#补充字体文件" class="headerlink" title="补充字体文件"></a>补充字体文件</h4><ul>
+<li>字体文件存放位置:<code>./deepin-wine/软件名/driver_c/windows/fonts/</code></li>
+</ul>
+<h2 id="wps软件"><a href="#wps软件" class="headerlink" title="wps软件"></a>wps软件</h2><h3 id="缺少字体的处理方法"><a href="#缺少字体的处理方法" class="headerlink" title="缺少字体的处理方法"></a>缺少字体的处理方法</h3><ol>
+<li>下载并解压字体文件夹<code>wps-font-symbols</code></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/pengphei/wps-font-symbols</span><br><span class="line">sudo cp -r wps-font-symbols /usr/share/fonts</span><br><span class="line"><span class="comment"># cd /usr/share/fonts</span></span><br><span class="line"><span class="comment"># sudo chmod 755 wps-font-symbols</span></span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/wps-font-symbols</span><br><span class="line"><span class="comment"># sudo chmod 644 *</span></span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo mkfontscale</span><br><span class="line"><span class="built_in">fc</span>-cache</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>或直接从windows复制对应字体</li>
+</ol>
+<h2 id="默认软件管理"><a href="#默认软件管理" class="headerlink" title="默认软件管理"></a>默认软件管理</h2><ul>
+<li><code>exo-utils</code><ul>
+<li>使用<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">exo-preferred-applications</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="文件管理器"><a href="#文件管理器" class="headerlink" title="文件管理器"></a>文件管理器</h2><p>由于ubuntu自带的文件管理器(nautilus)太睿智,推荐以下文件管理器</p>
+<ul>
+<li>pcmanfm</li>
+<li>nemo</li>
+<li>thunar</li>
+<li>dolphin</li>
+</ul>
+<h3 id="修改默认文件管理器"><a href="#修改默认文件管理器" class="headerlink" title="修改默认文件管理器"></a>修改默认文件管理器</h3><p>TODO:<code>/etc/gnome/defaults.list</code>(直接修改好像没用)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># what&#x27;s the current default file manager?</span></span><br><span class="line">xdg-mime query default inode/directory</span><br><span class="line"></span><br><span class="line"><span class="comment"># set nautilus as a default file manager</span></span><br><span class="line">xdg-mime default nautilus.desktop inode/directory <span class="comment"># application/x-gnome-saved-search</span></span><br></pre></td></tr></table></figure>
+
+<p>软件对应<code>/usr/share/applications</code>下的<code>desktop</code>名</p>
+<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><h3 id="离线激活"><a href="#离线激活" class="headerlink" title="离线激活"></a>离线激活</h3><ol>
+<li><p>输入许可证路径<code>license_standalone.lic</code></p>
+</li>
+<li><p>修改matlab所在目录的读写权限以及用户组</p>
+</li>
+<li><p>讲破解文件的<code>lmgrimpl</code>文件覆盖原matlab文件</p>
+</li>
+</ol>
+<h3 id="许可证失效-无法打开matlab"><a href="#许可证失效-无法打开matlab" class="headerlink" title="许可证失效(无法打开matlab)"></a>许可证失效(无法打开matlab)</h3><p>删除<code>matlab/licenses</code>下的文件</p>
+<h2 id="mathematica"><a href="#mathematica" class="headerlink" title="mathematica"></a>mathematica</h2><p>报错</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CRITICAL FAILURE: PrintIntroduction() Error</span><br><span class="line">$ProductTitle not defined.</span><br></pre></td></tr></table></figure>
+
+<p>路径不能有空格</p>
+<h2 id="一个解决包依赖问题的软件"><a href="#一个解决包依赖问题的软件" class="headerlink" title="一个解决包依赖问题的软件"></a>一个解决包依赖问题的软件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install aptitude</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>(示例)卸载libreoffice</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo aptitude purge libreoffice6.0</span><br></pre></td></tr></table></figure>
+
+<h2 id="字体编辑"><a href="#字体编辑" class="headerlink" title="字体编辑"></a>字体编辑</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fontforge/fontforge</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install fontforge</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改字体名称"><a href="#修改字体名称" class="headerlink" title="修改字体名称"></a>修改字体名称</h3><ol>
+<li>打开字体文件</li>
+<li><code>基础</code>-&gt;<code>字体信息</code></li>
+<li><code>文件</code>-&gt;<code>生成字体</code>-&gt;(可选)选择<code>TrueType</code>(ttf)</li>
+</ol>
+<h2 id="图像编辑"><a href="#图像编辑" class="headerlink" title="图像编辑"></a>图像编辑</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install gimp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install krita</span><br><span class="line">sudo apt install krita-l10n</span><br></pre></td></tr></table></figure>
+
+<h2 id="图像转换"><a href="#图像转换" class="headerlink" title="图像转换"></a>图像转换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install sam2p</span><br><span class="line">sam2p shit.png shit.gif</span><br></pre></td></tr></table></figure>
+
+<h2 id="gif录屏"><a href="#gif录屏" class="headerlink" title="gif录屏"></a>gif录屏</h2><ul>
+<li>byzanz</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install byzanz </span><br><span class="line">byzanz-record --duration=50 --delay=3 --x=1030 --y=100 --height=500 demo1.gif</span><br></pre></td></tr></table></figure>
+
+<h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><ul>
+<li>mpv</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/mpv-player/mpv/blob/master/etc/input.conf">快捷键:https://github.com/mpv-player/mpv/blob/master/etc/input.conf</a></p>
+<h2 id="视频转换"><a href="#视频转换" class="headerlink" title="视频转换"></a>视频转换</h2><ul>
+<li>ffmpeg</li>
+</ul>
+<h3 id="gif转视频"><a href="#gif转视频" class="headerlink" title="gif转视频"></a>gif转视频</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f gif -i draw1.gif draw1.mpg</span><br></pre></td></tr></table></figure>
+
+<h3 id="视频合并"><a href="#视频合并" class="headerlink" title="视频合并"></a>视频合并</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;concat:draw1.mpg|draw2.mpg|pen.mpg|edit.mpg|clip.mpg&quot;</span> demo.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意添加<code>concat</code></li>
+<li>只有特定格式的视频才能合并</li>
+</ul>
+<h3 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h3><ul>
+<li><strong>TODO</strong>:视频关键帧会影响剪切的时长</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -ss 00:00:00 -t 00:01:15 -i del.mpg -vcodec copy -acodec copy del.mp4</span><br></pre></td></tr></table></figure>
+
+<h2 id="桌面便签-Indicator-Stickynotes"><a href="#桌面便签-Indicator-Stickynotes" class="headerlink" title="桌面便签(Indicator Stickynotes)"></a>桌面便签(Indicator Stickynotes)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:umang/indicator-stickynotes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install indicator-stickynotes</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载器-TODO"><a href="#下载器-TODO" class="headerlink" title="下载器(TODO)"></a>下载器(TODO)</h2><ul>
+<li>wget:单线程</li>
+<li>curl:单线程</li>
+<li>axel:多线程</li>
+<li>aria2:可以设置线程</li>
+<li>mwget:多线程版wget</li>
+<li>Prozilla:多线程,cmd,gui</li>
+<li>Downloader for X:多线程,gui</li>
+<li>MyGet:多线程</li>
+<li>Linuxdown:多线程,cmd</li>
+<li>Transmission:磁力,gui(不会用)</li>
+<li>Uget:cURL+aria2</li>
+</ul>
+<h2 id="网络监测"><a href="#网络监测" class="headerlink" title="网络监测"></a>网络监测</h2><ul>
+<li>nethogs</li>
+</ul>
+<hr>
+<h1 id="基本没用"><a href="#基本没用" class="headerlink" title="基本没用"></a>基本没用</h1><h2 id="屏幕管理"><a href="#屏幕管理" class="headerlink" title="屏幕管理"></a>屏幕管理</h2><ul>
+<li>arandr</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install arandr</span><br></pre></td></tr></table></figure>
+
+<h2 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h2><p><code>/etc/apt/sources.list</code></p>
+<ul>
+<li><code>ubuntu 19.04</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco main restricted</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco-updates main restricted</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco universe</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco-updates universe</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco-updates multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;cn.archive.ubuntu.com&#x2F;ubuntu&#x2F; disco-backports main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu disco-security main restricted</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu disco-security universe</span><br><span class="line">deb http:&#x2F;&#x2F;security.ubuntu.com&#x2F;ubuntu disco-security multiverse</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>中科大</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>清华</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>网易</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.163.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>阿里</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<h2 id="apt"><a href="#apt" class="headerlink" title="apt"></a>apt</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.sysgeek.cn/apt-vs-apt-get/">apt与apt-get区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://linux.cn/article-4933-1.html">apt-get示例</a></li>
+</ul>
+<h2 id="系统监视器安装"><a href="#系统监视器安装" class="headerlink" title="系统监视器安装"></a>系统监视器安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install gnome-system-monitor</span><br></pre></td></tr></table></figure>
+
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

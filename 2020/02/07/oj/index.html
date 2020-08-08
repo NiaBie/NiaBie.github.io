@@ -1,0 +1,930 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/bfs/">bfs</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/dfs/">dfs</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/dijkstra%E7%AE%97%E6%B3%95/">dijkstra算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/dinic%E7%AE%97%E6%B3%95/">dinic算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/ek%E7%AE%97%E6%B3%95/">ek算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/floyd%E7%AE%97%E6%B3%95/">floyd算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/km%E7%AE%97%E6%B3%95/">km算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/kmp%E7%AE%97%E6%B3%95/">kmp算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/kruskal%E7%AE%97%E6%B3%95/">kruskal算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/morris%E7%AE%97%E6%B3%95/">morris算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/prim%E7%AE%97%E6%B3%95/">prim算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/tarjan%E7%AE%97%E6%B3%95/">tarjan算法</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/">树的遍历</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/%E5%8C%88%E7%89%99%E5%88%A9%E7%AE%97%E6%B3%95/">匈牙利算法</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">oj</span>
+  <br>
+  <span class="post_date">2020-02-07</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h1><h2 id="morris算法-中序遍历"><a href="#morris算法-中序遍历" class="headerlink" title="morris算法(中序遍历)"></a>morris算法(中序遍历)</h2><p>空间复杂度$O(1)$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_out</span><span class="params">(node *cur)</span></span>;<span class="comment">// 输出节点</span></span><br><span class="line"></span><br><span class="line"><span class="function">node *<span class="title">find_prev</span><span class="params">(node *cur)</span></span>;<span class="comment">// 寻找前驱节点</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">morris</span><span class="params">(node *root)</span> </span>&#123;</span><br><span class="line">  node *cur = root;</span><br><span class="line">  <span class="keyword">while</span> (cur != <span class="literal">NULL</span>) &#123;<span class="comment">// 没有遍历完</span></span><br><span class="line">    <span class="keyword">if</span> (cur-&gt;left == <span class="literal">NULL</span>) &#123;<span class="comment">// 1: cur没有左子节点</span></span><br><span class="line">      print_out(cur);</span><br><span class="line">      cur = cur-&gt;right;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node *prev = find_prev(cur);</span><br><span class="line">      <span class="keyword">if</span> (prev-&gt;right == <span class="literal">NULL</span>) &#123;<span class="comment">// 2.1: prev没有右子节点</span></span><br><span class="line">        prev-&gt;right = cur;<span class="comment">// 修改树结构</span></span><br><span class="line">        cur = cur-&gt;left</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (prev-&gt;right == cur) &#123;<span class="comment">// 2.2: prev的右子节点为cur</span></span><br><span class="line">        prev-&gt;right = <span class="literal">NULL</span>;<span class="comment">// 恢复树结构</span></span><br><span class="line">        print_out(cur);</span><br><span class="line">        cur = cur-&gt;right;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        assert(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(node u)</span> </span>&#123;</span><br><span class="line">  u.visit = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; u.adj.size(); i ++) &#123;</span><br><span class="line">    node v = u.adj[i];</span><br><span class="line">    <span class="keyword">if</span> (v.visit == <span class="number">0</span>) &#123;</span><br><span class="line">      dfs(v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  q.push(s);</span><br><span class="line">  <span class="keyword">while</span> (q.empty() == <span class="number">0</span>) &#123;</span><br><span class="line">    node u = q.top();</span><br><span class="line">    q.pop();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; u.adj.size(); i ++) &#123;</span><br><span class="line">      node v = u.adj[i];</span><br><span class="line">      <span class="keyword">if</span> (v.visit == <span class="number">0</span>) &#123;</span><br><span class="line">        v.depth = u.depth + <span class="number">1</span>;</span><br><span class="line">        q.push(v);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="连通度"><a href="#连通度" class="headerlink" title="连通度"></a>连通度</h1><h2 id="tarjan算法"><a href="#tarjan算法" class="headerlink" title="tarjan算法"></a>tarjan算法</h2><p>时间复杂度$O(V+E)$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">tarjan</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  s.push(x);</span><br><span class="line">  depth ++;</span><br><span class="line">  dfn[x] = depth;<span class="comment">// dfs标记</span></span><br><span class="line">  low[x] = depth;<span class="comment">// tarjan标记</span></span><br><span class="line">  in_stack[x] = <span class="number">1</span>;<span class="comment">// 是否入栈</span></span><br><span class="line">  <span class="keyword">int</span> u, v;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; near[x].size(); i ++) &#123;</span><br><span class="line">    <span class="keyword">int</span> v = near[x][i].v;</span><br><span class="line">    <span class="keyword">if</span> (dfn[v] == <span class="number">0</span>) &#123;<span class="comment">// 未被标记过</span></span><br><span class="line">      tarjan(v);</span><br><span class="line">      low[x] = my_min(low[x], low[v]);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (in_stack[v] == <span class="number">1</span>) &#123;<span class="comment">// 已经入栈</span></span><br><span class="line">      low[x] = my_min(low[x], dfn[v]);<span class="comment">// my_min(low[x], low[v])l</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (dfn[x] == low[x]) &#123;<span class="comment">// 强连通分量</span></span><br><span class="line">    block ++;<span class="comment">// 连通块数目</span></span><br><span class="line">    <span class="keyword">while</span> (s.empty() == <span class="number">0</span>) &#123;</span><br><span class="line">      v = s.top();</span><br><span class="line">      in_stack[v] = <span class="number">0</span>;</span><br><span class="line">      s.pop();</span><br><span class="line">      <span class="keyword">if</span> (v == x) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="网络流"><a href="#网络流" class="headerlink" title="网络流"></a>网络流</h1><h2 id="EK算法"><a href="#EK算法" class="headerlink" title="EK算法"></a>EK算法</h2><p>时间复杂度$O(VE^2)$</p>
+<h2 id="dinic算法"><a href="#dinic算法" class="headerlink" title="dinic算法"></a>dinic算法</h2><p>时间复杂度$O(V^2E)$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">path</span> &#123;</span></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> u;<span class="comment">// 起点</span></span><br><span class="line">    <span class="keyword">int</span> v;<span class="comment">// 终点</span></span><br><span class="line">    <span class="keyword">int</span> c;<span class="comment">// 容量</span></span><br><span class="line">    <span class="keyword">int</span> f;<span class="comment">// 流量</span></span><br><span class="line">    <span class="keyword">int</span> back;<span class="comment">// 反向边编号</span></span><br><span class="line"></span><br><span class="line">    path() &#123;</span><br><span class="line">      f = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> T, n, m;</span><br><span class="line"><span class="keyword">int</span> path_num;</span><br><span class="line"><span class="keyword">int</span> s, t;</span><br><span class="line"><span class="keyword">int</span> level[MAXN];<span class="comment">// 分层</span></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; near[MAXN];<span class="comment">// 邻接表</span></span><br><span class="line">path paths[MAXM];<span class="comment">// 所有edge</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_path</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> c)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 正向边</span></span><br><span class="line">  paths[path_num].u = u;</span><br><span class="line">  paths[path_num].v = v;</span><br><span class="line">  paths[path_num].c = c;</span><br><span class="line">  paths[path_num].f = <span class="number">0</span>;</span><br><span class="line">  paths[path_num].back = path_num + <span class="number">1</span>;</span><br><span class="line">  near[u].push_back(path_num);</span><br><span class="line">  path_num ++;</span><br><span class="line">  <span class="comment">// 反向边</span></span><br><span class="line">  paths[path_num].u = v;</span><br><span class="line">  paths[path_num].v = u;</span><br><span class="line">  paths[path_num].c = <span class="number">0</span>;</span><br><span class="line">  paths[path_num].f = <span class="number">0</span>;</span><br><span class="line">  paths[path_num].back = path_num - <span class="number">1</span>;</span><br><span class="line">  near[v].push_back(path_num);</span><br><span class="line">  path_num ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> flow)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (x == t) <span class="keyword">return</span> flow;</span><br><span class="line">  <span class="keyword">int</span> total_flow = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; near[x].size(); i ++) &#123;</span><br><span class="line">    <span class="keyword">int</span> forward = near[x][i];</span><br><span class="line">    <span class="keyword">int</span> v = paths[forward].v;</span><br><span class="line">    <span class="keyword">int</span> w = paths[forward].c - paths[forward].f;</span><br><span class="line">    <span class="keyword">if</span> (w &gt; <span class="number">0</span> &amp;&amp; level[v] == level[x] + <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span> extend = dfs(v, my_min(w, flow - total_flow));</span><br><span class="line">      <span class="keyword">if</span> (extend &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> backward = paths[forward].back;</span><br><span class="line">        paths[forward].f += extend;</span><br><span class="line">        paths[backward].f -= extend;</span><br><span class="line">        total_flow += extend;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total_flow;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; que;</span><br><span class="line">  <span class="built_in">memset</span>(level, <span class="number">0</span>, <span class="keyword">sizeof</span>(level));</span><br><span class="line">  que.push(s);</span><br><span class="line">  level[s] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (que.empty() == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> u = que.front();</span><br><span class="line">    que.pop();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; near[u].size(); i ++) &#123;</span><br><span class="line">      <span class="keyword">int</span> forward = near[u][i];</span><br><span class="line">      <span class="keyword">int</span> v = paths[forward].v;</span><br><span class="line">      <span class="keyword">int</span> w = paths[forward].c - paths[forward].f;</span><br><span class="line">      <span class="keyword">if</span> (w &gt; <span class="number">0</span> &amp;&amp; level[v] == <span class="number">0</span>) &#123;</span><br><span class="line">        level[v] = level[u] + <span class="number">1</span>;</span><br><span class="line">        que.push(v);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> level[t];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dinic</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (bfs() == <span class="number">0</span>) <span class="keyword">break</span>;<span class="comment">// 没有增广路</span></span><br><span class="line">    ans += dfs(s, INF);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="匹配算法"><a href="#匹配算法" class="headerlink" title="匹配算法"></a>匹配算法</h1><h2 id="最大匹配-匈牙利算法"><a href="#最大匹配-匈牙利算法" class="headerlink" title="最大匹配:匈牙利算法"></a>最大匹配:匈牙利算法</h2><p>时间复杂度$O(VE)$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; x_near[];<span class="comment">// x的邻接表</span></span><br><span class="line"><span class="keyword">int</span> y_match[];<span class="comment">// y的配对记录</span></span><br><span class="line"><span class="keyword">int</span> y_visit[];<span class="comment">// 用于dfs的标记</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">match</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i ++) &#123;<span class="comment">// n为x个数</span></span><br><span class="line">    <span class="built_in">memset</span>(y_visit, <span class="number">0</span>, <span class="keyword">sizeof</span>(y_visit));</span><br><span class="line">    <span class="keyword">if</span> (dfs(i)) &#123;</span><br><span class="line">      ans ++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x_near[x].size(); i ++) &#123;</span><br><span class="line">    <span class="keyword">int</span> index = x_near[x][i];</span><br><span class="line">    <span class="keyword">if</span> (y_visit[index] == <span class="number">0</span>) &#123;<span class="comment">// 没有被dfs过的y</span></span><br><span class="line">      y_visit[index] = <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (y_match[index] == <span class="number">-1</span> || dfs(y_match[index])) &#123;</span><br><span class="line">        <span class="comment">// 如果 (没有配对 || 已经配对的能够增广)</span></span><br><span class="line">        y_match[index] = x;<span class="comment">// 为x找到新的配对</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<embed src="/pdf/match.pdf#zoom=100&scrollbar=0&toolbar=0" class="tikz_sample">
+
+<h2 id="最优匹配-KM算法"><a href="#最优匹配-KM算法" class="headerlink" title="最优匹配:KM算法"></a>最优匹配:KM算法</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> n;<span class="comment">// 总数</span></span><br><span class="line"><span class="keyword">int</span> x_ex[MAXN];<span class="comment">// x的期望</span></span><br><span class="line"><span class="keyword">int</span> y_ex[MAXN];<span class="comment">// y的期望</span></span><br><span class="line"><span class="keyword">int</span> x_visit[MAXN];<span class="comment">// 每轮配对时x的标记</span></span><br><span class="line"><span class="keyword">int</span> y_visit[MAXN];<span class="comment">// 每轮配对时y的标记</span></span><br><span class="line"><span class="keyword">int</span> y_match[MAXN];<span class="comment">// 与y配对的x</span></span><br><span class="line"><span class="keyword">int</span> y_slack[MAXN];<span class="comment">// 每轮遍历x改变的期望</span></span><br><span class="line"><span class="keyword">int</span> near[MAXN][MAXN];<span class="comment">// 邻接矩阵</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KM</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">  assert(x &gt; <span class="number">0</span>);</span><br><span class="line">  x_visit[x] = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (y_visit[i] == <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span> gap = x_ex[x] + y_ex[i] - near[x][i];<span class="comment">// 两者的期望和与实际值之差</span></span><br><span class="line">      <span class="keyword">if</span> (gap == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 符合要求</span></span><br><span class="line">        y_visit[i] = <span class="number">1</span>;<span class="comment">// TODO</span></span><br><span class="line">        <span class="keyword">if</span> (y_match[i] == <span class="number">0</span> || dfs(y_match[i])) &#123;</span><br><span class="line">          <span class="comment">// 没有匹配 || 可以增广</span></span><br><span class="line">          y_match[i] = x;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        y_slack[i] = my_min(y_slack[i], gap);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">KM</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">memset</span>(x_ex, <span class="number">0</span>, <span class="keyword">sizeof</span>(x_ex));</span><br><span class="line">  <span class="built_in">memset</span>(y_ex, <span class="number">0</span>, <span class="keyword">sizeof</span>(y_ex));<span class="comment">// 无期望</span></span><br><span class="line">  <span class="built_in">memset</span>(y_match, <span class="number">0</span>, <span class="keyword">sizeof</span>(y_match));<span class="comment">// 无配对</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 最大化x期望</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">      x_ex[i] = my_max(x_ex[i], near[i][j]);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 为每个x进行匹配</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;<span class="comment">// 初始期望为无穷</span></span><br><span class="line">      y_slack[j] = INF;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;<span class="comment">// 直到找到配对为止</span></span><br><span class="line">      <span class="built_in">memset</span>(x_visit, <span class="number">0</span>, <span class="keyword">sizeof</span>(x_visit));</span><br><span class="line">      <span class="built_in">memset</span>(y_visit, <span class="number">0</span>, <span class="keyword">sizeof</span>(y_visit));</span><br><span class="line"></span><br><span class="line">      <span class="keyword">int</span> extend = dfs(i);</span><br><span class="line">      <span class="keyword">if</span> (extend == <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 找出最小的slack</span></span><br><span class="line">      <span class="keyword">int</span> min_slack = INF;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (y_visit[j] == <span class="number">0</span>) &#123;<span class="comment">// 不符合要求的y(交错树之外)</span></span><br><span class="line">          min_slack = my_min(min_slack, y_slack[j]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 调整x, y的期望</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j ++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (x_visit[j] == <span class="number">1</span>) &#123;</span><br><span class="line">          x_ex[j] -= min_slack;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (y_visit[j] == <span class="number">1</span>) &#123;</span><br><span class="line">          y_ex[j] += min_slack;</span><br><span class="line">        &#125; </span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 计算和</span></span><br><span class="line">  <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;</span><br><span class="line">    ans += near[y_match[i]][i];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<embed src="/pdf/KM.pdf#zoom=100&scrollbar=0&toolbar=0" class="tikz_sample">
+
+<h1 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h1><h2 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kmp</span><span class="params">()</span> </span>&#123;<span class="comment">// a[1], b[1]为起始项</span></span><br><span class="line">  <span class="comment">// 计算前缀表</span></span><br><span class="line">  p_len = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= m; i ++) &#123;<span class="comment">// 注意初始赋值</span></span><br><span class="line">    <span class="keyword">while</span> (p_len &amp;&amp; b[p_len + <span class="number">1</span>] != b[i]) &#123;</span><br><span class="line">      p_len = kmp[p_len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (b[p_len + <span class="number">1</span>] == b[i]) &#123;</span><br><span class="line">      p_len ++;</span><br><span class="line">      kmp[i] = p_len;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 进行匹配</span></span><br><span class="line">  p_len = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;<span class="comment">// 注意初始赋值</span></span><br><span class="line">    <span class="keyword">while</span> (p_len &amp;&amp; b[p_len + <span class="number">1</span>] != a[i]) &#123;</span><br><span class="line">      p_len = kmp[p_len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (b[p_len + <span class="number">1</span>] == a[i]) &#123;</span><br><span class="line">      p_len ++;</span><br><span class="line">      <span class="keyword">if</span> (p_len == m) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, i - p_len + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1015 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/android-studio/">android studio</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/android/">android</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/adb/">adb</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/java/">java</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">Android开发笔记</span>
+  <br>
+  <span class="post_date">2019-09-04</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="Music开发笔记"><a href="#Music开发笔记" class="headerlink" title="Music开发笔记"></a><code>Music</code>开发笔记</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youxun1312/article/details/80356060">CSDN:实例</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/HDK2016/p/8043247.html">cnblogs:其他几种方式</a></p>
+<h2 id="音乐进度"><a href="#音乐进度" class="headerlink" title="音乐进度"></a>音乐进度</h2><h3 id="MediaPlayer"><a href="#MediaPlayer" class="headerlink" title="MediaPlayer"></a><code>MediaPlayer</code></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4bd3d91c7813">MediaPlayer参数–简书</a></p>
+<h3 id="时长"><a href="#时长" class="headerlink" title="时长"></a>时长</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aree/article/details/19078445">CSDN:数字格式化</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">total_time = MainPlayer.player.getDuration();</span><br><span class="line">SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;mm:ss&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// TODO 更新总时长</span></span><br><span class="line">tmp = <span class="keyword">new</span> Date(total_time);</span><br><span class="line">formatTime = format.format(tmp);</span><br><span class="line">MainPlayer.totalTime.setText(formatTime);</span><br></pre></td></tr></table></figure>
+
+<h3 id="进度条"><a href="#进度条" class="headerlink" title="进度条"></a>进度条</h3><h2 id="媒体信号"><a href="#媒体信号" class="headerlink" title="媒体信号"></a>媒体信号</h2><ul>
+<li>蓝牙</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_25827845/article/details/52997523">CSDN:配对全过程</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010005281/article/details/79550492">CSDN:简易</a></p>
+<ul>
+<li>有线耳机</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ITxiaobing123/article/details/70740316">CSDN</a></p>
+<ol>
+<li>创建一个继承<code>BroadcastReceiver</code>的类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MediaReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;<span class="comment">// 重载方法</span></span><br><span class="line">    String action = intent.getAction();</span><br><span class="line">    <span class="keyword">if</span> (action != <span class="keyword">null</span>) &#123;</span><br><span class="line">      MainPlayer.infoLog(<span class="string">&quot;action: &quot;</span> + action);<span class="comment">// TODO debug</span></span><br><span class="line">      <span class="keyword">switch</span> (action) &#123;</span><br><span class="line">        <span class="comment">// 有线耳机状态改变</span></span><br><span class="line">        <span class="keyword">case</span> Intent.ACTION_HEADSET_PLUG:</span><br><span class="line">          <span class="keyword">int</span> mediaState = intent.getIntExtra(<span class="string">&quot;state&quot;</span>, <span class="number">0</span>);<span class="comment">// 判断插拔</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 蓝牙连接状态改变</span></span><br><span class="line">        <span class="keyword">case</span> BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED:<span class="comment">// 安卓端主动改变蓝牙状态</span></span><br><span class="line">          <span class="keyword">int</span> bluetoothState = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, <span class="number">0</span>);<span class="comment">// 获取蓝牙状态</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">// 接收蓝牙/媒体按键信号</span></span><br><span class="line">        <span class="keyword">case</span> Intent.ACTION_MEDIA_BUTTON:</span><br><span class="line">          KeyEvent keyEvent = (KeyEvent) intent.getParcelableExtra(Intent.EXTRA_KEY_EVENT);<span class="comment">// 获取键码</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// receiver注册函数</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerReceiver</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">    AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);</span><br><span class="line">    ComponentName name = <span class="keyword">new</span> ComponentName(context.getPackageName(), MediaReceiver.class.getName());</span><br><span class="line">    audioManager.registerMediaButtonEventReceiver(name);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">unregisterReceiver</span><span class="params">(Context context)</span></span>&#123;</span><br><span class="line">    AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);</span><br><span class="line">    ComponentName name = <span class="keyword">new</span> ComponentName(context.getPackageName(), MediaReceiver.class.getName());</span><br><span class="line">    audioManager.unregisterMediaButtonEventReceiver(name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意点:</p>
+<ul>
+<li>注册函数的函数名随意,可以在<code>onCreate</code>或<code>onResume</code>等函数中调用注册函数</li>
+<li><code>BroadcastReceiver</code>子类必须要有无参的构造方法,否则会直接崩溃</li>
+</ul>
+<ol start="2">
+<li>修改<code>AndroidManifest.xml</code></li>
+</ol>
+<p>父节点为<code>application</code>,<code>android:name</code>要和<code>BroadcastReceiver</code>的子类名相同,<code>priority</code>可以不要</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">&quot;.MediaReceiver&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">intent-filter</span> <span class="attr">android:priority</span>=<span class="string">&quot;1000&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">&quot;android.intent.action.MEDIA_BUTTON&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">action</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>初始化<code>MediaReceiver</code></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();<span class="comment">// 获取蓝牙适配器</span></span><br><span class="line">receiver = <span class="keyword">new</span> MediaReceiver(<span class="keyword">this</span>);<span class="comment">// 接收蓝牙信号</span></span><br><span class="line"></span><br><span class="line">IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</span><br><span class="line"></span><br><span class="line">intentFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);<span class="comment">// 监视蓝牙设备与APP连接的状态</span></span><br><span class="line">intentFilter.addAction(BluetoothDevice.ACTION_ACL_DISCONNECTED);</span><br><span class="line">intentFilter.addAction(BluetoothDevice.ACTION_ACL_CONNECTED);</span><br><span class="line">intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);<span class="comment">// 监听有线耳机的插拔</span></span><br><span class="line">intentFilter.addAction(Intent.ACTION_MEDIA_BUTTON);<span class="comment">// TODO</span></span><br><span class="line"></span><br><span class="line">registerReceiver(<span class="keyword">this</span>.receiver, intentFilter);<span class="comment">// 注册广播</span></span><br><span class="line">receiver.registerReceiver(<span class="keyword">this</span>);<span class="comment">// 初始化广播</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="adb"><a href="#adb" class="headerlink" title="adb"></a>adb</h2><p>华为手机配置adb:<code>*#*#2846579#*#*</code>-&gt;<code>后台设置</code>-&gt;<code>usb端口设置</code>-&gt;<code>生产模式</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adb devices</span><br><span class="line">adb tcpip 5555</span><br><span class="line"><span class="comment"># 拔掉数据线</span></span><br><span class="line">adb connect 手机ip</span><br></pre></td></tr></table></figure>
+
+<p>若安卓设备显示<code>offline</code>,可能是由于<code>adb</code>版本过低</p>
+<h2 id="蓝牙连接管理"><a href="#蓝牙连接管理" class="headerlink" title="蓝牙连接管理"></a>蓝牙连接管理</h2><p>无需在<code>AndroidManifest</code>里注册</p>
+<h3 id="蓝牙连接"><a href="#蓝牙连接" class="headerlink" title="蓝牙连接"></a>蓝牙连接</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Method createBond = device.getClass().getMethod(<span class="string">&quot;createBond&quot;</span>);</span><br><span class="line">            createBond.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            result = (Boolean) createBond.invoke(device);</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>注意区分已经配对的设备</li>
+<li><strong>特殊的蓝牙设备仍未解决</strong></li>
+</ol>
+<h2 id="状态栏部件"><a href="#状态栏部件" class="headerlink" title="状态栏部件"></a>状态栏部件</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/92afa56aee05">简书:notification channel</a></p>
+<p>可使用<code>NotificationCompat</code>或<code>Notification</code>,注意常量取值</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">NotificationManager notificationManager = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.O) &#123;</span><br><span class="line">  notificationManager  = getSystemService(NotificationManager.class);</span><br><span class="line">  CharSequence name = <span class="string">&quot;fuck&quot;</span>;<span class="comment">// 通知渠道名称</span></span><br><span class="line">  String description = <span class="string">&quot;shit&quot;</span>;</span><br><span class="line">  String id = <span class="string">&quot;111&quot;</span>;</span><br><span class="line">  NotificationChannel channel = <span class="keyword">new</span> NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH);</span><br><span class="line">  channel.setDescription(description);</span><br><span class="line">  notificationManager.createNotificationChannel(channel);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>, id)</span><br><span class="line">  .setSmallIcon(R.drawable.ic_launcher_background)</span><br><span class="line">  <span class="comment">// .setPriority(NotificationCompat.PRIORITY_MAX)</span></span><br><span class="line">  .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);</span><br></pre></td></tr></table></figure>
+
+<h3 id="显示"><a href="#显示" class="headerlink" title="显示"></a>显示</h3><ol>
+<li><p>首先保证系统更新并能够支持notification category</p>
+</li>
+<li><p>保证给应用程序提供锁屏通知权限</p>
+</li>
+</ol>
+<h4 id="startForeground"><a href="#startForeground" class="headerlink" title="startForeground"></a><code>startForeground</code></h4><p>常驻通知栏</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i ++) &#123;</span><br><span class="line">  stopForeground(<span class="keyword">true</span>);</span><br><span class="line">  Thread.sleep(<span class="number">500</span>);</span><br><span class="line">  startForeground(<span class="number">10</span>, builder.build());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>在<code>mainifest</code>节点下增加权限</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">&quot;android.permission.FOREGROUND_SERVICE&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除通知不要使用<code>deleteNotificationChannel</code>,否则无法控制音效/震动,使用<code>stopForeground</code></p>
+</li>
+</ol>
+<h4 id="notify"><a href="#notify" class="headerlink" title="notify"></a><code>notify</code></h4><p>可以被作为通知清除</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for (int i &#x3D; 0; i &lt; 10; i ++) &#123;</span><br><span class="line">  notificationManager.cancel(0);</span><br><span class="line">  Thread.sleep(500);</span><br><span class="line">  notificationManager.notify(0, builder.build());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意<code>channel</code>的<code>id</code>和<code>Builder</code>的<code>id</code>要一致</p>
+<h3 id="通信"><a href="#通信" class="headerlink" title="通信"></a>通信</h3><ol>
+<li>注意不同<code>intent</code>要使用不同的<code>requestCode</code></li>
+<li>切换到<code>MainActivity</code>,<code>MainActivity</code>要使用<code>singleTask</code><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MusicList.class);</span><br><span class="line">remoteViews.setOnClickPendingIntent(R.id.button_open, PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">6</span>, intent, <span class="number">0</span>));</span><br></pre></td></tr></table></figure></li>
+<li>使用空<code>pendingIntent</code>来防止点击通知会消失</li>
+</ol>
+<h3 id="锁屏通知"><a href="#锁屏通知" class="headerlink" title="锁屏通知"></a>锁屏通知</h3><p>只能够从系统中手动打开权限</p>
+<table>
+<thead>
+<tr>
+<th align="center">事件</th>
+<th align="center"><code>intent</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">亮屏</td>
+<td align="center"><code>Intent.ACTION_SCREEN_ON</code></td>
+</tr>
+<tr>
+<td align="center">关屏</td>
+<td align="center"><code>Intent.ACTION_SCREEN_OFF</code></td>
+</tr>
+<tr>
+<td align="center">解锁</td>
+<td align="center"><code>Intent.ACTION_USER_PRESENT</code></td>
+</tr>
+</tbody></table>
+<h2 id="桌面部件"><a href="#桌面部件" class="headerlink" title="桌面部件"></a>桌面部件</h2><p>在进程完全被杀死后通过<code>widget</code>启动app</p>
+<ol>
+<li><code>PendingIntent.getActivity()</code>/<code>startActivity()</code></li>
+<li><code>PendingIntent.getForegroundService()</code>/<code>startForegroundService()</code>,不要使用<code>Service</code></li>
+</ol>
+<h1 id="Editor开发笔记"><a href="#Editor开发笔记" class="headerlink" title="Editor开发笔记"></a><code>Editor</code>开发笔记</h1><h2 id="获取读写权限"><a href="#获取读写权限" class="headerlink" title="获取读写权限"></a>获取读写权限</h2><h3 id="AndroidManifest"><a href="#AndroidManifest" class="headerlink" title="AndroidManifest"></a><code>AndroidManifest</code></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;!-- manifest节点下  --&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span>/&gt;</span><br><span class="line">&lt;uses-permission android:name=<span class="string">&quot;android.permission.READ_EXTERNAL_STORAGE&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a><code>Activity</code></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String permission = <span class="string">&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;</span>;</span><br><span class="line"><span class="keyword">int</span> check_result = ActivityCompat.checkSelfPermission(<span class="keyword">this</span>, permission);<span class="comment">// `允许`返回0,`拒绝`返回-1</span></span><br><span class="line"><span class="keyword">if</span> (check_result != PackageManager.PERMISSION_GRANTED) &#123;<span class="comment">// 没有`写`权限</span></span><br><span class="line">  ActivityCompat.requestPermissions(<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;permission&#125;, <span class="number">1</span>);<span class="comment">// 获取`写`权限</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="关联文件类型"><a href="#关联文件类型" class="headerlink" title="关联文件类型"></a>关联文件类型</h2><h3 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;intent-filter android:scheme=<span class="string">&quot;http&quot;</span></span><br><span class="line">  tools:ignore=<span class="string">&quot;AppLinkUrlError&quot;</span>&gt;</span><br><span class="line">  &lt;action android:name=<span class="string">&quot;android.intent.action.VIEW&quot;</span>/&gt;</span><br><span class="line">  &lt;category android:name=<span class="string">&quot;android.intent.category.DEFAULT&quot;</span>/&gt;</span><br><span class="line">  &lt;data android:mimeType=<span class="string">&quot;text/*&quot;</span>/&gt;</span><br><span class="line">&lt;/intent-filter&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改默认Toast"><a href="#修改默认Toast" class="headerlink" title="修改默认Toast"></a>修改默认<code>Toast</code></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">(Context context, String log)</span> </span>&#123;</span><br><span class="line">  Toast toast =  Toast.makeText(context, log, Toast.LENGTH_SHORT);</span><br><span class="line">  View view = toast.getView();</span><br><span class="line">  view.setBackgroundResource(R.drawable.toast);</span><br><span class="line">  TextView textView = view.findViewById(android.R.id.message);</span><br><span class="line">  textView.setTextColor(Color.rgb(<span class="number">0xff</span>, <span class="number">0xff</span>, <span class="number">0xff</span>));</span><br><span class="line">  toast.show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="由外部打开文件"><a href="#由外部打开文件" class="headerlink" title="由外部打开文件"></a>由外部打开文件</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = getIntent();</span><br><span class="line">String action = intent.getAction();<span class="comment">// 判断本activity启动的方式</span></span><br><span class="line"><span class="keyword">if</span> (action.equals(<span class="string">&quot;android.intent.action.VIEW&quot;</span>)) &#123;<span class="comment">// 由其他软件打开本软件</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制activity数目"><a href="#控制activity数目" class="headerlink" title="控制activity数目"></a>控制<code>activity</code>数目</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">&quot;.Editor&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:launchMode</span>=<span class="string">&quot;singleTask&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="获取根view"><a href="#获取根view" class="headerlink" title="获取根view"></a>获取根<code>view</code></h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">View view = getWindow().getDecorView().findViewById(android.R.id.content);</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据保存"><a href="#数据保存" class="headerlink" title="数据保存"></a>数据保存</h2><h3 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a><code>SharedPreferences</code></h3><p><code>SharedPreferences</code>:基于xml的键值对,存储于<code>/data/data/应用程序包/shared_prefs</code></p>
+<h2 id="提示框-窗口"><a href="#提示框-窗口" class="headerlink" title="提示框/窗口"></a>提示框/窗口</h2><h3 id="Dialog"><a href="#Dialog" class="headerlink" title="Dialog"></a><code>Dialog</code></h3><p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/122510.htm">参考</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">  setContentView(R.layout.save_layout);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化`保存`按钮</span></span><br><span class="line">  yes.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;<span class="comment">//</span></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化`取消`按钮</span></span><br><span class="line">  cancel.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化`删除`按钮</span></span><br><span class="line">  no.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initButton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 初始化按钮</span></span><br><span class="line">  yes = findViewById(R.id.yes_button);</span><br><span class="line">  cancel = findViewById(R.id.cancel_button);</span><br><span class="line">  no = findViewById(R.id.no_button);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">myWindow = <span class="keyword">new</span> MyWindow(MainActivity.<span class="keyword">this</span>, R.style.save_style);</span><br><span class="line">myWindow.setCanceledOnTouchOutside(<span class="keyword">false</span>);</span><br><span class="line">myWindow.setOnDismissListener(<span class="keyword">new</span> DialogInterface.OnDismissListener() &#123;</span><br><span class="line">&#125;);</span><br><span class="line">myWindow.show();<span class="comment">// TODO 获取点击结果</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="PopupWindow"><a href="#PopupWindow" class="headerlink" title="PopupWindow"></a><code>PopupWindow</code></h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWindow</span> <span class="keyword">extends</span> <span class="title">PopupWindow</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> Button yes;</span><br><span class="line">  <span class="keyword">public</span> Button cancel;</span><br><span class="line">  <span class="keyword">public</span> Button no;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">int</span> result;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">MyWindow</span><span class="params">(Context context, View view)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>(context);</span><br><span class="line">    <span class="keyword">this</span>.setContentView(LayoutInflater.from(context).inflate(R.layout.manager_layout, <span class="keyword">null</span>));</span><br><span class="line">    <span class="comment">// this.setOutsideTouchable(false);</span></span><br><span class="line">    <span class="keyword">this</span>.setFocusable(<span class="keyword">true</span>);<span class="comment">// 否则无法进行edittext输入</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.showAsDropDown(view);</span><br><span class="line">    <span class="keyword">this</span>.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);</span><br><span class="line">    <span class="keyword">this</span>.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>响应键盘:<code>this.setFocusable(true);</code>,否则无法进行EditText输入</li>
+</ul>
+<h3 id="DialogFragment"><a href="#DialogFragment" class="headerlink" title="DialogFragment"></a><code>DialogFragment</code></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0861ee5b9028">参考</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyWindow</span> <span class="keyword">extends</span> <span class="title">DialogFragment</span> </span>&#123;</span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">      View view = inflater.inflate(R.layout.manager_layout, container);</span><br><span class="line">      getDialog().getWindow().setBackgroundDrawable(<span class="keyword">new</span> ColorDrawable(<span class="number">0x00000000</span>));</span><br><span class="line">      <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">      setStyle(STYLE_NO_FRAME, android.R.style.Theme);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">myWindow = <span class="keyword">new</span> MyWindow();</span><br><span class="line">myWindow.show(getSupportFragmentManager(), <span class="string">&quot;edit&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h1 id="全景相机开发笔记"><a href="#全景相机开发笔记" class="headerlink" title="全景相机开发笔记"></a>全景相机开发笔记</h1><h2 id="自定义相机界面"><a href="#自定义相机界面" class="headerlink" title="自定义相机界面"></a>自定义相机界面</h2><hr>
+<h2 id="过期内容"><a href="#过期内容" class="headerlink" title="过期内容"></a>过期内容</h2><h3 id="调用系统文件浏览器"><a href="#调用系统文件浏览器" class="headerlink" title="调用系统文件浏览器"></a>调用系统文件浏览器</h3><h4 id="1-绑定点击事件"><a href="#1-绑定点击事件" class="headerlink" title="1.绑定点击事件"></a>1.绑定点击事件</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">intent.setType(<span class="string">&quot;*/*&quot;</span>);<span class="comment">// 所有类型文件</span></span><br><span class="line">intent.addCategory(Intent.CATEGORY_OPENABLE);</span><br><span class="line">startActivityForResult(intent, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-根据requestCode接收数据"><a href="#2-根据requestCode接收数据" class="headerlink" title="2.根据requestCode接收数据"></a>2.根据<code>requestCode</code>接收数据</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">    <span class="keyword">if</span> (requestCode == <span class="number">1</span>) &#123;<span class="comment">// `打开`按钮</span></span><br><span class="line">        ...</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>Intent.ACTION_GET_CONTENT</code>:用于调用系统程序,比如一个打开一个文件的时候会提示你用哪个软件打开</p>
+</li>
+<li><p><code>Intent.setType()</code>:设置默认打开格式,如<code>&quot;video/*&quot;</code>,<code>&quot;audio/amr&quot;</code></p>
+</li>
+</ol>
+<h3 id="调用相册"><a href="#调用相册" class="headerlink" title="调用相册"></a>调用相册</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_PICK);<span class="comment">//intent  action属性</span></span><br><span class="line">intent.setType(<span class="string">&quot;image/*&quot;</span>);</span><br><span class="line">startActivityForResult(intent, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="通用框架修改"><a href="#通用框架修改" class="headerlink" title="通用框架修改"></a>通用框架修改</h2><h3 id="drawable"><a href="#drawable" class="headerlink" title="drawable"></a><code>drawable</code></h3><p>添加<code>button</code>和<code>dialog</code></p>
+<h3 id="values"><a href="#values" class="headerlink" title="values"></a><code>values</code></h3><p>删掉<code>styles</code>,修改<code>colors</code>,添加<code>styles_button</code>(按钮)和<code>styles_tab</code>(工具栏)</p>
+<h3 id="manifests"><a href="#manifests" class="headerlink" title="manifests"></a><code>manifests</code></h3><p>增加权限,删除<code>label</code>,增加<code>android:launchMode=&quot;singleTask&quot;</code></p>
+<h1 id="相机相关"><a href="#相机相关" class="headerlink" title="相机相关"></a>相机相关</h1><ul>
+<li><code>FileProvider</code><a target="_blank" rel="noopener" href="https://www.cnblogs.com/loaderman/p/12107057.html">cnblogs</a></li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

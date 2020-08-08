@@ -1,0 +1,1139 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/">概率论与数理统计</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '2';// 全局变量,latex公式渲染方式
+</script>
+
+
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+<script>
+  console.log("katex rendering");
+  // 删除<p>内部换行,使katex正确渲染
+  $(document).ready(setTimeout(function()
+  {
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
+      });
+    }
+
+    // 渲染latex公式
+    renderMathInElement(document.body,
+    {
+      // ...options...
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+        // { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+
+    // 删除latex公式里面的回车
+    var all_katex = document.querySelectorAll(".katex");
+    all_katex.forEach(function(temp_p) {
+      temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "");
+    });
+
+    // 恢复回车
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
+      });
+    }
+  }, 500));// 删除元素不能进行得太早,不然会和highlight的dfs冲突
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">概率论与数理统计</span>
+  <br>
+  <span class="post_date">2019-03-09</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="定理1-1-全概率公式"><a href="#定理1-1-全概率公式" class="headerlink" title="定理1.1 全概率公式"></a>定理1.1 全概率公式</h2><blockquote>
+<p>deleted</p>
+</blockquote>
+<h2 id="定理1-2-贝叶斯公式"><a href="#定理1-2-贝叶斯公式" class="headerlink" title="定理1.2 贝叶斯公式"></a>定理1.2 贝叶斯公式</h2><blockquote>
+<p>deleted</p>
+</blockquote>
+<h2 id="定理1-6-泊松定理"><a href="#定理1-6-泊松定理" class="headerlink" title="定理1.6 泊松定理"></a>定理1.6 <strong>泊松定理</strong></h2><p>设$n$为正整数,$\lambda=np_n$为常数,则对任意正整数$k$有<br>$$ \lim_{n\to\infty}C_n^kp_n^k(1-p_n)^{n-k}=\dfrac{\lambda^k}{k!}e^{-\lambda} $$</p>
+<h1 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h1><h2 id="分布函数-F-x-的基本性质"><a href="#分布函数-F-x-的基本性质" class="headerlink" title="分布函数$F(x)$的基本性质"></a>分布函数$F(x)$的<strong>基本性质</strong></h2><ol>
+<li>$F(x_2)\ge F(x_1)$</li>
+<li>$F(-\infty)=0,F(+\infty)=1$</li>
+<li>右连续</li>
+</ol>
+<h2 id="常见离散型随机变量"><a href="#常见离散型随机变量" class="headerlink" title="常见离散型随机变量"></a>常见离散型随机变量</h2><ul>
+<li>0-1分布</li>
+</ul>
+<p>如果随机试验$E$只有两个结果:$A$与$\bar{A}$,则称$E$为<strong>贝努利试验</strong></p>
+<ul>
+<li>二项分布</li>
+</ul>
+<p>设$n$重贝努利试验中$A$发生的次数为$X$,则$X$服从二项分布</p>
+<ul>
+<li>泊松分布,$X\sim P(\lambda)$</li>
+</ul>
+<p>$$p_k=P(X=k)=\dfrac{\lambda^k}{k!}e^{-\lambda},k=0,1,2…$$<br>其中$\lambda &gt; 0$为常数</p>
+<p>若随机变量$X\sim B(n,p)$,则当$n$充分大,$p$充分小时,令$\lambda=np$,则有<br>$$ P(X=k)=C^k_np^k(1-p)^{n-k}\approx\dfrac{\lambda^k}{k!}e^{-\lambda} $$</p>
+<ul>
+<li>几何分布,$g(p)$</li>
+</ul>
+<p>$$p_k=P(X=k)=(1-p)^{k-1}p,k=1,2…$$</p>
+<p>在贝努利试验中$P(A)=p,P(\bar{A})=1-p$,试验进行到$A$首次出现为止</p>
+<p>令$X$表示所需试验次数,则$X$服从参数为$p$的几何分布</p>
+<p><strong>无记忆性</strong>:$P(X=s+t|X &gt; t) = P(X=s)$</p>
+<ul>
+<li><em>超几何分布</em></li>
+</ul>
+<p><em>一批产品有$N$件,其中$M$件次品,其余为正品<br>令$X$为取出$n$件产品中的次品数,$X$服从超几何分布</em></p>
+<h2 id="连续型随机变量-密度函数-p-x-的基本性质"><a href="#连续型随机变量-密度函数-p-x-的基本性质" class="headerlink" title="(连续型随机变量)密度函数$p(x)$的基本性质"></a>(连续型随机变量)密度函数$p(x)$的基本性质</h2><ol>
+<li>$p(x)\ge0$</li>
+<li>$\int_{-\infty}^{+\infty}p(x)dx=1$</li>
+</ol>
+<h2 id="常见连续型随机变量"><a href="#常见连续型随机变量" class="headerlink" title="常见连续型随机变量"></a>常见连续型随机变量</h2><ul>
+<li><p>均匀分布,$U[a,b]$</p>
+</li>
+<li><p>指数分布,$X\sim E(\lambda)$</p>
+</li>
+</ul>
+<p>$$p(x)=\begin{cases}<br>\lambda e^{-\lambda x}&amp;x\ge0\\<br>0&amp;x &lt; 0<br>\end{cases}$$<br>其中$\lambda &gt; 0$为常数</p>
+<p>$X$的分布函数为<br>$$<br>F(x)=\begin{cases}<br>1-e^{-\lambda x}&amp;x\ge0\\<br>0&amp;x &lt; 0<br>\end{cases}<br>$$</p>
+<p><strong>无记忆性</strong>:$P(X &gt; s + t|X &gt; s)=P(X &gt; t)$</p>
+<ul>
+<li>正态分布,记为$X\sim N(\mu,\sigma^2)$</li>
+</ul>
+<p>$$p(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}},-\infty &lt; x &lt; \infty$$</p>
+<p><strong>正态分布随机变量的线性函数仍然服从正态分布</strong>:$X\sim N(\mu,\sigma^2)$,则$Y=aX+b\sim N(a\mu+b,(a\sigma)^2)$</p>
+<h2 id="随机变量函数的分布"><a href="#随机变量函数的分布" class="headerlink" title="随机变量函数的分布"></a>随机变量函数的分布</h2><p>$$ F_Y(y)=P(Y\le y)=P(g(X)\le y)=\int_{x:g(x)\le y}p_X(x)dx $$</p>
+<h1 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h1><h2 id="二维分布函数性质"><a href="#二维分布函数性质" class="headerlink" title="二维分布函数性质"></a>二维分布函数性质</h2><ol>
+<li><p>$F(x,y)$分别对每个变量单调不减</p>
+<ul>
+<li>$\forall y,x_2 &gt; x_1,F(x_2,y) &gt; F(x_1,y)$</li>
+<li>$\forall x,y_2 &gt; y_1,F(x,y_2) &gt; F(x,y_1)$</li>
+</ul>
+</li>
+<li><p>$0\le F(x,y)\le1$,且</p>
+<ul>
+<li>$\forall y,F(-\infty,y)=0$</li>
+<li>$\forall x,F(x,-\infty)=0$</li>
+<li>$F(-\infty,-\infty)=0$</li>
+<li>$F(+\infty,+\infty)=1$</li>
+</ul>
+</li>
+<li><p>$F(x,y)$关于每个变量右连续<br>$$F(x,y)=F(x+0,y),F(x,y)=F(x,y+0)$$</p>
+</li>
+<li><p>$F(x_2,y_2)-F(x_2,y_1)-F(x_1,y_2)+F(x_1,y_1)\ge0,(x_2\ge x_1,y_2\ge y_1)$</p>
+</li>
+</ol>
+<h2 id="边缘分布函数-F-X-x-F-Y-y"><a href="#边缘分布函数-F-X-x-F-Y-y" class="headerlink" title="边缘分布函数$F_X(x),F_Y(y)$"></a>边缘分布函数$F_X(x),F_Y(y)$</h2><h2 id="联合密度函数性质"><a href="#联合密度函数性质" class="headerlink" title="联合密度函数性质"></a>联合密度函数性质</h2><ol>
+<li>$p(x,y)\ge0$</li>
+<li>$\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}p(x,y)dxdy=1$</li>
+<li>若$p(x,y)$在点$p(x,y)$连续,则$\dfrac{\partial^2F(x,y)}{\partial x\partial y}=p(x,y)$</li>
+<li>点$(X,Y)$落在$G$内的概率:$P((X,Y)\in G)=\iint_Gp(x,y)dxdy$</li>
+</ol>
+<h2 id="边缘密度-p-X-x-p-Y-y"><a href="#边缘密度-p-X-x-p-Y-y" class="headerlink" title="边缘密度$p_X(x),p_Y(y)$"></a>边缘密度$p_X(x),p_Y(y)$</h2><h2 id="二维随机变量函数的分布"><a href="#二维随机变量函数的分布" class="headerlink" title="二维随机变量函数的分布"></a>二维随机变量函数的分布</h2><h3 id="泊松分布的可加性"><a href="#泊松分布的可加性" class="headerlink" title="泊松分布的可加性"></a>泊松分布的可加性</h3><p>$X,Y$独立,分别服从参数为$\lambda_1,\lambda_2$的泊松分布,则$Z=X+Y$服从参数为$\lambda_1+\lambda_2$的泊松分布</p>
+<p>如果随机变量$X$与$Y$相互独立,且$X\sim N(\mu_1,\sigma_1^2),Y\sim N(\mu_2,\sigma_2^2)$</p>
+<h3 id="随机变量和的分布"><a href="#随机变量和的分布" class="headerlink" title="随机变量和的分布"></a>随机变量和的分布</h3><ul>
+<li>分布函数法</li>
+<li>卷积公式法</li>
+</ul>
+<h3 id="独立正态随机变量线性函数的分布"><a href="#独立正态随机变量线性函数的分布" class="headerlink" title="独立正态随机变量线性函数的分布"></a>独立正态随机变量线性函数的分布</h3><ul>
+<li>$Z=X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$</li>
+<li>$Z=aX+bY\sim N(a\mu_1+b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$</li>
+</ul>
+<p>推广:如果$X_1,X_2…X_n$相互独立,$X_i\sim N(\mu_i,\sigma_i^2)$</p>
+<p>$$Z=a_1X_1+a_2X_2+…+a_nX_n\sim N(\sum_{i=1}^ba_i\mu_i,\sum_{i=1}^na_i^2\sigma_i^2)$$</p>
+<h3 id="极大极小分布"><a href="#极大极小分布" class="headerlink" title="极大极小分布"></a>极大极小分布</h3><ul>
+<li><p>$F_M(z)=P(\max{X,Y}\le z)=P(X\le z,Y\le z)$</p>
+</li>
+<li><p>$F_N(z)=P(\min{X,Y}\le z)=1-P(\min(X,Y)\ge z)=1-P(X &gt; z,Y &gt; z)$</p>
+</li>
+</ul>
+<p>当$X_1,X_2,…,X_n$相互独立且同分布</p>
+<ul>
+<li><p>$F_M(z)=[F(z)]^n$</p>
+</li>
+<li><p>$F_N(z)=1-[1-F(z)]^n$</p>
+</li>
+</ul>
+<h1 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h1><h2 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h2><ul>
+<li><p>$D(X)=E(X-EX)^2=EX^2-(EX)^2$</p>
+</li>
+<li><p>当$X,Y$独立,$D(X\pm Y)=D(X)\pm D(Y)$</p>
+</li>
+<li><p>切比雪夫不等式:对任意$\varepsilon &gt; 0$</p>
+</li>
+</ul>
+<p>$$P(|X-E(X)|\ge\varepsilon)\le\dfrac{D(X)}{\varepsilon^2}$$</p>
+<h2 id="常见分布的期望与方差"><a href="#常见分布的期望与方差" class="headerlink" title="常见分布的期望与方差"></a>常见分布的期望与方差</h2><table>
+<thead>
+<tr>
+<th align="center">记号</th>
+<th align="center">分布</th>
+<th align="center">参数</th>
+<th align="center">数学期望</th>
+<th align="center">方差</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center">0-1分布</td>
+<td align="center">$0 &lt; p &lt; 1$</td>
+<td align="center">$p$</td>
+<td align="center">$p(1-p)$</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"><em>几何分布</em></td>
+<td align="center"><em>$0 &lt; p &lt; 1$</em></td>
+<td align="center"><em>$1/p$</em></td>
+<td align="center"><em>$\dfrac{1-p}{p^2}$</em></td>
+</tr>
+<tr>
+<td align="center">$B(n,p)$</td>
+<td align="center">二项分布</td>
+<td align="center">$n\ge1,0 &lt; p &lt; 1$</td>
+<td align="center">$np$</td>
+<td align="center">$np(1-p)$</td>
+</tr>
+<tr>
+<td align="center">$P(\lambda)$</td>
+<td align="center">泊松分布</td>
+<td align="center">$\lambda &gt; 0$</td>
+<td align="center">$\lambda$</td>
+<td align="center">$\lambda$</td>
+</tr>
+<tr>
+<td align="center">$U(a,b)$</td>
+<td align="center">均匀分布</td>
+<td align="center">$a &lt; b$</td>
+<td align="center">$(a + b)/2$</td>
+<td align="center">$(b-a)^2/12$</td>
+</tr>
+<tr>
+<td align="center">$E(\lambda)$</td>
+<td align="center">指数分布</td>
+<td align="center">$\lambda &gt; 0$</td>
+<td align="center">$1/\lambda$</td>
+<td align="center">$1/\lambda^2$</td>
+</tr>
+<tr>
+<td align="center">$N(\mu,\sigma^2)$</td>
+<td align="center">正态分布</td>
+<td align="center">$\mu\in R,\sigma &gt; 0$</td>
+<td align="center">$\mu$</td>
+<td align="center">$\sigma^2$</td>
+</tr>
+<tr>
+<td align="center">$\chi^2(n)$</td>
+<td align="center">$\chi^2$分布</td>
+<td align="center">$n$</td>
+<td align="center">$n$</td>
+<td align="center">$2n$</td>
+</tr>
+</tbody></table>
+<h2 id="矩"><a href="#矩" class="headerlink" title="矩"></a>矩</h2><ul>
+<li><p><strong>$X$的$k$阶中心矩</strong>:$E(X-EX)^k$</p>
+</li>
+<li><p><strong>$X$的$k$阶原点矩</strong>:$X\sim N(0,1),EX^k=<br>\begin{cases}<br>0 &amp; k\text{为奇数}\\<br>(k-1)!!\quad &amp; k\text{为偶数}\\<br>\end{cases}$</p>
+</li>
+</ul>
+<h2 id="协方差-cov-X-Y"><a href="#协方差-cov-X-Y" class="headerlink" title="协方差,cov$(X,Y)$"></a>协方差,cov$(X,Y)$</h2><p>$$ \text{cov}(X,Y)=E[(X-EX)(Y-EY)]=E(XY)-E(X)E(Y) $$</p>
+<p>$$ D(X\pm Y)=D(X)+D(Y)\pm2\text{cov}(X,Y) $$</p>
+<blockquote>
+<p>其他性质</p>
+</blockquote>
+<h2 id="相关系数-rho-XY-或corr-X-Y"><a href="#相关系数-rho-XY-或corr-X-Y" class="headerlink" title="相关系数,$\rho_{XY}$或corr$(X,Y)$"></a>相关系数,$\rho_{XY}$或corr$(X,Y)$</h2><p>$$ \dfrac{\text{cov}(X,Y)}{\sqrt{D(X)D(Y)}} $$</p>
+<ul>
+<li>$X,Y$不相关的等价条件<ol>
+<li>$\rho(XY)=0$</li>
+<li>$cov(X,Y)=0$</li>
+<li>$E(XY)=E(X)E(Y)$</li>
+<li>$D(X\pm Y)=D(X)\pm D(Y)$</li>
+</ol>
+</li>
+</ul>
+<h1 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h1><h2 id="大数定律"><a href="#大数定律" class="headerlink" title="大数定律"></a>大数定律</h2><p>对任意$\varepsilon &gt; 0$,有<br>$$ \lim_{n\to\infty}\{|\dfrac{1}{n}\sum_{k=1}^nX_k-\dfrac{1}{n}\sum_{k=1}^nEX_k| &lt; \varepsilon\}=1 $$<br>或<br>$$ \lim_{n\to\infty}\{|\dfrac{1}{n}\sum_{k=1}^nX_k-\dfrac{1}{n}\sum_{k=1}^nEX_k|\ge\varepsilon\}=0 $$<br>则称$\{X_n\}$服从<strong>大数定律</strong>,(随机变量的平均值依概率收敛于他们数学期望的平均值)</p>
+<h3 id="马尔科夫大数定律"><a href="#马尔科夫大数定律" class="headerlink" title="马尔科夫大数定律"></a>马尔科夫大数定律</h3><p>设随机变量$\{X_n\}$满足$\dfrac{1}{n^2}D(\sum_{k=1}^nX_k)\to0(n\to\infty)$,则$\{X_n\}$服从大数定律</p>
+<h3 id="切比雪夫大数定律"><a href="#切比雪夫大数定律" class="headerlink" title="切比雪夫大数定律"></a>切比雪夫大数定律</h3><p>设$\{X_n\}$为两两互不相关的随机变量序列,又存在常数$C &gt; 0$,使得对每个随机变量$X_k,D(X_k)\le C$,则$\{X_n\}$服从大数定律</p>
+<h3 id="独立同分布大数定律"><a href="#独立同分布大数定律" class="headerlink" title="独立同分布大数定律"></a>独立同分布大数定律</h3><p>若$\{X_n\}$独立同分布,$EX_n=\mu,D(X_n)=\sigma^2 &lt; \infty$,则$\{X_n\}$服从大数定律,即$\dfrac{1}{n}\sum_{k=1}^{n}X_k\overset{P}{\to}\mu(=EX_k)$ </p>
+<h3 id="Bernoulli大数定律"><a href="#Bernoulli大数定律" class="headerlink" title="Bernoulli大数定律"></a>Bernoulli大数定律</h3><p>设$\mu_n$为$n$重Bernoulli试验中事件$A$发生的次数,$p$为事件$A$在每次试验中发生的概率,则任意的$\varepsilon &gt; 0$<br>$$ \lim_{n\to\infty}P(|\dfrac{\mu_n}{n}-p|\ge\varepsilon)=0 $$</p>
+<h2 id="中心极限定理"><a href="#中心极限定理" class="headerlink" title="中心极限定理"></a>中心极限定理</h2><h3 id="列维-林德伯格中心极限定理-独立同分布的中心极限定理"><a href="#列维-林德伯格中心极限定理-独立同分布的中心极限定理" class="headerlink" title="列维-林德伯格中心极限定理(独立同分布的中心极限定理)"></a>列维-林德伯格中心极限定理(独立同分布的中心极限定理)</h3><p>设$\{X_n\}$独立同分布,$EX_n=\mu,D(X_n)=\sigma^2$都存在,则$\{X_n\}$服从中心极限定理<br>$$ \lim_{n\to\infty}P(\dfrac{\sum_{k=1}^nX_k-n\mu}{\sqrt{n\sigma^2}}\le x)=\dfrac{1}{\sqrt{2\pi}}\int_{-\infty}^{x}e^{-\frac{t^2}{2}}dt=\Phi(x) $$</p>
+<h3 id="贝努利情形的中心极限定理-拉普拉斯中心极限定理"><a href="#贝努利情形的中心极限定理-拉普拉斯中心极限定理" class="headerlink" title="贝努利情形的中心极限定理(拉普拉斯中心极限定理)"></a>贝努利情形的中心极限定理(拉普拉斯中心极限定理)</h3><blockquote>
+<p>TODO</p>
+</blockquote>
+<p>$\mu_n$服从二项分布,则$\mu_n$的极限分布是正态分布</p>
+<h1 id="第六章"><a href="#第六章" class="headerlink" title="第六章"></a>第六章</h1><h2 id="统计量"><a href="#统计量" class="headerlink" title="统计量"></a>统计量</h2><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><ul>
+<li>样本均值<br>$$ \bar{X}=\dfrac{1}{n}\sum_{i=1}^nX_i $$</li>
+<li>样本方差<br>$$ S_n^2=\dfrac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2=\dfrac{1}{n}\sum_{i=1}^nX_i^2-\bar{X}^2 $$</li>
+<li>(修正的)样本方差<br>$$ S_{n-1}^2=\dfrac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2 $$<ul>
+<li>与样本方差的关系<br>$$ \dfrac{S_n}{\sqrt{n-1}}=\dfrac{S_{n-1}}{\sqrt{n}} $$</li>
+</ul>
+</li>
+<li>样本$k$阶(原点)矩</li>
+<li>样本$k$阶中心矩</li>
+</ul>
+<h2 id="chi-2-分布"><a href="#chi-2-分布" class="headerlink" title="$\chi^2$分布"></a>$\chi^2$分布</h2><p>$X_1,X_2…X_n$独立同分布,均$\sim N(0,1)$,称随机变量<br>$$ \chi^2_n=\sum_{i=1}^nX_i^2 $$<br>为服从自由度为$n$的**$\chi^2$分布**,记为$\chi^2_n=\chi^2(n)$</p>
+<ol>
+<li>若$\chi_1^2\sim\chi^2(n_1),\chi_2^n\sim\chi^2(n_2),$且$\chi_1^2$与$\chi_2^2$相互独立,则有$\chi_1^2+\chi_2^2\sim\chi^2(n_1+n_2)$</li>
+<li>若$\chi^2\sim\chi^2(n)$,则$E(\chi^2)=n,D(\chi^2)=2n$</li>
+</ol>
+<h2 id="t-分布"><a href="#t-分布" class="headerlink" title="$t$分布"></a>$t$分布</h2><p>$X\sim N(0,1),Y\sim\chi^2(n)$且$X,Y$相互独立,称随机变量<br>$$ T=\dfrac{X}{\sqrt{Y/n}} $$<br>为服从自由度为$n$的<strong>t分布</strong>,记为$T\sim t(n)$</p>
+<h2 id="F-分布"><a href="#F-分布" class="headerlink" title="$F$分布"></a>$F$分布</h2><p>$U\sim\chi^2(n_1),V\sim\chi^2(n_2)$,且$U,V$相互独立,称随机变量<br>$$ F=\dfrac{U/n_1}{V/n_2} $$<br>为服从自由度为$(n_1,n_2)$的<strong>F分布</strong>,记为$F\sim F(n_1,n_2)$</p>
+<ul>
+<li>若$F\sim F(n_1,n_2)$,则$\dfrac{1}{F}\sim F(n_2,n_1)$</li>
+</ul>
+<h2 id="上-alpha-分位点"><a href="#上-alpha-分位点" class="headerlink" title="上$\alpha$分位点"></a>上$\alpha$分位点</h2><p>对于上$\alpha$分位点$\lambda_\alpha$,$X$服从$N(0,1),\chi^2(n),t(n),F(n_1,n_2)$时分别记为$u_\alpha,\chi^2_\alpha(n),t_\alpha(n),F_\alpha(n_1,n_2)$</p>
+<p>$$ u_{1-\alpha}=-u_{\alpha} $$<br>$$ t_{1-\alpha}(n)=-t_{1-\alpha}(n) $$<br>$$ F_{1-\alpha}(n_1,n_2)=\dfrac{1}{F_\alpha(n_2,n_1)} $$<br>$$ P(\dfrac{1}{F}&gt;\dfrac{1}{F_{1-\alpha}(n_1,n_2)})=\alpha $$</p>
+<h2 id="样本均值的分布"><a href="#样本均值的分布" class="headerlink" title="样本均值的分布"></a>样本均值的分布</h2><p>设$X_1,X_2…X_n$来自正态总体$X\sim N(\mu,\sigma^2)$的样本,则</p>
+<ul>
+<li>$\dfrac{\bar{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$(<em>$\bar{X}\sim N(\mu,\dfrac{\sigma^2}{n})$</em>)</li>
+</ul>
+<h2 id="样本方差的分布"><a href="#样本方差的分布" class="headerlink" title="样本方差的分布"></a>样本方差的分布</h2><p>设$X_1,X_2…X_n$是来自正态总体$N(\mu,\sigma^2)$的样本,$\bar{X},S_n^2$分别为样本均值和样本方差,则有</p>
+<ul>
+<li>$\dfrac{nS_n^2}{\sigma^2}\sim\chi^2(n-1)$或$\dfrac{(n-1)S^2_{n-1}}{\sigma^2}\sim\chi^2(n-1)$(<em>$\dfrac{1}{\sigma^2}\sum_1^n(\dfrac{X_i-\bar{X}}{\sigma})^2=\sum_1^n(\dfrac{X_i-\bar{X}}{\sigma})^2\sim\chi^2(n-1)$</em>)</li>
+<li>$\bar{X}$与$S_n^2$独立</li>
+</ul>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>设$X_1,X_2…X_n$来自正态总体$X\sim N(\mu,\sigma^2)$的样本,则有</p>
+<ul>
+<li>$\dfrac{\bar{X}-\mu}{S_n/\sqrt{n-1}}\sim t(n-1)$或$\dfrac{\bar{X}-\mu}{S_{n-1}/\sqrt{n}}\sim t(n-1)$</li>
+</ul>
+<h2 id="双正态总体样本均值差-样本方差比的分布"><a href="#双正态总体样本均值差-样本方差比的分布" class="headerlink" title="双正态总体样本均值差,样本方差比的分布"></a>双正态总体样本均值差,样本方差比的分布</h2><p>设$X\sim N(\mu_1,\sigma_1^2),Y\sim N(\mu_2,\sigma_2^2)$,且$X,Y$独立,$X_1,X_2…X_{n_1}$是来自$X$的样本,$Y_1,Y_2…Y_{n_2}$是来自$Y$的样本,$\bar{X},\bar{Y}$是样本均值,$S_1^2,S_2^2$是$X,Y$的修正样本方差</p>
+<p>$$ S_1^2=\dfrac{1}{n-1}\sum_{i=1}^{n_1}(X_i-\bar{X})^2\qquad S_2^2=\dfrac{1}{n_2-1}\sum_{i=1}^{n_2}(Y_i-\bar{Y})^2 $$</p>
+<p>则有</p>
+<h3 id="4"><a href="#4" class="headerlink" title="4"></a>4</h3><p>$$ \dfrac{S_1^2/S_2^2}{\sigma_1^2/\sigma_2^2}\sim F(n_1-1,n_2-1) $$</p>
+<h3 id="5"><a href="#5" class="headerlink" title="5"></a>5</h3><p>$$ U=\dfrac{(\bar{X}-\bar{Y})-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}}}\sim N(0,1) $$</p>
+<h1 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h1><h2 id="矩估计"><a href="#矩估计" class="headerlink" title="矩估计"></a>矩估计</h2><h2 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h2><p><em>$X\sim N(\mu,\sigma^2)$</em></p>
+<h3 id="极大似然估计的不变性"><a href="#极大似然估计的不变性" class="headerlink" title="极大似然估计的不变性"></a>极大似然估计的不变性</h3><p>$\hat{\theta}$是$\theta$的极大似然估计,则$u(\hat{\theta})$是$u(\theta)$的极大似然估计</p>
+<h2 id="估计量的评价标准"><a href="#估计量的评价标准" class="headerlink" title="估计量的评价标准"></a>估计量的评价标准</h2><h2 id="区间估计"><a href="#区间估计" class="headerlink" title="区间估计"></a>区间估计</h2><h3 id="正态总体-N-mu-sigma-2-中均值-mu-的置信区间"><a href="#正态总体-N-mu-sigma-2-中均值-mu-的置信区间" class="headerlink" title="正态总体$N(\mu,\sigma^2)$中均值$\mu$的置信区间"></a>正态总体$N(\mu,\sigma^2)$中均值$\mu$的置信区间</h3><h4 id="sigma-2-已知"><a href="#sigma-2-已知" class="headerlink" title="$\sigma^2$已知"></a>$\sigma^2$已知</h4><p>取枢轴变量<br>$$ U=\dfrac{\bar{X}-u}{\sigma/\sqrt{n}}\sim N(0,1) $$</p>
+<p>由$P(|U| &lt; u_{\alpha/2})=1-\alpha$,解得<br>$$ P(\bar{X}-u_{\alpha/2}\dfrac{\sigma}{\sqrt{n}} &lt; \mu &lt; \bar{X}+u_{\alpha/2}\dfrac{\sigma}{\sqrt{n}})=1-\alpha $$</p>
+<p>于是$\mu$的置信度为$1-\alpha$的置信区间为<br>$$ (\bar{X}-u_{\alpha/2}\dfrac{\sigma}{\sqrt{n}},\bar{X}+u_{\alpha/2}\dfrac{\sigma}{\sqrt{n}}) $$</p>
+<h4 id="sigma-2-未知"><a href="#sigma-2-未知" class="headerlink" title="$\sigma^2$未知"></a>$\sigma^2$未知</h4><p>$S_n^2=\dfrac{1}{n}\sum_{i=1}^n(X_i-\bar{X})^2$,$T=\dfrac{\bar{X}-\mu}{S_n/\sqrt{n-1}}\sim t(n-1)$<em>或$T=\dfrac{\bar{X}-\mu}{S_{n-1}/\sqrt{n}}\sim t(n-1)$</em></p>
+<h3 id="正态总体-N-mu-sigma-2-中方差-sigma-2-的置信区间-mu-未知"><a href="#正态总体-N-mu-sigma-2-中方差-sigma-2-的置信区间-mu-未知" class="headerlink" title="正态总体$N(\mu,\sigma^2)$中方差$\sigma^2$的置信区间($\mu$未知)"></a>正态总体$N(\mu,\sigma^2)$中方差$\sigma^2$的置信区间($\mu$未知)</h3><p>$\chi^2=\dfrac{nS_n^2}{\sigma^2}\sim\chi^2(n-1)$</p>
+<h3 id="两个正态总体-N-mu-1-sigma-1-2-N-mu-2-sigma-2-2-的均值差-mu-1-mu-2-的置信区间"><a href="#两个正态总体-N-mu-1-sigma-1-2-N-mu-2-sigma-2-2-的均值差-mu-1-mu-2-的置信区间" class="headerlink" title="两个正态总体$N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2^2)$的均值差$\mu_1-\mu_2$的置信区间"></a>两个正态总体$N(\mu_1,\sigma_1^2),N(\mu_2,\sigma_2^2)$的均值差$\mu_1-\mu_2$的置信区间</h3><h4 id="sigma-1-2-sigma-2-2-已知"><a href="#sigma-1-2-sigma-2-2-已知" class="headerlink" title="$\sigma_1^2,\sigma_2^2$已知"></a>$\sigma_1^2,\sigma_2^2$已知</h4><p>取<br>$$ U=\dfrac{\bar{X}-\bar{Y}-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}}}\sim N(0,1) $$</p>
+<p>由$P(|U| &lt; u_{\alpha/2})=1-\alpha$,解得<br>$$ P(\bar{X}-\bar{Y}-u_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}} &lt; \mu_1-\mu_2 &lt; \bar{X}-\bar{Y}+u_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}})=1-\alpha $$</p>
+<p>得$\mu_1-\mu_2$的置信度为$1-\alpha$的置信区间为<br>$$ (\bar{X}-\bar{Y}-u_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2^2}},\bar{X}-\bar{Y}+u_{\alpha/2}\sqrt{\dfrac{\sigma_1^2}{n_1}+\dfrac{\sigma_2^2}{n_2}}) $$</p>
+<h4 id="sigma-1-2-sigma-2-2-sigma-2-但-sigma-2-未知"><a href="#sigma-1-2-sigma-2-2-sigma-2-但-sigma-2-未知" class="headerlink" title="$\sigma_1^2=\sigma_2^2=\sigma^2$,但$\sigma^2$未知"></a>$\sigma_1^2=\sigma_2^2=\sigma^2$,但$\sigma^2$未知</h4><blockquote>
+<p>TODO</p>
+</blockquote>
+<h3 id="两个正态总体-N-mu-1-sigma-1-2-N-mu-2-sigma-2-2-的方差比-sigma-1-2-sigma-2-2-的置信区间-mu-1-mu-2-未知"><a href="#两个正态总体-N-mu-1-sigma-1-2-N-mu-2-sigma-2-2-的方差比-sigma-1-2-sigma-2-2-的置信区间-mu-1-mu-2-未知" class="headerlink" title="两个正态总体$N(\mu_1.\sigma_1^2),N(\mu_2,\sigma_2^2)$的方差比$\sigma_1^2/\sigma_2^2$的置信区间($\mu_1,\mu_2$未知)"></a>两个正态总体$N(\mu_1.\sigma_1^2),N(\mu_2,\sigma_2^2)$的方差比$\sigma_1^2/\sigma_2^2$的置信区间($\mu_1,\mu_2$未知)</h3><p>取<br>$$ F=\dfrac{S_1^2\sigma_2^2}{S_2^2\sigma_1^2}\sim F(n_1-1,n_2-1) $$</p>
+<p>作枢轴变量.得<br>$$ P(F_{1-\alpha/2}(n_1-1,n_2-1) &lt; \dfrac{S_1^2\sigma_2^2}{S_2^2\sigma_1^2} &lt; F_{\alpha/2}(n_1-1,n_2-1))=1-\alpha $$</p>
+<p>得到$\dfrac{\sigma_1^2}{\sigma_2^2}$的置信度为$1-\alpha$的置信区间为<br>$$ (\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{\alpha/2}(n_1-1,n_2-1)},\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{1-\alpha/2}(n_1-1,n_2-1)}) $$</p>
+<h2 id="非正态总体均值的区间估计-大样本法"><a href="#非正态总体均值的区间估计-大样本法" class="headerlink" title="非正态总体均值的区间估计(大样本法)"></a>非正态总体均值的区间估计(大样本法)</h2><p>$$ \dfrac{\sum_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\to N(0,1) $$<br>若$\sigma$未知,用样本标准差$S$代替,得<br>$$ U=\dfrac{\bar{X}-\mu}{S/\sqrt{n}}\approx N(0,1) $$<br>置信区间近似为$(\bar{X}-u_{\alpha/2}\sqrt{\dfrac{\bar{X}(1-\bar{X})}{n}},\bar{X}+u_{\alpha/2}\sqrt{\dfrac{\bar{X}(1-\bar{X})}{n}})$</p>
+<h1 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h1><h2 id="单个正态总体-N-mu-sigma-2-均值-mu-的假设检验"><a href="#单个正态总体-N-mu-sigma-2-均值-mu-的假设检验" class="headerlink" title="单个正态总体$N(\mu,\sigma^2)$均值$\mu$的假设检验"></a>单个正态总体$N(\mu,\sigma^2)$均值$\mu$的假设检验</h2><h3 id="sigma-2-已知-mu-检验"><a href="#sigma-2-已知-mu-检验" class="headerlink" title="$\sigma^2$已知($\mu$检验)"></a>$\sigma^2$已知($\mu$检验)</h3><h3 id="sigma-2-未知-t-检验"><a href="#sigma-2-未知-t-检验" class="headerlink" title="$\sigma^2$未知($t$检验)"></a>$\sigma^2$未知($t$检验)</h3><h2 id="两个正态总体的均值差的检验"><a href="#两个正态总体的均值差的检验" class="headerlink" title="两个正态总体的均值差的检验"></a>两个正态总体的均值差的检验</h2><h3 id="sigma-2-1-sigma-2-2-均已知"><a href="#sigma-2-1-sigma-2-2-均已知" class="headerlink" title="$\sigma^2_1,\sigma^2_2$均已知"></a>$\sigma^2_1,\sigma^2_2$均已知</h3><h2 id="单个正态总体方差的假设检验-chi-2-检验法"><a href="#单个正态总体方差的假设检验-chi-2-检验法" class="headerlink" title="单个正态总体方差的假设检验($\chi^2$检验法)"></a>单个正态总体方差的假设检验($\chi^2$检验法)</h2><h2 id="两个正态总体的方差比的假设检验-F-检验法"><a href="#两个正态总体的方差比的假设检验-F-检验法" class="headerlink" title="两个正态总体的方差比的假设检验($F$检验法)"></a>两个正态总体的方差比的假设检验($F$检验法)</h2>
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

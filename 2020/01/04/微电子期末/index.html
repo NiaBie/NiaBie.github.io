@@ -1,0 +1,1638 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/%E5%BE%AE%E7%94%B5%E5%AD%90/">微电子</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E5%BE%AE%E7%94%B5%E5%AD%90/">微电子</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">微电子期末</span>
+  <br>
+  <span class="post_date">2020-01-04</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="半导体物理基础"><a href="#半导体物理基础" class="headerlink" title="半导体物理基础"></a>半导体物理基础</h1><h3 id="半导体材料"><a href="#半导体材料" class="headerlink" title="半导体材料"></a>半导体材料</h3><ul>
+<li>导体:$\rho &lt; 10^{-4}\Omega\cdot cm$</li>
+<li>绝缘体:$\rho &gt; 10^{9}\Omega\cdot cm$</li>
+</ul>
+<h2 id="本征半导体-空穴及其导电作用"><a href="#本征半导体-空穴及其导电作用" class="headerlink" title="本征半导体,空穴及其导电作用"></a>本征半导体,空穴及其导电作用</h2><ul>
+<li><p>载流子:可以自由移动的带电粒子</p>
+</li>
+<li><p>电导率:与材料单位体积中所含载流子数有关,载流子浓度越高,电导率越高</p>
+</li>
+<li><p>本征激发:当半导体受热或光照激发时,某些电子从外界获得足够的能量而挣脱共价键的束缚,离开原子成为<strong>自由电子</strong>,同时在共价键中留下相同数量的<strong>空穴</strong></p>
+</li>
+<li><p>空穴:共价键中的空位</p>
+</li>
+<li><p>电子空穴对:由热激发而产生的自由电子和空穴对</p>
+</li>
+</ul>
+<p>半导体的重要特性</p>
+<ul>
+<li>在本征半导体中自由电子和空穴总是成对产生,其自由电子-空穴对随温度的增高而显著增加</li>
+<li>空穴的导电作用</li>
+</ul>
+<p>本证半导体的缺点:载流子少,导电性差,温度稳定性差</p>
+<h2 id="杂质半导体"><a href="#杂质半导体" class="headerlink" title="杂质半导体"></a>杂质半导体</h2><p>参入杂质的本征半导体称为杂质半导体</p>
+<h3 id="P型半导体"><a href="#P型半导体" class="headerlink" title="P型半导体"></a>P型半导体</h3><ul>
+<li><p>参入3价杂质元素(如<strong>硼,镓和铟</strong>)的半导体</p>
+</li>
+<li><p><strong>空穴(p)**是多数载流子(**多子</strong>),它主要由掺杂形成;<strong>自由电子(n)**是少数载流子(**少子</strong>),由热激发形成</p>
+</li>
+<li><p>空穴很容易俘获电子,使杂质原子成为<strong>负离子</strong>.3价杂质因而也称为<strong>受主杂质($N_A$)</strong><br>$$ N_A + n = p $$</p>
+</li>
+</ul>
+<h3 id="N型半导体"><a href="#N型半导体" class="headerlink" title="N型半导体"></a>N型半导体</h3><ul>
+<li><p>参入5价杂质元素(如<strong>磷</strong>)的半导体</p>
+</li>
+<li><p>**自由电子(n)**是多数载流子,主要由杂质原子提供;**空穴(p)**是少数载流子,由热激发形成</p>
+</li>
+<li><p>提供自由电子的5价杂质原子因带正电荷而成为<strong>正离子</strong>.因此5价杂质原子也称为<strong>施主杂质($N_D$)</strong><br>$$ n = p + N_D $$</p>
+</li>
+</ul>
+<h2 id="载流子的漂移与扩散"><a href="#载流子的漂移与扩散" class="headerlink" title="载流子的漂移与扩散"></a>载流子的漂移与扩散</h2><ul>
+<li><p>漂移电流:在电场作用下,载流子(自由电子/空穴)在电场作用下的漂移运动形成的电流</p>
+</li>
+<li><p>扩散电流:因浓度差,载流子从浓度高处向浓度低处扩散运动,形成的电流</p>
+</li>
+</ul>
+<h2 id="PN结"><a href="#PN结" class="headerlink" title="PN结"></a>PN结</h2><p>对于P型半导体和N型半导体的结合面,离子薄层形成的<strong>空间电荷区</strong>称为<strong>PN结</strong></p>
+<p>在空间电荷区,由于缺少多子,所以也称<strong>耗尽层</strong></p>
+<h3 id="PN结的单向导电性"><a href="#PN结的单向导电性" class="headerlink" title="PN结的单向导电性"></a>PN结的单向导电性</h3><ul>
+<li><p>当外加电压使PN结中<strong>P</strong>区的电位高于<strong>N</strong>区的电位,称为加<strong>正向电压</strong>,简称<strong>正偏</strong>;反之称为加<strong>反向电压</strong>,简称<strong>反偏</strong></p>
+</li>
+<li><p>PN结加正向电压时,呈现低电阻,具有较大的<strong>正向扩散电流</strong></p>
+</li>
+<li><p>PN结加反向电压时,呈现高电阻,具有很小的<strong>反向漂移电流</strong></p>
+</li>
+<li><p>PN结$V$-$I$特性表达式:<strong>$i_D=I_S(e^{v_D/V_r}-1)$</strong><br>$I_S$:反向饱和电流<br>$V_T$:温度的电压当量.在常温下$V_T=\dfrac{kT}{q}=26mV$</p>
+</li>
+</ul>
+<h3 id="PN结的反向击穿"><a href="#PN结的反向击穿" class="headerlink" title="PN结的反向击穿"></a>PN结的反向击穿</h3><ul>
+<li>电击穿(可逆)<ul>
+<li>雪崩击穿:有正温度系数</li>
+<li>齐纳击穿:有负温度系数</li>
+</ul>
+</li>
+<li>热击穿(不可逆)</li>
+</ul>
+<h3 id="PN结的电容效应"><a href="#PN结的电容效应" class="headerlink" title="PN结的电容效应"></a>PN结的电容效应</h3><ul>
+<li><p>扩散电容$C_D$:<strong>TODO</strong></p>
+</li>
+<li><p>势垒电容$C_B$:<strong>TODO</strong></p>
+</li>
+</ul>
+<h1 id="二极管"><a href="#二极管" class="headerlink" title="二极管"></a>二极管</h1><h2 id="二极管的-V-I-特性"><a href="#二极管的-V-I-特性" class="headerlink" title="二极管的$V$-$I$特性"></a>二极管的$V$-$I$特性</h2><p>二极管的伏安特性曲线可表示:$i_D=I_S(e^{v_D/V_T}-1)$</p>
+<ul>
+<li>硅二极管的死区电压$V_{th}=0.5-0.8V$左右</li>
+<li>锗二极管的死区电压$V_{th}=0.1-0.3V$左右</li>
+</ul>
+<h2 id="二极管的主要参数"><a href="#二极管的主要参数" class="headerlink" title="二极管的主要参数"></a>二极管的主要参数</h2><ul>
+<li><p>最大整流电流$I_F$</p>
+</li>
+<li><p>反向击穿电压$V_{BR}$和最大反向工作电压$V_{RM}$:实际工作时,最大反向工作电压一般只按反向击穿电压的一半计算</p>
+</li>
+<li><p>反向电流$I_R$在室温下,最大反向工作电压下的反向电流值.硅二极管的反向电流一般在$nA$级;锗二极管在$\mu A$级</p>
+</li>
+<li><p>极间电容$C_d=C_B+C_D$(<strong>TODO</strong>)</p>
+</li>
+<li><p>反向恢复时间$T_{RR}$</p>
+</li>
+<li><p>正向压降$V_F$:*二极管能够导通的正向最低电压.*硅二极管约$0.6-0.8V$,锗二极管约$0.2-0.3V$</p>
+</li>
+</ul>
+<h2 id="二极管电路的简化模型分析方法"><a href="#二极管电路的简化模型分析方法" class="headerlink" title="二极管电路的简化模型分析方法"></a>二极管电路的简化模型分析方法</h2><h3 id="理想模型"><a href="#理想模型" class="headerlink" title="理想模型"></a>理想模型</h3><h3 id="恒压降模型"><a href="#恒压降模型" class="headerlink" title="恒压降模型"></a>恒压降模型</h3><p>管压降恒定:</p>
+<ul>
+<li>硅管$0.7V$ </li>
+<li>锗管$0.3V$</li>
+</ul>
+<h3 id="折线模型"><a href="#折线模型" class="headerlink" title="折线模型"></a>折线模型</h3><p>硅管:</p>
+<ul>
+<li>门槛电压$V_{th}=0.5V$</li>
+<li>导通电流为1$mA$时,管压降为$0.7V$</li>
+<li>$r_D=200\Omega$</li>
+</ul>
+<h3 id="小信号模型"><a href="#小信号模型" class="headerlink" title="小信号模型"></a>小信号模型</h3><p>常温下微变电阻$(300K)r_d=\dfrac{V_T}{I_D}=\dfrac{26(mV)}{I_D}$</p>
+<h3 id="模型分析法应用举例"><a href="#模型分析法应用举例" class="headerlink" title="模型分析法应用举例"></a>模型分析法应用举例</h3><h4 id="限幅电路"><a href="#限幅电路" class="headerlink" title="限幅电路"></a>限幅电路</h4><h4 id="开关电路"><a href="#开关电路" class="headerlink" title="开关电路"></a>开关电路</h4><h4 id="低电压稳压电路"><a href="#低电压稳压电路" class="headerlink" title="低电压稳压电路"></a><em>低电压稳压电路</em></h4><h4 id="小信号工作情况分析"><a href="#小信号工作情况分析" class="headerlink" title="小信号工作情况分析"></a>小信号工作情况分析</h4><p><strong>TODO</strong></p>
+<h4 id="齐纳二极管"><a href="#齐纳二极管" class="headerlink" title="齐纳二极管"></a><em>齐纳二极管</em></h4><h1 id="半导体三极管"><a href="#半导体三极管" class="headerlink" title="半导体三极管"></a>半导体三极管</h1><h2 id="三极管的结构和符号"><a href="#三极管的结构和符号" class="headerlink" title="三极管的结构和符号"></a>三极管的结构和符号</h2><ul>
+<li>集电极$c$ollector,集电区,集电结</li>
+<li>基极$b$ase,基区</li>
+<li>发射极$e$mitter,发射区,发射结</li>
+</ul>
+<h2 id="放大状态下三极管的工作原理"><a href="#放大状态下三极管的工作原理" class="headerlink" title="放大状态下三极管的工作原理"></a>放大状态下三极管的工作原理</h2><p>实现放大的外部条件:发射结正偏,集电结反偏</p>
+<p>实现放大的内部条件:发射区杂质浓度远大于基区杂质浓度,且基区很薄</p>
+<p>共基极直流放大系数$\bar{\alpha}=\dfrac{\text{传输到集电极的电流}}{\text{发射极注入电流}}=\dfrac{I_{C}-I_{CBO}}{I_{E}}\approx\dfrac{I_C}{I_E}$</p>
+<p>共射极直流放大系数$\bar{\beta}=\dfrac{\bar{\alpha}}{1-\bar{\alpha}}$</p>
+<p>反向饱和电流/穿透电流$I_{CEO}=(1+\bar{\beta})I_{CBO}$</p>
+<p>当$I_C &gt;&gt; I_{CEO}$时,忽略$I_{CEO}$,则$\bar{\beta}\approx\dfrac{I_C}{I_B}$</p>
+<h2 id="三极管的三种组态"><a href="#三极管的三种组态" class="headerlink" title="三极管的三种组态"></a>三极管的三种组态</h2><ul>
+<li>共发射极接法:CE</li>
+<li>共基极接法:CB</li>
+<li>共集电极接法:CC</li>
+</ul>
+<h2 id="BJT的-I-V-特性曲线"><a href="#BJT的-I-V-特性曲线" class="headerlink" title="BJT的$I$-$V$特性曲线"></a>BJT的$I$-$V$特性曲线</h2><h3 id="输入特性曲线"><a href="#输入特性曲线" class="headerlink" title="输入特性曲线"></a>输入特性曲线</h3><p>$$i_B=f(v_{BE})|_{v_{CE}=const}$$</p>
+<ul>
+<li>死区</li>
+<li>非线性区</li>
+<li>近似线性区</li>
+</ul>
+<h3 id="输出特性曲线"><a href="#输出特性曲线" class="headerlink" title="输出特性曲线"></a>输出特性曲线</h3><p>$$i_C=f(v_{CE})|_{i_B=const}$$</p>
+<ul>
+<li><p><strong>饱和区</strong>:$i_C$明显受$v_{CE}$控制的区域,该区域内,一般$v_{CE} &lt; 0.7V$(硅管).此时,发射结正偏,集电结正偏或反偏电压很小</p>
+</li>
+<li><p>截止区:$i_C$接近0的区域,相当$i_B=0$的曲线的下方.此时,$v_{BE}$小于死区电压</p>
+</li>
+<li><p>放大区:$i_C$平行于$v_{CE}$轴的区域,曲线基本平行等距.此时,发射结正偏,集电结反偏</p>
+</li>
+<li><p>Early效应<br>输出特性比较平坦的部分随着$V_{CE}$的增加略向上倾斜</p>
+</li>
+</ul>
+<h2 id="BJT的主要参数"><a href="#BJT的主要参数" class="headerlink" title="BJT的主要参数"></a>BJT的主要参数</h2><ol>
+<li><p>电流放大系数</p>
+<ul>
+<li><p>共发射极直流电流放大系数$\bar{\beta}=\dfrac{I_C-I_{CEO}}{I_B}\approx\dfrac{I_C}{I_B}|_{v_{CE}=const}$</p>
+</li>
+<li><p>共发射极交流电流放大系数$\beta=\dfrac{\Delta I_C}{\Delta I_B}|_{v_{CE}=const}$</p>
+</li>
+<li><p>共基极直流电流放大系数$\bar{\alpha}=\dfrac{I_C-I_{CBO}}{I_E}\approx\dfrac{I_C}{I_E}$</p>
+</li>
+<li><p>共基极交流电流放大系数$\alpha=\dfrac{\Delta I_C}{\Delta I_E}|_{v_{CB}=const}$<br>当$I_{CBO}$和$I_{CEO}$很小时,$\bar{\alpha}\approx\alpha,\bar{\beta}\approx\beta$,可以不加区分</p>
+</li>
+</ul>
+</li>
+<li><p>极间反向电流</p>
+</li>
+<li><p>极限参数</p>
+<ul>
+<li>集电极最大允许电流$I_{CM}$</li>
+<li>集电极最大允许功率损耗$P_{CM}=I_CV_{CE}$</li>
+<li>反向击穿电压</li>
+<li>$V_{(BR)CBO}$:发射极开路时的集电结反向击穿电压</li>
+<li>$V_{(BR)EBO}$:集电极开路时的发射结的反向击穿电压</li>
+<li>$V_{(BR)CEO}$:基极开路时的集电极和发射极间的击穿电压</li>
+</ul>
+</li>
+</ol>
+<h2 id="温度对BJT参数及特性的影响"><a href="#温度对BJT参数及特性的影响" class="headerlink" title="温度对BJT参数及特性的影响"></a><em>温度对BJT参数及特性的影响</em></h2><h3 id="温度对BJT参数的影响"><a href="#温度对BJT参数的影响" class="headerlink" title="温度对BJT参数的影响"></a><em>温度对BJT参数的影响</em></h3><h3 id="温度对BJT特性曲线的影响"><a href="#温度对BJT特性曲线的影响" class="headerlink" title="温度对BJT特性曲线的影响"></a><em>温度对BJT特性曲线的影响</em></h3><h1 id="三极管放大电路"><a href="#三极管放大电路" class="headerlink" title="三极管放大电路"></a>三极管放大电路</h1><h2 id="共射极放大电路的工作原理"><a href="#共射极放大电路的工作原理" class="headerlink" title="共射极放大电路的工作原理"></a>共射极放大电路的工作原理</h2><h3 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h3><p><strong>静态工作点(TODO)</strong></p>
+<h3 id="动态"><a href="#动态" class="headerlink" title="动态"></a>动态</h3><h2 id="BJT放大电路的图解分析法"><a href="#BJT放大电路的图解分析法" class="headerlink" title="BJT放大电路的图解分析法"></a>BJT放大电路的图解分析法</h2><h3 id="静态工作点的图解分析"><a href="#静态工作点的图解分析" class="headerlink" title="静态工作点的图解分析"></a>静态工作点的图解分析</h3><ul>
+<li>负载线<ul>
+<li>输入:$V_{BE}=V_{BB}-i_BR_b$</li>
+<li>输出:$V_{CE}=V_{CC}-i_CR_c$</li>
+</ul>
+</li>
+</ul>
+<h3 id="动态工作情况的图解分析"><a href="#动态工作情况的图解分析" class="headerlink" title="动态工作情况的图解分析"></a>动态工作情况的图解分析</h3><h3 id="静态工作点对波形失真的影响"><a href="#静态工作点对波形失真的影响" class="headerlink" title="静态工作点对波形失真的影响"></a>静态工作点对波形失真的影响</h3><h3 id="放大电路的动态范围"><a href="#放大电路的动态范围" class="headerlink" title="放大电路的动态范围"></a>放大电路的动态范围</h3><h2 id="温度对工作点的影响-定性"><a href="#温度对工作点的影响-定性" class="headerlink" title="温度对工作点的影响(定性)"></a>温度对工作点的影响(定性)</h2><ol>
+<li>温度变化对$I_{CBO}$的影响</li>
+</ol>
+<p>$I_{CBO}=I_{CBO(T_0=25^{\circ}C)}\cdot e^{k(T-T_0)}$</p>
+<p>温度$T$上升$\to$输出特性曲线上移</p>
+<ol start="2">
+<li>温度变化对输入特性曲线的影响</li>
+</ol>
+<p>$V_{BE}=V_{BE(T_0=25^{\circ}C)}-(T-T_0)\times2.2\times10^{-3}V$</p>
+<p>温度$T$上升$\to$输入特性曲线左移</p>
+<ol start="3">
+<li>温度变化对$\beta$的影响</li>
+</ol>
+<p>温度每升高1$^{\circ}C,\beta$要增加$0.5\%\sim1.0\%$</p>
+<p>温度$T$上升$\to$输出特性曲线族间距增大</p>
+<h2 id="基极分压式射极偏置电路"><a href="#基极分压式射极偏置电路" class="headerlink" title="基极分压式射极偏置电路"></a>基极分压式射极偏置电路</h2><ul>
+<li>工作原理</li>
+</ul>
+<p><strong>TODO</strong></p>
+<h1 id="场效应管"><a href="#场效应管" class="headerlink" title="场效应管"></a>场效应管</h1><h2 id="场效应管的分类"><a href="#场效应管的分类" class="headerlink" title="场效应管的分类"></a>场效应管的分类</h2><ol>
+<li>MOSFET(IGFET)绝缘栅型<ol>
+<li>增强型<ul>
+<li>N沟道</li>
+<li>P沟道</li>
+</ul>
+</li>
+<li>耗尽型<ul>
+<li>N沟道</li>
+<li>P沟道</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>JFET结型(耗尽型)<ol>
+<li>N沟道</li>
+<li>P沟道</li>
+</ol>
+</li>
+</ol>
+<p>耗尽型:场效应管没有加偏置电压时,就有导电沟道存在<br>增强型:场效应管没有加偏置电压时,没有导电沟道</p>
+<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><ul>
+<li>源极$s$ource</li>
+<li>栅极$g$ate</li>
+<li>漏极$d$rain</li>
+</ul>
+<h3 id="特性曲线"><a href="#特性曲线" class="headerlink" title="特性曲线"></a>特性曲线</h3><h4 id="输出特性曲线-1"><a href="#输出特性曲线-1" class="headerlink" title="输出特性曲线"></a>输出特性曲线</h4><ol>
+<li>截止区</li>
+<li>可变电阻区(非饱和区)</li>
+<li>饱和区(恒流区,放大区):必须让FET工作在饱和区(放大区)才有放大作用</li>
+</ol>
+<ul>
+<li>N沟道:$v_{GS},v_{DS}\uparrow,i_D\uparrow$</li>
+<li>P沟道:$v_{GS},v_{DS}\downarrow,|i_D|\uparrow$</li>
+</ul>
+<h4 id="转移特性曲线"><a href="#转移特性曲线" class="headerlink" title="转移特性曲线"></a>转移特性曲线</h4><ul>
+<li>N沟道:$v_{GS},i_D\uparrow$</li>
+<li>P沟道:$v_{GS},|i_D|\uparrow$</li>
+</ul>
+<h3 id="主要参数"><a href="#主要参数" class="headerlink" title="主要参数"></a>主要参数</h3><ol>
+<li>$V_T$:(增强型参数)开启电压<br>$V_{TN}$:N沟道增强型开启电压</li>
+<li>$V_P$:(耗尽型/结型参数)夹断电压</li>
+<li>饱和漏电流$I_{DSS}$(耗尽型):在$V_{GS}=0$的情况下,当$V_{DS} &gt; V_P$时的漏极电流称为<strong>饱和漏极电流</strong>.通常令$|V_{DS}|=10V,V_{GS}=0V$时测出的$i_D$就是$I_{DSS}$.在转移特性上,就是$V_{GS}=0$时的漏极电流</li>
+<li>直流输入电阻$R_{GS}$:在漏源之间短路的条件下,漏源之间加一定电压时的栅源直流电阻就是直流输入电阻</li>
+</ol>
+<h2 id="N沟道增强型MOSFET"><a href="#N沟道增强型MOSFET" class="headerlink" title="N沟道增强型MOSFET"></a>N沟道增强型MOSFET</h2><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p>$V_{GS}$对沟道的控制作用</p>
+<ul>
+<li>当$V_{GS}\le0$时<br>无导电沟道.$d,s$间加电压时,也无电流产生</li>
+<li>当$0 &lt; V_{GS} &lt; V_{TN}$时<br>产生电场,但未形成导电沟道(反型层),$d,s$间加电压后,没有电流产生</li>
+<li>当$V_{GS} &gt; V_{TN}$时<br>在电场作用下产生导电沟道,$d,s$间加电压后,将有电流产生.$V_{GS}$越大,导电沟道越厚</li>
+</ul>
+</li>
+<li><p>$V_{DS}$对沟道的控制作用<br>当$V_{GS}$一定($V_{GS} &gt; V_{TN}$)时</p>
+<ul>
+<li>$V_{DS}$增加$\to I_D$增加$\to$沟道电位梯度增加$\to$靠近漏极$d$处的电位升高$\to(d)$电场强度减小$\to(d)$沟道变薄</li>
+<li>当$V_{DS}$增加到使$V_{GD}=V_{TN}$时,在紧靠漏极处出现预夹断</li>
+<li>预夹断后,$V_{DS}$增加$\to$夹断区延长$\to$沟道电阻增加$\to I_D$基本不变</li>
+</ul>
+</li>
+<li><p>$V_{DS}$和$V_{GS}$同时作用时<br>$V_{DS}$一定,$V_{GS}$变化时,给定一个$V_{GS}$,就有一条不同的$i_D$-$V_{DS}$曲线</p>
+</li>
+</ol>
+<h2 id="N沟道耗尽型MOSFET"><a href="#N沟道耗尽型MOSFET" class="headerlink" title="N沟道耗尽型MOSFET"></a>N沟道耗尽型MOSFET</h2><h2 id="P沟道MOSFET"><a href="#P沟道MOSFET" class="headerlink" title="P沟道MOSFET"></a><em>P沟道MOSFET</em></h2><h2 id="沟道长度调制等几种效应"><a href="#沟道长度调制等几种效应" class="headerlink" title="沟道长度调制等几种效应"></a>沟道长度调制等几种效应</h2><ol>
+<li><p>沟道长度调制效应<br>饱和区的曲线并不是平坦的</p>
+</li>
+<li><p>衬底调制效应(体效应)</p>
+<ul>
+<li>衬底未与源极并接时,衬底与源极间的偏压$V_{BS}$将影响实际的开启/夹断电压和转移特性<ul>
+<li>阈值电压升高</li>
+<li><strong>TODO</strong></li>
+</ul>
+</li>
+<li>为保证导电沟道与衬底之间的PN结反偏,要求<ul>
+<li>N沟道:$V_{BS}\le0$</li>
+<li>P沟道:$V_{BS}\ge0$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>击穿效应</p>
+<ol>
+<li>漏衬击穿:外加的漏源电压过高,将导致漏极到衬底的PN结击穿</li>
+<li>栅极击穿:栅极电压过高,绝缘层击穿<ul>
+<li>通常在MOS管的栅源间接入双向稳压管,限制栅极电压</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="JFET的结构和工作原理"><a href="#JFET的结构和工作原理" class="headerlink" title="JFET的结构和工作原理"></a>JFET的结构和工作原理</h2><h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><ol>
+<li><p>$V_{GS}$对沟道的控制作用<br>当$V_{GS} &lt; 0$时:PN结反偏$\to$耗尽层加厚$\to$沟道变窄<br>$V_{GS}$继续减小,沟道继续变窄<br>当沟道夹断时,对应的栅源电压$V_{GS}$称为<strong>夹断电压$V_P$或$V_{GS(off)}$</strong><br>对于N沟道的JFET,$V_P &lt; 0$</p>
+</li>
+<li><p>$V_{DS}$对沟道的控制作用<br>当$V_{GS}=0$时:$V_{DS}$增加$\to g,d$间PN结的反向电压增加,使靠近漏极处的耗尽层加宽,沟道变窄,从上至下呈楔形分布<br>当$V_{DS}$增加到使$V_{GD}=V_P$时,在紧靠漏极处出现预夹断.此时$V_{DS}$增加$\to$夹断区延长$\to$沟道电阻增加$\to i_D$基本不变</p>
+</li>
+<li><p>$V_{GS}$和$V_{DS}$同时作用时<br>当$V_P &lt; V_{GS} &lt; 0$时,导电沟道更容易夹断,对于同样的$V_{DS},i_D$的值比$V_{GS}=0$时的值要小<br>在预夹断处:$V_{GD}=V_{GS}-V_{DS}=V_P$</p>
+</li>
+</ol>
+<h2 id="FET和BJT重要特性的比较"><a href="#FET和BJT重要特性的比较" class="headerlink" title="FET和BJT重要特性的比较"></a>FET和BJT重要特性的比较</h2><ol>
+<li><p>对应关系</p>
+</li>
+<li><p>输入对输出的控制</p>
+<ul>
+<li>BJT:基-射极间电压$V_{BE}$控制集电极电流$i_C$</li>
+<li>MOS管:栅源电压$V_{GS}$控制漏极$i_D$</li>
+<li>在放大区域内,MOS管的$i_D$与$V_{GS}$之间是平方关系,而BJT的$i_C$与$V_{BE}$之间是指数关系.所以通常BJT的跨导要大于MOS管的跨导</li>
+<li>因MOS管的栅极电流$i_G=0$而BJT的基极电流$i_B\not=0$,且电压$V_{BE}$首先影响$i_B$(或$i_E$)然后通过$i_B$()实现对$i_E$()的控制,故常将BJT称为电流控制器件,MOS管称为电压控制器件</li>
+</ul>
+</li>
+<li><p>跨导:<strong>TODO</strong></p>
+</li>
+<li><p>输出电阻:<strong>TODO</strong></p>
+</li>
+<li><p>MOS管的$K_n$与BJT的$\beta$或$\alpha$:<strong>TODO</strong></p>
+</li>
+</ol>
+<h1 id="场效应管放大电路"><a href="#场效应管放大电路" class="headerlink" title="场效应管放大电路"></a>场效应管放大电路</h1><h2 id="基本共源极放大电路的组成"><a href="#基本共源极放大电路的组成" class="headerlink" title="基本共源极放大电路的组成"></a>基本共源极放大电路的组成</h2><p><strong>TODO</strong></p>
+<h2 id="基本共源放大电路的工作原理"><a href="#基本共源放大电路的工作原理" class="headerlink" title="基本共源放大电路的工作原理"></a>基本共源放大电路的工作原理</h2><p><strong>TODO</strong></p>
+<h2 id="用图解方法确定静态工作点-Q"><a href="#用图解方法确定静态工作点-Q" class="headerlink" title="用图解方法确定静态工作点$Q$"></a>用图解方法确定静态工作点$Q$</h2><p><strong>TODO</strong></p>
+<h1 id="放大电路模型"><a href="#放大电路模型" class="headerlink" title="放大电路模型"></a>放大电路模型</h1><h2 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h2><ul>
+<li>信号:信息的载体</li>
+<li>电信号:用电量来描述信息的变化</li>
+</ul>
+<h2 id="模拟信号和数字信号"><a href="#模拟信号和数字信号" class="headerlink" title="模拟信号和数字信号"></a>模拟信号和数字信号</h2><ul>
+<li>时间连续,数值连续:模拟信号</li>
+<li>事件离散,数值连续:AD(analog,digital)转换新号</li>
+<li>时间连续,数值离散:DA转换新号</li>
+<li>事件离散,数值离散:数字信号</li>
+</ul>
+<h2 id="放大电路"><a href="#放大电路" class="headerlink" title="放大电路"></a>放大电路</h2><h2 id="放大电路的符号及模拟信号放大"><a href="#放大电路的符号及模拟信号放大" class="headerlink" title="放大电路的符号及模拟信号放大"></a>放大电路的<strong>符号</strong>及模拟信号放大</h2><h2 id="放大电路模型-1"><a href="#放大电路模型-1" class="headerlink" title="放大电路模型"></a>放大电路模型</h2><h3 id="电压放大模型"><a href="#电压放大模型" class="headerlink" title="电压放大模型"></a>电压放大模型</h3><p>$A_v=\dfrac{v_o}{v_i}=A_{vo}\dfrac{R_L}{R_o+R_L}$</p>
+<ol>
+<li>负载大小会影响增益的大小</li>
+<li>减小负载的影响</li>
+<li>减小输入回路对信号的衰减影响</li>
+</ol>
+<h3 id="电流放大模型"><a href="#电流放大模型" class="headerlink" title="电流放大模型"></a>电流放大模型</h3><p>$A_i=\dfrac{i_o}{i_i}=A_{is}\dfrac{R_o}{R_o+R_L}$</p>
+<ol>
+<li>减小负载的影响</li>
+<li>减小对信号源的衰减</li>
+</ol>
+<h3 id="互阻放大模型"><a href="#互阻放大模型" class="headerlink" title="互阻放大模型"></a>互阻放大模型</h3><p><strong>TODO</strong></p>
+<h3 id="互导放大模型"><a href="#互导放大模型" class="headerlink" title="互导放大模型"></a>互导放大模型</h3><p><strong>TODO</strong></p>
+<h3 id="隔离放大电路模型"><a href="#隔离放大电路模型" class="headerlink" title="隔离放大电路模型"></a>隔离放大电路模型</h3><p><strong>TODO</strong></p>
+<h2 id="放大电路的主要性能指标"><a href="#放大电路的主要性能指标" class="headerlink" title="放大电路的主要性能指标"></a>放大电路的主要性能指标</h2><h3 id="输入电阻"><a href="#输入电阻" class="headerlink" title="输入电阻"></a>输入电阻</h3><p>$R_i=\dfrac{v_i}{i_i}$</p>
+<p><strong>决定了放大电路从信号源吸取信号幅值的大小</strong></p>
+<ul>
+<li>电压放大和互导放大-&gt;输入信号为电压-&gt; $R_i$大</li>
+<li>电流放大和互阻放大-&gt;输入信号为电流-&gt; $R_i$小</li>
+</ul>
+<h3 id="输出电阻"><a href="#输出电阻" class="headerlink" title="输出电阻"></a>输出电阻</h3><p>$R_o=\dfrac{v_t}{i_t}|_{v_s=0,R_L=\infty}$</p>
+<p><strong>决定了放大电路带负载的能力</strong></p>
+<ul>
+<li>电压放大和互阻放大-&gt;输出信号为电压-&gt; $R_o$小</li>
+<li>电流放大和互导放大-&gt;输出信号为电流-&gt; $R_o$大</li>
+</ul>
+<h3 id="增益"><a href="#增益" class="headerlink" title="增益"></a>增益</h3><ul>
+<li>电压增益$A_v=\dfrac{v_o}{v_i}$</li>
+<li>电流增益$A_i=\dfrac{i_o}{i_i}$</li>
+<li>互阻增益$A_r=\dfrac{v_o}{i_i}$</li>
+<li>互导增益$A_g=\dfrac{i_o}{v_i}$</li>
+</ul>
+<p>其中$A_v,A_i$常用分贝$(dB)$表示</p>
+<ul>
+<li>电压增益$=20\lg|A_v|$</li>
+<li>电流增益$=20\lg|A_i|$</li>
+<li>功率增益$=10\lg A_p$</li>
+</ul>
+<h3 id="频率响应-基本概念-及带宽-识图"><a href="#频率响应-基本概念-及带宽-识图" class="headerlink" title="频率响应(基本概念)及带宽(识图)"></a>频率响应(<strong>基本概念</strong>)及带宽(<strong>识图</strong>)</h3><ul>
+<li><p>频率响应:在输入正弦信号下,输出随输入信号频率连续变化的稳态响应</p>
+</li>
+<li><p>频率失真</p>
+<ul>
+<li>幅度失真:对不同频率信号增益不同产生的失真</li>
+<li>相位失真:对不同频率的信号相移不同产生的失真</li>
+</ul>
+</li>
+</ul>
+<h3 id="非线性失真"><a href="#非线性失真" class="headerlink" title="非线性失真"></a>非线性失真</h3><p>由元件非线性特性引起的失真<br>在频谱图上表现为新的频率分量产生</p>
+<ul>
+<li>频谱图</li>
+</ul>
+<h1 id="运算放大器"><a href="#运算放大器" class="headerlink" title="运算放大器"></a>运算放大器</h1><ul>
+<li><strong>符号</strong></li>
+<li><strong>电路模型</strong></li>
+</ul>
+<h2 id="集成电路运算放大器"><a href="#集成电路运算放大器" class="headerlink" title="集成电路运算放大器"></a>集成电路运算放大器</h2><ul>
+<li>当$A_{V_O}(v_P-v_N)\ge V_+$时,$v_O=V_+$</li>
+<li>当$A_{V_O}(v_P-v_N)\le V_-$时,$v_O=V_-$</li>
+<li>电压传输特性$v_O=f(V_P-V_N)$</li>
+</ul>
+<h3 id="运算放大器的电压传输特性"><a href="#运算放大器的电压传输特性" class="headerlink" title="运算放大器的电压传输特性"></a>运算放大器的电压传输特性</h3><p>设$v_p &gt; v_N$</p>
+<ol>
+<li>线性区</li>
+</ol>
+<p>$V_- &lt; A_{V_O}(v_p-v_N) &lt; V_+$<br>$v_O=A_{V_O}(v_p-v_N)$</p>
+<ol start="2">
+<li>饱和区<ul>
+<li>$A_{V_O}(v_p-v_N)\ge V_+$<br>$v_O=+V_{om}=V_+$</li>
+<li>$A_{V_O}(v_p-v_N)\le V_-$<br>$v_O=-V_{om}=V_-$</li>
+</ul>
+</li>
+</ol>
+<h2 id="理想运算放大器"><a href="#理想运算放大器" class="headerlink" title="理想运算放大器"></a>理想运算放大器</h2><h3 id="理想运算放大器特点"><a href="#理想运算放大器特点" class="headerlink" title="理想运算放大器特点"></a>理想运算放大器特点</h3><ul>
+<li>开环差模电压增益$A_{V_O}=\infty$</li>
+<li>差模输入电阻$r_{id}=\infty$</li>
+<li>输出电阻$r_O=0$</li>
+</ul>
+<h2 id="反馈-概念"><a href="#反馈-概念" class="headerlink" title="反馈(概念)"></a>反馈(<strong>概念</strong>)</h2><p>讲系统的输出返回到输入端并以某种方式改变输入,进而影响系统功能的过程</p>
+<ul>
+<li>正反馈</li>
+<li>负反馈</li>
+</ul>
+<h2 id="反馈的电压增益"><a href="#反馈的电压增益" class="headerlink" title="反馈的电压增益"></a>反馈的电压增益</h2><p>深度负反馈</p>
+<ul>
+<li>$1+A_{V_O}F_V &gt;&gt; 1$</li>
+<li>闭环增益$A\approx\dfrac{1}{F}$(反馈系数)</li>
+</ul>
+<p>$A_V=\dfrac{v_o}{v_i}\approx\dfrac{1}{F_V}=1+\dfrac{R_2}{R_1}$</p>
+<h2 id="虚短和虚断"><a href="#虚短和虚断" class="headerlink" title="虚短和虚断"></a>虚短和虚断</h2><p>$A_V=\dfrac{v_o}{v_i}\approx\dfrac{1}{F_V}=\dfrac{v_o}{v_f}=\dfrac{v_o}{v_N} \Rightarrow v_i\approx v_f$或$v_P\approx v_N$</p>
+<ul>
+<li>虚短:在深度负反馈作用下,$v_N$自动跟踪$v_P$,净输入电压$(v_P-v_N)\to0$,即$P$端与$N$端相当于短路</li>
+<li>虚断:由于$(v_P\approx v_N)$,而运放的输入电阻阻值又很高,因此流经两输入端之间的电流$i_P=i_N\approx0$</li>
+</ul>
+<h2 id="同相放大电路"><a href="#同相放大电路" class="headerlink" title="同相放大电路"></a>同相放大电路</h2><ol>
+<li>电压增益</li>
+</ol>
+<p>根据<strong>虚短</strong>和<strong>虚断</strong>的概念</p>
+<ul>
+<li>$v_n=v_p=v_i$</li>
+<li>$\dfrac{v_n-0}{R_1}=\dfrac{v_o-v_n}{R_2}$<br>$\to A_V=\dfrac{v_o}{v_i}=\dfrac{R_1+R_2}{R_1}=1+\dfrac{R_2}{R_1}$</li>
+</ul>
+<ol start="2">
+<li>输入电阻</li>
+</ol>
+<p>$R_i=\dfrac{v_i}{i_i}\to\infty$</p>
+<ol start="3">
+<li>输出电阻</li>
+</ol>
+<p>$R_O=r_O\parallel[(R_1\parallel r_i)+R_2]\to0$</p>
+<h2 id="同相放大电路-电压跟随器"><a href="#同相放大电路-电压跟随器" class="headerlink" title="同相放大电路-电压跟随器"></a>同相放大电路-<strong>电压跟随器</strong></h2><p>$v_o=v_n\approx v_p=v_i$</p>
+<h2 id="反相放大电路"><a href="#反相放大电路" class="headerlink" title="反相放大电路"></a>反相放大电路</h2><ol>
+<li>电压增益</li>
+</ol>
+<p>根据<strong>虚短</strong>和<strong>虚断</strong>的概念</p>
+<ul>
+<li>$v_n\approx v_p=0$(<strong>虚地</strong>)</li>
+<li>$\dfrac{v_i-v_n}{R_1}=\dfrac{v_n-v_O}{R_2}$<br>$\to A_V=\dfrac{v_O}{v_i}=-\dfrac{R_2}{R_1}$(负号表示输出与输入反向)</li>
+</ul>
+<ol start="2">
+<li>输入电阻</li>
+</ol>
+<p>$R_i=\dfrac{v_i}{i_i}=\dfrac{v_i}{v_i/R_1}=R_1$</p>
+<ol start="3">
+<li>输出电阻</li>
+</ol>
+<p>$R_O=r_O\parallel R_2\to0$</p>
+<h2 id="求差电路"><a href="#求差电路" class="headerlink" title="求差电路"></a>求差电路</h2><p>$R_4=R_1,R_2=R_3$</p>
+<ul>
+<li><p>电压增益:$A_v=\dfrac{v_o}{v_{i2}-v_{i1}}$</p>
+</li>
+<li><p>输入电阻:$R_i=\dfrac{v_{i2}-v_{i1}}{i_2}$</p>
+</li>
+<li><p>输出电阻:$R_o\to0$</p>
+</li>
+</ul>
+<h2 id="求和电路"><a href="#求和电路" class="headerlink" title="求和电路"></a>求和电路</h2><p>$R_1=R_2=R_3$</p>
+<p>输出再接一级反向电路</p>
+<h1 id="数字逻辑"><a href="#数字逻辑" class="headerlink" title="数字逻辑"></a>数字逻辑</h1><h2 id="数字信号"><a href="#数字信号" class="headerlink" title="数字信号"></a>数字信号</h2><ol>
+<li><p>模拟信号:时间和数值均连续变化的电信号,如正弦波,三角波</p>
+</li>
+<li><p>数字信号:在时间上和数值上均是离散的信号</p>
+</li>
+<li><p>模拟信号的数字表示:由于数字信号便与存储,分析和传输,通常将模拟信号转换为数字信号</p>
+</li>
+</ol>
+<h2 id="数字信号的描述方法"><a href="#数字信号的描述方法" class="headerlink" title="数字信号的描述方法"></a>数字信号的描述方法</h2><ol>
+<li><p>二值数字逻辑和逻辑电平</p>
+<ul>
+<li>二值数字逻辑:0,1数码<ul>
+<li>二进制数:表示数量</li>
+<li>二值逻辑:表示事物状态</li>
+</ul>
+</li>
+<li>表示方式:在电路中用低,高电平表示0,1两种逻辑状态</li>
+</ul>
+</li>
+<li><p>数字波形:信号逻辑电平对时间的图形表示</p>
+<ul>
+<li>主要参数<ul>
+<li>周期($T$):两个相邻脉冲之间的时间间隔</li>
+<li>脉冲宽度($t_w$):脉冲幅值的50%所跨越的时间</li>
+<li>占空比($Q$):脉冲宽度栈整个周期的百分比</li>
+<li>上升/下降时间($t_r/t_f$):从脉冲幅值10%到90%锁经历的时间</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="二值逻辑变量与基本逻辑运算"><a href="#二值逻辑变量与基本逻辑运算" class="headerlink" title="二值逻辑变量与基本逻辑运算"></a>二值逻辑变量与基本逻辑运算</h2><ul>
+<li>逻辑符号/逻辑表达式</li>
+</ul>
+<h1 id="逻辑门电路"><a href="#逻辑门电路" class="headerlink" title="逻辑门电路"></a>逻辑门电路</h1><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><h2 id="一般特性"><a href="#一般特性" class="headerlink" title="一般特性"></a>一般特性</h2><ol>
+<li><p>输入和输出的高,低电平</p>
+<ul>
+<li>$V_{IL(max)}$:输入低电平的上限值</li>
+<li>$V_{IH(min)}$:输入高电平的下限值</li>
+<li>$V_{OL(max)}$:输出低电平的上限值</li>
+<li>$V_{OH(min)}$:输出高电平的下限值</li>
+</ul>
+</li>
+<li><p>噪声容限</p>
+</li>
+</ol>
+<p>在保证输出电平不变的条件下,输出电平允许波动的范围</p>
+<p>负载门输入高电平时的噪声容限:$V_{NH}-$当前级门输出高电平的最小值时允许负向噪声电压的最大值<br>$V_{NH}=V_{OH(min)}-V_{IH(min)}$</p>
+<p>负载门输入低电平时的噪声容限:$V_{NL}-$当前级门输出低电平的最大值时允许正向噪声电压的最大值<br>$V_{NL}=V_{IL(max)}-V_{OL(max)}$</p>
+<ol start="3">
+<li>传输延迟时间</li>
+</ol>
+<p><strong>开关速度</strong>的参数,说明门电路在输入脉冲波形的作用下,其输出波形相对于输入波形延迟了多长的时间</p>
+<ol start="4">
+<li><p>功耗</p>
+<ul>
+<li>静态功耗:电路没有状态转换时的功耗,即门电路空载时电源总电流$I_D$与电源电压$V_{DD}$的乘积</li>
+<li>动态功耗:电路在输出状态转换时的功耗</li>
+<li>对于TTL门电路,<strong>静态功耗</strong>是主要的.CMOS电路的静态功耗非常低,有<strong>动态功耗</strong></li>
+</ul>
+</li>
+<li><p>延时-功耗积<br>是速度功耗综合性的指标,用符号$DP$表示<br>$DP=\dfrac{t_{pLH}+t_{pHL}}{2}P_D$</p>
+</li>
+<li><p>扇入与扇出数</p>
+<ul>
+<li>扇入数:取决于逻辑门的输入端的个数</li>
+<li>扇出数:在正常工作情况下,所能带同类门电路的最大数目</li>
+</ul>
+</li>
+</ol>
+<h2 id="MOS开关及其等效电路"><a href="#MOS开关及其等效电路" class="headerlink" title="MOS开关及其等效电路"></a>MOS开关及其等效电路</h2><p>当$v_1 &lt; V_T$:MOS管截止,输出高电平<br>当$v_1 &gt; V_T$并且比较大:MOS管工作在可变电阻区,输出低电平</p>
+<ul>
+<li><p>当输入为低电平时<br>MOS管截止,相当于开关断开,输出为高电平</p>
+</li>
+<li><p>当输入为高电平时<br>MOS管工作在可变电阻区,相当于开关闭合,输出为低电平</p>
+</li>
+</ul>
+<p>MOS管相当于一个由$V_{GS}$控制的无触点开关</p>
+<h2 id="CMOS反向器"><a href="#CMOS反向器" class="headerlink" title="CMOS反向器"></a>CMOS反向器</h2><h2 id="CMOS逻辑门"><a href="#CMOS逻辑门" class="headerlink" title="CMOS逻辑门"></a>CMOS逻辑门</h2><h2 id="CMOS传输门"><a href="#CMOS传输门" class="headerlink" title="CMOS传输门"></a>CMOS传输门</h2><p><strong>TODO</strong></p>
+<h2 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h2><ul>
+<li>TTL反向器</li>
+<li>TTL与非门</li>
+<li>TTL或非门</li>
+</ul>
+<h1 id="半导体存储器-基本概念"><a href="#半导体存储器-基本概念" class="headerlink" title="半导体存储器(基本概念)"></a>半导体存储器(<strong>基本概念</strong>)</h1><ul>
+<li><p>RAM(随机存取存储器):在运行状态可以随时进行读或写操作.存储的数据必须有电源供应才能保存,一旦掉电,数据全部丢失</p>
+</li>
+<li><p>ROM(只读存储器):在正常工作状态只能读出信息.断电后信息不会丢失</p>
+</li>
+<li><p>字长(位数)</p>
+</li>
+<li><p>字数</p>
+</li>
+<li><p>地址</p>
+</li>
+<li><p>存储容量=字数$\times$位数</p>
+</li>
+<li><p>掩摸ROM</p>
+<ul>
+<li>存储矩阵的每个交叉点是一个<strong>存储单元</strong>,存储单元中有期间存入1,无器件存入0</li>
+<li>出厂时已经固定,适合大量生产,便宜,非易失性</li>
+</ul>
+</li>
+<li><p>可变长ROM(PROM)</p>
+<ul>
+<li>存储单元与掩摸ROM不同</li>
+<li>熔丝由易熔合金制成,出厂时每个节点上都有,编程时讲不用的熔断.一次性编程,不能改写</li>
+</ul>
+</li>
+<li><p>可擦除的的可编程ROM(EPROM)</p>
+<ul>
+<li>存储单元与掩摸ROM不同</li>
+<li>用紫外线擦除的PROM(UVEPROM)</li>
+<li>SIMOS 叠栅注入MOS管<ul>
+<li>若$G_f$上充负电荷,则$G_c$处于正常逻辑高电平下不导通</li>
+<li>若$G_f$上为充负电荷,则$G_c$处于正常逻辑高电平下导通</li>
+<li>写入:雪崩注入.$D$-$S$间加高压($20-25V$),发生雪崩击穿,同时在$G_c$上加$25V,50ms$宽的正脉冲,吸引高速电子穿过$SiO_2$到达$G_f$,形成注入电荷</li>
+<li>擦除:通过照射产生电子-空穴对,提供泄放通道.紫外线照射20-30分钟,阳光下一周,荧光灯下3年</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>电可擦除的可编程ROM(E$^2$PROM)</p>
+<ul>
+<li>微客服UVEPROM擦除慢,操作不便的缺点,采用FLOTOX(浮栅隧道氧化层MOS管)</li>
+<li>$G_f$与$D$之间有小的隧道区,$SiO_2$厚度$&lt; 2\times10^{-8}m$</li>
+<li>当场强大到一定大小($10^7V/cm$)时,电子会穿越隧道</li>
+<li><strong>TODO</strong></li>
+</ul>
+</li>
+<li><p>快闪存储器(Flash Memory)</p>
+</li>
+<li><p>静态随机存储器SRAM</p>
+<ul>
+<li>存储单元:6个N沟道增强型MOS管</li>
+</ul>
+</li>
+<li><p>动态随机存储器DRAM</p>
+<ul>
+<li>利用<strong>MOS管栅极电容</strong>可以存储电荷的原理</li>
+</ul>
+</li>
+<li><p>SRAM和DRAM的区别</p>
+<ul>
+<li>SRAM:速度快,贵</li>
+</ul>
+</li>
+</ul>
+<h1 id="微电子学的新发展-基本概念"><a href="#微电子学的新发展-基本概念" class="headerlink" title="微电子学的新发展(基本概念)"></a>微电子学的新发展(<strong>基本概念</strong>)</h1><ul>
+<li><p>冯诺依曼架构:用数学模型和算法来描述和模仿神经元的行为和相互关系,但计算仍然运行在传统的计算机上</p>
+</li>
+<li><p>非冯诺依曼架构:用电子器件模拟生物神经元的功能,构建新的神经计算机</p>
+</li>
+<li><p>忆阻器:$V(t)=M(q(t))I(t)$.功能如同电阻,但在关掉电源后,仍能记忆先前通过的电荷量.忆阻器的电阻值取决于多少电荷经过了这个器件:让电荷以一个方向流过,电阻会增加;让点何以相反的方向流过,电阻就会减小</p>
+<ul>
+<li>工作原理:一块极薄的二氧化钛($TiO_2$)被夹在两个电极中间,分成2个部分,一般是正常的二氧化钛,另一半进行了掺杂,少了几个氧原子($TiO_{2-x}$),掺杂的那一半带正电.当电流从掺杂的一边通向正常的一边时,在电场的影响下缺氧的掺杂物会往正常的一侧游移,使得掺杂的部分会占较高的比重,整体的电阻降低</li>
+<li>特点<ul>
+<li>输入输出关系是非线性的</li>
+<li>输入和输出都是连续的,其存储的精度理论上是无限的</li>
+<li>无源电路元器件,方便将其应用在电路中,形成混合型电路</li>
+<li>非易失性</li>
+<li>高集成密度,高读写速度,低功耗,多值计算</li>
+</ul>
+</li>
+<li>应用前景<ul>
+<li><strong>TODO</strong></li>
+<li>存算一体</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>石墨烯:一种由碳原子构成的单层片状结构的新材料</p>
+<ul>
+<li>极薄极轻,比表面积$2630m^2/g$</li>
+<li>导热率为$3000-5000W/mK$</li>
+<li>极强的力学性能</li>
+<li>优良的导电性</li>
+<li>制备方法<ul>
+<li>物理方法<ul>
+<li>机械剥离法</li>
+<li>液相或气相直接剥离法</li>
+</ul>
+</li>
+<li>化学方法<ul>
+<li>表面析出生长法</li>
+<li>氧化石墨还原法</li>
+<li>化学气相沉积法</li>
+<li>化学合成法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>应用前景<ul>
+<li>低成本石墨烯电池</li>
+<li>可折叠弯曲屏</li>
+<li>石墨烯传感器</li>
+<li>石墨烯过滤器</li>
+<li>石墨烯生物器件</li>
+<li>石墨烯感光元件</li>
+<li>太阳能电池</li>
+<li>柔性微处理器</li>
+</ul>
+</li>
+<li>由石墨烯到二维材料<ol>
+<li>结构有序</li>
+<li>在二维平面生长</li>
+<li>在第三维度超薄</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>自旋场效应晶体管</p>
+<ul>
+<li>电子的电荷与自旋:在半导体材料中有<strong>电子</strong>和<strong>空穴</strong>两种载流子,极化电子优<strong>自旋向上</strong>和<strong>向下</strong>两种载流子</li>
+<li>电子的自旋极化:<strong>TODO</strong></li>
+</ul>
+</li>
+<li><p>柔性电子学</p>
+<ul>
+<li>概念:涵盖有机电子,塑料电子,生物电子,纳米电子,印刷电子等技术,是将有机/无机材料电子器件制作在柔性/可延性基板上的新兴电子技术.相对于传统电子,柔性电子具有更大的灵活性.</li>
+<li>应用场景:<strong>TODO</strong>,柔性显示,有机电致发光显示与照明,化学与生物传感器,柔性光伏,柔性逻辑与存储,柔性电池,可穿戴设备</li>
+<li>柔性电子器件的材料<ul>
+<li>碳纳米管</li>
+<li>金属氧化物半导体薄膜</li>
+<li>金属纳米薄膜,金属纳米线</li>
+<li>有机高分子薄膜</li>
+<li>水凝胶离子导体</li>
+<li>液态金属</li>
+</ul>
+</li>
+<li>柔性电子制造方法<ul>
+<li>转移印刷</li>
+<li>喷墨印刷</li>
+<li>纤维结构形成</li>
+</ul>
+</li>
+<li>可拉伸结构的设计:<strong>TODO</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h1><h2 id="半导体三极管-1"><a href="#半导体三极管-1" class="headerlink" title="半导体三极管"></a>半导体三极管</h2><ul>
+<li>输入特性曲线</li>
+<li>输出特性曲线<ul>
+<li>区域,含义</li>
+</ul>
+</li>
+<li>主要参数</li>
+</ul>
+<h2 id="三极管放大电路-1"><a href="#三极管放大电路-1" class="headerlink" title="三极管放大电路"></a>三极管放大电路</h2><ul>
+<li>共射极放大电路<ul>
+<li>工作原理</li>
+<li>计算静态工作点</li>
+<li>负载线</li>
+<li>失真和静态工作点的关系</li>
+<li>温度对工作点的影响(定性)</li>
+<li>基极分压式射极偏置电路(认识,工作原理)</li>
+</ul>
+</li>
+</ul>
+<h2 id="场效应管-1"><a href="#场效应管-1" class="headerlink" title="场效应管"></a>场效应管</h2><ul>
+<li>不同类型的管子<ul>
+<li>符号</li>
+<li>结构</li>
+<li>工作原理</li>
+<li>特性曲线<ul>
+<li>输出(分区)</li>
+<li>转移</li>
+</ul>
+</li>
+<li>几种效应</li>
+<li>主要(直流)参数</li>
+</ul>
+</li>
+</ul>
+<h2 id="场效应管放大电路-1"><a href="#场效应管放大电路-1" class="headerlink" title="场效应管放大电路"></a>场效应管放大电路</h2><ul>
+<li>基本共源极放大电路<ul>
+<li>工作原理(不要求公式)</li>
+</ul>
+</li>
+<li>图解法求静态工作点<ul>
+<li>负载线与输出特性曲线</li>
+</ul>
+</li>
+</ul>
+<h2 id="放大电路模型-2"><a href="#放大电路模型-2" class="headerlink" title="放大电路模型"></a>放大电路模型</h2><ul>
+<li>基本定义</li>
+<li>符号</li>
+<li>增益的定义</li>
+<li>几种模型</li>
+<li>性能指标<ul>
+<li>输入电阻</li>
+<li>输出电阻</li>
+<li>增益</li>
+<li>频率响应和带宽:基本概念,识图</li>
+<li>非线性失真:概念,识图(不要求计算)</li>
+</ul>
+</li>
+</ul>
+<h2 id="运算放大器-1"><a href="#运算放大器-1" class="headerlink" title="运算放大器"></a>运算放大器</h2><ul>
+<li>组成单元</li>
+<li>结构框图</li>
+<li>符号</li>
+<li>电路模型</li>
+<li>参数特点</li>
+<li>理想运放</li>
+<li>反馈:概念</li>
+<li>深度负反馈:概念</li>
+<li>虚短,虚断</li>
+<li>几种电路<ul>
+<li>基本形式</li>
+<li>特征</li>
+</ul>
+</li>
+</ul>
+<h2 id="数字逻辑-1"><a href="#数字逻辑-1" class="headerlink" title="数字逻辑"></a>数字逻辑</h2><ul>
+<li>概念</li>
+<li>逻辑符号,逻辑表达式</li>
+</ul>
+<h2 id="逻辑门电路-不要求分析"><a href="#逻辑门电路-不要求分析" class="headerlink" title="逻辑门电路(不要求分析)"></a>逻辑门电路(不要求分析)</h2><ul>
+<li>基本参数</li>
+<li>反向器,与非门,或非门,传输门</li>
+<li>TTL(反向器)(认识)</li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

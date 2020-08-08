@@ -1,0 +1,1252 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/javascript/">javascript</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/live2d/">live2d</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/html/">html</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">live2d SDK WebGL 笔记</span>
+  <br>
+  <span class="post_date">2019-04-06</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
+<li>Bracket</li>
+<li>vscode+live server(位置<code>~/.vscode/extensions</code>)</li>
+</ul>
+<blockquote>
+<p><code>Live2D SDK WebGL 2.1.00</code>只支持2.0版本的模型</p>
+</blockquote>
+<h2 id="文件组织"><a href="#文件组织" class="headerlink" title="文件组织"></a>文件组织</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">webGL&#x2F;-+-framework&#x2F;---Live2DFramework.js</span><br><span class="line">       |</span><br><span class="line">       +-lib&#x2F;---live2d.min.js</span><br><span class="line">       |</span><br><span class="line">       +-ReadMe.txt</span><br><span class="line">       |</span><br><span class="line">       &#96;-sample&#x2F;-+-simple&#x2F;</span><br><span class="line">                 |</span><br><span class="line">                 +-SimpleMultiCanvas&#x2F;</span><br><span class="line">                 |</span><br><span class="line">                 &#96;-sampleApp1&#x2F;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>live2d.min.js</code>:一个几千行的匿名函数,创建<code>window</code>的全局变量</p>
+</li>
+<li><p><code>Live2DFramework.js</code></p>
+<ul>
+<li>(296)<code>L2DBaseModel.prototype.hitTestSimple</code></li>
+<li>(1274)<code>L2DTargetPoint.prototype.setPoint</code></li>
+<li>(1354)<code>L2DViewMatrix()</code>:计算位置</li>
+<li>(1390)<code>L2DViewMatrix.prototype.setMaxScale</code></li>
+<li>(1398)<code>L2DViewMatrix.prototype.setMinScale</code></li>
+<li>(1406)<code>L2DViewMatrix.prototype.isMaxScale</code></li>
+<li>(1414)<code>L2DViewMatrix.prototype.isMinScale</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="sampleApp1"><a href="#sampleApp1" class="headerlink" title="sampleApp1"></a>sampleApp1</h3><h4 id="文件组织-1"><a href="#文件组织-1" class="headerlink" title="文件组织"></a>文件组织</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sampleApp1&#x2F;-+-sampleApp1.html</span><br><span class="line">            |</span><br><span class="line">            +-assets&#x2F;-+-image&#x2F;</span><br><span class="line">            |         |</span><br><span class="line">            |         &#96;-live2d&#x2F;---$&#123;name&#125;&#x2F;-+-$&#123;name&#125;.moc</span><br><span class="line">            |                              |</span><br><span class="line">            |                              +-$&#123;name&#125;.model.json</span><br><span class="line">            |                              |</span><br><span class="line">            |                              +-textures&#x2F;---$&#123;你的材质图&#125;.png</span><br><span class="line">            |                              |</span><br><span class="line">            |                              +-modtions&#x2F;---$&#123;动作&#125;.mtn</span><br><span class="line">            |                              | # 以下可选</span><br><span class="line">            |                              +-expressions&#x2F;---$&#123;没研究过&#125;.json</span><br><span class="line">            |                              |</span><br><span class="line">            |                              +-sounds&#x2F;--$&#123;你懂的&#125;.mp3</span><br><span class="line">            |                              |</span><br><span class="line">            |                              +-$&#123;name&#125;.physics # 不知道干嘛的</span><br><span class="line">            |                              |</span><br><span class="line">            |                              &#96;-$&#123;name&#125;.pose.json # 不知道干嘛的</span><br><span class="line">            |</span><br><span class="line">            &#96;-src&#x2F;-+-SampleApp1.js</span><br><span class="line">                   |</span><br><span class="line">                   +-LAppDefine.js</span><br><span class="line">                   |</span><br><span class="line">                   +-LAppLive2DManager.js</span><br><span class="line">                   |</span><br><span class="line">                   +-LAppModel.js</span><br><span class="line">                   |</span><br><span class="line">                   +-PlatformManager.js</span><br><span class="line">                   |</span><br><span class="line">                   &#96;-utils&#x2F;-+-MatrixStack.js</span><br><span class="line">                            |</span><br><span class="line">                            &#96;-ModelSettingJson.js</span><br></pre></td></tr></table></figure>
+
+<h4 id="引用关系"><a href="#引用关系" class="headerlink" title="引用关系"></a>引用关系</h4><ul>
+<li>html中<code>id</code>的引用关系</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><code>id</code></th>
+<th align="center">引用位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>drag_&#123;num&#125;</code>(可拖动元素)</td>
+<td align="center"><code>SampleApp1.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center"><code>glcanvas_&#123;num&#125;</code></td>
+<td align="center"><code>PlatformManager.js</code>,<code>SampleApp.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center"><code>btnChange_&#123;num&#125;</code></td>
+<td align="center"><code>SampleApp1.js</code>,必须</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>live2d.min.js</code>中声明的变量名引用情况</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">引用位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>UtSystem</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>LAppModel.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>UtDebug</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>LDTransform</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>LDGL</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Live2D</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>LAppLive2DManager.js</code>,<code>SampleApp1.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center"><code>Live2DModelWebGL</code></td>
+<td align="center"><code>PlatformManager.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center"><code>Live2DModelJS</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>Live2DMotion</code></td>
+<td align="center"><code>live2d.min.js</code>,<code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>MotionQueueManager</code></td>
+<td align="center"><code>live2d.min.js</code>,<code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>PhysicsHair</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>AMotion</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>PartsDataID</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>DrawDataID</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>BaseDataID</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>ParamID</code></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>Live2DFramework.js</code>中声明的变量名引用情况</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">引用位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>L2DBaseModel</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>LAppModel.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DExpressionMotion</code></td>
+<td align="center"><code>Live2DFramework.js</code>,必须,如果不修改变量名,那么多重canvas的先加载者的第一个模型不能够响应鼠标点击事件</td>
+</tr>
+<tr>
+<td align="center"><code>L2DExpressionParam</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DEyeBlink</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>LAppModel.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DMatrix44</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>SampleApp1.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DModelMatrix</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DMotionManager</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DPhysics</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DPose</code></td>
+<td align="center"><code>Live2DFramework.js</code>,必须,否则canvas的第一个模型<code>Pose</code>会加载错误</td>
+</tr>
+<tr>
+<td align="center"><code>L2DPartsParam</code></td>
+<td align="center"><code>Live2DFramework.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DTargetPoint</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>SampleApp1.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>L2DViewMatrix</code></td>
+<td align="center"><code>Live2DFramework.js</code>,<code>SampleApp1.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>Live2DFramework.setPlatformManager</code></td>
+<td align="center"><code>LAppLive2DManager.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center"><code>Live2DFramework.getPlatformManager</code></td>
+<td align="center"><code>ModelSettingJson.js</code>,<code>LAppModel.js</code>,<code>Live2DFramework.js</code>,不详</td>
+</tr>
+</tbody></table>
+<ul>
+<li>其余js声明的变量名引用情况</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">变量名</th>
+<th align="center">引用位置</th>
+<th align="center">声明位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>LAppDefine</code></td>
+<td align="center"><code>SampleApp1.js</code>,<code>LAppLive2DManager.js</code>,<code>LAppModel.js</code>,必须</td>
+<td align="center"><code>LAppDefine.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>LAppLive2DManager</code></td>
+<td align="center"><code>LAppLive2DManager.js</code>,<code>SampleApp1.js</code>,必须</td>
+<td align="center"><code>LAppLive2DManager.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>LAppModel</code></td>
+<td align="center"><code>LAppModel.js</code>,<code>LAppLive2DManager.js</code>,必须</td>
+<td align="center"><code>LAppModel.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>PlatformManager</code></td>
+<td align="center"><code>LAppLive2DManager.js</code>,<code>PlatformManager.js</code>,必须</td>
+<td align="center"><code>PlatformManager.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>ModelSettingJson</code></td>
+<td align="center"><code>ModelSettingJson.js</code>,<code>LAppModel.js</code>,必须</td>
+<td align="center"><code>ModelSettingJson.js</code></td>
+</tr>
+<tr>
+<td align="center"><code>MatrixStack</code></td>
+<td align="center"><code>MatrixStack.js</code>,<code>LAppModel.js</code>,<code>SampleApp1.js</code></td>
+<td align="center"><code>MatrixStack.js</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>SampleApp1.js</code>中的变量</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">对象名</th>
+<th align="center">引用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>this.live2DMgr = new LAppLive2DManager();</code></td>
+<td align="center">必须</td>
+</tr>
+<tr>
+<td align="center"><code>this.gl</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>this.dragMgr = new L2DTargetPoint();</code></td>
+<td align="center">必须,否则无法判定相对鼠标位置</td>
+</tr>
+<tr>
+<td align="center"><code>this.viewMatrix = new L2DViewMatrix();</code></td>
+<td align="center">必须,单个放缩要用</td>
+</tr>
+<tr>
+<td align="center"><code>this.projMatrix = new L2DMatrix44();</code></td>
+<td align="center">必须,计算画布大小要用</td>
+</tr>
+<tr>
+<td align="center"><code>this.deviceToScreen = new L2DMatrix44();</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>this.drag</code></td>
+<td align="center">必须,否则无法判定相对鼠标位置</td>
+</tr>
+<tr>
+<td align="center"><code>this.oldLen</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>this.lastMouseX</code>,<code>this.lastMouseY</code></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>this.isModelShown</code></td>
+<td align="center">必须,和按键刷新有关</td>
+</tr>
+<tr>
+<td align="center"><code>this.canvas</code></td>
+<td align="center">必须,否则无法加载材质</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>SampleApp1.js</code>中的函数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="center">引用位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>startDraw</code></td>
+<td align="center"><code>SampleApp1.js</code>,必须</td>
+</tr>
+<tr>
+<td align="center">…</td>
+<td align="center"><code>SampleApp1.js</code>,必须(未验证)</td>
+</tr>
+<tr>
+<td align="center"><code>transform...</code></td>
+<td align="center">非必须,在刚加载的时候会有一堆报错,但不影响使用</td>
+</tr>
+<tr>
+<td align="center"><code>getWebGLContext</code></td>
+<td align="center"><code>PlatformManager.js</code>,必须,否则加载不出模型</td>
+</tr>
+<tr>
+<td align="center"><code>l2dError</code></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="文件说明"><a href="#文件说明" class="headerlink" title="文件说明"></a>文件说明</h4><h5 id="LAppDefine-js"><a href="#LAppDefine-js" class="headerlink" title="LAppDefine.js"></a><code>LAppDefine.js</code></h5><ul>
+<li><code>var LAppDefine</code>:全局变量<ul>
+<li><code>VIEW_MAX_SCALE</code>:最大倍数</li>
+<li><code>VIEW_MIN_SCALE</code>:最小倍数</li>
+<li>…</li>
+<li><code>BACK_IMAGE_NAME</code>:背景图</li>
+<li><code>MODEL_&#123;NAME&#125;</code>:模型名</li>
+<li><code>MOTION_GROUP_&#123;EVENT&#125;</code>:对应<code>motions</code></li>
+<li><code>HIT_AREA_&#123;AREA&#125;</code>:对应<code>hit_areas</code>的<code>name</code></li>
+</ul>
+</li>
+</ul>
+<h5 id="LAppLive2DManager-js"><a href="#LAppLive2DManager-js" class="headerlink" title="LAppLive2DManager.js"></a><code>LAppLive2DManager.js</code></h5><ul>
+<li><code>LAppLive2DManager()</code>:初始化</li>
+<li><code>LAppLive2DManager.prototype.createModel</code>:应该就是<code>this.createModel()</code></li>
+<li><code>LAppLive2DManager.prototype.changeModel</code>:切换模型的主体部分</li>
+<li><code>LAppLive2DManager.prototype.getModel</code></li>
+<li><code>LAppLive2DManager.prototype.releaseModel</code>:应该是<code>this.releaseModel()</code></li>
+<li>…</li>
+<li><code>LAppLive2DManager.prototype.tapEvent</code>:处理点击事件</li>
+</ul>
+<h5 id="SampleApp1-js"><a href="#SampleApp1-js" class="headerlink" title="SampleApp1.js"></a><code>SampleApp1.js</code></h5><ul>
+<li>…</li>
+<li><code>sampleApp1()</code>:每次加载1个模型之后初始化</li>
+<li>(42)<code>initL2dCanvas(canvasId)</code>:增加监听事件</li>
+<li>(73)<code>init()</code><ul>
+<li><code>this.deviceToScreen</code>:用于跟踪鼠标</li>
+<li><code>this.projMatrix.multScale</code>:比例放缩</li>
+<li><code>this.gl</code>:设置画图的画布</li>
+</ul>
+</li>
+<li>…</li>
+<li><code>changeModel()</code>:<code>this.live2DMgr.count ++</code>(在<code>LAppLive2DManager.js</code>中<code>var no = parseInt(this.count % $&#123;model_num&#125;)</code>)并调用<code>this.live2DMgr.changeModel(this.gl)</code></li>
+<li><code>modelScaling(scale)</code></li>
+<li>(261)<code>followPointer(event)</code>:在得到<code>darg</code>之后调用<code>setPoint(x, y)</code></li>
+<li>(284)<code>lookFront()</code>:刷新<code>drag</code>(默认是关闭鼠标点击事件),并重置头部方向(<code>Live2DFramework.js</code>的<code>setPoint(x, y)</code>)</li>
+<li>(294)<code>mouseEvent(e)</code>:判断鼠标的事件</li>
+<li><code>touchEvent(e)</code></li>
+<li>(384)<code>transformViewX(deviceX)</code></li>
+<li><code>transformViewY(deviceY)</code></li>
+<li><code>transformScreenX(deviceX)</code></li>
+<li>(404)<code>transformScreenY(deviceY)</code></li>
+<li>(411)<code>getWebGLContext</code>:选择绘制的canvas(但是不计算比例放缩)</li>
+<li>…</li>
+</ul>
+<h5 id="LAppModel-js-主要是动作-表情的加载"><a href="#LAppModel-js-主要是动作-表情的加载" class="headerlink" title="LAppModel.js:主要是动作,表情的加载"></a><code>LAppModel.js</code>:主要是动作,表情的加载</h5><ul>
+<li>…</li>
+<li><code>LAppModel.prototype.setRandomExpression</code></li>
+<li><code>LAppModel.prototype.startRandomMotion</code></li>
+<li><code>LAppModel.prototype.startMotions</code></li>
+<li>…</li>
+<li><code>LAppModel.prototype.setExpression</code></li>
+<li>…</li>
+<li><code>LAppModel.prototype.hitTest(id, testX, testY)</code>:逐一判断点击部位的<code>name</code>,然后获取<code>id</code>,并返回<code>hitTestSimple(drawID, testX, testY)</code></li>
+</ul>
+<h5 id="PlatformManager-js"><a href="#PlatformManager-js" class="headerlink" title="PlatformManager.js"></a><code>PlatformManager.js</code></h5><ul>
+<li>(56)<code>PlatformManager.prototype.loadModel</code>:如果次步出错,那么加载出来的模型是一团黑</li>
+<li>(71)<code>PlatformManager.prototype.loadTexture</code></li>
+</ul>
+<h5 id="MatrixStack-js-看不懂在干嘛…"><a href="#MatrixStack-js-看不懂在干嘛…" class="headerlink" title="MatrixStack.js:看不懂在干嘛…"></a><code>MatrixStack.js</code>:看不懂在干嘛…</h5><ul>
+<li>…</li>
+</ul>
+<h5 id="ModelSettingJson-js"><a href="#ModelSettingJson-js" class="headerlink" title="ModelSettingJson.js"></a><code>ModelSettingJson.js</code></h5><ul>
+<li>…</li>
+<li><code>ModelSettingJson.prototype.getHitAreaNum</code>:获取<code>json</code>文件中<code>hit_areas</code>的项目个数</li>
+<li><code>ModelSettingJson.prototype.getHitAreaID</code>:获取<code>json</code>文件中<code>hit_areas</code>中的<code>id</code></li>
+<li><code>ModelSettingJson.prototype.getHitAreaName</code>:获取…的<code>name</code></li>
+<li>…</li>
+<li><code>ModelSettingJson.prototype.getMotionNum</code>:获取<code>json</code>文件中<code>mostions</code>的个数(待确定)</li>
+<li><code>ModelSettingJson.prototype.getMotionFile</code></li>
+<li>…</li>
+</ul>
+<h2 id="文件合并顺序"><a href="#文件合并顺序" class="headerlink" title="文件合并顺序"></a>文件合并顺序</h2><ul>
+<li>可行方案1: <code>LAppDefine</code>-&gt;<code>live2d</code>-&gt;<code>LAppLive2DManager</code>-&gt;<code>Live2DFramework</code>-&gt;其他-&gt;<code>SampleApp1</code></li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

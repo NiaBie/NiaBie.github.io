@@ -1,0 +1,999 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/sage/">sage</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/python/">python</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">问题求解</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">Abstract Algebra(人话版)</span>
+  <br>
+  <span class="post_date">2019-03-17</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h2 id="Sage准备"><a href="#Sage准备" class="headerlink" title="Sage准备"></a>Sage准备</h2><ul>
+<li>mac<ol>
+<li>开启共享</li>
+<li><code>Applications/SageMath-8.6.app/Contents/Resources/sage/sage</code></li>
+</ol>
+</li>
+</ul>
+<h3 id="模-n-整数-Z-n"><a href="#模-n-整数-Z-n" class="headerlink" title="模$n$整数$Z_n$"></a>模$n$整数$Z_n$</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Z8 = Integers(<span class="number">8</span>)</span><br><span class="line">Z8.list()</span><br><span class="line"><span class="comment"># [0, 1, 2, 3, 4, 5, 6, 7]</span></span><br><span class="line"></span><br><span class="line">a = Z8.an_element(); a</span><br><span class="line"><span class="comment"># 0</span></span><br><span class="line"></span><br><span class="line">a = Z8(<span class="number">7</span>); a</span><br><span class="line"><span class="comment"># 7</span></span><br><span class="line"></span><br><span class="line">Z8.addition_table(names = <span class="string">&#x27;elements&#x27;</span>)</span><br><span class="line"><span class="comment"># +  0 1 2 3 4 5 6 7</span></span><br><span class="line"><span class="comment">#  +----------------</span></span><br><span class="line"><span class="comment"># 0| 0 1 2 3 4 5 6 7</span></span><br><span class="line"><span class="comment"># 1| 1 2 3 4 5 6 7 0</span></span><br><span class="line"><span class="comment"># 2| 2 3 4 5 6 7 0 1</span></span><br><span class="line"><span class="comment"># 3| 3 4 5 6 7 0 1 2</span></span><br><span class="line"><span class="comment"># 4| 4 5 6 7 0 1 2 3</span></span><br><span class="line"><span class="comment"># 5| 5 6 7 0 1 2 3 4</span></span><br><span class="line"><span class="comment"># 6| 6 7 0 1 2 3 4 5</span></span><br><span class="line"><span class="comment"># 7| 7 0 1 2 3 4 5 6</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="子群subgroups"><a href="#子群subgroups" class="headerlink" title="子群subgroups"></a>子群subgroups</h3><ul>
+<li><p>群</p>
+<ul>
+<li>结合律</li>
+<li>单位元存在</li>
+<li>逆元存在</li>
+</ul>
+</li>
+<li><p>子群</p>
+<ul>
+<li>封闭性</li>
+<li>单位元存在性</li>
+<li>逆元存在性</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">S8 = SymmetricGroup(<span class="number">8</span>)</span><br><span class="line">Q = QuaternionGroup()</span><br><span class="line">Q.is_subgroup(S8)</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line"></span><br><span class="line">a = S8.random_element()</span><br><span class="line">[a (x) <span class="keyword">for</span> x <span class="keyword">in</span> S8.domain()]</span><br><span class="line"><span class="comment"># [5, 2, 6, 4, 1, 8, 3, 7]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一般线性群"><a href="#一般线性群" class="headerlink" title="一般线性群"></a>一般线性群</h3><ul>
+<li>$\mathbb{M}_2(\mathbb{R})$:所有$2\times2$矩阵</li>
+<li>$GL_2(\mathbb{R})$:$\mathbb{M}_2$中可逆矩阵.可逆矩阵构成一般线性群</li>
+<li>$A\in GL_2(\mathbb{R}),A^{-1}=\dfrac{1}{ad-bc}<br>\begin{pmatrix}<br>d &amp; -b \\</li>
+<li>c &amp; a \\<br>\end{pmatrix}<br>$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">matrix([[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line"><span class="comment"># [1 0]</span></span><br><span class="line"><span class="comment"># [3 4]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="循环群"><a href="#循环群" class="headerlink" title="循环群"></a>循环群</h3><ul>
+<li>存在一些$a\in G$使得$G=\langle a\rangle$</li>
+<li>$C_{\infty}\cong\mathbb{Z}(\mathbb{Z},+),C_n\cong\mathbb{Z}_n$</li>
+<li>无限循环群$C_{\infty}$<ul>
+<li>$|g^k|=\infty$</li>
+<li>生成元:$g,g^{-1}$</li>
+<li>子群:$\langle g^k\rangle,k\in\mathbb{N}$</li>
+</ul>
+</li>
+<li>有限循环群$C_n$<ul>
+<li>生成元:$g^k,\gcd(k,n)=1$</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">G = <span class="number">3</span>*ZZ</span><br><span class="line"><span class="number">-12</span> <span class="keyword">in</span> G</span><br><span class="line"><span class="comment"># True</span></span><br><span class="line">G.gen()</span><br><span class="line"><span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="四元群-Q-8"><a href="#四元群-Q-8" class="headerlink" title="四元群$Q_8$"></a>四元群$Q_8$</h3><ul>
+<li>$Q_8={\pm1,\pm I,\pm J,\pm K}$,其中</li>
+</ul>
+<p>$$<br>1=<br>\begin{pmatrix}<br>1 &amp; 0 \\<br>0 &amp; 1 \\<br>\end{pmatrix}<br>I=<br>\begin{pmatrix}<br>0 &amp; 1 \\<br>-1 &amp; 0 \\<br>\end{pmatrix}<br>J=<br>\begin{pmatrix}<br>0 &amp; i \\<br>i &amp; 0 \\<br>\end{pmatrix}<br>K=\begin{pmatrix}<br>i &amp; 0 \\<br>0 &amp; -i \\<br>\end{pmatrix}<br>$$</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Q = QuaternionGroup()</span><br><span class="line">Q.order()</span><br><span class="line"><span class="comment"># 8</span></span><br><span class="line">Q.is_abelian()</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Sage中复数用<code>CC</code>表示,可用<code>i</code>/<code>I</code></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">H = [CC(<span class="number">1</span>), CC(<span class="number">-1</span>), CC(i), CC(-i)]</span><br><span class="line">sage: CC.multiplication_table(elements = H, names = [<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;-1&#x27;</span>, <span class="string">&#x27;i&#x27;</span>, <span class="string">&#x27;-i&#x27;</span>])</span><br><span class="line"><span class="comment">#  *   1 -1  i -i</span></span><br><span class="line"><span class="comment">#   +------------</span></span><br><span class="line"><span class="comment">#  1|  1 -1  i -i</span></span><br><span class="line"><span class="comment"># -1| -1  1 -i  i</span></span><br><span class="line"><span class="comment">#  i|  i -i -1  1</span></span><br><span class="line"><span class="comment"># -i| -i  i  1 -1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二面体群-Dihedral-Group-D-n"><a href="#二面体群-Dihedral-Group-D-n" class="headerlink" title="二面体群(Dihedral Group)$D_n$"></a>二面体群(Dihedral Group)$D_n$</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">D100 = DihedralGroup(<span class="number">100</span>)</span><br><span class="line">D50 = DihedralGroup(<span class="number">50</span>)</span><br><span class="line">Z2 = Integers(<span class="number">2</span>)</span><br><span class="line">D100.is_abelian()</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line">D100.is_cyclic()</span><br><span class="line"><span class="comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="置换群-S-n"><a href="#置换群-S-n" class="headerlink" title="置换群$S_n$:"></a>置换群$S_n$:</h3><ul>
+<li>秩:$|S_n|=n!$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">S3 = SymmetricGroup(<span class="number">3</span>)</span><br><span class="line">rho1 = S3([<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]); rho1</span><br><span class="line"><span class="comment"># (1,3)</span></span><br><span class="line"></span><br><span class="line">S3.domain()</span><br><span class="line"><span class="comment"># &#123;1, 2, 3&#125;</span></span><br><span class="line"></span><br><span class="line">[rho1(x) <span class="keyword">for</span> x <span class="keyword">in</span> S3.domain()]</span><br><span class="line"><span class="comment"># [3, 2, 1]</span></span><br><span class="line"></span><br><span class="line">[[a(x) <span class="keyword">for</span> x <span class="keyword">in</span> S3.domain()] <span class="keyword">for</span> a <span class="keyword">in</span> S3]</span><br><span class="line"><span class="comment"># [[1, 2, 3], [3, 1, 2], [2, 3, 1], [1, 3, 2], [3, 2, 1], [2, 1, 3]]</span></span><br><span class="line"></span><br><span class="line">S3.cayley_table(names=<span class="string">&#x27;elements&#x27;</span>)</span><br><span class="line"><span class="comment">#       *       ()   (2,3)   (1,2) (1,2,3) (1,3,2)   (1,3)</span></span><br><span class="line"><span class="comment">#        +------------------------------------------------</span></span><br><span class="line"><span class="comment">#      ()|      ()   (2,3)   (1,2) (1,2,3) (1,3,2)   (1,3)</span></span><br><span class="line"><span class="comment">#   (2,3)|   (2,3)      () (1,2,3)   (1,2)   (1,3) (1,3,2)</span></span><br><span class="line"><span class="comment">#   (1,2)|   (1,2) (1,3,2)      ()   (1,3)   (2,3) (1,2,3)</span></span><br><span class="line"><span class="comment"># (1,2,3)| (1,2,3)   (1,3)   (2,3) (1,3,2)      ()   (1,2)</span></span><br><span class="line"><span class="comment"># (1,3,2)| (1,3,2)   (1,2)   (1,3)      () (1,2,3)   (2,3)</span></span><br><span class="line"><span class="comment">#   (1,3)|   (1,3) (1,2,3) (1,3,2)   (2,3)   (1,2)      ()</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">S5 = SymmetricGroup(<span class="number">5</span>)</span><br><span class="line">sigma = S5(<span class="string">&quot;(1,3)(2,5,4)&quot;</span>)</span><br><span class="line">sigma**<span class="number">2</span></span><br><span class="line"><span class="comment"># (2,4,5)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="循环置换群"><a href="#循环置换群" class="headerlink" title="循环置换群"></a>循环置换群</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">C3 = CyclicPermutationGroup(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="交代群-A-n"><a href="#交代群-A-n" class="headerlink" title="交代群$A_n$"></a>交代群$A_n$</h3><ul>
+<li>$S_n$的子群,偶排列,$|A_n|=\dfrac{n!}{2}$</li>
+</ul>
+<blockquote>
+<p>如果排列为偶<code>.sign()</code>输出1,为奇输出-1</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A4 = AlternatingGroup(<span class="number">4</span>)</span><br><span class="line">rho = A4.random_element()</span><br><span class="line">rho</span><br><span class="line"><span class="comment"># (1,4,2)</span></span><br><span class="line"></span><br><span class="line">rho.sign()</span><br><span class="line"><span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line">S4 = SymmetricGroup(<span class="number">4</span>)</span><br><span class="line">rho = S4.random_element()</span><br><span class="line">rho; rho.sign()</span><br><span class="line"><span class="comment"># (1,4,2,3)</span></span><br><span class="line"><span class="comment"># -1</span></span><br><span class="line"></span><br><span class="line">A4.order()<span class="string">&#x27; S4.order()</span></span><br><span class="line"><span class="string"># 12</span></span><br><span class="line"><span class="string"># 24</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通过给定generators来生成一个群的子群</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sigma = (<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>)</span><br><span class="line">sg = A4.subgroup([sigma])</span><br><span class="line">sg.list()</span><br><span class="line"><span class="comment"># [(), (1,2,4), (1,4,2)]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>穷举所有子群(注意<code>s</code>)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A4.subgroups()</span><br></pre></td></tr></table></figure>
+
+<h3 id="陪集"><a href="#陪集" class="headerlink" title="陪集"></a>陪集</h3><ul>
+<li>$H$是$G$的子群,$H$的左陪集:$gH=\{gh:h\in H\}$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">S3 = SymmetricGroup(<span class="number">3</span>)</span><br><span class="line">a = S3(<span class="string">&quot;(1,2)&quot;</span>)</span><br><span class="line">H = S3.subgroup([a])</span><br><span class="line">rc = S3.cosets(H, side = <span class="string">&#x27;right&#x27;</span>); rc</span><br><span class="line"><span class="comment"># [[(), (1,2)], [(2,3), (1,3,2)], [(1,2,3), (1,3)]]</span></span><br><span class="line"></span><br><span class="line">lc = S3.cosets(H, side = <span class="string">&#x27;left&#x27;</span>); lc</span><br><span class="line"><span class="comment"># [[(), (1,2)], [(2,3), (1,2,3)], [(1,3,2), (1,3)]]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>乱序的list比较结果为False,可通过排序再进行比较</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">b = S3(<span class="string">&quot;(1,2,3)&quot;</span>)</span><br><span class="line">H = S3.subgroup([b])</span><br><span class="line">rc = S3.cosets(H, side = <span class="string">&#x27;right&#x27;</span>);</span><br><span class="line">lc = S3.cosets(H, side = <span class="string">&#x27;left&#x27;</span>);</span><br><span class="line">rc == lc</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"></span><br><span class="line">rc_sorted = sorted([sorted(coset) <span class="keyword">for</span> coset <span class="keyword">in</span> rc])</span><br><span class="line">lc_sorted = sorted([sorted(coset) <span class="keyword">for</span> coset <span class="keyword">in</span> lc])</span><br><span class="line">rc_sorted == lc_sorted</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$H$是$G$的子群,index of $H=H$在$G$中左陪集的个数$=H$右陪集的个数,记作$[G:H]$</li>
+</ul>
+<h3 id="正规子群-Normal-Subgroups"><a href="#正规子群-Normal-Subgroups" class="headerlink" title="正规子群(Normal Subgroups)"></a>正规子群(Normal Subgroups)</h3><ul>
+<li>$H$是$G$的子群,$gH=Hg,\forall g\in G$</li>
+<li>等价条件,设$N$是$G$的子群<ul>
+<li>$N$是$G$的正规子群</li>
+<li>$\forall g\in G,gNg^{-1}\subset N$</li>
+<li>$\forall g\in G,gNg^{-1}=N$</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A4.is_normal(S4)</span><br><span class="line"><span class="comment"># True</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="商群-factor-quotient-group"><a href="#商群-factor-quotient-group" class="headerlink" title="商群(factor/quotient group)"></a>商群(factor/quotient group)</h3><ul>
+<li>$N$是$G$的正规子群,商群$G/N$是$N$在$G$中左陪集的集合</li>
+<li>$aN,bN\in G/N,(aN)(bN)=abN$</li>
+<li>$G/N$的阶为$[G:N]$</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Q = S4.quotient(A4)</span><br></pre></td></tr></table></figure>
+
+<h3 id="同构-同态"><a href="#同构-同态" class="headerlink" title="同构 同态"></a>同构 同态</h3><ul>
+<li>同构:$(G,\cdot),(H,\circ)$单射且满射$\phi:G\to H$</li>
+</ul>
+<p>$$\phi(a\cdot b)=\phi(a)\circ\phi(b),\forall a,b\in G$$</p>
+<ul>
+<li>同态:$(G,\cdot),(H,\circ)$映射$\phi:G\to H$</li>
+</ul>
+<p>$$\phi(a\cdot b)=\phi(a)\circ\phi(b),\forall a,b\in G$$</p>
+<ul>
+<li>核(kernel):群同态$\phi:G\to H$,$e$是$H$的单位元,$G$的子群$\phi^{-1}({e})$是$\phi$的kernel</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">A4.is_isomorphic(S4)</span><br><span class="line"><span class="comment"># False</span></span><br><span class="line"></span><br><span class="line">x = S4.gen(<span class="number">0</span>)</span><br><span class="line">phi = PermutationGroupMorphism(A4, S4, x)</span><br><span class="line">phi</span><br><span class="line"><span class="comment"># Permutation group morphism:</span></span><br><span class="line"><span class="comment">#   From: Alternating group of order 4!/2 as a permutation group</span></span><br><span class="line"><span class="comment">#   To:   Symmetric group of order 4! as a permutation group</span></span><br><span class="line"><span class="comment">#   Defn: [(2,3,4), (1,2,3)] -&gt; [(1,2,3,4)]</span></span><br><span class="line"></span><br><span class="line">phi = PermutationGroupMorphism(A4, S4, A4.gens()); phi</span><br><span class="line"><span class="comment"># Permutation group morphism:</span></span><br><span class="line"><span class="comment">#   From: Alternating group of order 4!/2 as a permutation group</span></span><br><span class="line"><span class="comment">#   To:   Symmetric group of order 4! as a permutation group</span></span><br><span class="line"><span class="comment">#   Defn: [(2,3,4), (1,2,3)] -&gt; [(2,3,4), (1,2,3)]</span></span><br><span class="line"></span><br><span class="line">a = A4.random_element(); print(a, <span class="string">&quot;-&gt;&quot;</span>, phi(a))</span><br><span class="line"><span class="comment"># ((2,3,4), &#x27;-&gt;&#x27;, (2,3,4))</span></span><br><span class="line"></span><br><span class="line">phi.kernel()</span><br><span class="line"><span class="comment"># Subgroup of (Alternating group of order 4!/2 as a permutation group) generated by [()]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h3><p><code>sage</code>中null space使用kernel代替</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Z = Integers(<span class="number">2</span>)</span><br><span class="line">Z</span><br><span class="line"><span class="comment"># Ring of integers modulo 2</span></span><br><span class="line">M = matrix(Z,[[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br><span class="line">M</span><br><span class="line"><span class="comment"># [0 1 0 0 0]</span></span><br><span class="line"><span class="comment"># [1 0 1 0 1]</span></span><br><span class="line"><span class="comment"># [1 0 0 1 0]</span></span><br><span class="line">H = M.right_kernel_matrix()</span><br><span class="line">H</span><br><span class="line"><span class="comment"># [1 0 0 1 1]</span></span><br><span class="line"><span class="comment"># [0 0 1 0 1]</span></span><br></pre></td></tr></table></figure>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

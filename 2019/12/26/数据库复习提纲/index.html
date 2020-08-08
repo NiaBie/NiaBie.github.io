@@ -1,0 +1,1075 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">数据库复习提纲</span>
+  <br>
+  <span class="post_date">2019-12-26</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="1-数据库系统概述"><a href="#1-数据库系统概述" class="headerlink" title="1 数据库系统概述"></a>1 数据库系统概述</h1><h2 id="1-1-基本概念"><a href="#1-1-基本概念" class="headerlink" title="1.1 基本概念"></a>1.1 基本概念</h2><ul>
+<li>数据库,数据库管理系统,数据库系统,数据库管理员(相互之间的关系)</li>
+</ul>
+<h2 id="1-2-数据库系统的特点"><a href="#1-2-数据库系统的特点" class="headerlink" title="1.2 数据库系统的特点"></a>1.2 数据库系统的特点</h2><ul>
+<li><em>数据集成化,数据独立性,数据共享,数据冗余,数据安全性,完整性和一致性,并发控制和故障恢复</em></li>
+</ul>
+<h2 id="1-3-数据库内部结构体系"><a href="#1-3-数据库内部结构体系" class="headerlink" title="1.3 数据库内部结构体系"></a>1.3 数据库内部结构体系</h2><ul>
+<li><em>数据模式</em></li>
+<li>三级模式,<em>二级映射</em></li>
+<li><em>三级模式与数据独立性关系</em></li>
+</ul>
+<h1 id="2-数据模型"><a href="#2-数据模型" class="headerlink" title="2 数据模型"></a>2 数据模型</h1><h2 id="2-1-数据模型的基本概念"><a href="#2-1-数据模型的基本概念" class="headerlink" title="2.1 数据模型的基本概念"></a>2.1 数据模型的基本概念</h2><ul>
+<li><em>数据模型及其组成成分:数据结构,数据操作,数据约束</em></li>
+<li><em>数据模型的核心,不同类型数据模型的区分依据</em></li>
+<li>三个抽象层次上的数据模型概念:概念数据模型,逻辑数据模型,物理数据模型</li>
+</ul>
+<h2 id="2-2-数据模型的四个世界"><a href="#2-2-数据模型的四个世界" class="headerlink" title="2.2 数据模型的四个世界"></a><em>2.2 数据模型的四个世界</em></h2><ul>
+<li><em>现实世界,概念世界,信息世界,计算机世界</em></li>
+</ul>
+<h2 id="2-3-概念世界与概念模型"><a href="#2-3-概念世界与概念模型" class="headerlink" title="2.3 概念世界与概念模型"></a>2.3 概念世界与概念模型</h2><ul>
+<li>E-R模型与E-R图(包括扩充E-R模型)<ul>
+<li>实体,属性,联系</li>
+<li>多值属性,组合属性</li>
+<li>联系上的函数对应关系,参与方式</li>
+<li>IS-A联系,弱实体</li>
+</ul>
+</li>
+<li><em>面向对象模型:对象,对象标识符,类,方法,超类和子类,聚合和分解,继承和合成</em></li>
+</ul>
+<h2 id="2-4-信息世界和逻辑模型"><a href="#2-4-信息世界和逻辑模型" class="headerlink" title="2.4 信息世界和逻辑模型"></a>2.4 信息世界和逻辑模型</h2><ul>
+<li>关系模型:关系,属性,值域(域),元组,关系数据库,关键字</li>
+</ul>
+<h2 id="2-5-计算机世界与物理模型"><a href="#2-5-计算机世界与物理模型" class="headerlink" title="2.5 计算机世界与物理模型"></a><em>2.5 计算机世界与物理模型</em></h2><ul>
+<li><em>逻辑模型的物理存储:项,记录,文件,索引,集簇</em></li>
+<li><em>提高文件访问效率的常用方法:索引,集簇,hash</em></li>
+</ul>
+<h1 id="3-关系数据库系统"><a href="#3-关系数据库系统" class="headerlink" title="3 关系数据库系统"></a>3 关系数据库系统</h1><h2 id="3-1-关系数据库系统概述"><a href="#3-1-关系数据库系统概述" class="headerlink" title="3.1 关系数据库系统概述"></a><em>3.1 关系数据库系统概述</em></h2><h2 id="3-2-关系数据库系统的衡量准则"><a href="#3-2-关系数据库系统的衡量准则" class="headerlink" title="3.2 关系数据库系统的衡量准则"></a>3.2 关系数据库系统的衡量准则</h2><ul>
+<li><em>完全关系型的十二条衡量准则</em></li>
+<li><em>空值(NULL)的定义</em></li>
+</ul>
+<h2 id="3-3-关系代数"><a href="#3-3-关系代数" class="headerlink" title="3.3 关系代数"></a>3.3 关系代数</h2><h3 id="3-3-0-关系模型-概念"><a href="#3-3-0-关系模型-概念" class="headerlink" title="3.3.0 关系模型(概念)"></a>3.3.0 关系模型(概念)</h3><ul>
+<li>关系数据结构<ul>
+<li>表结构(表头):表框架,表的元数与基数</li>
+<li><em>关系:关系的性质</em></li>
+<li>关键字:候选关键字,主关键字,外关键字</li>
+<li><em>关系数据库:关系子模式-视图(view)</em></li>
+</ul>
+</li>
+<li>关系操纵<ul>
+<li>数据查询:两个关系的合并,单个关系内的元组选择,单个关系内的属性指定</li>
+<li>元组的删除,插入,修改</li>
+<li>空值的处理</li>
+</ul>
+</li>
+<li>关系中的数据约束<ul>
+<li>实体完整性约束,参照完整性约束,用户定义的完整性</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-1-关系的表示"><a href="#3-3-1-关系的表示" class="headerlink" title="3.3.1 关系的表示"></a>3.3.1 关系的表示</h3><ul>
+<li><em>关系的表示</em>,笛卡尔乘积</li>
+</ul>
+<h3 id="3-3-2-关系操纵的表示"><a href="#3-3-2-关系操纵的表示" class="headerlink" title="3.3.2 关系操纵的表示"></a>3.3.2 关系操纵的表示</h3><ul>
+<li>关系代数中的五种基本运算:选择,投影,笛卡尔积,并,差(注意执行条件)</li>
+</ul>
+<h3 id="3-3-3-关系模型与关系代数"><a href="#3-3-3-关系模型与关系代数" class="headerlink" title="3.3.3 关系模型与关系代数"></a><em>3.3.3 关系模型与关系代数</em></h3><h3 id="3-3-4-关系代数中的扩充运算"><a href="#3-3-4-关系代数中的扩充运算" class="headerlink" title="3.3.4 关系代数中的扩充运算"></a>3.3.4 关系代数中的扩充运算</h3><ul>
+<li>交,除法,联接,自然联接,$\theta$-联接</li>
+<li>扩充运算与基本运算之间的关系</li>
+</ul>
+<h3 id="3-3-5-关系代数的应用"><a href="#3-3-5-关系代数的应用" class="headerlink" title="3.3.5 关系代数的应用"></a>3.3.5 关系代数的应用</h3><h3 id="3-3-6-关系演算"><a href="#3-3-6-关系演算" class="headerlink" title="3.3.6 关系演算"></a>3.3.6 关系演算</h3><ul>
+<li>原子公式,公式的定义</li>
+<li>基于关系演算的数据查询表示:单表查询,多表连接查询,复杂查询的表示</li>
+</ul>
+<h2 id="3-4-关系数据库语言SQL"><a href="#3-4-关系数据库语言SQL" class="headerlink" title="3.4 关系数据库语言SQL"></a>3.4 关系数据库语言SQL</h2><h3 id="3-4-1-SQL概貌"><a href="#3-4-1-SQL概貌" class="headerlink" title="3.4.1 SQL概貌"></a><em>3.4.1 SQL概貌</em></h3><ul>
+<li><em>SQL的基本概念与使用方式:表,行,列</em></li>
+</ul>
+<h3 id="3-4-2-数据定义功能"><a href="#3-4-2-数据定义功能" class="headerlink" title="3.4.2 数据定义功能"></a>3.4.2 数据定义功能</h3><h3 id="3-4-3-数据操纵功能"><a href="#3-4-3-数据操纵功能" class="headerlink" title="3.4.3 数据操纵功能"></a>3.4.3 数据操纵功能</h3><ul>
+<li><em>SQL语言与关系代数的关系</em></li>
+<li>基本查询功能:<code>distinct</code>,<code>like</code>,<code>is null</code>,多表联接查询,表的自联接查询</li>
+<li>嵌套查询:<code>in</code>,<code>some</code>/<code>any</code>/<code>all</code>,<code>exists</code>等谓词,相关子查询与独立子查询</li>
+<li>子查询的合并:<code>union</code>/<code>intersect</code>/<code>except [all]</code></li>
+<li>统计查询(<code>group by</code>,<code>having</code>):统计与分组统计查询,空值与空集在统计函数中的处理方法</li>
+<li>复杂数据查询</li>
+<li>查询结果输出<ul>
+<li>结果元组去重:<code>distinct</code></li>
+<li>结果元组排序:<code>order by</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-4-更新功能"><a href="#3-4-4-更新功能" class="headerlink" title="3.4.4 更新功能"></a>3.4.4 更新功能</h3><ul>
+<li>元组删除</li>
+<li>元组插入:常量元组的插入,带子查询的元组插入</li>
+<li>元组修改</li>
+</ul>
+<h3 id="3-4-5-视图"><a href="#3-4-5-视图" class="headerlink" title="3.4.5 视图"></a>3.4.5 视图</h3><ul>
+<li><em>视图概念,视图与基表的区别</em></li>
+<li>视图的创建与删除</li>
+<li><em>视图的嵌套定义</em></li>
+<li>视图删除中的连锁反应</li>
+<li>可更新视图的判断准则</li>
+<li><em>视图的作用</em></li>
+</ul>
+<h1 id="4-数据库的安全性与完整性保护"><a href="#4-数据库的安全性与完整性保护" class="headerlink" title="4 数据库的安全性与完整性保护"></a>4 数据库的安全性与完整性保护</h1><h2 id="4-1-数据库的安全性保护"><a href="#4-1-数据库的安全性保护" class="headerlink" title="4.1 数据库的安全性保护"></a>4.1 数据库的安全性保护</h2><ul>
+<li>数据库安全的基本概念与内容:主体,客体,身份标识与鉴别,自主访问控制,审计</li>
+<li>SQL对数据库安全的支持<ul>
+<li>SQL中的存储权限</li>
+<li>SQL中的授权命令<code>grant</code>和权限回收命令<code>revoke</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="4-2-数据库的完整性保护"><a href="#4-2-数据库的完整性保护" class="headerlink" title="4.2 数据库的完整性保护"></a>4.2 数据库的完整性保护</h2><ul>
+<li><em>数据库完整性保护的功能:目的与常用实现措施</em></li>
+<li>实体完整性,参照完整性,用户定义完整性</li>
+<li>完整的<code>create table</code>命令<ul>
+<li>基表的创建</li>
+<li>完整性约束的定义:主关键字,外关键字,<code>check</code>约束,<code>unique</code>,<code>not null</code>,<code>default</code></li>
+</ul>
+</li>
+<li>触发器及其创建命令</li>
+</ul>
+<h1 id="5-事务处理-并发控制与故障恢复技术"><a href="#5-事务处理-并发控制与故障恢复技术" class="headerlink" title="5 事务处理,并发控制与故障恢复技术"></a>5 事务处理,并发控制与故障恢复技术</h1><h2 id="5-1-事务处理-概念"><a href="#5-1-事务处理-概念" class="headerlink" title="5.1 事务处理(概念)"></a>5.1 事务处理(概念)</h2><ul>
+<li>事务的定义与ACID性质</li>
+<li><em>事务活动及其状态转换图</em></li>
+<li>事务控制及相关的参数设置语句:事务的提交与回滚,事务的读/写类型与隔离级别</li>
+<li>事务的语句组成成分</li>
+</ul>
+<h2 id="5-2-并发控制技术-概念"><a href="#5-2-并发控制技术-概念" class="headerlink" title="5.2 并发控制技术(概念)"></a>5.2 并发控制技术(概念)</h2><ul>
+<li>事务<ul>
+<li><em>事务的并发性,并发控制</em></li>
+<li>调度,串行调度,可串行化调度,冲突与冲突可串行化,视图可串行化</li>
+<li>冲突可串行化的判定方法</li>
+<li>不正确的事务所导致的数据不一致现象:丢失修改(lost-update),脏读(dirty-read),不可重复读(unrepeatable-read)</li>
+</ul>
+</li>
+<li>封锁<ul>
+<li>共享锁(S锁),排它锁(X锁),锁相容矩阵,锁申请/锁释放算法</li>
+<li>基于封锁技术的并发控制实现方法<ul>
+<li>三级封锁协议,三级封锁协议与数据不一致现象之间的关系</li>
+<li>两阶段封锁协议</li>
+<li>两阶段封锁协议与冲突可串行化的关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>多粒度封锁<ul>
+<li>封锁粒度/并发度/并发控制实现开销之间的关系</li>
+<li>多粒度树,多粒度封锁</li>
+<li>基于意向锁的多粒度封锁协议<ul>
+<li>意向锁:IS,IX,SIX</li>
+<li>意向锁锁相容矩阵</li>
+<li>意向锁锁申请/释放算法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>死锁的监测与预防<ul>
+<li>死锁,活锁</li>
+<li>死锁的检测及其处理办法<ul>
+<li><em>等待图法</em></li>
+<li><em>超时死锁检测法:锁申请等待超时,事务执行超时</em></li>
+<li>时间戳死锁检测法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-3-数据库恢复技术"><a href="#5-3-数据库恢复技术" class="headerlink" title="5.3 数据库恢复技术"></a>5.3 数据库恢复技术</h2><ul>
+<li>数据库恢复的含义,方法和常用措施</li>
+<li>数据库故障的分类</li>
+<li>数据库故障恢复三大技术:数据转储,日志,数据库镜像</li>
+<li>数据转储:静态转储/动态转储,海量转储/增量转储</li>
+<li>日志<ul>
+<li>日志的内容,组成,作用与记载原则</li>
+<li>在日志中设置检查点的作用</li>
+<li>事务的撤销(undo)与重做(redo)</li>
+<li>undo日志</li>
+<li>redo日志</li>
+<li>undo/redo日志</li>
+<li>3种日志的优缺点</li>
+</ul>
+</li>
+<li>恢复策略:小型/中型/大型故障的恢复策略</li>
+</ul>
+<h1 id="6-7"><a href="#6-7" class="headerlink" title="6 7"></a>6 7</h1><h2 id="游标管理"><a href="#游标管理" class="headerlink" title="游标管理"></a>游标管理</h2><ul>
+<li><em>游标的作用</em></li>
+<li><em>游标的定义,打开,使用,关闭</em></li>
+<li><em>可滚动游标的定义及其在数据更新命令中的使用</em></li>
+</ul>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><ul>
+<li><em>B+索引的数据结构,搜索算法</em></li>
+</ul>
+<h1 id="8-关系数据库规范化理论"><a href="#8-关系数据库规范化理论" class="headerlink" title="8 关系数据库规范化理论"></a>8 关系数据库规范化理论</h1><h2 id="8-1-概述"><a href="#8-1-概述" class="headerlink" title="8.1 概述"></a>8.1 概述</h2><ul>
+<li><em>模式设计质量的评级指标:数据冗余度,插入/删除等更新异常</em></li>
+<li><em>为什么要研究关系的规范化设计:规范化的目的与手段</em></li>
+</ul>
+<h2 id="8-2-规范化理论"><a href="#8-2-规范化理论" class="headerlink" title="8.2 规范化理论"></a>8.2 规范化理论</h2><h3 id="8-2-1-函数依赖-FD"><a href="#8-2-1-函数依赖-FD" class="headerlink" title="8.2.1 函数依赖(FD)"></a>8.2.1 函数依赖(FD)</h3><ul>
+<li>函数依赖的定义</li>
+<li>如何寻找函数依赖:函数依赖与数据完整性约束的关系</li>
+<li>完全/部分FD,平凡/非平凡FD,直接/传递FD</li>
+<li>Armstrong公理系统:3条基本原则+3条扩充原则</li>
+<li>基于函数依赖的关键字定义</li>
+<li>属性集闭包的计算算法</li>
+<li>关键字的计算算法</li>
+</ul>
+<h3 id="8-2-2-与函数依赖有关的范式"><a href="#8-2-2-与函数依赖有关的范式" class="headerlink" title="8.2.2 与函数依赖有关的范式"></a>8.2.2 与函数依赖有关的范式</h3><ul>
+<li>范式定义:1NF,2NF,3NF,BCNF</li>
+<li><em>理解各级范式与数据冗余度,插入/删除异常的关系</em></li>
+</ul>
+<h3 id="8-2-3-多值依赖与第四范式"><a href="#8-2-3-多值依赖与第四范式" class="headerlink" title="8.2.3 多值依赖与第四范式"></a>8.2.3 多值依赖与第四范式</h3><ul>
+<li>多值依赖,平凡多值依赖,非平凡多值依赖</li>
+<li>多值依赖与函数依赖的关系</li>
+<li>4NF</li>
+</ul>
+<h2 id="8-3-规范化所引起的一些问题"><a href="#8-3-规范化所引起的一些问题" class="headerlink" title="8.3 规范化所引起的一些问题"></a>8.3 规范化所引起的一些问题</h2><ul>
+<li>函数依赖的逻辑蕴含,函数依赖集的等价</li>
+<li>最小函数依赖集及其判定方法</li>
+<li>最小函数依赖集的计算算法</li>
+<li>模式分解的无损联结性,依赖保持性及其判定方法</li>
+<li>直接到3NF且满足无损联结性和依赖保持性的模式分解算法</li>
+<li>从3NF到BCNF,4NF的分解方法</li>
+</ul>
+<h1 id="9-数据库设计"><a href="#9-数据库设计" class="headerlink" title="9 数据库设计"></a>9 数据库设计</h1><h2 id="9-1-数据库设计概述"><a href="#9-1-数据库设计概述" class="headerlink" title="9.1 数据库设计概述"></a>9.1 数据库设计概述</h2><h2 id="9-2-数据库设计的需求分析"><a href="#9-2-数据库设计的需求分析" class="headerlink" title="9.2 数据库设计的需求分析"></a>9.2 数据库设计的需求分析</h2><h2 id="9-3-数据库的概念设计"><a href="#9-3-数据库的概念设计" class="headerlink" title="9.3 数据库的概念设计"></a>9.3 数据库的概念设计</h2><h2 id="9-4-数据库的逻辑设计"><a href="#9-4-数据库的逻辑设计" class="headerlink" title="9.4 数据库的逻辑设计"></a>9.4 数据库的逻辑设计</h2><h2 id="9-5-数据库的物理设计"><a href="#9-5-数据库的物理设计" class="headerlink" title="9.5 数据库的物理设计"></a>9.5 数据库的物理设计</h2>
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

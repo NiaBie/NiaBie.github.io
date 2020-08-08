@@ -1,0 +1,880 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/c/">c</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/http/">http</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">c笔记</span>
+  <br>
+  <span class="post_date">2019-01-20</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h2 id="随机数"><a href="#随机数" class="headerlink" title="随机数"></a>随机数</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  srand((<span class="keyword">unsigned</span>)time(<span class="literal">NULL</span>)); </span><br><span class="line">  rand()%x;                 <span class="comment">//  取得(0,x)的随机整数：</span></span><br><span class="line">  rand()%(b - a);             <span class="comment">//  取得(a,b)的随机整数：</span></span><br><span class="line">  rand()%(b - a) + a;           <span class="comment">//  取得[a,b)的随机整数：</span></span><br><span class="line">  rand()%(b - a + <span class="number">1</span>) + a;         <span class="comment">//  取得[a,b]的随机整数：</span></span><br><span class="line">  rand()%(b - a) + a + <span class="number">1</span>;         <span class="comment">//  取得(a,b]的随机整数：</span></span><br><span class="line">  rand()/<span class="keyword">double</span>(RAND_MAX);  <span class="comment">//  取得0-1之间的浮点数：</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h2><h3 id="strcut的声明"><a href="#strcut的声明" class="headerlink" title="strcut的声明"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/dawn_after_dark/article/details/73555562">strcut的声明</a></h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ...;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span> $<span class="title">variable_name</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ...;</span><br><span class="line">&#125;$struct_alias;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span> $<span class="title">variable_name</span>;</span></span><br><span class="line">$struct_alias $variable_name;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ...;</span><br><span class="line">&#125;$variable_name;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> $<span class="title">struct_name</span> $<span class="title">variable_name</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 4</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  ...;</span><br><span class="line">&#125;$variable_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="struct的创建和初始化"><a href="#struct的创建和初始化" class="headerlink" title="struct的创建和初始化"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/fuyufjh/article/details/46040095">struct的创建和初始化</a></h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> new(type, ...) (&#123;\</span></span><br><span class="line">       type* <span class="keyword">__t</span> = (type*) <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(type));\</span><br><span class="line">       *<span class="keyword">__t</span> = (type)&#123;__VA_ARGS__&#125;;\</span><br><span class="line">       <span class="keyword">__t</span>; &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/types.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;regex.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> status, i;</span><br><span class="line">  <span class="keyword">int</span> cflags = REG_EXTENDED;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">regmatch_t</span> time_match[<span class="number">1</span>];</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">size_t</span> nmatch = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">regex_t</span> reg;</span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *pattern = <span class="string">&quot;s&quot;</span>;</span><br><span class="line">  <span class="keyword">char</span> *buf = <span class="string">&quot;sdsdfdfdffdfdfdf&quot;</span>;</span><br><span class="line"></span><br><span class="line">  regcomp(&amp;reg, pattern, cflags);</span><br><span class="line">  status = regexec(&amp;reg, buf, nmatch, time_match, <span class="number">0</span>);</span><br><span class="line">  <span class="keyword">if</span> (status == REG_NOMATCH)</span><br><span class="line">    Log(<span class="string">&quot;No match&quot;</span>);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (status == <span class="number">0</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    Log(<span class="string">&quot;Match:&quot;</span>);</span><br><span class="line">    <span class="keyword">for</span> (i = time_match[<span class="number">0</span>].rm_so; i &lt; time_match[<span class="number">0</span>].rm_eo; i ++)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="built_in">putchar</span>(buf[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  regfree(&amp;reg);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;termios.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw_rect</span><span class="params">(<span class="keyword">int</span> color_num, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_screen</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move_cursor</span><span class="params">(<span class="keyword">int</span> direct_num, <span class="keyword">int</span> dis)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> colors&#123;BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE&#125;;</span><br><span class="line"><span class="keyword">enum</span> direct&#123;UP, DOWN, RIGHT, LEFT&#125;;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> height = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span></span><br><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span> position[<span class="number">32</span>];</span><br><span class="line">  system(<span class="string">&quot;tput clear&quot;</span>);</span><br><span class="line">  init_screen();</span><br><span class="line">  draw_rect(RED, <span class="number">7</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">5</span>);</span><br><span class="line">  draw_rect(GREEN, <span class="number">17</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">10</span>);</span><br><span class="line">  draw_rect(CYAN, <span class="number">0</span>, <span class="number">11</span>, <span class="number">20</span>, <span class="number">6</span>);</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">draw_rect</span><span class="params">(<span class="keyword">int</span> color_num, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> w, <span class="keyword">int</span> h)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> offset[<span class="number">16</span>];</span><br><span class="line">  move_cursor(RIGHT, x);</span><br><span class="line">  move_cursor(DOWN, y);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; h; i ++)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; w; j ++)</span><br><span class="line">      <span class="keyword">switch</span> (color_num)</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="keyword">case</span> BLACK:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[40m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> RED:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[41m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> GREEN:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[42m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> YELLOW:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[43m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> BLUE:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[44m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MAGENTA:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[45m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> CYAN:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[46m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> WHITE:</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">&quot;\033[47m \33[0m&quot;</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    move_cursor(RIGHT, x);</span><br><span class="line">  &#125;</span><br><span class="line">  move_cursor(LEFT, x + w);</span><br><span class="line">  move_cursor(UP, y + h);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move_cursor</span><span class="params">(<span class="keyword">int</span> direct_num, <span class="keyword">int</span> dis)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; dis; i ++)</span><br><span class="line">    <span class="keyword">switch</span> (direct_num)</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">case</span> UP:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\033[A&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> DOWN:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\033[B&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> RIGHT:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\033[C&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="keyword">case</span> LEFT:</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\033[D&quot;</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init_screen</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height; i ++)</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">  move_cursor(UP, height);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="信号处理"><a href="#信号处理" class="headerlink" title="信号处理"></a>信号处理</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://www.runoob.com/cplusplus/cpp-signal-handling.html">菜鸟教程</a></li>
+</ul>
+<h2 id="mmap"><a href="#mmap" class="headerlink" title="mmap"></a>mmap</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">my_mmap</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *filename)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">stat</span> <span class="title">sb</span>;</span><span class="comment">// statebuf</span></span><br><span class="line">  <span class="keyword">int</span> my_fd = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">char</span> *my_addr = <span class="literal">NULL</span>;<span class="comment">// mmap地址</span></span><br><span class="line"></span><br><span class="line">  my_fd = open(filename, O_RDONLY);<span class="comment">// 只读</span></span><br><span class="line">  <span class="keyword">if</span> (my_fd == <span class="number">-1</span>) &#123;</span><br><span class="line">    handle_error(<span class="string">&quot;open&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (fstat(my_fd, &amp;sb) == <span class="number">-1</span>) &#123;</span><br><span class="line">    handle_error(<span class="string">&quot;fstat&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  my_addr = mmap(</span><br><span class="line">      <span class="literal">NULL</span>, sb.st_size,<span class="comment">// size</span></span><br><span class="line">      PROT_READ,</span><br><span class="line">      MAP_PRIVATE,<span class="comment">// MAP_SHARED</span></span><br><span class="line">      my_fd,</span><br><span class="line">      <span class="number">0</span><span class="comment">// offset</span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="pthread"><a href="#pthread" class="headerlink" title="pthread"></a>pthread</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> GREEN(format, ...) \</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;\033[1;32m&quot;</span> format <span class="string">&quot;\33[0m\n&quot;</span>, ## __VA_ARGS__)</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> YELLOW(format, ...) \</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;\033[1;33m&quot;</span> format <span class="string">&quot;\33[0m\n&quot;</span>, ## __VA_ARGS__)</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RED(format, ...) \</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;\033[1;31m[%s, %d]&quot;</span> format <span class="string">&quot;\33[0m\n&quot;</span>, __func__, __LINE__, ## __VA_ARGS__)</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAGENTA(format, ...) \</span></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;\033[1;35m[%s]&quot;</span> format <span class="string">&quot;\33[0m\n&quot;</span>, __func__, ## __VA_ARGS__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">thread_info</span> &#123;</span><span class="comment">// thread_start的参数</span></span><br><span class="line">  <span class="keyword">pthread_t</span> thread_id;<span class="comment">// 存放pthread_create的返回值(id)</span></span><br><span class="line">  <span class="keyword">int</span>       thread_num;<span class="comment">// 自己定义的线程号</span></span><br><span class="line">  <span class="keyword">char</span>     *argv_string;<span class="comment">// 命令行的字符串</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_start</span><span class="params">(<span class="keyword">void</span> *arg)</span></span>;</span><br><span class="line"><span class="comment">// display address near top of our stack, and return upper-cased copy of argv_string</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> num_threads;<span class="comment">// 线程数</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">thread_info</span> *<span class="title">tinfo</span>;</span></span><br><span class="line">  <span class="keyword">pthread_attr_t</span> attr;<span class="comment">// 线程属性</span></span><br><span class="line">  <span class="keyword">void</span> *res;</span><br><span class="line"></span><br><span class="line">  num_threads = argc - optind;<span class="comment">// 线程数</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (pthread_attr_init(&amp;attr) != <span class="number">0</span>) &#123;<span class="comment">// 初始化线程属性</span></span><br><span class="line">    RED(<span class="string">&quot;pthread_attr_init&quot;</span>);</span><br><span class="line">    assert(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  tinfo = <span class="built_in">calloc</span>(num_threads, <span class="keyword">sizeof</span>(struct thread_info));<span class="comment">// 申请线程空间</span></span><br><span class="line">  <span class="keyword">if</span> (tinfo == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    RED(<span class="string">&quot;calloc&quot;</span>);</span><br><span class="line">    assert(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_threads; i ++) &#123;</span><br><span class="line">    tinfo[i].thread_num = i;</span><br><span class="line">    tinfo[i].argv_string = argv[optind + i];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (pthread_create(&amp;tinfo[i].thread_id, &amp;attr,</span><br><span class="line">        &amp;thread_start, &amp;tinfo[i]) != <span class="number">0</span>) &#123;<span class="comment">// 创建线程</span></span><br><span class="line">      RED(<span class="string">&quot;pthread_create&quot;</span>);</span><br><span class="line">      assert(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (pthread_attr_destroy(&amp;attr) != <span class="number">0</span>) &#123;<span class="comment">// 删除线程属性</span></span><br><span class="line">    RED(<span class="string">&quot;pthread_attr_destroy&quot;</span>);</span><br><span class="line">    assert(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num_threads; i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (pthread_join(tinfo[i].thread_id, &amp;res) != <span class="number">0</span>) &#123;<span class="comment">// 合并线程</span></span><br><span class="line">      RED(<span class="string">&quot;pthread_join&quot;</span>);</span><br><span class="line">    assert(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    GREEN(<span class="string">&quot;Joined with thread %d; returned value was %s&quot;</span>,</span><br><span class="line">        tinfo[i].thread_num, (<span class="keyword">char</span> *) res);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">free</span>(res);<span class="comment">// 释放结构体中字符串的空间</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">free</span>(tinfo);<span class="comment">// 释放线程空间</span></span><br><span class="line">  <span class="built_in">exit</span>(EXIT_SUCCESS);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">thread_start</span><span class="params">(<span class="keyword">void</span> *arg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">thread_info</span> *<span class="title">tinfo</span> = <span class="title">arg</span>;</span><span class="comment">// &amp;tinfo[num]</span></span><br><span class="line">  <span class="keyword">char</span> *uargv, *p;</span><br><span class="line"></span><br><span class="line">  YELLOW(<span class="string">&quot;Thread %d: top of stack near %p; argv_string=%s&quot;</span>,</span><br><span class="line">      tinfo-&gt;thread_num, &amp;p, tinfo-&gt;argv_string);</span><br><span class="line"></span><br><span class="line">  uargv = strdup(tinfo-&gt;argv_string);<span class="comment">// 复制字符串(申请内存)</span></span><br><span class="line">  <span class="keyword">if</span> (uargv == <span class="literal">NULL</span>) &#123;</span><br><span class="line">    RED(<span class="string">&quot;strdup&quot;</span>);</span><br><span class="line">    assert(<span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (p = uargv; *p != <span class="string">&#x27;\0&#x27;</span>; p++) &#123;<span class="comment">// 修改uargv</span></span><br><span class="line">    *p = <span class="built_in">toupper</span>(*p);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> uargv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="简易http服务器"><a href="#简易http服务器" class="headerlink" title="简易http服务器"></a>简易http服务器</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;assert.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;netinet/in.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">4096</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *msg =</span><br><span class="line">  <span class="string">&quot;HTTP/1.1 200 OK\n&quot;</span></span><br><span class="line">  <span class="string">&quot;Content-Type: text/html\n&quot;</span></span><br><span class="line">  <span class="string">&quot;Content-Length: 48\n&quot;</span></span><br><span class="line">  <span class="string">&quot;\n&quot;</span></span><br><span class="line">  <span class="string">&quot;&lt;html&gt;&lt;body&gt;&lt;h1&gt;Hello, World!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;\n&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> res, fd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>);</span><br><span class="line">  assert(fd != <span class="number">-1</span>);</span><br><span class="line">  servaddr.sin_family = AF_INET;</span><br><span class="line">  servaddr.sin_addr.s_addr = htonl(INADDR_ANY);</span><br><span class="line">  servaddr.sin_port = htons(<span class="number">8898</span>);</span><br><span class="line"></span><br><span class="line">  res = bind(fd, (struct sockaddr*)&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</span><br><span class="line">  <span class="keyword">if</span> (res == <span class="number">-1</span>) &#123; perror(<span class="string">&quot;cannot bind&quot;</span>); <span class="built_in">exit</span>(<span class="number">-1</span>); &#125;</span><br><span class="line"></span><br><span class="line">  listen(fd, <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> conn = accept(fd, <span class="literal">NULL</span>, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">if</span> (conn != <span class="number">-1</span>) &#123;</span><br><span class="line">      <span class="keyword">int</span> nread = recv(conn, buf, <span class="keyword">sizeof</span>(buf), <span class="number">0</span>);</span><br><span class="line">      send(conn, msg, <span class="built_in">strlen</span>(msg), <span class="number">0</span>);</span><br><span class="line">      close(conn);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  close(fd);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

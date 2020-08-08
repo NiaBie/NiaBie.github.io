@@ -1,0 +1,992 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">问题求解</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '2';// 全局变量,latex公式渲染方式
+</script>
+
+
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+<script>
+  console.log("katex rendering");
+  // 删除<p>内部换行,使katex正确渲染
+  $(document).ready(setTimeout(function()
+  {
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
+      });
+    }
+
+    // 渲染latex公式
+    renderMathInElement(document.body,
+    {
+      // ...options...
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+        // { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+
+    // 删除latex公式里面的回车
+    var all_katex = document.querySelectorAll(".katex");
+    all_katex.forEach(function(temp_p) {
+      temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "");
+    });
+
+    // 恢复回车
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
+      });
+    }
+  }, 500));// 删除元素不能进行得太早,不然会和highlight的dfs冲突
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">Abstract Algebra</span>
+  <br>
+  <span class="post_date">2019-03-05</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h2 id="2-The-Integers"><a href="#2-The-Integers" class="headerlink" title="2. The Integers"></a>2. The Integers</h2><h3 id="Theorem-2-10"><a href="#Theorem-2-10" class="headerlink" title="Theorem 2.10"></a>Theorem 2.10</h3><p>Let $a$ and $b$ be nonzero integers. Then there exist integers $r$ and $s$ such that<br>$$ \gcd(a,b)=ar+bs $$<br>Furthermore, the greatest common divisor of $a$ and $b$ is unique</p>
+<h2 id="3-Groups"><a href="#3-Groups" class="headerlink" title="3.Groups"></a>3.Groups</h2><h3 id="Theorem-3-23"><a href="#Theorem-3-23" class="headerlink" title="Theorem 3.23"></a>Theorem 3.23</h3><p>In a group, the usual laws of exponents hold; that is, for all $g, h\in G$</p>
+<ol>
+<li><p>$g^mg^n=g^{m+n}$ for all $m, n\in\mathbb{Z}$</p>
+</li>
+<li><p>$(g^m)^n=g^{mn}$ for all $m, n\in\mathbb{Z}$</p>
+</li>
+<li><p>$(gh)^n=(g^{-1}h^{-1})^{-n}$ for all $n\in\mathbb{Z}$. Furthermore, <strong>if $G$ is abelian</strong>, then $(gh)^n=g^nh^n$</p>
+</li>
+</ol>
+<h3 id="Proposition-3-30"><a href="#Proposition-3-30" class="headerlink" title="Proposition 3.30"></a>Proposition 3.30</h3><p>A subset $H$ of $G$ is a subgroup if and only if it satisfies the following conditions</p>
+<ol>
+<li><p>The identity $e$ of $G$ is in $H$</p>
+</li>
+<li><p>If $h_1, h_2\in H$, then $h_1h_2\in H$</p>
+</li>
+<li><p>If $h\in H$, then $h^{-1}\in H$</p>
+</li>
+</ol>
+<h3 id="Proposition-3-31"><a href="#Proposition-3-31" class="headerlink" title="Proposition 3.31"></a>Proposition 3.31</h3><p>Let $H$ be a subset of a group $G$. Then $H$ is a subgroup of $G$ if and only if $H\not=\emptyset$, and whenever $g, h\in H$ then $gh^{-1}$ is in $H$</p>
+<h2 id="4-Cyclic-Groups"><a href="#4-Cyclic-Groups" class="headerlink" title="4.Cyclic Groups"></a>4.Cyclic Groups</h2><h3 id="Remark-4-4"><a href="#Remark-4-4" class="headerlink" title="Remark 4.4"></a>Remark 4.4</h3><p>If we are using the “+” notations, as in the case of the integers under addition, we write $\langle a\rangle={na:a\in\mathbb{Z}}$</p>
+<p>For $a\in G$, we call $\langle a\rangle$ the <strong>cyclic subgroup</strong> generated by $a$. If $G$ contains some element $a$ such that $G=\langle a\rangle$, then $G$ is a cyclic group. In this case $a$ is a <strong>generator</strong> of $G$.</p>
+<p>If $a$ is an element of a group $G$, we define the <strong>order</strong> of $a$ to be the smallest positive integer $n$ such that $a^n=e$, and we write $|a|=n$. If there is no such integer $n$, we say that the order of $a$ is <strong>infinite</strong> and write $|a|=\infty$ to denote the order of $a$</p>
+<h3 id="Corollary-4-14"><a href="#Corollary-4-14" class="headerlink" title="Corollary 4.14"></a>Corollary 4.14</h3><p>The generators of $\mathbb{Z}_n$ are the integers r subch that $1\le r&lt;n$ and gcd$(r, n)=1$</p>
+<blockquote>
+<p>$\text{cis}(x)=\cos(x)+$i$\sin(x)$</p>
+</blockquote>
+<h3 id="Proposition-4-20"><a href="#Proposition-4-20" class="headerlink" title="Proposition 4.20"></a>Proposition 4.20</h3><p>Let $z=r\text{cis}\theta$ and $w=s\text{cis}\phi$ be two nozero compler numbers. Then $$zw=rs\text{cis}(\theta+\phi)$$</p>
+<h2 id="5-Permutation-Groups"><a href="#5-Permutation-Groups" class="headerlink" title="5. Permutation Groups"></a>5. Permutation Groups</h2><h3 id="Proposition-5-8"><a href="#Proposition-5-8" class="headerlink" title="Proposition 5.8"></a>Proposition 5.8</h3><p>Let $\sigma$ and $\tau$ be two disjoint cycles in $S_X$. Then $\sigma\tau=\tau\sigma$</p>
+<h3 id="Theorem-5-9"><a href="#Theorem-5-9" class="headerlink" title="Theorem 5.9"></a>Theorem 5.9</h3><p>Every permutation in $S_n$ can be written as the product of disjpint cycles</p>
+<h3 id="Lemma-5-14"><a href="#Lemma-5-14" class="headerlink" title="Lemma 5.14"></a>Lemma 5.14</h3><p>If the identity is written is written as the product of r transpositions $$id=\tau_1\tau_2…\tau_r$$ then $r$ is an even number </p>
+<h3 id="The-Alternating-Groups"><a href="#The-Alternating-Groups" class="headerlink" title="The Alternating Groups"></a>The Alternating Groups</h3><p>One of the most important subgroups of $S_n$ is the set of all even permutations, $A_n$. The group $A_n$ is called the alternating group on n letters</p>
+<h3 id="Theorem-5-16"><a href="#Theorem-5-16" class="headerlink" title="Theorem 5.16"></a>Theorem 5.16</h3><p>The set $A_n$ is a subgroup of $S_n$ </p>
+<h3 id="Proposition-5-17"><a href="#Proposition-5-17" class="headerlink" title="Proposition 5.17"></a>Proposition 5.17</h3><p>The number of even permutations in $S_n, n\ge2$, is equal to the number of odd permutations; hence, the order of $A_n$ is $\dfrac{n!}{2}$ </p>
+<h3 id="Dihedral-Groups"><a href="#Dihedral-Groups" class="headerlink" title="Dihedral Groups"></a>Dihedral Groups</h3><p>We define the <strong>nth dihedral group</strong> to be the group of rigid motions of a regular n-gon. $D_n$ consists of all finite products of $r$ and $s$</p>
+<p>$$D_n={1, r, r^2…r^{n-1}, s, sr, sr^2…sr^{n-1}}$$</p>
+<h2 id="6-Cosets-and-Lagrange’s-Theorem"><a href="#6-Cosets-and-Lagrange’s-Theorem" class="headerlink" title="6.Cosets and Lagrange’s Theorem"></a>6.Cosets and Lagrange’s Theorem</h2><h3 id="Cosets"><a href="#Cosets" class="headerlink" title="Cosets"></a>Cosets</h3><p>Let $G$ be a group and $H$ a subgroup of $G$. Define a <strong>left coset</strong> of $H$ with <strong>representative</strong> $g\in G$ to be the set $$gH={gh:h\in H}$$</p>
+<h3 id="Lemma-6-3"><a href="#Lemma-6-3" class="headerlink" title="Lemma 6.3"></a>Lemma 6.3</h3><p>Let $H$ be a subgroup of a group $G$ and suppose that $g_1,g_2\in G$. The following conditions are equivalent</p>
+<ol>
+<li>$g_1H=g_2H$</li>
+<li>$Hg_1^{-1}=Hg_2^{-1}$ </li>
+<li>$g_1H\subset g_2H$</li>
+<li>$g_2\in g_1 H$</li>
+<li>$g_1^{-1}g_2\in H$</li>
+</ol>
+<h3 id="Theorem-6-4"><a href="#Theorem-6-4" class="headerlink" title="Theorem 6.4"></a>Theorem 6.4</h3><p>Let $H$ be a subgroup of a group $G$. Then the left cosets of $H$ in $G$ partition $G$. That is, the group $G$ is the disjoint union of the left cosets of $H$ in $G$</p>
+<h3 id="Remark-6-5"><a href="#Remark-6-5" class="headerlink" title="Remark 6.5"></a>Remark 6.5</h3><p>Let $G$ be a group and $H$ be a subgroup of $G$. Define the <strong>index</strong> of $H$ in $G$ to be the number of left cosets of $H$ in $G$. We will denote the index by $[G:H]$ </p>
+<h3 id="Theorem-6-10-Lagrange"><a href="#Theorem-6-10-Lagrange" class="headerlink" title="Theorem 6.10 Lagrange"></a>Theorem 6.10 Lagrange</h3><p>Let $G$ be a finite group and let $H$ be a subgroup of $G$. Then $G/H=[G:H]$ is the number of distinct left cosets of $H$ in $G$. In particular, the number of elements in $H$ must divide the number of elements in $G$ </p>
+<h3 id="Corollary-6-11"><a href="#Corollary-6-11" class="headerlink" title="Corollary 6.11"></a>Corollary 6.11</h3><p>Suppose that $G$ is a finite group and $g\in G$. Then the order of $g$ must divide the number of elements in $G$ </p>
+<h3 id="Corollary-6-12"><a href="#Corollary-6-12" class="headerlink" title="Corollary 6.12"></a>Corollary 6.12</h3><p>Let $|G|=p$ with $p$ a prime number. Then $G$ is cyclic and any $g\in G$ such that $g\not=e$ is a generator</p>
+<h3 id="Corollary-6-13"><a href="#Corollary-6-13" class="headerlink" title="Corollary 6.13"></a>Corollary 6.13</h3><p>Let $H$ and $K$ be subgroups of a finite group $G$ such that $K\subset H\subset G$. Then $$[G:K]=[G:H][H:K]$$ </p>
+<h3 id="Proposition-6-15"><a href="#Proposition-6-15" class="headerlink" title="Proposition 6.15"></a>Proposition 6.15</h3><p>The group $A_4$ has no subgroup of order 6 </p>
+<h3 id="Theorem-6-16"><a href="#Theorem-6-16" class="headerlink" title="Theorem 6.16"></a>Theorem 6.16</h3><p>Two cycles $\tau$ and $\mu$ in $S_n$ have the same length if and only if there exists a $\sigma\in S_n$ such that $\mu=\sigma\tau\sigma^{-1}$ </p>
+<h3 id="Euler-phi-function"><a href="#Euler-phi-function" class="headerlink" title="Euler $\phi$-function"></a>Euler $\phi$-function</h3><p>The Euler $\phi$-function is the map $\phi:\mathbb{N}\to\mathbb{N}$ defined by $\phi(n)=1$ for $n=1$, and, for $n&gt;1$, $\phi(n)$ is the number of positive integers $m$ with $1\le m &lt; n$ and $\gcd(m,n)=1$ </p>
+<h3 id="Theorem-6-18-Euler’s-Theorem"><a href="#Theorem-6-18-Euler’s-Theorem" class="headerlink" title="Theorem 6.18 Euler’s Theorem"></a>Theorem 6.18 Euler’s Theorem</h3><p>Let $a$ and $n$ be integers such that $n&gt;0$ and $\gcd(a,n)=1$. Then $a^{\phi(n)}\equiv1(\mod n)$ </p>
+<h3 id="Theorem-6-19-Fermat’s-Little-Theorem"><a href="#Theorem-6-19-Fermat’s-Little-Theorem" class="headerlink" title="Theorem 6.19 Fermat’s Little Theorem"></a>Theorem 6.19 Fermat’s Little Theorem</h3><p>Let $p$ be any prime number and suppise that $p\not|a(p$ does not divide $a$). Then $$a^{p-1}\equiv1(\mod p)$$ </p>
+<p>Furthermore, for any integer $b, b^p\equiv b(\mod p)$ </p>
+<h2 id="Algebraic-Coding-Theory"><a href="#Algebraic-Coding-Theory" class="headerlink" title="Algebraic Coding Theory"></a>Algebraic Coding Theory</h2><h3 id="weight"><a href="#weight" class="headerlink" title="weight"></a>weight</h3><p>The weight $w(x)$ of a binary code word $x$ is the number of 1s in $x$, $w(x)=d(x,0)$</p>
+<h3 id="Theorem-8-17"><a href="#Theorem-8-17" class="headerlink" title="Theorem 8.17"></a>Theorem 8.17</h3><p>Let $x$ and $y$ be binary n-tuples. Then $w(x + y) = d(x, y)$</p>
+<h3 id="Theorem-8-18"><a href="#Theorem-8-18" class="headerlink" title="Theorem 8.18"></a>Theorem 8.18</h3><p>Let $d_{\min}$ be the minimum distance for a group code $C$. Then $d_{\min}$ is the minimum of all the nonzero weights of the nonzero codewords in $C$. That is<br>$$d_{\min}=\min{w(x):x\not=0}$$</p>
+<h3 id="Theorem-8-21"><a href="#Theorem-8-21" class="headerlink" title="Theorem 8.21"></a>Theorem 8.21</h3><p>Let $\mathbb{M}_{m\times n}$ denote the set fo all $m\times n$ matrices with entries in $\mathbb{Z}_2$. We do matrix operations as usual except that all our addition and multiplication operations occur in $\mathbb{Z}_2$. Define the <strong>null sppace</strong> of a matrix $H\in\mathbb{M}_{m\times n}(\mathbb{Z}_2)$ to be the set of all binary n-tuples $x$ such that $Hx=0$. We denote the null space of a matrix $H$ by Null$(H)$</p>
+<p>Let $H$ be in $\mathbb{M}_{m\times n}(\mathbb{Z}_2)$. Then the null space of $H$ is a group code.</p>
+<h3 id="Theorem-8-25"><a href="#Theorem-8-25" class="headerlink" title="Theorem 8.25"></a>Theorem 8.25</h3><p>If $H\in\mathbb{M}_{m\times n}(\mathbb{Z}_2)$ is a canonical parity-check matrix, then Null$(H)$ consists of all $x\in\mathbb{Z}_2^n$ whose first $n-m$ bits are arbitrary but whose last $m$ bits are determined by $Hx=0$. Each of the last $m$ bits serves as an even parity check bit for some of the first $n-m$ bits. Hence, $H$ gives rise to an $(n,n-m)$-block code</p>
+<h3 id="Theorem-8-26"><a href="#Theorem-8-26" class="headerlink" title="Theorem 8.26"></a>Theorem 8.26</h3><p>Suppose that $G$ is an $n\times k$ standard generator matrix. Then $C={y:Gx=y for x\in\mathbb{Z}_2^k}$ is an $(n,k)$-block code. More specifically, $C$ is a group code</p>
+<h3 id="Lemma-8-27"><a href="#Lemma-8-27" class="headerlink" title="Lemma 8.27"></a>Lemma 8.27</h3><p>Let $H=(A|I_m)$ be an $m\times n$ canonical parity-check matrix and $G=(\dfrac{I_{n-m}}{A})$ be the corresponding $n\times(n-m)$ standard generator matrix. Then $HG=0$</p>
+<h3 id="Theorem-8-28"><a href="#Theorem-8-28" class="headerlink" title="Theorem 8.28"></a>Theorem 8.28</h3><p>Let $H=(A|I_m)$ be an $m\times n$ canonical parity-check matrix and let $G=(\dfrac{I_{n-m}}{A})$ be the $n\times(n-m)$ standard generator matrix associated with $H$. Let $C$ be the code generated by $G$. Then $y$ is in $C$ if and only if $Hy=0$. In particular, $C$ is a linear code with canonical parity-check matrix $H$</p>
+<h3 id="Proposition-8-30"><a href="#Proposition-8-30" class="headerlink" title="Proposition 8.30"></a>Proposition 8.30</h3><p>Let $e_i$ be the binary n-tuple with a 1 in the ith coordinate and 0’s elsewhere and suppose that $H\in\mathbb{M}_{m\times n}(\mathbb{Z}_2)$. Then $He_i$ is the ith column of the matrix $H$</p>
+<h3 id="Theorem-8-31"><a href="#Theorem-8-31" class="headerlink" title="Theorem 8.31"></a>Theorem 8.31</h3><p>Let $H$ be an $m\times n$ binary matrix. Then the null space of $H$ is a single error-detecting code if and only if no column of $H$ consists entirely of zeros</p>
+<h3 id="Theorem-8-34"><a href="#Theorem-8-34" class="headerlink" title="Theorem 8.34"></a>Theorem 8.34</h3><p>Let $H$ be a binary matrix. The null space of $H$ is a single error-correcting code if and only if $H$ does not contain any zero columns and no two columns of $H$ are identical</p>
+<h3 id="Proposition-8-36"><a href="#Proposition-8-36" class="headerlink" title="Proposition 8.36"></a>Proposition 8.36</h3><p>If $H$ is an $m\times n$ matrix and $x\in\mathbb{Z}_2^n$, then we say that the <strong>syndrome</strong> of $x$ is $Hx$</p>
+<p>Let the $m\times n$ binary matrix $H$ determine a linear code and let $x$ be the received n-tuple. Write $x$ as $x=c+e$, where $c$ is the transmitted codeword and $e$ is the transmission error. The the syndrome $Hx$ of the received codeword $x$ is also the syndrome of the error $e$</p>
+<h3 id="Proposition-8-43"><a href="#Proposition-8-43" class="headerlink" title="Proposition 8.43"></a>Proposition 8.43</h3><p>Let $C$ be an $(n,k)$-linear code given by the matrix $H$ and suppose that $x$ and $y$ are in $\mathbb{Z}_2^n$. Then $x$ and $y$ are in the same coset of $C$ if and only if $Hx=Hy$. That is, two n-tuples are in the same coset if and only if their syndromes are the same</p>
+<h2 id="Isomorphisms"><a href="#Isomorphisms" class="headerlink" title="Isomorphisms"></a>Isomorphisms</h2><h3 id="Isomorphism"><a href="#Isomorphism" class="headerlink" title="Isomorphism"></a>Isomorphism</h3><p>If $G$ is isomorphic to $H$, we write $G\cong H$. The map $\phi$ is called an isomorphism</p>
+<h3 id="Theorem-9-7"><a href="#Theorem-9-7" class="headerlink" title="Theorem 9.7"></a>Theorem 9.7</h3><p>All cyclic groups of infinite order are isomorphic to $\mathbb{Z}$</p>
+<h3 id="Theorem-9-8"><a href="#Theorem-9-8" class="headerlink" title="Theorem 9.8"></a>Theorem 9.8</h3><p>If $G$ is a cylic group of order $n$, then $G$ is isomorphic to $\mathbb{Z}$</p>
+<h3 id="Corollary-9-9"><a href="#Corollary-9-9" class="headerlink" title="Corollary 9.9"></a>Corollary 9.9</h3><p>If $G$ is a group of order $p$, where $p$ is a prime number, then $G$ is isomorphic to $\mathbb{Z}_p$</p>
+<h3 id="Theorem-9-12"><a href="#Theorem-9-12" class="headerlink" title="Theorem 9.12"></a>Theorem 9.12</h3><p>Every group is isomorphic to a group of permutations</p>
+<h3 id="Proposition-9-13"><a href="#Proposition-9-13" class="headerlink" title="Proposition 9.13"></a>Proposition 9.13</h3><p>Let $G$ and $H$ be groups. The set $G\times H$ is a group under the operation $(g_1,h_1)(g_2,h_2)=(g_1g_1,h_1h_2)$ where $g_1,g_2\in G$ and $h_1,h_2\in H$</p>
+<h3 id="External-Direct-Product"><a href="#External-Direct-Product" class="headerlink" title="External Direct Product"></a>External Direct Product</h3><p>The group $G\times H$ is called the <strong>external direct product</strong> of $G$ and $H$. Notice that there is nothing special about the fact that we have used only two groups to build a new group. The direct product $$\prod^n_{i=1}G_i=G_1\times G_2…G_n$$ of the groups $G_1,G_2…G_n$ is defined in exactly the same manner. If $G=G_1=G_2…G_n$, we often write $G^n$ instead of $G_1\times G_2…G_n$</p>
+<h3 id="9-17"><a href="#9-17" class="headerlink" title="9.17"></a>9.17</h3><p>Let $(g,h)\in G\times H$, If $g$ and $h$ have finite orders $r$ and $s$ respectively, then the order of $(g,h)$ in $G\times H$ is the least common multiple of $r$ and $s$</p>
+<h3 id="Corollary-9-18"><a href="#Corollary-9-18" class="headerlink" title="Corollary 9.18"></a>Corollary 9.18</h3><p>Let $(g_1,…,g_n)\in\prod G_i$. If $g_i$ has finite order $r_i$ in $G_i$, then the order of $(g_1,…,g_n)$ in $\prod G_i$ is the least common multiple of $r_1,…,r_n$</p>
+<h3 id="Theorem-9-21"><a href="#Theorem-9-21" class="headerlink" title="Theorem 9.21"></a>Theorem 9.21</h3><p>The group $\mathbb{Z}_m\times\mathbb{Z}_n$ is isomorphic to $\mathbb{Z}_{mn}$ if and only if $\gcd(m,n)=1$</p>
+<h3 id="Corollary-9-22"><a href="#Corollary-9-22" class="headerlink" title="Corollary 9.22"></a>Corollary 9.22</h3><p>Let $n_1,…,n_k$ be positive integers. Then $$\prod^k_{i=1}\mathbb{Z}_{n_i}\cong\mathbb{Z}_{n_1…n_k}$$ if and only if $\gcd(n_i,n_j)=1$ for $i\not=j$</p>
+<h3 id="Corollary-9-23"><a href="#Corollary-9-23" class="headerlink" title="Corollary 9.23"></a>Corollary 9.23</h3><p>If $$m=p_1^{e_1},…,p_k^{e_k}$$ where the $p_is$ are distinct primes, then</p>
+<p>$$\mathbb{Z}_{m_{}}\cong\mathbb{Z}_{p_1^{e_1}}\times…\times\mathbb{Z}_{p_k^{e_k}}$$</p>
+<h2 id="Internal-Direct-Products"><a href="#Internal-Direct-Products" class="headerlink" title="Internal Direct Products"></a>Internal Direct Products</h2><h3 id="Internal-Direct-Product"><a href="#Internal-Direct-Product" class="headerlink" title="Internal Direct Product"></a>Internal Direct Product</h3><p>Let $G$ be a group with subgroups $H$ and $K$ satisfying the following conditions</p>
+<ul>
+<li>$G=HK={hk:h\in H,k\in K}$</li>
+<li>$H\cap K={e}$</li>
+<li>$hk=kh$ for all $k\in K$ and $h\in H$</li>
+</ul>
+<p>then $G$ is the <strong>internal direct product</strong> of $H$ and $K$</p>
+<h3 id="Theorem-9-27"><a href="#Theorem-9-27" class="headerlink" title="Theorem 9.27"></a>Theorem 9.27</h3><p>Let $G$ be the internal direct product of subgroups $H$ and $K$. Then $G$ is isomorphic to $H\times K$</p>
+<h3 id="Theorem-9-28"><a href="#Theorem-9-28" class="headerlink" title="Theorem 9.28"></a>Theorem 9.28</h3><p>The group $\mathbb{Z}_6$ is an internal direct product of subgroups $H_i$, where $i=1,2…n$. Then $G$ is isomorphic to $\prod_iH_i$</p>
+<h2 id="10-Normal-Subgroups-and-Factor-Groups"><a href="#10-Normal-Subgroups-and-Factor-Groups" class="headerlink" title="10 Normal Subgroups and Factor Groups"></a>10 Normal Subgroups and Factor Groups</h2><h3 id="Normal-Subgroups"><a href="#Normal-Subgroups" class="headerlink" title="Normal Subgroups"></a>Normal Subgroups</h3><p>A subgroup $H$ of a group G is <strong>normal</strong> in $G$ if $gH=Hg$ for all $g\in G$. That is,a normal subgroup of a group $G$ is one in which the right and left cosets are precisely the same</p>
+<h3 id="Theorem-10-3"><a href="#Theorem-10-3" class="headerlink" title="Theorem 10.3"></a>Theorem 10.3</h3><p>Let $G$ be a group and $N$ be a subgroup of $G$. Then the following statements are equivalent</p>
+<ol>
+<li>The subgroup $N$ is normal in G</li>
+<li>Forall $g\in G, gNg^{-1}\subset N$</li>
+<li>For all $g\in G, gNg^{-1}=N$</li>
+</ol>
+<h3 id="Factor-Groups"><a href="#Factor-Groups" class="headerlink" title="Factor Groups"></a>Factor Groups</h3><p>If $N$ is a normal subgroup of a group $G$, then the cosets of $N$ in $G$ form a group $G/N$ under the operation $(aN)(bN)=abN$. The group is called the <strong>factor</strong> or <strong>quotient group</strong> of $G$ and $N$</p>
+<h3 id="Theorem-10-4"><a href="#Theorem-10-4" class="headerlink" title="Theorem 10.4"></a>Theorem 10.4</h3><p>Let $N$ be a normal subgroup of a group $G$. The cosets of $N$ in $G$ form a group $G/N$ of order $G/N$</p>
+<h3 id="Simple-Groups"><a href="#Simple-Groups" class="headerlink" title="Simple Groups"></a>Simple Groups</h3><p>Groups with nontrivial normal subgroups are called <strong>simple groups</strong></p>
+<h3 id="Lemma-10-8"><a href="#Lemma-10-8" class="headerlink" title="Lemma 10.8"></a>Lemma 10.8</h3><p>The alternating group $A_n$ is generated by 3-cycles for $n\ge3$</p>
+<h3 id="Lemma-10-9"><a href="#Lemma-10-9" class="headerlink" title="Lemma 10.9"></a>Lemma 10.9</h3><p>Let $N$ be a normal subgroup of $A_n$, where $n\ge3$. If $N$ contains a 3-cycle, then $N=A$</p>
+<h3 id="Lemma-10-10"><a href="#Lemma-10-10" class="headerlink" title="Lemma 10.10"></a>Lemma 10.10</h3><p>For $n\ge5$, every nontrivial normal subgroup $N$ of $A_n$ contains a 3-cycle</p>
+<h3 id="Theorem-10-11"><a href="#Theorem-10-11" class="headerlink" title="Theorem 10.11"></a>Theorem 10.11</h3><p>The alternating group $A_n$ is simple for $n\ge5$</p>
+<h2 id="11-Group-Homomorphisms"><a href="#11-Group-Homomorphisms" class="headerlink" title="11 Group Homomorphisms"></a>11 Group Homomorphisms</h2><h3 id="Homomorphisms"><a href="#Homomorphisms" class="headerlink" title="Homomorphisms"></a>Homomorphisms</h3><p>A <strong>homomorphism</strong> between groups $(G,\cdot)$ and $(H,\circ)$ is a map $\phi:G\to H$ such that $$\phi(g_1\cdot g_2)=\phi(g_1)\circ\phi(g_2)$$ for $g_1,g_2\in G$. The range of $\phi$ in $H$ is called the <strong>homomorphic image</strong> of $\phi$</p>
+<h3 id="Proposition-11-4"><a href="#Proposition-11-4" class="headerlink" title="Proposition 11.4"></a>Proposition 11.4</h3><p>Let $\phi:G_1\to G_2$ be a homomorphism of groups. Then</p>
+<ol>
+<li>If $e$ is the identity of $G_1$, then $\phi(e)$ is the identity of $G_2$</li>
+<li>For any element $g\in G_1, \phi(g^{-1})=[\phi(g)]^{-1}$</li>
+<li>If $H_1$ is a subgroup of $G_1$, then $\phi(H_1)$ is a subgroup of $G_2$</li>
+<li>If $H_2$ is a subgroup of $G_2$, then $\phi^{-1}(H_2)-{g\in G_1:\phi(g)\in H_2}$ is a subgroup of $G_1$. Furthermore, if $H_2$ is normal in $G_2$, then $\phi^{-1}(H_2)$ is normal in $G_1$</li>
+</ol>
+<h3 id="Kernel"><a href="#Kernel" class="headerlink" title="Kernel"></a>Kernel</h3><p>Let $\phi:G\to H$ be a group homomorphism and suppose that $e$ is the identity of $H$. By Proposition 11.4, $\phi^{-1}({e})$ is a subgroup of $G$. This subgroup is called the <strong>kernel</strong> of $\phi$ and will be denoted by $\ker\phi$</p>
+<h3 id="Theorem-11-5"><a href="#Theorem-11-5" class="headerlink" title="Theorem 11.5"></a>Theorem 11.5</h3><p>Let $\phi:G\to H$ be a group homomorphism. Then the kernel of $\phi$ is a normal subgroup of $G$</p>
+<h3 id="Canonical-Homomorphism"><a href="#Canonical-Homomorphism" class="headerlink" title="Canonical Homomorphism"></a>Canonical Homomorphism</h3><p>Let $H$ be a normal subgroup of $G$. Define the <strong>natural</strong> or <strong>canonical homomorphism</strong> $$\phi:G\to G/H$$ by $$\phi(g)=gH$$ This is indeed a homomorphism since $$\phi(g_1g_2)=g_1g_2H=g_1Hg_2H=\phi(g_1)\phi(g_2)$$ The kernel of this homomorphism is $H$</p>
+<h3 id="Theorem-11-10-First-Isomorphism-Theorem"><a href="#Theorem-11-10-First-Isomorphism-Theorem" class="headerlink" title="Theorem 11.10 First Isomorphism Theorem"></a>Theorem 11.10 First Isomorphism Theorem</h3><p>If $\phi:G\to H$ is a group homomorphism with $K=\ker\psi$, then $K$ is normal in $G$. Let $\phi:G\to G/K$ be the canonical homomorphism. Then there exists a unique isomorphism $\eta:G/K\to\psi(G)$ such that $\psi=\eta\phi$</p>
+<h3 id="Theorem-11-12-Second-Isomorphism-Theorem"><a href="#Theorem-11-12-Second-Isomorphism-Theorem" class="headerlink" title="Theorem 11.12 Second Isomorphism Theorem"></a>Theorem 11.12 Second Isomorphism Theorem</h3><p>Let $H$ be a subgroup of a group $G$ (not necessarily normal in $G$) and $N$ a normal subgroup of $G$. Then $HN$ is a subgroup of $G, H\cap N$ is a normal subgroup of $H$, and $$H/N\cap N\cong HN/N$$</p>
+<h3 id="Theorem-11-13-Correspondence-Theorem"><a href="#Theorem-11-13-Correspondence-Theorem" class="headerlink" title="Theorem 11.13 Correspondence Theorem"></a>Theorem 11.13 Correspondence Theorem</h3><p>Let $N$ be a normal subgroup of a group $G$. Then $H\mapsto H/N$ is a one-to-one correspondence between the set of subgroups $H$ containing $N$ and the set of subgroups of $G/N$. Furthermore, the normal subgroups of $G$ containing $N$ correspond to normal subgroups of $G/N$</p>
+<h3 id="Third-Isomorphism-Theorem"><a href="#Third-Isomorphism-Theorem" class="headerlink" title="Third Isomorphism Theorem"></a>Third Isomorphism Theorem</h3><p>Let $G$ be a group and $N$ and $H$ be normal subgroups of $G$ with $N\subset H$. Then $$G/H\cong\dfrac{G/N}{H/N}$$</p>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

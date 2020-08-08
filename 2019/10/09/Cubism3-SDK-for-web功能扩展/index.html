@@ -1,0 +1,915 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/cubism/">cubism</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/javascript/">javascript</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/live2d/">live2d</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '1';// 全局变量,latex公式渲染方式
+</script>
+
+
+<!-- mathjax -->
+<script type="text/x-mathjax-config">
+  console.log("mathjax rendering");
+  
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [
+        ['$','$']
+      ],
+      displayMath: [
+        ['$$', '$$']
+      ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+      noUndefined: { 
+        attributes: { 
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "10%"
+        } 
+      }
+    }
+  });
+
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub])
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.4/mathjax/MathJax.js?config=TeX-AMS_HTML-full"></script>
+<script>
+  console.log("mathjax rendering");
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">Cubism3-SDK-for-web功能扩展</span>
+  <br>
+  <span class="post_date">2019-10-09</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="全局跟踪鼠标"><a href="#全局跟踪鼠标" class="headerlink" title="全局跟踪鼠标"></a>全局跟踪鼠标</h1><h2 id="修改事件监听-只针对鼠标"><a href="#修改事件监听-只针对鼠标" class="headerlink" title="修改事件监听(只针对鼠标)"></a>修改事件监听(只针对鼠标)</h2><p>在<code>lappdelegate.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">LAppDelegate.prototype.initialize = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    canvas.onmousedown = onClickBegan;<span class="comment">// 执行动画</span></span><br><span class="line">    <span class="comment">// canvas.onmousemove = onMouseMoved;</span></span><br><span class="line">    canvas.onmouseup = onClickEnded;<span class="comment">// 需要执行动画</span></span><br><span class="line">    <span class="comment">// document.onmouseenter = onClickBegan;</span></span><br><span class="line">    <span class="built_in">document</span>.onmousemove = onMouseMoved;</span><br><span class="line">    <span class="built_in">document</span>.onmouseleave = onMouseLeave;<span class="comment">// 回头</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="在鼠标移出后回头"><a href="#在鼠标移出后回头" class="headerlink" title="在鼠标移出后回头"></a>在鼠标移出后回头</h2><p>在<code>lappdelegate.js</code>中自定义回头函数</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 回头,不触发点击事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onMouseLeave</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!LAppDelegate.getInstance()._view) &#123;</span><br><span class="line">    _lapppal__WEBPACK_IMPORTED_MODULE_3__[<span class="string">&quot;LAppPal&quot;</span>].printLog(<span class="string">&quot;view notfound&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> live2DManager = _lapplive2dmanager__WEBPACK_IMPORTED_MODULE_5__[<span class="string">&quot;LAppLive2DManager&quot;</span>].getInstance();</span><br><span class="line">  live2DManager.onDrag(<span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="调整位置和大小"><a href="#调整位置和大小" class="headerlink" title="调整位置和大小"></a>调整位置和大小</h1><h2 id="比例放缩"><a href="#比例放缩" class="headerlink" title="比例放缩"></a>比例放缩</h2><ol>
+<li>现在<code>lappdefine.js</code>定义比例</li>
+<li>在<code>lapplive2dmanager.js</code>中比例放缩</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">LAppLive2DManager.prototype.onUpdate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> scale_rate = _lappdefine__WEBPACK_IMPORTED_MODULE_3__[<span class="string">&quot;LAppDefine&quot;</span>].ScaleRate;</span><br><span class="line">  projection.scale(scale_rate, width / height * scale_rate);<span class="comment">// 调整放缩倍数</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="点击位置比例放缩"><a href="#点击位置比例放缩" class="headerlink" title="点击位置比例放缩"></a>点击位置比例放缩</h2><p>在<code>lapplive2dmanager.js</code>中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">LAppLive2DManager.prototype.onTap = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> scale_rate = _lappdefine__WEBPACK_IMPORTED_MODULE_3__[<span class="string">&quot;LAppDefine&quot;</span>].ScaleRate;</span><br><span class="line">  x /= scale_rate;</span><br><span class="line">  y /= scale_rate;</span><br><span class="line">  ...</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="背景透明"><a href="#背景透明" class="headerlink" title="背景透明"></a>背景透明</h1><p>位于<code>lappdelegate.js</code>的<code>run</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">LAppDelegate.prototype.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  gl.clearColor(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">0.0</span>);<span class="comment">// 背景颜色</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="切换模型"><a href="#切换模型" class="headerlink" title="切换模型"></a>切换模型</h1><h2 id="删除原切换按钮"><a href="#删除原切换按钮" class="headerlink" title="删除原切换按钮"></a>删除原切换按钮</h2><p>删除的位置(TODO)</p>
+<ul>
+<li><code>lappview.js</code><ul>
+<li><code>initializeSprite</code></li>
+<li><code>onTouchesEnded</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果只删除图片会报错</p>
+</blockquote>
+<h2 id="讲切换模型绑定到按钮"><a href="#讲切换模型绑定到按钮" class="headerlink" title="讲切换模型绑定到按钮"></a>讲切换模型绑定到按钮</h2><p>在<code>lappdelegate.js</code>的<code>run</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">LAppDelegate.prototype.run = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 自定义切换模型</span></span><br><span class="line"><span class="keyword">var</span> btnChange = <span class="built_in">document</span>.getElementById(<span class="string">&quot;btnChange&quot;</span>);</span><br><span class="line">  btnChange.addEventListener(<span class="string">&quot;click&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> live2DManager = _lapplive2dmanager__WEBPACK_IMPORTED_MODULE_5__[<span class="string">&quot;LAppLive2DManager&quot;</span>].getInstance();</span><br><span class="line">  live2DManager.nextScene();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="拖拽元素"><a href="#拖拽元素" class="headerlink" title="拖拽元素"></a>拖拽元素</h1><h2 id="引入jquery-ui"><a href="#引入jquery-ui" class="headerlink" title="引入jquery-ui"></a>引入jquery-ui</h2><p>新建js文件<code>JsManager.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myDrag</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;<span class="comment">// 使模型能够拖拽</span></span><br><span class="line">  $(<span class="string">&quot;.drag&quot;</span>).draggable(</span><br><span class="line">  &#123;</span><br><span class="line">    containment: <span class="built_in">document</span>.body</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意调整<code>drag</code>类的大小</p>
+</blockquote>
+<h2 id="修正鼠标点击位置"><a href="#修正鼠标点击位置" class="headerlink" title="修正鼠标点击位置"></a>修正鼠标点击位置</h2><p>在<code>lappdelegate.js</code>的<code>onClickBegan</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onClickBegan</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="comment">//   LAppDelegate.getInstance()._captured = true;</span></span><br><span class="line">  <span class="comment">//   var posX = e.pageX;</span></span><br><span class="line">  <span class="comment">//   var posY = e.pageY;</span></span><br><span class="line">  <span class="comment">// 修正鼠标点击位置判定</span></span><br><span class="line">  <span class="keyword">var</span> rect = e.target.getBoundingClientRect();</span><br><span class="line">  <span class="keyword">var</span> posX = e.clientX - rect.left;</span><br><span class="line">  <span class="keyword">var</span> posY = e.clientY - rect.top;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="修正鼠标跟随"><a href="#修正鼠标跟随" class="headerlink" title="修正鼠标跟随"></a>修正鼠标跟随</h2><p>在<code>lappdelegate.js</code>的<code>onMouseMoved</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onMouseMoved</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//   if (!LAppDelegate.getInstance()._captured) &#123;// TODO</span></span><br><span class="line">  <span class="comment">//       return;</span></span><br><span class="line">  <span class="comment">//   &#125;</span></span><br><span class="line">  <span class="keyword">if</span> (!LAppDelegate.getInstance()._view) &#123;</span><br><span class="line">    _lapppal__WEBPACK_IMPORTED_MODULE_3__[<span class="string">&quot;LAppPal&quot;</span>].printLog(<span class="string">&quot;view notfound&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> tempDrag = <span class="built_in">document</span>.getElementById(<span class="string">&quot;drag_&quot;</span> + <span class="string">&quot;0&quot;</span>);<span class="comment">// TODO 获取拖拽元素</span></span><br><span class="line">  <span class="comment">//   var rect = document.body.getBoundingClientRect();</span></span><br><span class="line">  <span class="comment">//   var posX = e.clientX - rect.left;</span></span><br><span class="line">  <span class="comment">//   var posY = e.clientY - rect.top;</span></span><br><span class="line">  <span class="keyword">var</span> posX = e.clientX - tempDrag.offsetLeft;</span><br><span class="line">  <span class="keyword">var</span> posY = e.clientY - tempDrag.offsetTop;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;lappdelegate onMouseMoved (&quot;</span> + posX + <span class="string">&quot;, &quot;</span> + posY + <span class="string">&quot;), target: &quot;</span> + e.target);</span><br><span class="line">  LAppDelegate.getInstance()._view.onTouchesMoved(posX, posY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>直接计算拖拽元素在body上的相对偏差</p>
+<h1 id="多重canvas"><a href="#多重canvas" class="headerlink" title="多重canvas"></a>多重canvas</h1><h2 id="修改鼠标的事件监听"><a href="#修改鼠标的事件监听" class="headerlink" title="修改鼠标的事件监听"></a>修改鼠标的事件监听</h2><p>在<code>lappdelegate.js</code>的<code>initialize</code>中将原sdk的<code>=</code>赋值改为<code>addEventListener</code></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">else</span> &#123;<span class="comment">// TODO 绑定到特定canvas</span></span><br><span class="line">  <span class="keyword">var</span> tempNum = <span class="built_in">this</span>._num;</span><br><span class="line">  <span class="keyword">if</span> (tempNum == <span class="literal">null</span>) &#123; tempNum.fuckshit(); &#125;;</span><br><span class="line">  canvas.addEventListener(<span class="string">&quot;mousedown&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      onClickBegan(<span class="built_in">window</span>.event, tempNum);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line">  canvas.addEventListener(<span class="string">&quot;mouseup&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">// 需要执行动画</span></span><br><span class="line">      onClickEnded(<span class="built_in">window</span>.event, tempNum);</span><br><span class="line">      &#125;, <span class="literal">false</span>);</span><br><span class="line">  <span class="comment">// document.onmouseenter = onClickBegan;</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">&quot;mousemove&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">// TODO</span></span><br><span class="line">      onMouseMoved(<span class="built_in">window</span>.event, tempNum);</span><br><span class="line">      &#125;, <span class="literal">false</span>);<span class="comment">// 全局鼠标跟随</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">document</span>.body.addEventListener(<span class="string">&quot;mouseleave&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="comment">// TODO</span></span><br><span class="line">      onMouseLeave(<span class="built_in">window</span>.event, tempNum);</span><br><span class="line">      &#125;, <span class="literal">false</span>);<span class="comment">// 回头</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="调整速度"><a href="#调整速度" class="headerlink" title="调整速度"></a>调整速度</h2><p>由于原版sdk在增加模型后会严重减慢动画速度,需要对sdk进行修改</p>
+<p>可能的位置:</p>
+<ul>
+<li><code>motion</code>/<code>cubismmotionqueuemanager.js</code>的<code>doUpdateMotion(model, userTimeSeconds)</code></li>
+</ul>
+<h2 id="投影到多个canvas"><a href="#投影到多个canvas" class="headerlink" title="投影到多个canvas"></a>投影到多个canvas</h2><h1 id="点击事件修改"><a href="#点击事件修改" class="headerlink" title="点击事件修改"></a>点击事件修改</h1><h1 id="添加tips"><a href="#添加tips" class="headerlink" title="添加tips"></a>添加tips</h1>
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>

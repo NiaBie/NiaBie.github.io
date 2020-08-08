@@ -1,0 +1,1155 @@
+<!-- 通用模板 -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- jquery -->
+  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body onload="my_load()"">
+
+  <div class="web_name_box">
+    
+  </div>
+  
+  <!-- 顶部菜单栏 -->
+
+<div class="menu_box shadow_box">
+  <div class="menu_item_box left" id="menu_preview">preview</div>
+  <div class="menu_item_box left" id="menu_tags">tags</div>
+  <div class="menu_item_box left" id="menu_categories">categories</div>
+
+  <div class="search_input_box left" id="search_input_box">
+    <input type="search" placeholder="" id="search_input" class="search_input">
+  </div>
+
+  <div class="menu_item_box right" id="menu_next">next</div>
+  
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
+  <div class="menu_item_box right" id="menu_site">sites</div>
+</div>
+
+<div class="tag_box shadow_box" id="tag_box"></div>
+
+<div class="category_box shadow_box" id="category_box"></div>
+
+<div class="site_box shadow_box" id="site_box">
+  <span class="site_item">
+    <a href="/">home</a>
+  </span>
+  <span class="site_item">
+    <a href="/archives">archives</a>
+  </span>
+  <span class="site_item">
+    <a target="_blank" rel="noopener" href="https://github.com/NiaBie">github</a>
+  </span>
+  <span class="site_item">
+    <a href="/knife">knives</a>
+  </span>
+  <span class="site_item">
+    <a href="/friends">links</a>
+  </span>
+</div>
+
+
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+          <span class="category_item">
+            <a href="/categories/%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">问题求解</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
+
+<div class="search_result_box shadow_box" id="search_result_box">
+  <div id="search_filter" class="search_list_box">
+    <span id="search_filter_1" class="search_item">
+      <a>only title</a>
+    </span>
+    <span id="search_filter_2" class="search_item">
+      <a>title and content</a>
+    </span>
+  </div>
+  <div id="search_result_list" class="search_result_list"></div>
+</div>
+
+
+
+<script>
+  tags_name = new Array();
+  tags_path = new Array();
+
+  ''
+    var temp = 'sage';
+    tags_name.push(temp);
+    temp = 'tags/sage/';
+    tags_path.push(temp);
+  ''
+    var temp = 'python';
+    tags_name.push(temp);
+    temp = 'tags/python/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android studio';
+    tags_name.push(temp);
+    temp = 'tags/android-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'android';
+    tags_name.push(temp);
+    temp = 'tags/android/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cubism';
+    tags_name.push(temp);
+    temp = 'tags/cubism/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javascript';
+    tags_name.push(temp);
+    temp = 'tags/javascript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'live2d';
+    tags_name.push(temp);
+    temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
+    var temp = 'npm';
+    tags_name.push(temp);
+    temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'linux';
+    tags_name.push(temp);
+    temp = 'tags/linux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'powerline';
+    tags_name.push(temp);
+    temp = 'tags/powerline/';
+    tags_path.push(temp);
+  ''
+    var temp = 'zsh';
+    tags_name.push(temp);
+    temp = 'tags/zsh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vim';
+    tags_name.push(temp);
+    temp = 'tags/vim/';
+    tags_path.push(temp);
+  ''
+    var temp = 'git';
+    tags_name.push(temp);
+    temp = 'tags/git/';
+    tags_path.push(temp);
+  ''
+    var temp = 'pip';
+    tags_name.push(temp);
+    temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gnome';
+    tags_name.push(temp);
+    temp = 'tags/gnome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'c';
+    tags_name.push(temp);
+    temp = 'tags/c/';
+    tags_path.push(temp);
+  ''
+    var temp = 'makefile';
+    tags_name.push(temp);
+    temp = 'tags/makefile/';
+    tags_path.push(temp);
+  ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qt';
+    tags_name.push(temp);
+    temp = 'tags/qt/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cpp';
+    tags_name.push(temp);
+    temp = 'tags/cpp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'deb';
+    tags_name.push(temp);
+    temp = 'tags/deb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'debreate';
+    tags_name.push(temp);
+    temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = 'php';
+    tags_name.push(temp);
+    temp = 'tags/php/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apahce2';
+    tags_name.push(temp);
+    temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
+    var temp = 'html';
+    tags_name.push(temp);
+    temp = 'tags/html/';
+    tags_path.push(temp);
+  ''
+    var temp = 'css';
+    tags_name.push(temp);
+    temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bucket';
+    tags_name.push(temp);
+    temp = 'tags/bucket/';
+    tags_path.push(temp);
+  ''
+    var temp = '七牛云';
+    tags_name.push(temp);
+    temp = 'tags/七牛云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cdn';
+    tags_name.push(temp);
+    temp = 'tags/cdn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cmake';
+    tags_name.push(temp);
+    temp = 'tags/cmake/';
+    tags_path.push(temp);
+  ''
+    var temp = '正则表达式';
+    tags_name.push(temp);
+    temp = 'tags/正则表达式/';
+    tags_path.push(temp);
+  ''
+    var temp = 'http';
+    tags_name.push(temp);
+    temp = 'tags/http/';
+    tags_path.push(temp);
+  ''
+    var temp = 'eigen';
+    tags_name.push(temp);
+    temp = 'tags/eigen/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gcc';
+    tags_name.push(temp);
+    temp = 'tags/gcc/';
+    tags_path.push(temp);
+  ''
+    var temp = 'assemly';
+    tags_name.push(temp);
+    temp = 'tags/assemly/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gdb';
+    tags_name.push(temp);
+    temp = 'tags/gdb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssh';
+    tags_name.push(temp);
+    temp = 'tags/ssh/';
+    tags_path.push(temp);
+  ''
+    var temp = 'windows';
+    tags_name.push(temp);
+    temp = 'tags/windows/';
+    tags_path.push(temp);
+  ''
+    var temp = 'grub';
+    tags_name.push(temp);
+    temp = 'tags/grub/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hexo';
+    tags_name.push(temp);
+    temp = 'tags/hexo/';
+    tags_path.push(temp);
+  ''
+    var temp = 'swig';
+    tags_name.push(temp);
+    temp = 'tags/swig/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ejs';
+    tags_name.push(temp);
+    temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
+    tags_path.push(temp);
+  ''
+    var temp = '阿里云';
+    tags_name.push(temp);
+    temp = 'tags/阿里云/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shell';
+    tags_name.push(temp);
+    temp = 'tags/shell/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jni';
+    tags_name.push(temp);
+    temp = 'tags/jni/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jsdelivr';
+    tags_name.push(temp);
+    temp = 'tags/jsdelivr/';
+    tags_path.push(temp);
+  ''
+    var temp = 'jquery';
+    tags_name.push(temp);
+    temp = 'tags/jquery/';
+    tags_path.push(temp);
+  ''
+    var temp = 'krita';
+    tags_name.push(temp);
+    temp = 'tags/krita/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mac';
+    tags_name.push(temp);
+    temp = 'tags/mac/';
+    tags_path.push(temp);
+  ''
+    var temp = 'brew';
+    tags_name.push(temp);
+    temp = 'tags/brew/';
+    tags_path.push(temp);
+  ''
+    var temp = 'visual studio';
+    tags_name.push(temp);
+    temp = 'tags/visual-studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'csharp';
+    tags_name.push(temp);
+    temp = 'tags/csharp/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mysql';
+    tags_name.push(temp);
+    temp = 'tags/mysql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sql';
+    tags_name.push(temp);
+    temp = 'tags/sql/';
+    tags_path.push(temp);
+  ''
+    var temp = 'unpkg';
+    tags_name.push(temp);
+    temp = 'tags/unpkg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'bfs';
+    tags_name.push(temp);
+    temp = 'tags/bfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dfs';
+    tags_name.push(temp);
+    temp = 'tags/dfs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dijkstra算法';
+    tags_name.push(temp);
+    temp = 'tags/dijkstra算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'dinic算法';
+    tags_name.push(temp);
+    temp = 'tags/dinic算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ek算法';
+    tags_name.push(temp);
+    temp = 'tags/ek算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'floyd算法';
+    tags_name.push(temp);
+    temp = 'tags/floyd算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'km算法';
+    tags_name.push(temp);
+    temp = 'tags/km算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kmp算法';
+    tags_name.push(temp);
+    temp = 'tags/kmp算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'kruskal算法';
+    tags_name.push(temp);
+    temp = 'tags/kruskal算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'morris算法';
+    tags_name.push(temp);
+    temp = 'tags/morris算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'prim算法';
+    tags_name.push(temp);
+    temp = 'tags/prim算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tarjan算法';
+    tags_name.push(temp);
+    temp = 'tags/tarjan算法/';
+    tags_path.push(temp);
+  ''
+    var temp = '树的遍历';
+    tags_name.push(temp);
+    temp = 'tags/树的遍历/';
+    tags_path.push(temp);
+  ''
+    var temp = '匈牙利算法';
+    tags_name.push(temp);
+    temp = 'tags/匈牙利算法/';
+    tags_path.push(temp);
+  ''
+    var temp = 'photoshop';
+    tags_name.push(temp);
+    temp = 'tags/photoshop/';
+    tags_path.push(temp);
+  ''
+    var temp = '绘画';
+    tags_name.push(temp);
+    temp = 'tags/绘画/';
+    tags_path.push(temp);
+  ''
+    var temp = 'numpy';
+    tags_name.push(temp);
+    temp = 'tags/numpy/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sklearn';
+    tags_name.push(temp);
+    temp = 'tags/sklearn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'matplotlib';
+    tags_name.push(temp);
+    temp = 'tags/matplotlib/';
+    tags_path.push(temp);
+  ''
+    var temp = 'slenium';
+    tags_name.push(temp);
+    temp = 'tags/slenium/';
+    tags_path.push(temp);
+  ''
+    var temp = 'phantomjs';
+    tags_name.push(temp);
+    temp = 'tags/phantomjs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'rss';
+    tags_name.push(temp);
+    temp = 'tags/rss/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xml';
+    tags_name.push(temp);
+    temp = 'tags/xml/';
+    tags_path.push(temp);
+  ''
+    var temp = '爬虫';
+    tags_name.push(temp);
+    temp = 'tags/爬虫/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ajax';
+    tags_name.push(temp);
+    temp = 'tags/ajax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'termux';
+    tags_name.push(temp);
+    temp = 'tags/termux/';
+    tags_path.push(temp);
+  ''
+    var temp = '内网穿透';
+    tags_name.push(temp);
+    temp = 'tags/内网穿透/';
+    tags_path.push(temp);
+  ''
+    var temp = 'stitch';
+    tags_name.push(temp);
+    temp = 'tags/stitch/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sublime';
+    tags_name.push(temp);
+    temp = 'tags/sublime/';
+    tags_path.push(temp);
+  ''
+    var temp = 'svg';
+    tags_name.push(temp);
+    temp = 'tags/svg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'tmux';
+    tags_name.push(temp);
+    temp = 'tags/tmux/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ubuntu';
+    tags_name.push(temp);
+    temp = 'tags/ubuntu/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wlan';
+    tags_name.push(temp);
+    temp = 'tags/wlan/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'lol';
+    tags_name.push(temp);
+    temp = 'tags/lol/';
+    tags_path.push(temp);
+  ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vpn';
+    tags_name.push(temp);
+    temp = 'tags/vpn/';
+    tags_path.push(temp);
+  ''
+    var temp = 'shadowsocks';
+    tags_name.push(temp);
+    temp = 'tags/shadowsocks/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ssr';
+    tags_name.push(temp);
+    temp = 'tags/ssr/';
+    tags_path.push(temp);
+  ''
+    var temp = '驱动';
+    tags_name.push(temp);
+    temp = 'tags/驱动/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vscode';
+    tags_name.push(temp);
+    temp = 'tags/vscode/';
+    tags_path.push(temp);
+  ''
+    var temp = 'vundle';
+    tags_name.push(temp);
+    temp = 'tags/vundle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wegame';
+    tags_name.push(temp);
+    temp = 'tags/wegame/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathematica';
+    tags_name.push(temp);
+    temp = 'tags/mathematica/';
+    tags_path.push(temp);
+  ''
+    var temp = 'wordpress';
+    tags_name.push(temp);
+    temp = 'tags/wordpress/';
+    tags_path.push(temp);
+  ''
+    var temp = 'apache';
+    tags_name.push(temp);
+    temp = 'tags/apache/';
+    tags_path.push(temp);
+  ''
+    var temp = 'xampp';
+    tags_name.push(temp);
+    temp = 'tags/xampp/';
+    tags_path.push(temp);
+  ''
+    var temp = '百度网盘';
+    tags_name.push(temp);
+    temp = 'tags/百度网盘/';
+    tags_path.push(temp);
+  ''
+    var temp = 'sai';
+    tags_name.push(temp);
+    temp = 'tags/sai/';
+    tags_path.push(temp);
+  ''
+    var temp = 'medibang paint';
+    tags_name.push(temp);
+    temp = 'tags/medibang-paint/';
+    tags_path.push(temp);
+  ''
+    var temp = 'gradle';
+    tags_name.push(temp);
+    temp = 'tags/gradle/';
+    tags_path.push(temp);
+  ''
+    var temp = 'javacv';
+    tags_name.push(temp);
+    temp = 'tags/javacv/';
+    tags_path.push(temp);
+  ''
+    var temp = '微电子';
+    tags_name.push(temp);
+    temp = 'tags/微电子/';
+    tags_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  tags_name.sort();
+  tags_path.sort();
+  for (var i = 0; i < tags_name.length; i ++)
+  {
+    $("#tag_box").append("<span class='tag_item'><a href='/" + tags_path[i] + "'>" + tags_name[i] + "</a></span>\n");
+  }
+
+
+  categories_name = new Array();
+  categories_path = new Array();
+
+  ''
+    var temp = '问题求解';
+    categories_name.push(temp);
+    temp = 'categories/问题求解/';
+    categories_path.push(temp);
+  ''
+    var temp = '操作系统';
+    categories_name.push(temp);
+    temp = 'categories/操作系统/';
+    categories_path.push(temp);
+  ''
+    var temp = '微电子';
+    categories_name.push(temp);
+    temp = 'categories/微电子/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据库';
+    categories_name.push(temp);
+    temp = 'categories/数据库/';
+    categories_path.push(temp);
+  ''
+    var temp = '数据通信';
+    categories_name.push(temp);
+    temp = 'categories/数据通信/';
+    categories_path.push(temp);
+  ''
+    var temp = '数理逻辑';
+    categories_name.push(temp);
+    temp = 'categories/数理逻辑/';
+    categories_path.push(temp);
+  ''
+    var temp = '概率论与数理统计';
+    categories_name.push(temp);
+    temp = 'categories/概率论与数理统计/';
+    categories_path.push(temp);
+  ''
+    var temp = '计算机网络';
+    categories_name.push(temp);
+    temp = 'categories/计算机网络/';
+    categories_path.push(temp);
+  ''
+  // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
+  categories_name.sort();
+  categories_path.sort();
+  for (var i = 0; i < categories_name.length; i ++)
+  {
+    $("#category_box").append("<span class='category_item'><a href='/" + categories_path[i] + "'>" + categories_name[i] + "</a></span>\n");
+  }
+</script>
+
+<script>
+  // TODO 搜索
+</script>
+  <!-- latex公式渲染 -->
+
+
+
+<script>
+  document.temp_latex = '2';// 全局变量,latex公式渲染方式
+</script>
+
+
+
+<!-- katex -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/gh/hexo-simple-theme/hexo_latex@1.0.0/katex/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+<script>
+  console.log("katex rendering");
+  // 删除<p>内部换行,使katex正确渲染
+  $(document).ready(setTimeout(function()
+  {
+    var possible_position =  new Array(".main_box p", "main_box li");
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/<br>/g, "&nbsp;");// 手动清除换行
+      });
+    }
+
+    // 渲染latex公式
+    renderMathInElement(document.body,
+    {
+      // ...options...
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+        // { left: "\\[", right: "\\]", display: true }
+      ]
+    });
+
+    // 删除latex公式里面的回车
+    var all_katex = document.querySelectorAll(".katex");
+    all_katex.forEach(function(temp_p) {
+      temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "");
+    });
+
+    // 恢复回车
+    for (i in possible_position) {
+      var all_text = document.querySelectorAll(possible_position[i]);
+      all_text.forEach(function(temp_p) {
+        temp_p.innerHTML = temp_p.innerHTML.replace(/&nbsp;/g, "<br>");
+      });
+    }
+  }, 500));// 删除元素不能进行得太早,不然会和highlight的dfs冲突
+</script>
+
+
+  <!-- 文章 -->
+
+<div class="main_box border_box">
+  <span class="post_title" id="post_title">问求复习</span>
+  <br>
+  <span class="post_date">2019-06-17</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="线性规划"><a href="#线性规划" class="headerlink" title="线性规划"></a>线性规划</h1><blockquote>
+<p>TODO</p>
+</blockquote>
+<h1 id="群论"><a href="#群论" class="headerlink" title="群论"></a>群论</h1><h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><ul>
+<li>封闭</li>
+<li>结合律</li>
+<li>单位元</li>
+<li>逆元</li>
+</ul>
+<h2 id="阿贝尔群-abelian-or-commutative"><a href="#阿贝尔群-abelian-or-commutative" class="headerlink" title="阿贝尔群(abelian or commutative)"></a>阿贝尔群(abelian or commutative)</h2><p>$a\circ b=b\circ a$</p>
+<h2 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h2><ul>
+<li>封闭</li>
+<li>单位元</li>
+<li>逆元</li>
+</ul>
+<h2 id="cyclic-group-循环群"><a href="#cyclic-group-循环群" class="headerlink" title="cyclic group(循环群)"></a>cyclic group(循环群)</h2><ul>
+<li>存在一些$a\in G$使得$G=\langle a\rangle$</li>
+<li><strong>order</strong> of $a$:满足$a^n=e$的最小正整数$n$ </li>
+<li>循环群是阿贝尔群</li>
+<li>循环群的子群是循环群</li>
+<li>$C_{\infty}\cong\mathbb{Z}(\mathbb{Z},+),C_n\cong\mathbb{Z}_n$</li>
+<li>无限循环群$C_{\infty}$<ul>
+<li>$|g^k|=\infty$</li>
+<li>生成元:$g,g^{-1}$</li>
+<li>子群:$\langle g^k\rangle,k\in\mathbb{N}$</li>
+</ul>
+</li>
+<li>有限循环群$C_n$<ul>
+<li>生成元:$g^k,\gcd(k,n)=1$</li>
+</ul>
+</li>
+</ul>
+<h2 id="symmetric-group-对称群"><a href="#symmetric-group-对称群" class="headerlink" title="symmetric group(对称群)"></a>symmetric group(对称群)</h2><p>$|S_n|=n!$</p>
+<h2 id="permutation-group"><a href="#permutation-group" class="headerlink" title="permutation group"></a>permutation group</h2><ul>
+<li>$S_n$的子群是<strong>permutation group</strong></li>
+</ul>
+<h2 id="cycle"><a href="#cycle" class="headerlink" title="cycle"></a>cycle</h2><ul>
+<li><strong>cycle of length $k$</strong>:$\sigma(a_k)=a_1$</li>
+<li>$\sigma,\tau$是$S_X$中不相交的cycles,那么$\sigma\tau=\tau\sigma$</li>
+<li><strong>transpositions</strong>:长度为2的cycle<ul>
+<li>$(a_1,a_2,…,a_n)=(a_1a_n)(a_1a_{n-1})…(a_1a_3)(a_1a_2)$</li>
+</ul>
+</li>
+</ul>
+<h2 id="alternating-group-交代群"><a href="#alternating-group-交代群" class="headerlink" title="alternating group(交代群)"></a>alternating group(交代群)</h2><ul>
+<li>even permutations</li>
+</ul>
+<h2 id="dihedral-group-二面体群"><a href="#dihedral-group-二面体群" class="headerlink" title="dihedral group(二面体群)"></a>dihedral group(二面体群)</h2><ul>
+<li>$D_n$是$S_n$的一个阶为$2n$的子群</li>
+</ul>
+<h2 id="cosets-陪集"><a href="#cosets-陪集" class="headerlink" title="cosets(陪集)"></a>cosets(陪集)</h2><ul>
+<li>$g\in G$<ul>
+<li>左陪集:$gH=\{gh:h\in H\}$</li>
+<li>右陪集:$Hg=\{hg:h\in H\}$</li>
+</ul>
+</li>
+<li>令$H$是$G$的子群,$g_1,g_2\in G$,以下条件等价:<ol>
+<li>$g_1H=g_2H$</li>
+<li>$Hg_1^{-1}=Hg_2^{-1}$</li>
+<li>$g_1H\subset g_2H$</li>
+<li>$g_2\in g_1H$</li>
+<li>$g_1^{-1}g_2\in H$</li>
+</ol>
+</li>
+<li><strong>index</strong> of $H$ in $G$:$H$在$G$中左陪集数$[G:H]$</li>
+</ul>
+<h2 id="拉格朗日定理"><a href="#拉格朗日定理" class="headerlink" title="拉格朗日定理"></a>拉格朗日定理</h2><blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="isomorphism-同构"><a href="#isomorphism-同构" class="headerlink" title="isomorphism(同构)"></a>isomorphism(同构)</h2><p>单射,满射$G\to H:\forall a,b\in G,\phi(a\cdot b)=\phi(a)\circ\phi(b)$</p>
+<ul>
+<li>无限循环群同构于$\mathbb{Z}$</li>
+<li>$n$阶有限循环群同构于$\mathbb{Z}_n$</li>
+<li>$p$阶($p$为质数)群同构于$\mathbb{Z}_p$</li>
+</ul>
+<h2 id="external-direct-products-外直积"><a href="#external-direct-products-外直积" class="headerlink" title="external direct products(外直积)"></a>external direct products(外直积)</h2><p>$G\times H:(g_1,h_1)(g_2,h_2)=(g_1\cdot g_2,h_1\circ h_2)$</p>
+<ul>
+<li>令$(g,h)\in G\times H$,$g,h$的阶各为$r,s$,那么$(g,h)$在$G\times H$中的阶为$s,r$的最小公倍数</li>
+</ul>
+<h2 id="internal-direct-products-内直积"><a href="#internal-direct-products-内直积" class="headerlink" title="internal direct products(内直积)"></a>internal direct products(内直积)</h2><ul>
+<li>$G$是$H$和$K$的内直积:<ul>
+<li>$G=HK=\{hk:h\in H,k\in K\}$</li>
+<li>$H\cap K=\{e\}$</li>
+<li>$hk=kh$</li>
+</ul>
+</li>
+<li>若$G$是$H$和$K$的内直积,$G\cong H\times K$</li>
+</ul>
+<h2 id="正规子群"><a href="#正规子群" class="headerlink" title="正规子群"></a>正规子群</h2><p>$H$是$G$的子群,$H$ is <strong>normal</strong>:$\forall g\in G,gH=Hg$</p>
+<ul>
+<li>令$N$是$G$子群,以下等价<ol>
+<li>$N$ normal in $G$</li>
+<li>$\forall g\in G,gNg^{-1}\subset N$</li>
+<li>$\forall g\in G,gNg^{-1}=N$</li>
+</ol>
+</li>
+</ul>
+<h2 id="商群-factor-or-quotient-group"><a href="#商群-factor-or-quotient-group" class="headerlink" title="商群(factor or quotient group)"></a>商群(factor or quotient group)</h2><p>若$N$是$G$的正规子群,那么$N$的陪集在运算$(aN)(bN)=abN$下构成群$G/N$(阶为$[G:N]$)</p>
+<h2 id="the-simplicity-of-the-alternating-group"><a href="#the-simplicity-of-the-alternating-group" class="headerlink" title="the simplicity of the alternating group"></a>the simplicity of the alternating group</h2><blockquote>
+<p>TODO</p>
+</blockquote>
+<h2 id="Homomorphisms-同态"><a href="#Homomorphisms-同态" class="headerlink" title="Homomorphisms(同态)"></a>Homomorphisms(同态)</h2><p>映射$G\to H:\forall a,b\in G,\phi(a\cdot b)=\phi(a)\circ\phi(b)$</p>
+<ul>
+<li>令同态映射$\phi:G\to H$,<strong>kernel</strong>:$\phi(\{e\})^{-1}$($G$的正规子群)</li>
+</ul>
+<h2 id="同构定理"><a href="#同构定理" class="headerlink" title="同构定理"></a>同构定理</h2><ul>
+<li>natural/canonical homomorphism:<ul>
+<li>$H$是$G$的正规子群,定义$\phi:G\to G/H$ by $\phi(g)=gH$</li>
+</ul>
+</li>
+<li>第一同构定理<ul>
+<li>如果$\psi:G\to H$是同态映射且$K=\ker\psi$,那么$K$ is normal in $G$</li>
+<li>令$\phi:G\to G/K$为canonical homomorphism,那么存在唯一的同构映射$\eta:G/K\to\phi(G)$ such that $\psi=\eta\phi$</li>
+</ul>
+</li>
+<li>第二同构定理<ul>
+<li>$H$是$G$的子群,且$N$是$G$的正则子群,那么:<ul>
+<li>$HN$是$G$的子群</li>
+<li>$H\cap N$是$H$的正规子群</li>
+<li>$H/H\cap N\cong HN/N$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="串匹配"><a href="#串匹配" class="headerlink" title="串匹配"></a>串匹配</h1><blockquote>
+<p>TODO</p>
+</blockquote>
+<h1 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h1><h2 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">euclid</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> euclid(b, a % b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">fuck</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> d, x, y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">fuck <span class="title">extended_euclid</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span><span class="comment">// gcd(a, b) = d = a * x + b * y</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (b == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (a, <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  (d_, x_, y_) = extended_euclid(b, a % b);</span><br><span class="line">  (d, x, y) = (d_, y_, x_ - (a / b) * y_);</span><br><span class="line">  <span class="keyword">return</span> (d, x, y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h2><p>$\phi(n):\le n$正整数中与$n$互质的数的个数</p>
+<ul>
+<li>$\phi(n)=n\prod(1-\dfrac{1}{p}),p$是$n$的质因子,不重复</li>
+<li>若$m,n$互质,$\phi(mn)=\phi(m)\phi(n)$</li>
+<li>若$n$为质数,$\phi(n)=n-1$</li>
+</ul>
+<h2 id="求解模线性方程"><a href="#求解模线性方程" class="headerlink" title="求解模线性方程"></a>求解模线性方程</h2><ul>
+<li>当且仅当$d|b$时,$ax\equiv b(\mod n)$有解,$d=\gcd(a,n)$</li>
+<li>对任意正整数$a,n$,如果$d=\gcd(a,n)$,则在$\mathbb{Z}_n$中<ol>
+<li>$\langle a\rangle=\langle d\rangle=\{0,d,2d,…,((n/d)-1)d\}$</li>
+<li>$|\langle a\rangle|=n/d$</li>
+</ol>
+</li>
+</ul>
+<h2 id="中国余数定理"><a href="#中国余数定理" class="headerlink" title="中国余数定理"></a>中国余数定理</h2><ul>
+<li>$n_1,n_2…n_k$两两互质,且$n=n_1n_2…n_k$,则对任意整数$a_1,a_2…a_k$,关于$x$的方程组$x\equiv a_i(\mod n_i),i=1,2…k$有唯一解</li>
+<li>$n_1,n_2…n_k$两两互质,且$n=n_1n_2…n_k$,则对所有整数$x,a$:$x\equiv a(\mod n_i),i=1,2…k$当且仅当$x\equiv a(\mod n_i)$</li>
+</ul>
+<h2 id="元素的幂"><a href="#元素的幂" class="headerlink" title="元素的幂"></a>元素的幂</h2><ul>
+<li>欧拉定理:$\forall n &gt; 1,a^{\phi(n)}\equiv1(\mod n),a\in\mathbb{Z}_n^{*}$</li>
+<li>费马定理:$p$是素数,则$a^{p-1}\equiv1(\mod p),a\in\mathbb{Z}_n^{*}$</li>
+</ul>
+<h2 id="Mille-Rabin"><a href="#Mille-Rabin" class="headerlink" title="Mille-Rabin"></a>Mille-Rabin</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> num[] = &#123;<span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">MR</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (a == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="number">2</span>^t * u = a - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; num.length; i ++) &#123;</span><br><span class="line">    x = num[i]^u % a;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; t; j ++) &#123;</span><br><span class="line">      last = x;</span><br><span class="line">      x = x * x % a;</span><br><span class="line">      <span class="keyword">if</span> (x == <span class="number">1</span> &amp;&amp; last != <span class="number">1</span> &amp;&amp; last != a - <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x != <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><ol>
+<li>选两个素数$p\not=q$</li>
+<li>$n=pq$</li>
+<li>选与$\phi(n)$互质的小奇数$e$</li>
+<li>计算模$\phi(n)$下$e$的乘法逆元$d$</li>
+<li>公开$e,n$</li>
+</ol>
+<h2 id="代数编码"><a href="#代数编码" class="headerlink" title="代数编码"></a>代数编码</h2><ul>
+<li>$(n,m)$-<strong>block code</strong>:$m$位编码成$n$位</li>
+<li>矩阵$H\in\mathbb{M}_{m\times n}(\mathbb{Z}_2)的$<strong>null space</strong>($Null(H)$):使得$Hx=0$的$x$集合</li>
+<li><strong>canonical parity-check matrix</strong>:$H=(A|I_m)$</li>
+<li><strong>standard generator matrix</strong>:$G=(\dfrac{I_{n-m}}{A})$</li>
+<li>$\{y:Gx=y,x\in\mathbb{Z}_2^k\}=C=Null(H),((n,k)$-block code)</li>
+<li>$HG=0$</li>
+<li>$y\in C$当且仅当$Hy=0$</li>
+<li>$C$是single error-correcting code当且仅当$H$没有全0的column且$H$任意两columns都不相同</li>
+<li><strong>syndrome</strong> of $x$(校验子):$Hx$</li>
+<li>对$r$行(校验位长度)的汉明奇偶校验矩阵,其列数至多$2^r-1$(除去0),设信息位长度为$k$,则$2^r-1\ge k+r$</li>
+</ul>
+<h1 id="NPC理论"><a href="#NPC理论" class="headerlink" title="NPC理论"></a>NPC理论</h1><h2 id="判定问题-L-U-Sigma"><a href="#判定问题-L-U-Sigma" class="headerlink" title="判定问题$(L,U,\Sigma)$"></a>判定问题$(L,U,\Sigma)$</h2><ul>
+<li>input: An $x\in U$</li>
+<li>output: ‘yes’ if $x\in L$, ‘no’ otherwise</li>
+</ul>
+<h2 id="最优化问题-Sigma-I-Sigma-O-L-L-I-M-cost-goal"><a href="#最优化问题-Sigma-I-Sigma-O-L-L-I-M-cost-goal" class="headerlink" title="最优化问题$(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$"></a>最优化问题$(\Sigma_I,\Sigma_O,L,L_I,M,cost,goal)$</h2><ul>
+<li>input: $L_I$的问题实例</li>
+<li>constraints: 对于$x\in L_I$的约束条件$M(x)$</li>
+<li>costs: cost函数</li>
+<li>goal: maximum/minimun</li>
+</ul>
+<h2 id="NP完全性"><a href="#NP完全性" class="headerlink" title="NP完全性"></a>NP完全性</h2><ul>
+<li>co-NP:{$L|L^C\in$NP}</li>
+<li>$L_1\le_PL_2$:$x\in L_1$当且仅当$f(x)\in L_2$</li>
+<li>NP-hard:<ol>
+<li>不一定是NP</li>
+<li>所有NP可以约化到它</li>
+</ol>
+</li>
+<li>$L_2\in P,L_1\le_PL_2$则$L_1\in P$</li>
+<li>$L’\in$NPC,$L’\le_PL$则$L$是NP难度的</li>
+</ul>
+<h2 id="3-CNF可满足性-le-P-团问题"><a href="#3-CNF可满足性-le-P-团问题" class="headerlink" title="3-CNF可满足性$\le_P$团问题"></a>3-CNF可满足性$\le_P$团问题</h2><ul>
+<li>建图:<ol>
+<li>对每个子句$C=(x\vee y\vee z)$,将$x,y,z$以3元组的形式加入到点集$V$</li>
+<li>对所有$V$中来自不同3元组的两个点$u,v$,若$u$不是$v$的非,则建边$(u,v)$</li>
+</ol>
+</li>
+<li>3-CNF可满足$\to$规模为$k$的团:<ul>
+<li>每个3元组中至少会有一个文字为真,在每个3元组中选一个这样的顶点,组成规模为$k$的集合$V’$</li>
+<li>因为$k$个顶点对应的文字不可能互补,所以两两之间有边,所以$V’$是团</li>
+</ul>
+</li>
+<li>规模为$k$的团$\to$3-CNF可满足<ul>
+<li>$k$个顶点对应的文字两两互不为补,令这些顶点对应的文字为真</li>
+</ul>
+</li>
+</ul>
+<h2 id="团问题-le-P-顶点覆盖问题"><a href="#团问题-le-P-顶点覆盖问题" class="headerlink" title="团问题$\le_P$顶点覆盖问题"></a>团问题$\le_P$顶点覆盖问题</h2><ul>
+<li>建图:<ul>
+<li>根据输入$G$建立补图$\bar{G}$</li>
+</ul>
+</li>
+<li>$G$有规模为$k$的团$\to\bar{G}$有规模为$|V|-k$的顶点覆盖:<ul>
+<li>设$G$包含规模为$k$的团$V’$</li>
+<li>对$\bar{G}$中任意一条边$(u,v)$,$(u,v)\not\in G$,所以$u,v$至少一个不在团$V’$中,即$u,v$至少一个在$V-V’$中,即$u,v$两点被点集$V-V’$覆盖,所以$V-V’$能覆盖$\bar{G}$中的所有顶点</li>
+</ul>
+</li>
+<li>$\bar{G}$有规模为$|V|-k$的顶点覆盖$\to G$有规模为$k$的团:<ul>
+<li>设$\bar{G}$包含规模为$|V|-k$的顶点覆盖$V’$</li>
+<li>对$G$中任意2个顶点$u,v$,若$u\not\in V’$且$v\not\in V’$,那么$G$中一定有边$(u,v)$,所以任意$u,v\in V-V’$存在边$(u,v)$,所以$V-V’$是团</li>
+</ul>
+</li>
+</ul>
+<h2 id="哈密顿回路问题-le-P-旅行商问题"><a href="#哈密顿回路问题-le-P-旅行商问题" class="headerlink" title="哈密顿回路问题$\le_P$旅行商问题"></a>哈密顿回路问题$\le_P$旅行商问题</h2><ul>
+<li>建图:<ul>
+<li>对于输入$G$,建立完全图$G’$,定义费用$c(i,j)=\begin{cases}<br>0\quad(i,j)\in E\\<br>1\quad(i,j)\not\in E\\<br>\end{cases}$</li>
+</ul>
+</li>
+<li>$G$有哈密顿回路$\to G’$中有费用至多为0的回路:</li>
+<li>$G’$中有费用至多为0的回路$\to G$有哈密顿回路:</li>
+</ul>
+<h2 id="3-CNF可满足性-le-P-子集和问题"><a href="#3-CNF可满足性-le-P-子集和问题" class="headerlink" title="3-CNF可满足性$\le_P$子集和问题"></a>3-CNF可满足性$\le_P$子集和问题</h2><ul>
+<li>建模:<ol>
+<li>输入含$n$个变量,$k$个子句</li>
+<li>集合$S$为$2k+2n$个$k+n$位10进制数的集合(高$n$位对应$n$个变量,低$k$为对应$k$个子句):<ol>
+<li>对于每个变量$x$,在$S$中构建2个数$v,v’$:<ol>
+<li>$v,v’$对应$x$的那一位为1</li>
+<li>对所有子句$C$,若$C$包含$x$,则$v$对应的$C$那一位为1,若$C$包含$\lnot x$,则$v’$对应$C$的那一位为1</li>
+</ol>
+</li>
+<li>对于每个子句$C$,在$S$中构建两个数$s,s’$:<ol>
+<li>$s$对应$C$的那一位为1</li>
+<li>$s’$对应$C$的那一位为2</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>目标:选取$S’\subseteq S$,其中所有数之和$t$高$n$位全为1,低$k$位全为$4$</li>
+</ol>
+</li>
+<li>3-CNF可满足$\to$存在$S’\subseteq S$和为$t$:<ol>
+<li>若变量$x_i=1$则将$v_i$包含进$S’$,否则将$v_i’$包含进$S’$:$t$的高$n$位为全1</li>
+<li>现在$t$的低$k$位每一位可能为$1,2,3$,再对每一个集合$\{s_j,s_j’\}$选取一个非空集合,使得$t$在对应子句$C_i$的位置为4</li>
+</ol>
+</li>
+<li>存在$S’\subseteq S’$和为$t\to$3-CNF可满足:<ol>
+<li>因为$t$的高$n$位全为1,那么每对$v_i,v_i’$,$S’$都只包含2者之1</li>
+<li>若$v_i\in S’$,$x_i$置1,否则置0</li>
+<li>TODO</li>
+</ol>
+</li>
+</ul>
+<h1 id="随机化算法"><a href="#随机化算法" class="headerlink" title="随机化算法"></a>随机化算法</h1><h2 id="拉斯维加斯算法"><a href="#拉斯维加斯算法" class="headerlink" title="拉斯维加斯算法"></a>拉斯维加斯算法</h2><ul>
+<li>$Prob(A(x)=F(x))=1$</li>
+<li>$Prob(A(x)=?)=1-Prob(A(x)=F(x))\le\dfrac{1}{2}$</li>
+</ul>
+<h2 id="蒙特卡洛算法"><a href="#蒙特卡洛算法" class="headerlink" title="蒙特卡洛算法"></a>蒙特卡洛算法</h2><ul>
+<li><strong>one-sided-error</strong>:<ol>
+<li>$x\in L,Prob(A(x)=1)\ge1/2$</li>
+<li>$x\not\in L,Prob(A(x)=0)=1$</li>
+</ol>
+</li>
+<li><strong>two-sided-error</strong>:<ol>
+<li>$Prob(A(x)=F(x))\ge1/2+\varepsilon$</li>
+</ol>
+</li>
+<li><strong>unbounded-error</strong>:<ol>
+<li>$Prob(A(x)=F(x)) &gt; \dfrac{1}{2}$</li>
+</ol>
+</li>
+</ul>
+
+
+  
+<script src="/js/guide.js"></script>
+
+  <script>
+    create_guide();
+  </script>
+</div>
+
+  
+<script src="/js/main.js"></script>
+
+  
+<script src="/js/search.js"></script>
+
+  
+<script src="/js/highlight.js"></script>
+
+
+</body>
+
+</html>
