@@ -1133,6 +1133,13 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">opencv init failed</span><br></pre></td></tr></table></figure>
 
 <p>检查<code>gradle</code>的<code>lib</code>路径是否正确加载</p>
+<ol start="15">
+<li><code>freetype</code>/<code>harfbuzz</code>报错</li>
+</ol>
+<p>卸载系统中的<code>freetype</code>和<code>harfbuzz</code>在<code>opencv_contrib/modules/freetype/CMakeLists.txt</code>中修改</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(PKG_CONFIG_FOUND)</span><br><span class="line"><span class="comment"># pkg_search_module(FREETYPE freetype2)</span></span><br><span class="line"><span class="comment"># pkg_search_module(HARFBUZZ harfbuzz)</span></span><br><span class="line"><span class="keyword">endif</span>()</span><br></pre></td></tr></table></figure>
+
+<p>注释掉搜索<code>freetype</code>和<code>harfbuzz</code>的那两句</p>
 <h3 id="额外说明"><a href="#额外说明" class="headerlink" title="额外说明"></a>额外说明</h3><h4 id="4-x版本"><a href="#4-x版本" class="headerlink" title="4.x版本"></a><code>4.x</code>版本</h4><ul>
 <li>不需要额外安装的软件:<code>jdk</code>,<code>ninja-build</code>,<code>ndk</code>,直接使用android studio的即可</li>
 <li>成功编译的版本:<ul>

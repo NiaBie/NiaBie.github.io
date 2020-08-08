@@ -867,6 +867,10 @@
 <p>解决: <code>/vl/kmeans.c</code>(<a target="_blank" rel="noopener" href="https://github.com/colmap/colmap/commit/6af3d8b0048cecc3b9fc6f4e78c3214dd038180b">参考</a>)</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// #pragma omp parallel default(none)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> omp parallel \</span></span><br></pre></td></tr></table></figure>
 
+<ol start="4">
+<li>matlab模块错误</li>
+</ol>
+<p>如果安装了texlive,那么makefile在检测时会把pdftex检测为matlab,直接把<code>make/matlab.mak</code>内容清空即可</p>
 
 
   
