@@ -201,6 +201,11 @@
     temp = 'tags/gnome/';
     tags_path.push(temp);
   ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
     var temp = 'c';
     tags_name.push(temp);
     temp = 'tags/c/';
@@ -209,11 +214,6 @@
     var temp = 'makefile';
     tags_name.push(temp);
     temp = 'tags/makefile/';
-    tags_path.push(temp);
-  ''
-    var temp = 'PyQt5';
-    tags_name.push(temp);
-    temp = 'tags/PyQt5/';
     tags_path.push(temp);
   ''
     var temp = 'qt';
@@ -829,11 +829,17 @@
     }
   </style>
 
-  <blockquote>
-</blockquote>
+  <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>$B$:信道带宽(Hz)<br>$B$:信号带宽(Hz)(近似的认为传输速率 = 传输信号的带宽,参考:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cddd21325698">简书</a>)<br>$C$:信道容量(bps)<br>$G$:增益(dB)<br>$R$:数据率(bps)(比特率,bit per second)<br>$S$:信号功率</p>
+<hr>
 <h1 id="1-数据通信-数据网络和因特网"><a href="#1-数据通信-数据网络和因特网" class="headerlink" title="1 数据通信,数据网络和因特网"></a>1 数据通信,数据网络和因特网</h1><ul>
 <li>T-1连接:1.544Mbps</li>
 <li>T-3连接:44.736Mbps</li>
+</ul>
+<h3 id="1-4-1-广域网"><a href="#1-4-1-广域网" class="headerlink" title="1.4.1 广域网"></a>1.4.1 广域网</h3><ul>
+<li>电路交换</li>
+<li>分组交换</li>
+<li>帧中继</li>
+<li>ATM</li>
 </ul>
 <h1 id="3-数据传输"><a href="#3-数据传输" class="headerlink" title="3 数据传输"></a>3 数据传输</h1><h2 id="3-1-概念和术语"><a href="#3-1-概念和术语" class="headerlink" title="3.1 概念和术语"></a>3.1 概念和术语</h2><h3 id="3-1-1-传输术语"><a href="#3-1-1-传输术语" class="headerlink" title="3.1.1 传输术语"></a>3.1.1 传输术语</h3><ul>
 <li>单工</li>
@@ -867,6 +873,14 @@
 <h3 id="3-4-3-表达式-E-b-N-0"><a href="#3-4-3-表达式-E-b-N-0" class="headerlink" title="3.4.3 表达式$E_b/N_0$"></a>3.4.3 表达式$E_b/N_0$</h3><p>每比特信号的能量与每赫兹噪声功率密度之比</p>
 <p>$$ \dfrac{E_b}{N_0} = \dfrac{S / R}{N_0} = \dfrac{S}{kTR} $$</p>
 <p>$S$是信号功率,$R$数据率</p>
+<h2 id="3A-分贝和信号强度"><a href="#3A-分贝和信号强度" class="headerlink" title="3A 分贝和信号强度"></a>3A 分贝和信号强度</h2><p>分贝是两个信号功率比值的度量,分贝增益公式如下</p>
+<p>$$ G_{dB} = 10\lg\dfrac{P_{out}}{P_{in}} $$</p>
+<p>其中</p>
+<ul>
+<li>$G_{dB}$:增益</li>
+<li>$P_{in}$:输入功率值</li>
+<li>$P_{out}$:输出功率值</li>
+</ul>
 <h1 id="4-传输媒体"><a href="#4-传输媒体" class="headerlink" title="4 传输媒体"></a>4 传输媒体</h1><p>决定数据率和传输距离的许多设计因素都与传输媒体及信号有关</p>
 <ul>
 <li>带宽</li>
@@ -977,7 +991,40 @@
 <li>可用于信号的隐蔽和加密</li>
 <li>多个用户可以做到彼此之间很少干扰地独立使用相同的带宽</li>
 </ul>
-<h2 id="9-2-调频扩频"><a href="#9-2-调频扩频" class="headerlink" title="9.2 调频扩频"></a>9.2 调频扩频</h2><h3 id="9-2-1-基本方法"><a href="#9-2-1-基本方法" class="headerlink" title="9.2.1 基本方法"></a>9.2.1 基本方法</h3><h3 id="9-2-2-用MFSK调制的FHSS"><a href="#9-2-2-用MFSK调制的FHSS" class="headerlink" title="9.2.2 用MFSK调制的FHSS"></a>9.2.2 用MFSK调制的FHSS</h3><h3 id="9-2-3-FHSS性能分析"><a href="#9-2-3-FHSS性能分析" class="headerlink" title="9.2.3 FHSS性能分析"></a>9.2.3 FHSS性能分析</h3><h2 id="9-3-直接序列扩频"><a href="#9-3-直接序列扩频" class="headerlink" title="9.3 直接序列扩频"></a>9.3 直接序列扩频</h2><h3 id="9-3-1-使用BPSK的DSSS"><a href="#9-3-1-使用BPSK的DSSS" class="headerlink" title="9.3.1 使用BPSK的DSSS"></a>9.3.1 使用BPSK的DSSS</h3><h3 id="9-3-2-DSSS的性能分析"><a href="#9-3-2-DSSS的性能分析" class="headerlink" title="9.3.2 DSSS的性能分析"></a>9.3.2 DSSS的性能分析</h3><h2 id="9-4-码分多址"><a href="#9-4-码分多址" class="headerlink" title="9.4 码分多址"></a>9.4 码分多址</h2><h3 id="9-4-1-基本原理"><a href="#9-4-1-基本原理" class="headerlink" title="9.4.1 基本原理"></a>9.4.1 基本原理</h3><h3 id="9-4-2-用于直接序列扩频的CDMA"><a href="#9-4-2-用于直接序列扩频的CDMA" class="headerlink" title="9.4.2 用于直接序列扩频的CDMA"></a>9.4.2 用于直接序列扩频的CDMA</h3><h1 id="10-电路交换和分组交换"><a href="#10-电路交换和分组交换" class="headerlink" title="10 电路交换和分组交换"></a>10 电路交换和分组交换</h1><h2 id="10-1-交换式通信网"><a href="#10-1-交换式通信网" class="headerlink" title="10.1 交换式通信网"></a>10.1 交换式通信网</h2><h2 id="10-2-电路交换网"><a href="#10-2-电路交换网" class="headerlink" title="10.2 电路交换网"></a>10.2 电路交换网</h2><h2 id="10-3-电路交换的概念"><a href="#10-3-电路交换的概念" class="headerlink" title="10.3 电路交换的概念"></a>10.3 电路交换的概念</h2><h3 id="10-3-1-空分交换"><a href="#10-3-1-空分交换" class="headerlink" title="10.3.1 空分交换"></a>10.3.1 空分交换</h3><h3 id="10-3-2-时分交换"><a href="#10-3-2-时分交换" class="headerlink" title="10.3.2 时分交换"></a>10.3.2 时分交换</h3><h2 id="10-4-软交换体系结构"><a href="#10-4-软交换体系结构" class="headerlink" title="10.4 软交换体系结构"></a>10.4 软交换体系结构</h2><h2 id="10-5-分组交换原理"><a href="#10-5-分组交换原理" class="headerlink" title="10.5 分组交换原理"></a>10.5 分组交换原理</h2><h3 id="10-5-1-交换技术"><a href="#10-5-1-交换技术" class="headerlink" title="10.5.1 交换技术"></a>10.5.1 交换技术</h3><h3 id="10-5-2-分组大小"><a href="#10-5-2-分组大小" class="headerlink" title="10.5.2 分组大小"></a>10.5.2 分组大小</h3><h3 id="10-5-3-外部网络接口"><a href="#10-5-3-外部网络接口" class="headerlink" title="10.5.3 外部网络接口"></a>10.5.3 外部网络接口</h3><h3 id="10-5-4-电路交换与分组交换的对比"><a href="#10-5-4-电路交换与分组交换的对比" class="headerlink" title="10.5.4 电路交换与分组交换的对比"></a>10.5.4 电路交换与分组交换的对比</h3><h1 id="11-异步传递方式"><a href="#11-异步传递方式" class="headerlink" title="11 异步传递方式"></a>11 异步传递方式</h1><h2 id="11-1-ATM的角色"><a href="#11-1-ATM的角色" class="headerlink" title="11.1 ATM的角色"></a>11.1 ATM的角色</h2><h2 id="11-2-协议体系结构"><a href="#11-2-协议体系结构" class="headerlink" title="11.2 协议体系结构"></a>11.2 协议体系结构</h2><h3 id="11-2-1-ATM网络接口"><a href="#11-2-1-ATM网络接口" class="headerlink" title="11.2.1 ATM网络接口"></a>11.2.1 ATM网络接口</h3><h2 id="11-3-ATM逻辑连接"><a href="#11-3-ATM逻辑连接" class="headerlink" title="11.3 ATM逻辑连接"></a>11.3 ATM逻辑连接</h2><h3 id="11-3-1-虚通路连接的使用"><a href="#11-3-1-虚通路连接的使用" class="headerlink" title="11.3.1 虚通路连接的使用"></a>11.3.1 虚通路连接的使用</h3><h3 id="11-3-2-虚通道-虚通路的特性"><a href="#11-3-2-虚通道-虚通路的特性" class="headerlink" title="11.3.2 虚通道/虚通路的特性"></a>11.3.2 虚通道/虚通路的特性</h3><h3 id="11-3-3-控制信令"><a href="#11-3-3-控制信令" class="headerlink" title="11.3.3 控制信令"></a>11.3.3 控制信令</h3><h2 id="11-4-ATM信元"><a href="#11-4-ATM信元" class="headerlink" title="11.4 ATM信元"></a>11.4 ATM信元</h2><h3 id="11-4-1-首部格式"><a href="#11-4-1-首部格式" class="headerlink" title="11.4.1 首部格式"></a>11.4.1 首部格式</h3><h3 id="11-4-2-一般流量控制"><a href="#11-4-2-一般流量控制" class="headerlink" title="11.4.2 一般流量控制"></a>11.4.2 一般流量控制</h3><h2 id="11-5-ATM信元传输"><a href="#11-5-ATM信元传输" class="headerlink" title="11.5 ATM信元传输"></a>11.5 ATM信元传输</h2><h3 id="11-5-1-基于信元的物理层"><a href="#11-5-1-基于信元的物理层" class="headerlink" title="11.5.1 基于信元的物理层"></a>11.5.1 基于信元的物理层</h3><h3 id="11-5-2-基于SDH的物理层"><a href="#11-5-2-基于SDH的物理层" class="headerlink" title="11.5.2 基于SDH的物理层"></a>11.5.2 基于SDH的物理层</h3><h2 id="11-6-ATM服务种类"><a href="#11-6-ATM服务种类" class="headerlink" title="11.6 ATM服务种类"></a>11.6 ATM服务种类</h2><h3 id="11-6-1-实时服务"><a href="#11-6-1-实时服务" class="headerlink" title="11.6.1 实时服务"></a>11.6.1 实时服务</h3><h3 id="11-6-2-非实时服务"><a href="#11-6-2-非实时服务" class="headerlink" title="11.6.2 非实时服务"></a>11.6.2 非实时服务</h3>
+<h2 id="9-2-跳频扩频-FHSS"><a href="#9-2-跳频扩频-FHSS" class="headerlink" title="9.2 跳频扩频(FHSS)"></a>9.2 跳频扩频(FHSS)</h2><h3 id="9-2-1-基本方法"><a href="#9-2-1-基本方法" class="headerlink" title="9.2.1 基本方法"></a>9.2.1 基本方法</h3><ul>
+<li>跳频(FH)信号</li>
+<li>频移键控(FSK)</li>
+<li>双相位相移键控(BPSK)</li>
+<li>伪随机噪声(PN)</li>
+</ul>
+<p>每个$k$比特的PN码指明了$2^k$个载频中的一个.在每个连续间隔期间(每个$k$比特的PN)都会从频率表中选择一个新载频</p>
+<h3 id="9-2-2-用MFSK调制的FHSS"><a href="#9-2-2-用MFSK调制的FHSS" class="headerlink" title="9.2.2 用MFSK调制的FHSS"></a>9.2.2 用MFSK调制的FHSS</h3><h3 id="9-2-3-FHSS性能分析"><a href="#9-2-3-FHSS性能分析" class="headerlink" title="9.2.3 FHSS性能分析"></a>9.2.3 FHSS性能分析</h3><p>信噪比上的增益(处理增益)</p>
+<p>$$ G_p = 2^k = \dfrac{W_s}{W_d} $$</p>
+<h2 id="9-3-直接序列扩频-DSSS"><a href="#9-3-直接序列扩频-DSSS" class="headerlink" title="9.3 直接序列扩频(DSSS)"></a>9.3 直接序列扩频(DSSS)</h2><h3 id="9-3-1-使用BPSK的DSSS"><a href="#9-3-1-使用BPSK的DSSS" class="headerlink" title="9.3.1 使用BPSK的DSSS"></a>9.3.1 使用BPSK的DSSS</h3><h3 id="9-3-2-DSSS的性能分析"><a href="#9-3-2-DSSS的性能分析" class="headerlink" title="9.3.2 DSSS的性能分析"></a>9.3.2 DSSS的性能分析</h3><p>信息信号的比特周期为$T$(相当于数据率为$1/T$),在此条件下:</p>
+<ul>
+<li>信号的带宽大约为$2/T$($B = 2R$)</li>
+</ul>
+<p>信噪比上的增益</p>
+<p>$$ G_P = \dfrac{T}{T_c} = \dfrac{R_c}{R} \approx \dfrac{W_s}{W_d} $$</p>
+<p>其中</p>
+<ul>
+<li>$R_c$:扩频码的比特率</li>
+<li>$R$:数据率</li>
+<li>$W_s$:扩频信号的带宽</li>
+<li>$W_d$:信号带宽</li>
+</ul>
+<h2 id="9-4-码分多址"><a href="#9-4-码分多址" class="headerlink" title="9.4 码分多址"></a>9.4 码分多址</h2><h3 id="9-4-1-基本原理"><a href="#9-4-1-基本原理" class="headerlink" title="9.4.1 基本原理"></a>9.4.1 基本原理</h3><h3 id="9-4-2-用于直接序列扩频的CDMA"><a href="#9-4-2-用于直接序列扩频的CDMA" class="headerlink" title="9.4.2 用于直接序列扩频的CDMA"></a>9.4.2 用于直接序列扩频的CDMA</h3><h1 id="10-电路交换和分组交换"><a href="#10-电路交换和分组交换" class="headerlink" title="10 电路交换和分组交换"></a>10 电路交换和分组交换</h1><h2 id="10-1-交换式通信网"><a href="#10-1-交换式通信网" class="headerlink" title="10.1 交换式通信网"></a>10.1 交换式通信网</h2><h2 id="10-2-电路交换网"><a href="#10-2-电路交换网" class="headerlink" title="10.2 电路交换网"></a>10.2 电路交换网</h2><ol>
+<li>电路建立</li>
+<li>数据传送</li>
+<li>电路断连</li>
+</ol>
+<h2 id="10-3-电路交换的概念"><a href="#10-3-电路交换的概念" class="headerlink" title="10.3 电路交换的概念"></a>10.3 电路交换的概念</h2><h3 id="10-3-1-空分交换"><a href="#10-3-1-空分交换" class="headerlink" title="10.3.1 空分交换"></a>10.3.1 空分交换</h3><h3 id="10-3-2-时分交换"><a href="#10-3-2-时分交换" class="headerlink" title="10.3.2 时分交换"></a>10.3.2 时分交换</h3><h2 id="10-4-软交换体系结构"><a href="#10-4-软交换体系结构" class="headerlink" title="10.4 软交换体系结构"></a>10.4 软交换体系结构</h2><h2 id="10-5-分组交换原理"><a href="#10-5-分组交换原理" class="headerlink" title="10.5 分组交换原理"></a>10.5 分组交换原理</h2><h3 id="10-5-1-交换技术"><a href="#10-5-1-交换技术" class="headerlink" title="10.5.1 交换技术"></a>10.5.1 交换技术</h3><ul>
+<li>数据报(datagram)</li>
+<li>虚电路(virtual circuit)</li>
+</ul>
+<h3 id="10-5-2-分组大小"><a href="#10-5-2-分组大小" class="headerlink" title="10.5.2 分组大小"></a>10.5.2 分组大小</h3><h3 id="10-5-3-外部网络接口"><a href="#10-5-3-外部网络接口" class="headerlink" title="10.5.3 外部网络接口"></a>10.5.3 外部网络接口</h3><h3 id="10-5-4-电路交换与分组交换的对比"><a href="#10-5-4-电路交换与分组交换的对比" class="headerlink" title="10.5.4 电路交换与分组交换的对比"></a>10.5.4 电路交换与分组交换的对比</h3><h1 id="11-异步传递方式"><a href="#11-异步传递方式" class="headerlink" title="11 异步传递方式"></a>11 异步传递方式</h1><h2 id="11-1-ATM的角色"><a href="#11-1-ATM的角色" class="headerlink" title="11.1 ATM的角色"></a>11.1 ATM的角色</h2><p>信元(cell)</p>
+<h2 id="11-2-协议体系结构"><a href="#11-2-协议体系结构" class="headerlink" title="11.2 协议体系结构"></a>11.2 协议体系结构</h2><h3 id="11-2-1-ATM网络接口"><a href="#11-2-1-ATM网络接口" class="headerlink" title="11.2.1 ATM网络接口"></a>11.2.1 ATM网络接口</h3><h2 id="11-3-ATM逻辑连接"><a href="#11-3-ATM逻辑连接" class="headerlink" title="11.3 ATM逻辑连接"></a>11.3 ATM逻辑连接</h2><h3 id="11-3-1-虚通路连接的使用"><a href="#11-3-1-虚通路连接的使用" class="headerlink" title="11.3.1 虚通路连接的使用"></a>11.3.1 虚通路连接的使用</h3><h3 id="11-3-2-虚通道-虚通路的特性"><a href="#11-3-2-虚通道-虚通路的特性" class="headerlink" title="11.3.2 虚通道/虚通路的特性"></a>11.3.2 虚通道/虚通路的特性</h3><h3 id="11-3-3-控制信令"><a href="#11-3-3-控制信令" class="headerlink" title="11.3.3 控制信令"></a>11.3.3 控制信令</h3><h2 id="11-4-ATM信元"><a href="#11-4-ATM信元" class="headerlink" title="11.4 ATM信元"></a>11.4 ATM信元</h2><p>异步传递方式利用了固定长度的信元,由5个八位组的首部和48个八位组的信息字段组成</p>
+<h3 id="11-4-1-首部格式"><a href="#11-4-1-首部格式" class="headerlink" title="11.4.1 首部格式"></a>11.4.1 首部格式</h3><h3 id="11-4-2-一般流量控制"><a href="#11-4-2-一般流量控制" class="headerlink" title="11.4.2 一般流量控制"></a>11.4.2 一般流量控制</h3><h2 id="11-5-ATM信元传输"><a href="#11-5-ATM信元传输" class="headerlink" title="11.5 ATM信元传输"></a>11.5 ATM信元传输</h2><h3 id="11-5-1-基于信元的物理层"><a href="#11-5-1-基于信元的物理层" class="headerlink" title="11.5.1 基于信元的物理层"></a>11.5.1 基于信元的物理层</h3><h3 id="11-5-2-基于SDH的物理层"><a href="#11-5-2-基于SDH的物理层" class="headerlink" title="11.5.2 基于SDH的物理层"></a>11.5.2 基于SDH的物理层</h3><h2 id="11-6-ATM服务种类"><a href="#11-6-ATM服务种类" class="headerlink" title="11.6 ATM服务种类"></a>11.6 ATM服务种类</h2><h3 id="11-6-1-实时服务"><a href="#11-6-1-实时服务" class="headerlink" title="11.6.1 实时服务"></a>11.6.1 实时服务</h3><h3 id="11-6-2-非实时服务"><a href="#11-6-2-非实时服务" class="headerlink" title="11.6.2 非实时服务"></a>11.6.2 非实时服务</h3>
 
   
 <script src="/js/guide.js"></script>
