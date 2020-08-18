@@ -853,7 +853,11 @@
 <li>vscode</li>
 <li>hyper</li>
 <li>搜狗拼音<ul>
-<li>如果出现<code>qt4</code>的依赖错误,见下方代码区(参考:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cocode/p/12875555.html">cnblogs</a>)</li>
+<li>如果出现<code>qt4</code>的依赖错误<ol>
+<li>使用麒麟社区版本,见下方代码区(参考:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/cocode/p/12875555.html">cnblogs</a>)</li>
+<li>先添加<code>rock-core/qt4</code>的apt源,然后<a target="_blank" rel="noopener" href="https://packages.ubuntu.com/xenial/amd64/fcitx-frontend-qt4/download">添加软件源</a>:例如在<code>/etc/apt/sources.list</code>中添加<code>http://kr.archive.ubuntu.com/ubuntu/ xenial main</code>然后再<code>sudo update</code></li>
+</ol>
+</li>
 </ul>
 </li>
 <li>chrome</li>
