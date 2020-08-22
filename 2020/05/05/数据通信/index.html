@@ -999,7 +999,12 @@
 <li>$L$:每个信号元素中的比特数目</li>
 </ul>
 <h3 id="5-1-5-扰码技术"><a href="#5-1-5-扰码技术" class="headerlink" title="5.1.5 扰码技术"></a>5.1.5 扰码技术</h3><h2 id="5-2-数字数据-模拟信号"><a href="#5-2-数字数据-模拟信号" class="headerlink" title="5.2 数字数据,模拟信号"></a>5.2 数字数据,模拟信号</h2><p><img src="/img/modulate.png"></p>
-<h3 id="5-2-1-振幅键控-ASK"><a href="#5-2-1-振幅键控-ASK" class="headerlink" title="5.2.1 振幅键控(ASK)"></a>5.2.1 振幅键控(ASK)</h3><h3 id="5-2-2-频移键控-FSK"><a href="#5-2-2-频移键控-FSK" class="headerlink" title="5.2.2 频移键控(FSK)"></a>5.2.2 频移键控(FSK)</h3><h3 id="5-2-3-相移键控-PSK"><a href="#5-2-3-相移键控-PSK" class="headerlink" title="5.2.3 相移键控(PSK)"></a>5.2.3 相移键控(PSK)</h3><ul>
+<h3 id="5-2-1-振幅键控-ASK"><a href="#5-2-1-振幅键控-ASK" class="headerlink" title="5.2.1 振幅键控(ASK)"></a>5.2.1 振幅键控(ASK)</h3><h3 id="5-2-2-频移键控-FSK"><a href="#5-2-2-频移键控-FSK" class="headerlink" title="5.2.2 频移键控(FSK)"></a>5.2.2 频移键控(FSK)</h3><p>调制器需要的带宽为$W_d = 2Mf_d$</p>
+<ul>
+<li>$M$:不通信号元素的个数$ = 2^L$</li>
+<li>$f_d$:相差频率,当$M = 2$时,$f_d = |f_1 - f_2|$</li>
+</ul>
+<h3 id="5-2-3-相移键控-PSK"><a href="#5-2-3-相移键控-PSK" class="headerlink" title="5.2.3 相移键控(PSK)"></a>5.2.3 相移键控(PSK)</h3><ul>
 <li>二进制相移键控(BPSK)($s(t) = 0, 1$)</li>
 <li>四值相移键控(QPSK)($s(t) = 00, 01, 10, 11$)<br>使用的相位偏移值为$\pi / 2$的倍数,而不像BPSK中只允许存在$180^{\circ}$的相位偏移</li>
 </ul>
@@ -1015,28 +1020,43 @@
 <td align="center">$B_T = (1 + r)R$</td>
 </tr>
 <tr>
-<td align="center">MPSK</td>
+<td align="center">MPSK(多值相移键控)</td>
 <td align="center">$B_T = (\dfrac{1 + r}{L})R = (\dfrac{1 + r}{\log_2M})R$</td>
 </tr>
 <tr>
-<td align="center">MFSK</td>
+<td align="center">MFSK(多值频移键控)</td>
 <td align="center">$B_T = (\dfrac{(1 + r)M}{\log_2M})R$</td>
 </tr>
 </tbody></table>
 <ul>
 <li><p>$R$:比特率</p>
 </li>
-<li><p>$r$:与用来对信号进行滤波并建立传输带宽的技术有关,通常$0 &lt; r &lt; 1$(题目一般设为0)</p>
+<li><p>$r$:与用来对信号进行滤波并建立传输带宽的技术有关,通常$0 &lt; r &lt; 1$(题目中会说$r = $常数的滤波器,一般设为0)</p>
 </li>
 <li><p><strong>带宽有效率</strong>:$R/B_T$</p>
 </li>
+<li><p><strong>TODO</strong>:$B_T = 0.5(1 + r)D$</p>
+</li>
 </ul>
 <h3 id="5-2-5-正交调幅"><a href="#5-2-5-正交调幅" class="headerlink" title="5.2.5 正交调幅"></a>5.2.5 正交调幅</h3><h2 id="5-3-模拟数据-数字信号"><a href="#5-3-模拟数据-数字信号" class="headerlink" title="5.3 模拟数据,数字信号"></a>5.3 模拟数据,数字信号</h2><h3 id="5-3-1-脉码调制-PCM"><a href="#5-3-1-脉码调制-PCM" class="headerlink" title="5.3.1 脉码调制(PCM)"></a>5.3.1 脉码调制(PCM)</h3><ul>
+<li>量化误差/量化噪声:量化噪声的信噪比:</li>
+</ul>
+<p>$$ SNR_{dB} = 20 \log 2^n + 1.76dB = 6.02n + 1.76dB $$</p>
+<ul>
 <li>PAM(脉幅调制)采样器</li>
 <li>量化器</li>
 <li>编码器</li>
 </ul>
-<h3 id="5-3-2-增量调制-DM"><a href="#5-3-2-增量调制-DM" class="headerlink" title="5.3.2 增量调制(DM)"></a>5.3.2 增量调制(DM)</h3><h3 id="5-3-3-性能"><a href="#5-3-3-性能" class="headerlink" title="5.3.3 性能"></a>5.3.3 性能</h3><h2 id="5-4-模拟数据-模拟信号"><a href="#5-4-模拟数据-模拟信号" class="headerlink" title="5.4 模拟数据,模拟信号"></a>5.4 模拟数据,模拟信号</h2><h3 id="5-4-1-调幅"><a href="#5-4-1-调幅" class="headerlink" title="5.4.1 调幅"></a>5.4.1 调幅</h3><h3 id="5-4-2-角度调制"><a href="#5-4-2-角度调制" class="headerlink" title="5.4.2 角度调制"></a>5.4.2 角度调制</h3><h1 id="6-数字数据通信技术"><a href="#6-数字数据通信技术" class="headerlink" title="6 数字数据通信技术"></a>6 数字数据通信技术</h1><h2 id="6-1-异步和同步传输"><a href="#6-1-异步和同步传输" class="headerlink" title="6.1 异步和同步传输"></a>6.1 异步和同步传输</h2><ul>
+<h3 id="5-3-2-增量调制-DM"><a href="#5-3-2-增量调制-DM" class="headerlink" title="5.3.2 增量调制(DM)"></a>5.3.2 增量调制(DM)</h3><h3 id="5-3-3-性能"><a href="#5-3-3-性能" class="headerlink" title="5.3.3 性能"></a>5.3.3 性能</h3><h2 id="5-4-模拟数据-模拟信号"><a href="#5-4-模拟数据-模拟信号" class="headerlink" title="5.4 模拟数据,模拟信号"></a>5.4 模拟数据,模拟信号</h2><h3 id="5-4-1-调幅-AM"><a href="#5-4-1-调幅-AM" class="headerlink" title="5.4.1 调幅(AM)"></a>5.4.1 调幅(AM)</h3><h3 id="5-4-2-角度调制"><a href="#5-4-2-角度调制" class="headerlink" title="5.4.2 角度调制"></a>5.4.2 角度调制</h3><ul>
+<li>角度调制</li>
+</ul>
+<p>$$ s(t) = A_c\cos[2\pi f_c t + \phi(t)] $$</p>
+<p>调频(FM),调相(PM)</p>
+<ul>
+<li>$s(t)$的瞬时频率为</li>
+</ul>
+<p>$$ f_i(t) = f_c + \dfrac{1}{2\pi}\phi’(t) $$</p>
+<h1 id="6-数字数据通信技术"><a href="#6-数字数据通信技术" class="headerlink" title="6 数字数据通信技术"></a>6 数字数据通信技术</h1><h2 id="6-1-异步和同步传输"><a href="#6-1-异步和同步传输" class="headerlink" title="6.1 异步和同步传输"></a>6.1 异步和同步传输</h2><ul>
 <li>起始位</li>
 </ul>
 <h3 id="6-1-1-异步传输"><a href="#6-1-1-异步传输" class="headerlink" title="6.1.1 异步传输"></a>6.1.1 异步传输</h3><h3 id="6-1-2-同步传输"><a href="#6-1-2-同步传输" class="headerlink" title="6.1.2 同步传输"></a>6.1.2 同步传输</h3><h2 id="6-2-差错类型"><a href="#6-2-差错类型" class="headerlink" title="6.2 差错类型"></a>6.2 差错类型</h2><h2 id="6-3-差错检测"><a href="#6-3-差错检测" class="headerlink" title="6.3 差错检测"></a>6.3 差错检测</h2><h3 id="6-3-1-奇偶校验"><a href="#6-3-1-奇偶校验" class="headerlink" title="6.3.1 奇偶校验"></a>6.3.1 奇偶校验</h3><h3 id="6-3-2-循环冗余校验"><a href="#6-3-2-循环冗余校验" class="headerlink" title="6.3.2 循环冗余校验"></a>6.3.2 循环冗余校验</h3><p>$$ T = 2^{n - k}D + F $$</p>
@@ -1112,7 +1132,12 @@
 <li>返回$N$</li>
 </ul>
 <h1 id="8-复用"><a href="#8-复用" class="headerlink" title="8 复用"></a>8 复用</h1><h2 id="8-1-频分复用"><a href="#8-1-频分复用" class="headerlink" title="8.1 频分复用"></a>8.1 频分复用</h2><h3 id="8-1-1-特点"><a href="#8-1-1-特点" class="headerlink" title="8.1.1 特点"></a>8.1.1 特点</h3><p>副载波调制器-&gt;发送器-&gt;主接收器-&gt;带通滤波器-&gt;解调器</p>
-<h3 id="8-1-2-模拟载波系统"><a href="#8-1-2-模拟载波系统" class="headerlink" title="8.1.2 模拟载波系统"></a>8.1.2 模拟载波系统</h3><h3 id="8-1-3-波分复用"><a href="#8-1-3-波分复用" class="headerlink" title="8.1.3 波分复用"></a>8.1.3 波分复用</h3><h2 id="8-2-同步时分复用"><a href="#8-2-同步时分复用" class="headerlink" title="8.2 同步时分复用"></a>8.2 同步时分复用</h2><h3 id="8-2-1-特点"><a href="#8-2-1-特点" class="headerlink" title="8.2.1 特点"></a>8.2.1 特点</h3><h3 id="8-2-2-TDM链路控制"><a href="#8-2-2-TDM链路控制" class="headerlink" title="8.2.2 TDM链路控制"></a>8.2.2 TDM链路控制</h3><h3 id="8-2-3-数字载波系统"><a href="#8-2-3-数字载波系统" class="headerlink" title="8.2.3 数字载波系统"></a>8.2.3 数字载波系统</h3><h3 id="8-2-4-SONET-SDH"><a href="#8-2-4-SONET-SDH" class="headerlink" title="8.2.4 SONET/SDH"></a>8.2.4 SONET/SDH</h3><h2 id="8-3-统计时分复用"><a href="#8-3-统计时分复用" class="headerlink" title="8.3 统计时分复用"></a>8.3 统计时分复用</h2><h3 id="8-3-1-特点"><a href="#8-3-1-特点" class="headerlink" title="8.3.1 特点"></a>8.3.1 特点</h3><h3 id="8-3-2-性能"><a href="#8-3-2-性能" class="headerlink" title="8.3.2 性能"></a>8.3.2 性能</h3><h3 id="8-3-3-电缆调制解调器"><a href="#8-3-3-电缆调制解调器" class="headerlink" title="8.3.3 电缆调制解调器"></a>8.3.3 电缆调制解调器</h3><h2 id="8-4-非对称数字用户线路"><a href="#8-4-非对称数字用户线路" class="headerlink" title="8.4 非对称数字用户线路"></a>8.4 非对称数字用户线路</h2><h3 id="8-4-1-ADSL设计"><a href="#8-4-1-ADSL设计" class="headerlink" title="8.4.1 ADSL设计"></a>8.4.1 ADSL设计</h3><h3 id="8-4-2-离散多音调"><a href="#8-4-2-离散多音调" class="headerlink" title="8.4.2 离散多音调"></a>8.4.2 离散多音调</h3><h3 id="8-4-3-宽带访问配置"><a href="#8-4-3-宽带访问配置" class="headerlink" title="8.4.3 宽带访问配置"></a>8.4.3 宽带访问配置</h3><h2 id="8-5-xDSL"><a href="#8-5-xDSL" class="headerlink" title="8.5 xDSL"></a>8.5 xDSL</h2><h1 id="9-扩频"><a href="#9-扩频" class="headerlink" title="9 扩频"></a>9 扩频</h1><h2 id="9-1-扩频的概念"><a href="#9-1-扩频的概念" class="headerlink" title="9.1 扩频的概念"></a>9.1 扩频的概念</h2><p>优点</p>
+<h3 id="8-1-2-模拟载波系统"><a href="#8-1-2-模拟载波系统" class="headerlink" title="8.1.2 模拟载波系统"></a>8.1.2 模拟载波系统</h3><h3 id="8-1-3-波分复用"><a href="#8-1-3-波分复用" class="headerlink" title="8.1.3 波分复用"></a>8.1.3 波分复用</h3><h2 id="8-2-同步时分复用"><a href="#8-2-同步时分复用" class="headerlink" title="8.2 同步时分复用"></a>8.2 同步时分复用</h2><h3 id="8-2-1-特点"><a href="#8-2-1-特点" class="headerlink" title="8.2.1 特点"></a>8.2.1 特点</h3><h3 id="8-2-2-TDM链路控制"><a href="#8-2-2-TDM链路控制" class="headerlink" title="8.2.2 TDM链路控制"></a>8.2.2 TDM链路控制</h3><h3 id="8-2-3-数字载波系统"><a href="#8-2-3-数字载波系统" class="headerlink" title="8.2.3 数字载波系统"></a>8.2.3 数字载波系统</h3><ul>
+<li>每个帧包含有各个信道的8比特再加上一个帧定位比特,共计$24 \times 8 + 1 = 193$比特</li>
+<li>调制速率为每秒8000个样本(帧)</li>
+<li>每6帧中有5个帧使用了8比特的PCM样本.对于每次出现的第6个帧,所有信道都是由一个7比特的PCM字加上一个信令比特组成</li>
+</ul>
+<h3 id="8-2-4-SONET-SDH"><a href="#8-2-4-SONET-SDH" class="headerlink" title="8.2.4 SONET/SDH"></a>8.2.4 SONET/SDH</h3><h2 id="8-3-统计时分复用"><a href="#8-3-统计时分复用" class="headerlink" title="8.3 统计时分复用"></a>8.3 统计时分复用</h2><h3 id="8-3-1-特点"><a href="#8-3-1-特点" class="headerlink" title="8.3.1 特点"></a>8.3.1 特点</h3><h3 id="8-3-2-性能"><a href="#8-3-2-性能" class="headerlink" title="8.3.2 性能"></a>8.3.2 性能</h3><h3 id="8-3-3-电缆调制解调器"><a href="#8-3-3-电缆调制解调器" class="headerlink" title="8.3.3 电缆调制解调器"></a>8.3.3 电缆调制解调器</h3><h2 id="8-4-非对称数字用户线路"><a href="#8-4-非对称数字用户线路" class="headerlink" title="8.4 非对称数字用户线路"></a>8.4 非对称数字用户线路</h2><h3 id="8-4-1-ADSL设计"><a href="#8-4-1-ADSL设计" class="headerlink" title="8.4.1 ADSL设计"></a>8.4.1 ADSL设计</h3><h3 id="8-4-2-离散多音调"><a href="#8-4-2-离散多音调" class="headerlink" title="8.4.2 离散多音调"></a>8.4.2 离散多音调</h3><h3 id="8-4-3-宽带访问配置"><a href="#8-4-3-宽带访问配置" class="headerlink" title="8.4.3 宽带访问配置"></a>8.4.3 宽带访问配置</h3><h2 id="8-5-xDSL"><a href="#8-5-xDSL" class="headerlink" title="8.5 xDSL"></a>8.5 xDSL</h2><h1 id="9-扩频"><a href="#9-扩频" class="headerlink" title="9 扩频"></a>9 扩频</h1><h2 id="9-1-扩频的概念"><a href="#9-1-扩频的概念" class="headerlink" title="9.1 扩频的概念"></a>9.1 扩频的概念</h2><p>优点</p>
 <ul>
 <li>可获得对各种噪声和多路失真的抗扰性</li>
 <li>可用于信号的隐蔽和加密</li>
