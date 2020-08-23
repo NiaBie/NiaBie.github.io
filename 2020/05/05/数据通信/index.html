@@ -916,7 +916,7 @@
 </li>
 <li><p>光学视距和无线电视距</p>
 <ul>
-<li>在没有中间障碍物的情况下,光学视距$d = 3.57 \sqrt{h}<ul>
+<li>在没有中间障碍物的情况下,光学视距$d = 3.57 \sqrt{h}$<ul>
 <li>$d$:天线和地平线之间的距离,<strong>以km为单位</strong></li>
 <li>h$:天线和地平线之间的距离,<strong>以m为单位</strong></li>
 </ul>
@@ -1033,7 +1033,7 @@
 </li>
 <li><p>$r$:与用来对信号进行滤波并建立传输带宽的技术有关,通常$0 &lt; r &lt; 1$(题目中会说$r = $常数的滤波器,一般设为0)</p>
 </li>
-<li><p><strong>带宽有效率</strong>:$R/B_T$</p>
+<li><p><strong>带宽有效率</strong>:$R/B_T$,(<strong>TODO</strong>)利用率/效率:传输时延/发送周期</p>
 </li>
 <li><p><strong>TODO</strong>:$B_T = 0.5(1 + r)D$</p>
 </li>
@@ -1150,7 +1150,11 @@
 <li>伪随机噪声(PN)</li>
 </ul>
 <p>每个$k$比特的PN码指明了$2^k$个载频中的一个.在每个连续间隔期间(每个$k$比特的PN)都会从频率表中选择一个新载频</p>
-<h3 id="9-2-2-用MFSK调制的FHSS"><a href="#9-2-2-用MFSK调制的FHSS" class="headerlink" title="9.2.2 用MFSK调制的FHSS"></a>9.2.2 用MFSK调制的FHSS</h3><h3 id="9-2-3-FHSS性能分析"><a href="#9-2-3-FHSS性能分析" class="headerlink" title="9.2.3 FHSS性能分析"></a>9.2.3 FHSS性能分析</h3><p>信噪比上的增益(处理增益)</p>
+<h3 id="9-2-2-用MFSK调制的FHSS"><a href="#9-2-2-用MFSK调制的FHSS" class="headerlink" title="9.2.2 用MFSK调制的FHSS"></a>9.2.2 用MFSK调制的FHSS</h3><ul>
+<li>$W_d$:信息带宽(<strong>TODO</strong>),$W_d = Mf_d$</li>
+<li>$W_s$:跳频扩频带宽,$W_s = 2^k W_d$</li>
+</ul>
+<h3 id="9-2-3-FHSS性能分析"><a href="#9-2-3-FHSS性能分析" class="headerlink" title="9.2.3 FHSS性能分析"></a>9.2.3 FHSS性能分析</h3><p>信噪比上的增益(处理增益)</p>
 <p>$$ G_p = 2^k = \dfrac{W_s}{W_d} $$</p>
 <h2 id="9-3-直接序列扩频-DSSS"><a href="#9-3-直接序列扩频-DSSS" class="headerlink" title="9.3 直接序列扩频(DSSS)"></a>9.3 直接序列扩频(DSSS)</h2><h3 id="9-3-1-使用BPSK的DSSS"><a href="#9-3-1-使用BPSK的DSSS" class="headerlink" title="9.3.1 使用BPSK的DSSS"></a>9.3.1 使用BPSK的DSSS</h3><h3 id="9-3-2-DSSS的性能分析"><a href="#9-3-2-DSSS的性能分析" class="headerlink" title="9.3.2 DSSS的性能分析"></a>9.3.2 DSSS的性能分析</h3><p>信息信号的比特周期为$T$(相当于数据率为$1/T$),在此条件下:</p>
 <ul>
