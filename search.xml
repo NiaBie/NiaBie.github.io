@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>游戏同步算法</title>
+      <link href="/2020/09/18/%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%AE%97%E6%B3%95/"/>
+      <url>/2020/09/18/%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://www.gabrielgambetta.com/client-server-game-architecture.html">国外参考网站</a></p><h1 id="同步模式"><a href="#同步模式" class="headerlink" title="同步模式"></a>同步模式</h1><h2 id="状态同步"><a href="#状态同步" class="headerlink" title="状态同步"></a>状态同步</h2><h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><ol><li>客户端上传<strong>操作</strong>到服务器</li><li>服务器计算游戏行为的<strong>结果</strong></li><li>服务器将<strong>结果</strong>发给所有客户端</li></ol><h2 id="帧同步"><a href="#帧同步" class="headerlink" title="帧同步"></a>帧同步</h2><h3 id="流程-1"><a href="#流程-1" class="headerlink" title="流程"></a>流程</h3><ol><li>同步随机种子(在使用随机数的时候保证随机数的一致性)</li><li>客户端上传<strong>操作</strong>到服务器</li><li>服务器将<strong>操作</strong>发给所有客户端</li><li>客户端本地计算<strong>结果</strong></li></ol><h3 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h3><ul><li>不能传浮点类型,保证计算结果一致</li><li>一般采用UDP进行传输,但会有丢包/乱序的可能性,需要用冗余的方式解决:每次发3帧的数据来对抗丢包</li></ul><h3 id="流畅度的优化"><a href="#流畅度的优化" class="headerlink" title="流畅度的优化"></a>流畅度的优化</h3><p><a href="https://gameinstitute.qq.com/community/detail/109337">腾讯游戏学院</a></p><h1 id="同步状态的计算"><a href="#同步状态的计算" class="headerlink" title="同步状态的计算"></a>同步状态的计算</h1><p><a href="https://blog.csdn.net/wangchuanjin/article/details/5487134">CSDN</a></p><h2 id="航位推算-Dead-Reckoning-DR"><a href="#航位推算-Dead-Reckoning-DR" class="headerlink" title="航位推算(Dead Reckoning, DR)"></a>航位推算(Dead Reckoning, DR)</h2><h2 id="直线行走"><a href="#直线行走" class="headerlink" title="直线行走"></a>直线行走</h2><h2 id="二次方程行走-Quadratic"><a href="#二次方程行走-Quadratic" class="headerlink" title="二次方程行走(Quadratic)"></a>二次方程行走(Quadratic)</h2><h2 id="立方体抖动-Cubic-Splines"><a href="#立方体抖动-Cubic-Splines" class="headerlink" title="立方体抖动(Cubic Splines)"></a>立方体抖动(Cubic Splines)</h2>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 状态同步 </tag>
+            
+            <tag> 帧同步 </tag>
+            
+            <tag> 航位推算 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>unity嵌入Android</title>
       <link href="/2020/09/05/unity%E5%B5%8C%E5%85%A5Android/"/>
       <url>/2020/09/05/unity%E5%B5%8C%E5%85%A5Android/</url>
