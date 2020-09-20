@@ -33,6 +33,8 @@
 
   <div class="menu_item_box right" id="menu_next">next</div>
   
+    <div class="menu_item_box right" id="menu_guide">guide</div>
+  
   <div class="menu_item_box right" id="menu_site">sites</div>
 </div>
 
@@ -59,6 +61,40 @@
 </div>
 
 
+  <!-- 附加导航 -->
+  <div class="guide_box shadow_box" id="guide_box">
+    <div class="tag_list_box" id="tag_list_box">
+      <span class="guide_item">tags</span>
+      
+        
+          <span class="tag_item">
+            <a href="/tags/%E5%B8%A7%E5%90%8C%E6%AD%A5/">帧同步</a>
+          </span>
+        
+          <span class="tag_item">
+            <a href="/tags/%E8%88%AA%E4%BD%8D%E6%8E%A8%E7%AE%97/">航位推算</a>
+          </span>
+        
+      
+    </div>
+
+    <div class="line_box" id="guide_line_box"></div>
+    <style>
+      #guide_line_box {
+        width: 90%;
+      }
+    </style>
+    
+    <div class="category_list_box" id="category_list_box">
+      <span class="guide_item">categories</span>
+      
+        
+      
+    </div>
+
+    <div class="guide_list_box border_box" id="guide_list_box"></div>
+  </div>
+
 
 <div class="search_result_box shadow_box" id="search_result_box">
   <div id="search_filter" class="search_list_box">
@@ -71,11 +107,6 @@
   </div>
   <div id="search_result_list" class="search_result_list"></div>
 </div>
-
-
-  <!-- 不是文章页 -->
-
-  
 
 
 
@@ -584,6 +615,11 @@
     temp = 'tags/lol/';
     tags_path.push(temp);
   ''
+    var temp = 'hyper';
+    tags_name.push(temp);
+    temp = 'tags/hyper/';
+    tags_path.push(temp);
+  ''
     var temp = 'vpn';
     tags_name.push(temp);
     temp = 'tags/vpn/';
@@ -599,11 +635,6 @@
     temp = 'tags/ssr/';
     tags_path.push(temp);
   ''
-    var temp = 'hyper';
-    tags_name.push(temp);
-    temp = 'tags/hyper/';
-    tags_path.push(temp);
-  ''
     var temp = '驱动';
     tags_name.push(temp);
     temp = 'tags/驱动/';
@@ -614,6 +645,11 @@
     temp = 'tags/unity/';
     tags_path.push(temp);
   ''
+    var temp = 'vlfeat';
+    tags_name.push(temp);
+    temp = 'tags/vlfeat/';
+    tags_path.push(temp);
+  ''
     var temp = 'vscode';
     tags_name.push(temp);
     temp = 'tags/vscode/';
@@ -622,11 +658,6 @@
     var temp = 'vundle';
     tags_name.push(temp);
     temp = 'tags/vundle/';
-    tags_path.push(temp);
-  ''
-    var temp = 'vlfeat';
-    tags_name.push(temp);
-    temp = 'tags/vlfeat/';
     tags_path.push(temp);
   ''
     var temp = 'wegame';
@@ -652,11 +683,6 @@
     var temp = 'xampp';
     tags_name.push(temp);
     temp = 'tags/xampp/';
-    tags_path.push(temp);
-  ''
-    var temp = '状态同步';
-    tags_name.push(temp);
-    temp = 'tags/状态同步/';
     tags_path.push(temp);
   ''
     var temp = '帧同步';
@@ -807,30 +833,71 @@
 </script>
 
 
-  <!-- 主页 -->
-
-<!-- 文章列表 -->
+  <!-- 文章 -->
 
 <div class="main_box border_box">
+  <span class="post_title" id="post_title">帧同步</span>
+  <br>
+  <span class="post_date">2020-09-18</span>
+  
+  <div class="line_box" id="post_line_box"></div>
+  <style>
+    #post_line_box {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+
+  <h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><ol>
+<li>客户端上传<strong>操作</strong>到服务器</li>
+<li>服务器将<strong>操作</strong>发给所有客户端</li>
+<li>客户端本地计算<strong>结果</strong></li>
+</ol>
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/66582899">知乎: 帧同步的基本原理</a></p>
+<h2 id="客户端的逻辑渲染分离"><a href="#客户端的逻辑渲染分离" class="headerlink" title="客户端的逻辑渲染分离"></a>客户端的逻辑渲染分离</h2><p>MVC: 数据,逻辑,显示的分离</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/FlyToCloud/article/details/104884840">CSDN: LockStep</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/big-zhou/p/11429316.html">cnblogs: 效果样例</a></p>
+<table>
+<thead>
+<tr>
+<th align="center">逻辑帧</th>
+<th align="center">渲染帧</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">10-20帧, 由网络帧来驱动, 必须固定间隔</td>
+<td align="center">30-60帧, 对逻辑帧做平滑处理, 性能高就快</td>
+</tr>
+</tbody></table>
+<h3 id="逻辑帧"><a href="#逻辑帧" class="headerlink" title="逻辑帧"></a>逻辑帧</h3><p>若<code>Update</code>的某一次间隔跨越了多个逻辑帧, 需要加速逻辑处理</p>
+<h3 id="渲染更新机制"><a href="#渲染更新机制" class="headerlink" title="渲染更新机制"></a>渲染更新机制</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/014d1ee3b027">简书: 渲染帧与获取输入</a></p>
+<ul>
+<li><p>Lerp: <strong>TODO</strong></p>
+</li>
+<li><p>SmoothDamp: <strong>TODO</strong></p>
+</li>
+</ul>
+<h1 id="传输要求"><a href="#传输要求" class="headerlink" title="传输要求"></a>传输要求</h1><ul>
+<li>同步随机种子(在使用随机数的时候保证随机数的一致性)</li>
+<li>不能传浮点类型,保证计算结果一致:<code>float</code>,<code>Vector3</code></li>
+<li>一般采用UDP进行传输,但会有丢包/乱序的可能性,需要用冗余的方式解决:每次发3帧的数据来对抗丢包</li>
+</ul>
+<h1 id="特殊功能"><a href="#特殊功能" class="headerlink" title="特殊功能"></a>特殊功能</h1><h2 id="断线重连"><a href="#断线重连" class="headerlink" title="断线重连"></a>断线重连</h2><p>服务器将从游戏开始到当前的所有操作发送给客户端, 客户端一次性更新所有逻辑帧</p>
+<h2 id="加速"><a href="#加速" class="headerlink" title="加速"></a>加速</h2><h2 id="战斗回放"><a href="#战斗回放" class="headerlink" title="战斗回放"></a>战斗回放</h2><hr>
+<blockquote>
+<p>以下待更新</p>
+</blockquote>
+<h1 id="流畅度的优化"><a href="#流畅度的优化" class="headerlink" title="流畅度的优化"></a>流畅度的优化</h1><p><a target="_blank" rel="noopener" href="https://gameinstitute.qq.com/community/detail/109337">腾讯游戏学院</a></p>
+<h1 id="同步状态的计算"><a href="#同步状态的计算" class="headerlink" title="同步状态的计算"></a>同步状态的计算</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wangchuanjin/article/details/5487134">CSDN</a></p>
+<h2 id="航位推算-Dead-Reckoning-DR"><a href="#航位推算-Dead-Reckoning-DR" class="headerlink" title="航位推算(Dead Reckoning, DR)"></a>航位推算(Dead Reckoning, DR)</h2><h2 id="直线行走"><a href="#直线行走" class="headerlink" title="直线行走"></a>直线行走</h2><h2 id="二次方程行走-Quadratic"><a href="#二次方程行走-Quadratic" class="headerlink" title="二次方程行走(Quadratic)"></a>二次方程行走(Quadratic)</h2><h2 id="立方体抖动-Cubic-Splines"><a href="#立方体抖动-Cubic-Splines" class="headerlink" title="立方体抖动(Cubic Splines)"></a>立方体抖动(Cubic Splines)</h2><h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Lunar_lty/article/details/88606168">CSDN</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wanzi215/article/details/82053036">CSDN</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.gabrielgambetta.com/client-server-game-architecture.html">国外参考网站</a></p>
+
 
   
+<script src="/js/guide.js"></script>
 
-  
-    <!-- 单个文章 -->
-
-      
-      <div class="post_box">
-        <span class="archive_index">1.</span>
-        <a href="/2020/09/18/%E6%B8%B8%E6%88%8F%E5%90%8C%E6%AD%A5%E7%AE%97%E6%B3%95/" class="archive_title">
-          游戏同步算法
-        </a>
-        <span class="archive_date">2020-09-18</span>
-        <br>
-      </div>
-              
-    
-  
-
+  <script>
+    create_guide();
+  </script>
 </div>
 
   
