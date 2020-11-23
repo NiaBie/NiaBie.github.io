@@ -534,6 +534,11 @@
     temp = 'tags/匈牙利算法/';
     tags_path.push(temp);
   ''
+    var temp = 'orb-slam';
+    tags_name.push(temp);
+    temp = 'tags/orb-slam/';
+    tags_path.push(temp);
+  ''
     var temp = 'photoshop';
     tags_name.push(temp);
     temp = 'tags/photoshop/';
@@ -1326,7 +1331,7 @@
 </thead>
 <tbody><tr>
 <td align="center"><code>BUILD_EXAMPLES</code></td>
-<td align="center">勾选</td>
+<td align="center"><del>勾选</del></td>
 </tr>
 <tr>
 <td align="center"><code>CMAKE_BUILD_TYPE</code></td>
@@ -1386,6 +1391,9 @@
 之后<code>cmake</code>出现<code>By not providing &quot;FindOpenCV.cmake&quot; in CMAKE_MODULE_PATH ...</code>:</li>
 </ol>
 <p>这是由于没有设置环境变量<code>OpenCV_DIR</code>,设置为<code>OpenCV</code>编译后的目录下含有<code>OpenCVConfig.cmake</code>的对应路径</p>
+<ol start="2">
+<li><code>VIDIOC_REQBUFS: Inappropriate ioctl for device</code>: 缺少ffmpeg<br>需要在安装ffmpeg之后重新编译OpenCV</li>
+</ol>
 
 
   
