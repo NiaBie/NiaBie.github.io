@@ -92,6 +92,10 @@
           </span>
         
           <span class="tag_item">
+            <a href="/tags/ffmpeg/">ffmpeg</a>
+          </span>
+        
+          <span class="tag_item">
             <a href="/tags/gradle/">gradle</a>
           </span>
         
@@ -637,6 +641,11 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -1392,8 +1401,9 @@
 </ol>
 <p>这是由于没有设置环境变量<code>OpenCV_DIR</code>,设置为<code>OpenCV</code>编译后的目录下含有<code>OpenCVConfig.cmake</code>的对应路径</p>
 <ol start="2">
-<li><code>VIDIOC_REQBUFS: Inappropriate ioctl for device</code>: 缺少ffmpeg<br>需要在安装ffmpeg之后重新编译OpenCV</li>
+<li><code>VIDIOC_REQBUFS: Inappropriate ioctl for device</code>: 缺少ffmpeg</li>
 </ol>
+<p><strong>TODO</strong>: 需要在安装ffmpeg(以源代码的方式安装, 不要使用apt)之后重新编译OpenCV, <a href="/2020/11/24/ubuntu%E5%AE%89%E8%A3%85ffmpeg/">ffmpeg安装</a></p>
 
 
   
