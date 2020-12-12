@@ -310,6 +310,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -378,16 +393,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -540,6 +545,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -613,11 +623,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -845,20 +850,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">帧同步</span>
-  <br>
-  <span class="post_date">2020-09-18</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">帧同步</span>
+    <br>
+    <span class="post_date">2020-09-18</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><ol>
+    <h1 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h1><ol>
 <li>客户端上传<strong>操作</strong>到服务器</li>
 <li>服务器将<strong>操作</strong>发给所有客户端</li>
 <li>客户端本地计算<strong>结果</strong></li>
@@ -901,13 +907,14 @@
 <h2 id="航位推算-Dead-Reckoning-DR"><a href="#航位推算-Dead-Reckoning-DR" class="headerlink" title="航位推算(Dead Reckoning, DR)"></a>航位推算(Dead Reckoning, DR)</h2><h2 id="直线行走"><a href="#直线行走" class="headerlink" title="直线行走"></a>直线行走</h2><h2 id="二次方程行走-Quadratic"><a href="#二次方程行走-Quadratic" class="headerlink" title="二次方程行走(Quadratic)"></a>二次方程行走(Quadratic)</h2><h2 id="立方体抖动-Cubic-Splines"><a href="#立方体抖动-Cubic-Splines" class="headerlink" title="立方体抖动(Cubic Splines)"></a>立方体抖动(Cubic Splines)</h2><h1 id="TODO"><a href="#TODO" class="headerlink" title="TODO"></a>TODO</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Lunar_lty/article/details/88606168">CSDN</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wanzi215/article/details/82053036">CSDN</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.gabrielgambetta.com/client-server-game-architecture.html">国外参考网站</a></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

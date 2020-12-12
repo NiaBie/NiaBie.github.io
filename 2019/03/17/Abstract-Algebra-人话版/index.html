@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Abstract Algebra(人话版)</span>
-  <br>
-  <span class="post_date">2019-03-17</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Abstract Algebra(人话版)</span>
+    <br>
+    <span class="post_date">2019-03-17</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="Sage准备"><a href="#Sage准备" class="headerlink" title="Sage准备"></a>Sage准备</h2><ul>
+    <h2 id="Sage准备"><a href="#Sage准备" class="headerlink" title="Sage准备"></a>Sage准备</h2><ul>
 <li>mac<ol>
 <li>开启共享</li>
 <li><code>Applications/SageMath-8.6.app/Contents/Resources/sage/sage</code></li>
@@ -1000,13 +1006,14 @@
 <h3 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h3><p><code>sage</code>中null space使用kernel代替</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Z = Integers(<span class="number">2</span>)</span><br><span class="line">Z</span><br><span class="line"><span class="comment"># Ring of integers modulo 2</span></span><br><span class="line">M = matrix(Z,[[<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br><span class="line">M</span><br><span class="line"><span class="comment"># [0 1 0 0 0]</span></span><br><span class="line"><span class="comment"># [1 0 1 0 1]</span></span><br><span class="line"><span class="comment"># [1 0 0 1 0]</span></span><br><span class="line">H = M.right_kernel_matrix()</span><br><span class="line">H</span><br><span class="line"><span class="comment"># [1 0 0 1 1]</span></span><br><span class="line"><span class="comment"># [0 0 1 0 1]</span></span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

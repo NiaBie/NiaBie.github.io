@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -856,20 +861,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Algorithms</span>
-  <br>
-  <span class="post_date">2019-03-30</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Algorithms</span>
+    <br>
+    <span class="post_date">2019-03-30</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="31-数论算法"><a href="#31-数论算法" class="headerlink" title="31 数论算法"></a>31 数论算法</h2><h3 id="31-3-模运算"><a href="#31-3-模运算" class="headerlink" title="31.3 模运算"></a>31.3 模运算</h3><h4 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>$\mathbb{Z}_n^*$的规模表示为$\phi(n)$,称为<strong>欧拉phi函数</strong>,满足下式<br>$$\phi(n)=n\prod_{\text{$p:p$是素数且$p|n$}}(1-\dfrac{1}{p})$$</p>
+    <h2 id="31-数论算法"><a href="#31-数论算法" class="headerlink" title="31 数论算法"></a>31 数论算法</h2><h3 id="31-3-模运算"><a href="#31-3-模运算" class="headerlink" title="31.3 模运算"></a>31.3 模运算</h3><h4 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h4><p>$\mathbb{Z}_n^*$的规模表示为$\phi(n)$,称为<strong>欧拉phi函数</strong>,满足下式<br>$$\phi(n)=n\prod_{\text{$p:p$是素数且$p|n$}}(1-\dfrac{1}{p})$$</p>
 <h3 id="31-4-求解模线性方程"><a href="#31-4-求解模线性方程" class="headerlink" title="31.4 求解模线性方程"></a>31.4 求解模线性方程</h3><h4 id="定理-31-20"><a href="#定理-31-20" class="headerlink" title="定理 31.20"></a>定理 31.20</h4><p>对任意正整数$a$和$n$,如果$d=\gcd(a,n)$,则在$\mathbb{Z}_n$中<br>$$\langle a\rangle=\langle d\rangle=\{0,d,2d,…,((n/d)-1)d\}$$<br>因此$|\langle a\rangle|=n/d$</p>
 <h4 id="推论-31-21"><a href="#推论-31-21" class="headerlink" title="推论 31.21"></a>推论 31.21</h4><p>当且仅当$d|b$时,方程$ax\equiv b(\mod n)$对于未知量$x$有解,这里$d=\gcd(a,n)$</p>
 <h4 id="推论-31-22"><a href="#推论-31-22" class="headerlink" title="推论 31.22"></a>推论 31.22</h4><p>方程$ax\equiv b(\mod n)$</p>
@@ -897,13 +903,14 @@
 <h4 id="公式可满足性"><a href="#公式可满足性" class="headerlink" title="公式可满足性"></a>公式可满足性</h4><p>$$ SAT=\{\langle\varphi\rangle: \text{$\varphi$是一个可满足的布尔公式}\} $$</p>
 <h4 id="3-CNF-SAT-3-CNF可满足性"><a href="#3-CNF-SAT-3-CNF可满足性" class="headerlink" title="3-CNF-SAT 3-CNF可满足性"></a>3-CNF-SAT 3-CNF可满足性</h4><p>布尔公式中的一个<strong>文字</strong>(literal)是指一个变量或变量的非.如果一个布尔公式可以表示为所有子句的与,并且每个子句都是一个或多个文字的或,则该布尔公式为<strong>合取范式</strong>,CNF(conjunctive normal form).如果公式中每个子句恰好都有三个不同的文字,则称该布尔公式为3<strong>合取范式</strong>,3-CNF,例如<br>$$ (x_1\vee\lnot x_1\vee\lnot x_2)\wedge(x_3\vee x_2\vee x_4)\wedge(\lnot x_1\vee\lnot x_3\vee\lnot x_4) $$<br>就是一个3合取范式,第一个子句包含3个文字$x_1,\lnot x_1$和$\lnot x_2$</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

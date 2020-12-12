@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">ubuntu配置ss和ssr</span>
-  <br>
-  <span class="post_date">2019-08-08</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">ubuntu配置ss和ssr</span>
+    <br>
+    <span class="post_date">2019-08-08</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h1><p><a target="_blank" rel="noopener" href="https://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">参考</a></p>
+    <h1 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a>shadowsocks</h1><p><a target="_blank" rel="noopener" href="https://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">参考</a></p>
 <h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p>TODO</p>
 <h2 id="gui"><a href="#gui" class="headerlink" title="gui"></a>gui</h2><h3 id="安装shadowsocks-qt5"><a href="#安装shadowsocks-qt5" class="headerlink" title="安装shadowsocks-qt5"></a>安装shadowsocks-qt5</h3><ol>
 <li><p><a target="_blank" rel="noopener" href="https://github.com/shadowsocks/shadowsocks-qt5/wiki/%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97">github</a></p>
@@ -901,13 +907,14 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install libcanberra-gtk-module libcanberra-gtk3-module gconf2 gconf-service libappindicator1</span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

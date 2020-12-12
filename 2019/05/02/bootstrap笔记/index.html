@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">bootstrap笔记</span>
-  <br>
-  <span class="post_date">2019-05-02</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">bootstrap笔记</span>
+    <br>
+    <span class="post_date">2019-05-02</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="bootstrap-css"><a href="#bootstrap-css" class="headerlink" title="bootstrap.css"></a>bootstrap.css</h2><h3 id="易重关键字"><a href="#易重关键字" class="headerlink" title="易重关键字"></a>易重关键字</h3><p><code>row</code>,<code>container</code></p>
+    <h2 id="bootstrap-css"><a href="#bootstrap-css" class="headerlink" title="bootstrap.css"></a>bootstrap.css</h2><h3 id="易重关键字"><a href="#易重关键字" class="headerlink" title="易重关键字"></a>易重关键字</h3><p><code>row</code>,<code>container</code></p>
 <h2 id="affix"><a href="#affix" class="headerlink" title="affix"></a>affix</h2><h3 id="导航栏class"><a href="#导航栏class" class="headerlink" title="导航栏class"></a>导航栏class</h3><ul>
 <li><p><code>nav-tabs</code>:表格式</p>
 </li>
@@ -891,13 +897,14 @@
 </li>
 </ul>
 <h2 id="tab"><a href="#tab" class="headerlink" title="tab"></a>tab</h2><h2 id="tooltip"><a href="#tooltip" class="headerlink" title="tooltip"></a>tooltip</h2><h2 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h2>
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

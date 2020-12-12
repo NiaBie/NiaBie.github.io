@@ -33,8 +33,6 @@
 
   <div class="menu_item_box right" id="menu_next">next</div>
   
-    <div class="menu_item_box right" id="menu_guide">guide</div>
-  
   <div class="menu_item_box right" id="menu_site">sites</div>
 </div>
 
@@ -61,36 +59,6 @@
 </div>
 
 
-  <!-- 附加导航 -->
-  <div class="guide_box shadow_box" id="guide_box">
-    <div class="tag_list_box" id="tag_list_box">
-      <span class="guide_item">tags</span>
-      
-        
-          <span class="tag_item">
-            <a href="/tags/ffmpeg/">ffmpeg</a>
-          </span>
-        
-      
-    </div>
-
-    <div class="line_box" id="guide_line_box"></div>
-    <style>
-      #guide_line_box {
-        width: 90%;
-      }
-    </style>
-    
-    <div class="category_list_box" id="category_list_box">
-      <span class="guide_item">categories</span>
-      
-        
-      
-    </div>
-
-    <div class="guide_list_box border_box" id="guide_list_box"></div>
-  </div>
-
 
 <div class="search_result_box shadow_box" id="search_result_box">
   <div id="search_filter" class="search_list_box">
@@ -103,6 +71,11 @@
   </div>
   <div id="search_result_list" class="search_result_list"></div>
 </div>
+
+
+  <!-- 不是文章页 -->
+
+  
 
 
 
@@ -306,6 +279,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +362,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +514,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +592,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -839,41 +817,33 @@
 </script>
 
 
-  <!-- 文章 -->
+  <!-- 主页 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">ffmpeg笔记</span>
-  <br>
-  <span class="post_date">2020-11-24</span>
+<!-- 文章列表 -->
+
+
+<div class="main_container">
+  <div class="main_box border_box">
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
-<li>设置make参数</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./configure   --<span class="built_in">enable</span>-shared  --prefix=/usr/<span class="built_in">local</span>/ffmpeg  --<span class="built_in">enable</span>-gpl --<span class="built_in">enable</span>-libx264  --<span class="built_in">enable</span>-libx265</span><br><span class="line">make -j4 &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>修改链接库路径<ul>
-<li>在<code>bin</code>目录下查看动态库的依赖关系<code>ldd ffmpeg</code></li>
-<li>修改<code>.zshrc</code>:<code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/ffmpeg/lib</code>(安装目录下的lib)</li>
-</ul>
-</li>
-</ul>
-
-
+    
   
-<script src="/js/guide.js"></script>
-
-  <script>
-    create_guide();
-  </script>
+    
+      <!-- 单个文章 -->
+  
+        
+        <div class="post_box">
+          <span class="archive_index">1.</span>
+          <a href="/2020/12/12/python%E5%8F%8D%E7%BC%96%E8%AF%91/" class="archive_title">
+            python反编译
+          </a>
+          <span class="archive_date">2020-12-12</span>
+          <br>
+        </div>
+                
+      
+    
+  
+  </div>
 </div>
 
   

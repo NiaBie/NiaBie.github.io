@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">gcc inline assembly</span>
-  <br>
-  <span class="post_date">2019-03-20</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">gcc inline assembly</span>
+    <br>
+    <span class="post_date">2019-03-20</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <style>
+    <style>
 #my_pdf
 {
   width: 90%;
@@ -874,13 +880,14 @@
 
 <p><a target="_blank" rel="noopener" href="http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html">HOWTO</a><br><embed id="my_pdf" src="/pdf/HOWTO.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=120&statusbar=0&messages=0"><br><a target="_blank" rel="noopener" href="http://www.delorie.com/djgpp/doc/brennan/brennan_att_inline_djgpp.html">DJGPP</a><br><embed id="my_pdf" src="/pdf/DJGPP.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=120&statusbar=0&messages=0"></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -856,20 +861,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">计算机网络</span>
-  <br>
-  <span class="post_date">2019-12-23</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">计算机网络</span>
+    <br>
+    <span class="post_date">2019-12-23</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="1-计算机网络和因特网"><a href="#1-计算机网络和因特网" class="headerlink" title="1 计算机网络和因特网"></a>1 计算机网络和因特网</h1><h2 id="1-3-网络核心"><a href="#1-3-网络核心" class="headerlink" title="1.3 网络核心"></a>1.3 网络核心</h2><h2 id="1-4-分组交换网中的时延-丢包和吞吐量"><a href="#1-4-分组交换网中的时延-丢包和吞吐量" class="headerlink" title="1.4 分组交换网中的时延,丢包和吞吐量"></a>1.4 分组交换网中的时延,丢包和吞吐量</h2><p>节点总时延($d_{nodal}$)=节点处理时延($d_{proc}$)+排队时延($d_{queue}$)+传输时延($d_{trans}$)+传播时延($d_{prop}$)</p>
+    <h1 id="1-计算机网络和因特网"><a href="#1-计算机网络和因特网" class="headerlink" title="1 计算机网络和因特网"></a>1 计算机网络和因特网</h1><h2 id="1-3-网络核心"><a href="#1-3-网络核心" class="headerlink" title="1.3 网络核心"></a>1.3 网络核心</h2><h2 id="1-4-分组交换网中的时延-丢包和吞吐量"><a href="#1-4-分组交换网中的时延-丢包和吞吐量" class="headerlink" title="1.4 分组交换网中的时延,丢包和吞吐量"></a>1.4 分组交换网中的时延,丢包和吞吐量</h2><p>节点总时延($d_{nodal}$)=节点处理时延($d_{proc}$)+排队时延($d_{queue}$)+传输时延($d_{trans}$)+传播时延($d_{prop}$)</p>
 <h3 id="1-4-2-排队时延和丢包"><a href="#1-4-2-排队时延和丢包" class="headerlink" title="1.4.2 排队时延和丢包"></a>1.4.2 排队时延和丢包</h3><ul>
 <li>流量强度</li>
 </ul>
@@ -1464,13 +1470,14 @@
 </li>
 </ol>
 <h2 id="9-4-实时会话式应用的协议"><a href="#9-4-实时会话式应用的协议" class="headerlink" title="9.4 实时会话式应用的协议"></a>9.4 实时会话式应用的协议</h2><h3 id="9-4-1-RTP"><a href="#9-4-1-RTP" class="headerlink" title="9.4.1 RTP"></a>9.4.1 RTP</h3><h3 id="9-4-2-SIP"><a href="#9-4-2-SIP" class="headerlink" title="9.4.2 SIP"></a>9.4.2 SIP</h3>
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

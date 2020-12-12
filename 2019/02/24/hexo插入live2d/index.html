@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">hexo插入live2d</span>
-  <br>
-  <span class="post_date">2019-02-24</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">hexo插入live2d</span>
+    <br>
+    <span class="post_date">2019-02-24</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="重要更新"><a href="#重要更新" class="headerlink" title="重要更新"></a>重要更新</h1><p>其他人写的代码还不如自己整的,详细<a target="_blank" rel="noopener" href="https://gihub.com/darkin-blade/webGL">github</a></p>
+    <h1 id="重要更新"><a href="#重要更新" class="headerlink" title="重要更新"></a>重要更新</h1><p>其他人写的代码还不如自己整的,详细<a target="_blank" rel="noopener" href="https://gihub.com/darkin-blade/webGL">github</a></p>
 <hr>
 <h1 id="位置说明"><a href="#位置说明" class="headerlink" title="位置说明"></a>位置说明</h1><blockquote>
 <p>注意不要重复使用一个API</p>
@@ -972,13 +978,14 @@
 <p><code>&lt;body&gt;</code>加<code>jquery.min.js</code>,<code>jquery-ui.min.js</code>,<code>waifu-tips.min.js</code>,<code>live2d.min.js</code></p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;waifu-tips&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--参数不要写上面,写源文件--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;live2d&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;waifu-tool&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-home&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-chat&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-eye&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-user&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-photo&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-info-circle&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;fui-cross&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/* 可直接修改部分参数 */</span><br><span class="line">// 后端接口</span><br><span class="line">live2d_settings[&#x27;modelAPI&#x27;] = &#x27;//live2d.fghrsh.net/api/&#x27;; // 自建 API 修改这里</span><br><span class="line">live2d_settings[&#x27;tipsMessage&#x27;] = &#x27;waifu-tips.json&#x27;; // 同目录下可省略路径</span><br><span class="line">live2d_settings[&#x27;hitokotoAPI&#x27;] = &#x27;lwl12.com&#x27;; // 一言 API，可选 &#x27;lwl12.com&#x27;, &#x27;hitokoto.cn&#x27;, &#x27;jinrishici.com&#x27;(古诗词)</span><br><span class="line"></span><br><span class="line">// 默认模型</span><br><span class="line">live2d_settings[&#x27;modelId&#x27;] = 1; // 默认模型 ID，可在 F12 控制台找到</span><br><span class="line">live2d_settings[&#x27;modelTexturesId&#x27;] = 53; // 默认材质 ID，可在 F12 控制台找到</span><br><span class="line"></span><br><span class="line">// 工具栏设置</span><br><span class="line">live2d_settings[&#x27;showToolMenu&#x27;] = true; // 显示 工具栏          ，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canCloseLive2d&#x27;] = true; // 显示 关闭看板娘  按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canSwitchModel&#x27;] = true; // 显示 模型切换    按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canSwitchTextures&#x27;] = true; // 显示 材质切换    按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canSwitchHitokoto&#x27;] = false; // 显示 一言切换    按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canTakeScreenshot&#x27;] = false; // 显示 看板娘截图  按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canTurnToHomePage&#x27;] = false; // 显示 返回首页    按钮，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;canTurnToAboutPage&#x27;] = false; // 显示 跳转关于页  按钮，可选 true(真), false(假)</span><br><span class="line"></span><br><span class="line">// 模型切换模式</span><br><span class="line">live2d_settings[&#x27;modelStorage&#x27;] = true; // 记录 ID (刷新后恢复)，可选 true(真), false(假)</span><br><span class="line">live2d_settings[&#x27;modelRandMode&#x27;] = &#x27;switch&#x27;; // 模型切换，可选 &#x27;rand&#x27;(随机), &#x27;switch&#x27;(顺序)</span><br><span class="line">live2d_settings[&#x27;modelTexturesRandMode&#x27;] = &#x27;switch&#x27;; // 材质切换，可选 &#x27;rand&#x27;(随机), &#x27;switch&#x27;(顺序)</span><br><span class="line"></span><br><span class="line">// 提示消息选项</span><br><span class="line">live2d_settings[&#x27;showHitokoto&#x27;] = true; // 显示一言</span><br><span class="line">live2d_settings[&#x27;showF12Status&#x27;] = true; // 显示加载状态</span><br><span class="line">live2d_settings[&#x27;showF12Message&#x27;] = false; // 显示看板娘消息</span><br><span class="line">live2d_settings[&#x27;showF12OpenMsg&#x27;] = true; // 显示控制台打开提示</span><br><span class="line">live2d_settings[&#x27;showCopyMessage&#x27;] = true; // 显示 复制内容 提示</span><br><span class="line">live2d_settings[&#x27;showWelcomeMessage&#x27;] = true; // 显示进入面页欢迎词</span><br><span class="line"></span><br><span class="line">//看板娘样式设置</span><br><span class="line">live2d_settings[&#x27;waifuSize&#x27;] = &#x27;200x250&#x27;; // 看板娘大小，例如 &#x27;280x250&#x27;, &#x27;600x535&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuTipsSize&#x27;] = &#x27;170x70&#x27;; // 提示框大小，例如 &#x27;250x70&#x27;, &#x27;570x150&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuFontSize&#x27;] = &#x27;12px&#x27;; // 提示框字体，例如 &#x27;12px&#x27;, &#x27;30px&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuToolFont&#x27;] = &#x27;14px&#x27;; // 工具栏字体，例如 &#x27;14px&#x27;, &#x27;36px&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuToolLine&#x27;] = &#x27;20px&#x27;; // 工具栏行高，例如 &#x27;20px&#x27;, &#x27;36px&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuToolTop&#x27;] = &#x27;0px&#x27; // 工具栏顶部边距，例如 &#x27;0px&#x27;, &#x27;-60px&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuMinWidth&#x27;] = &#x27;400px&#x27;; // 面页小于 指定宽度 隐藏看板娘，例如 &#x27;disable&#x27;(禁用), &#x27;768px&#x27;</span><br><span class="line">live2d_settings[&#x27;waifuEdgeSide&#x27;] = &#x27;left:60&#x27;; // 看板娘贴边方向，例如 &#x27;left:0&#x27;(靠左 0px), &#x27;right:30&#x27;(靠右 30px)</span><br><span class="line">live2d_settings[&#x27;waifuDraggable&#x27;] = &#x27;unlimited&#x27;; // 拖拽样式，例如 &#x27;disable&#x27;(禁用), &#x27;axis-x&#x27;(只能水平拖拽), &#x27;unlimited&#x27;(自由拖拽)</span><br><span class="line">live2d_settings[&#x27;waifuDraggableRevert&#x27;] = false; // 松开鼠标还原拖拽位置，可选 true(真), false(假)</span><br><span class="line"></span><br><span class="line">// 其他杂项设置</span><br><span class="line">live2d_settings[&#x27;l2dVersion&#x27;] = &#x27;1.4.2&#x27;; // 当前版本</span><br><span class="line">live2d_settings[&#x27;l2dVerDate&#x27;] = &#x27;2018.11.12&#x27;; // 版本更新日期</span><br><span class="line">live2d_settings[&#x27;homePageUrl&#x27;] = &#x27;auto&#x27;; // 主页地址，可选 &#x27;auto&#x27;(自动), &#x27;&#123;URL 网址&#125;&#x27;</span><br><span class="line">live2d_settings[&#x27;aboutPageUrl&#x27;] = &#x27;https://www.fghrsh.net/post/123.html&#x27;; // 关于页地址, &#x27;&#123;URL 网址&#125;&#x27;</span><br><span class="line">live2d_settings[&#x27;screenshotCaptureName&#x27;] = &#x27;live2d.png&#x27;; // 看板娘截图文件名，例如 &#x27;live2d.png&#x27;</span><br><span class="line">/* 在 initModel 前添加 */</span><br><span class="line">initModel(&quot;https://raw.githubusercontent.com/NiaBie/live2d_lazy/master/waifu-tips.json&quot;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

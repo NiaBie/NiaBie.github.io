@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">win10配置</span>
-  <br>
-  <span class="post_date">2019-03-23</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">win10配置</span>
+    <br>
+    <span class="post_date">2019-03-23</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="产品密钥"><a href="#产品密钥" class="headerlink" title="产品密钥"></a>产品密钥</h2><h3 id="专业版"><a href="#专业版" class="headerlink" title="专业版"></a>专业版</h3><ul>
+    <h2 id="产品密钥"><a href="#产品密钥" class="headerlink" title="产品密钥"></a>产品密钥</h2><h3 id="专业版"><a href="#专业版" class="headerlink" title="专业版"></a>专业版</h3><ul>
 <li>(2020.7)<code>XC88X-9N9QX-CDRVP-4XV22-RVV26</code></li>
 </ul>
 <h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
@@ -916,13 +922,14 @@
 </ol>
 <h2 id="路径笔记"><a href="#路径笔记" class="headerlink" title="路径笔记"></a>路径笔记</h2><p>注册表位置:<code>C:Windows/System32/config/</code></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

@@ -310,6 +310,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -378,16 +393,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -540,6 +545,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -613,11 +623,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -845,20 +850,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">vlfeat笔记</span>
-  <br>
-  <span class="post_date">2020-03-23</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">vlfeat笔记</span>
+    <br>
+    <span class="post_date">2020-03-23</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="cpp-Linux"><a href="#cpp-Linux" class="headerlink" title="cpp(Linux)"></a>cpp(Linux)</h1><p><a target="_blank" rel="noopener" href="https://www.vlfeat.org/api/index.html">官方C API</a></p>
+    <h1 id="cpp-Linux"><a href="#cpp-Linux" class="headerlink" title="cpp(Linux)"></a>cpp(Linux)</h1><p><a target="_blank" rel="noopener" href="https://www.vlfeat.org/api/index.html">官方C API</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.vlfeat.org/gcc.html">参考:https://www.vlfeat.org/gcc.html</a></p>
 <p>向<code>/etc/ld.so.conf.d/</code>下任意一个文件(如<code>opencv.conf</code>)添加so库的路径,然后<code>sudo ldconfig</code></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">  VL_PRINT (<span class="string">&quot;Hello world!&quot;</span>) ;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -897,13 +903,14 @@
 </ol>
 <p>如果安装了texlive,那么makefile在检测时会把pdftex检测为matlab,直接把<code>make/matlab.mak</code>内容清空即可</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

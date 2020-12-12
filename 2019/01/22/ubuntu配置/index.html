@@ -326,6 +326,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -394,16 +409,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -556,6 +561,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -629,11 +639,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -861,20 +866,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">ubuntu配置</span>
-  <br>
-  <span class="post_date">2019-01-22</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">ubuntu配置</span>
+    <br>
+    <span class="post_date">2019-01-22</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="SATA设置"><a href="#SATA设置" class="headerlink" title="SATA设置"></a>SATA设置</h2><p>Dell默认的是raid,在BIOS中改为AHCI再进行安装.如有安装windows,在调至AHCI前现在windows中用msconfig的引导中开启安全模式,调成AHCI后重启windows,然后取消安全模式</p>
+    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="SATA设置"><a href="#SATA设置" class="headerlink" title="SATA设置"></a>SATA设置</h2><p>Dell默认的是raid,在BIOS中改为AHCI再进行安装.如有安装windows,在调至AHCI前现在windows中用msconfig的引导中开启安全模式,调成AHCI后重启windows,然后取消安全模式</p>
 <h2 id="分盘"><a href="#分盘" class="headerlink" title="分盘"></a>分盘</h2><ol>
 <li>安装失败 </li>
 </ol>
@@ -1021,13 +1027,14 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LANG&#x3D;zh_CN.UTF-8</span><br><span class="line">LANGUAGE&#x3D;zh_CN:en_US:en</span><br><span class="line">LC_CTYPE&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NUMERIC&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TIME&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_COLLATE&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MONETARY&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MESSAGES&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_PAPER&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_NAME&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ADDRESS&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_TELEPHONE&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_MEASUREMENT&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_IDENTIFICATION&#x3D;&quot;zh_CN.UTF-8&quot;</span><br><span class="line">LC_ALL&#x3D;</span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

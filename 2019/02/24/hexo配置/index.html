@@ -310,6 +310,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -378,16 +393,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -540,6 +545,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -613,11 +623,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -845,20 +850,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">hexo配置</span>
-  <br>
-  <span class="post_date">2019-02-24</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">hexo配置</span>
+    <br>
+    <span class="post_date">2019-02-24</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h1><h2 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改<code>_config.yml</code></h2><p><code>blog/_config.yml</code>:</p>
+    <h1 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h1><h2 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改<code>_config.yml</code></h2><p><code>blog/_config.yml</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">index_generator:</span><br><span class="line">  order_by:</span><br><span class="line">    updated: -1 # -1表示降序</span><br></pre></td></tr></table></figure>
 
 <h2 id="updated脚本"><a href="#updated脚本" class="headerlink" title="updated脚本"></a>updated脚本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> filename <span class="keyword">in</span> *.md</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  changed=$(git diff <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line">  changed_num=<span class="variable">$&#123;#changed&#125;</span></span><br><span class="line">  <span class="keyword">if</span> [ <span class="variable">$&#123;changed_num&#125;</span> -ge 10 ]</span><br><span class="line">    <span class="comment"># 计算修改程度</span></span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;filename&#125;</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;changed_num&#125;</span></span><br><span class="line">    old=$(sed -n <span class="string">&quot;3p&quot;</span> <span class="variable">$&#123;filename&#125;</span>)</span><br><span class="line">    new=<span class="string">&quot;<span class="variable">$&#123;old#updated&#125;</span>&quot;</span></span><br><span class="line">    updated=<span class="string">&quot;updated: &quot;</span>$(date <span class="string">&quot;+%s&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;new&#125;</span>&quot;</span> != <span class="string">&quot;<span class="variable">$&#123;old&#125;</span>&quot;</span> ]</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$&#123;filename&#125;</span>&quot;</span> <span class="string">&quot;has updated tab&quot;</span></span><br><span class="line">        <span class="comment"># 有updated这一栏</span></span><br><span class="line">      sed -i <span class="string">&#x27;&#x27;</span> -e <span class="string">&#x27;3c \</span></span><br><span class="line"><span class="string">      &#x27;</span><span class="variable">$&#123;updated&#125;</span> <span class="variable">$&#123;filename&#125;</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$&#123;filename&#125;</span>&quot;</span> <span class="string">&quot;no updated tab&quot;</span></span><br><span class="line">        <span class="comment"># 没有updated这一栏</span></span><br><span class="line">      sed -i <span class="string">&#x27;&#x27;</span> -e <span class="string">&#x27;3i \</span></span><br><span class="line"><span class="string">      &#x27;</span><span class="variable">$&#123;updated&#125;</span> <span class="variable">$&#123;filename&#125;</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
@@ -905,13 +911,14 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo npm install</span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Discrete Mathematics for CS</span>
-  <br>
-  <span class="post_date">2019-03-30</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Discrete Mathematics for CS</span>
+    <br>
+    <span class="post_date">2019-03-30</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h3 id="2-2-Inverses-and-Greatest-Common-Divisors"><a href="#2-2-Inverses-and-Greatest-Common-Divisors" class="headerlink" title="2.2 Inverses and Greatest Common Divisors"></a>2.2 Inverses and Greatest Common Divisors</h3><h4 id="Lemma-2-8"><a href="#Lemma-2-8" class="headerlink" title="Lemma 2.8"></a>Lemma 2.8</h4><p>The equation<br>$$ a{\cdot}_nx = 1 $$<br>has a solution in $\mathbb{Z}_{n}$ if and only there exist integers $x$ and $y$ such that<br>$$ ax + ny = 1 $$</p>
+    <h3 id="2-2-Inverses-and-Greatest-Common-Divisors"><a href="#2-2-Inverses-and-Greatest-Common-Divisors" class="headerlink" title="2.2 Inverses and Greatest Common Divisors"></a>2.2 Inverses and Greatest Common Divisors</h3><h4 id="Lemma-2-8"><a href="#Lemma-2-8" class="headerlink" title="Lemma 2.8"></a>Lemma 2.8</h4><p>The equation<br>$$ a{\cdot}_nx = 1 $$<br>has a solution in $\mathbb{Z}_{n}$ if and only there exist integers $x$ and $y$ such that<br>$$ ax + ny = 1 $$</p>
 <h4 id="Corollary-2-10"><a href="#Corollary-2-10" class="headerlink" title="Corollary 2.10"></a>Corollary 2.10</h4><p>If $a\in\mathbb{Z}_{n}$ and $x$ and $y$ are integers such that $ax + ny = 1$, then the multiplicative inverse of $a$ in $\mathbb{Z}_{n}$ is $x$ mod $n$</p>
 <h4 id="Lemma-2-11"><a href="#Lemma-2-11" class="headerlink" title="Lemma 2.11"></a>Lemma 2.11</h4><p>Given $a$ and $n$, if there exist integers $x$ and $y$ such that $ax+ny=1$, then $\gcd(a,n)=1$</p>
 <h4 id="Lemma-2-13"><a href="#Lemma-2-13" class="headerlink" title="Lemma 2.13"></a>Lemma 2.13</h4><p>If $j,k,q$, and $r$ are positive integers such that $k=jq+r$, then<br>$$ \gcd(j,k) = \gcd(r,j) $$</p>
@@ -870,13 +876,14 @@
 
 <h4 id="Theorem-2-15"><a href="#Theorem-2-15" class="headerlink" title="Theorem 2.15"></a>Theorem 2.15</h4><p>Two positive integers $j$ and $k$ have greatest common divisor 1 iff there are integers $x$ and $y$ such that $hx+ky=1$</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

@@ -310,6 +310,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -378,16 +393,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -540,6 +545,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -613,11 +623,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -845,20 +850,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">mysql笔记</span>
-  <br>
-  <span class="post_date">2019-11-09</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">mysql笔记</span>
+    <br>
+    <span class="post_date">2019-11-09</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> customers(</span><br><span class="line">    cid <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    cname <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    city <span class="built_in">char</span>(<span class="number">20</span>),</span><br><span class="line">    discnt <span class="built_in">real</span>,</span><br><span class="line">    primary <span class="keyword">key</span> ( cid )</span><br><span class="line">) <span class="built_in">character</span> <span class="keyword">set</span> = utf8 <span class="comment">-- 支持中文;</span></span><br></pre></td></tr></table></figure>
+    <h1 id="通用"><a href="#通用" class="headerlink" title="通用"></a>通用</h1><h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> customers(</span><br><span class="line">    cid <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    cname <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    city <span class="built_in">char</span>(<span class="number">20</span>),</span><br><span class="line">    discnt <span class="built_in">real</span>,</span><br><span class="line">    primary <span class="keyword">key</span> ( cid )</span><br><span class="line">) <span class="built_in">character</span> <span class="keyword">set</span> = utf8 <span class="comment">-- 支持中文;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="修改并查看注释-comment"><a href="#修改并查看注释-comment" class="headerlink" title="修改并查看注释(comment)"></a>修改并查看注释(<code>comment</code>)</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> customers</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> cid</span><br><span class="line">cid <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> cname</span><br><span class="line">cname <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> city</span><br><span class="line">city <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">comment</span> <span class="string">&#x27;城市&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> discnt</span><br><span class="line">discnt <span class="built_in">real</span> <span class="keyword">comment</span> <span class="string">&#x27;折扣&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">columns</span> <span class="keyword">from</span> customers;</span><br></pre></td></tr></table></figure>
 
@@ -957,13 +963,14 @@
 </ul>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">&#x27;port&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

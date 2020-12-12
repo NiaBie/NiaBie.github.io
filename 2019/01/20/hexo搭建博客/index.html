@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">hexo搭建博客</span>
-  <br>
-  <span class="post_date">2019-01-20</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">hexo搭建博客</span>
+    <br>
+    <span class="post_date">2019-01-20</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="git全局配置"><a href="#git全局配置" class="headerlink" title="git全局配置"></a>git全局配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Lynx&quot;</span> <span class="comment"># your student ID and name</span></span><br><span class="line">git config --global user.email <span class="string">&quot;1197225628@qq.com&quot;</span>   <span class="comment"># your email</span></span><br><span class="line">git config --global core.editor vim                 <span class="comment"># your favorite editor</span></span><br><span class="line">git config --global color.ui <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+    <h1 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h1><h2 id="git全局配置"><a href="#git全局配置" class="headerlink" title="git全局配置"></a>git全局配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;Lynx&quot;</span> <span class="comment"># your student ID and name</span></span><br><span class="line">git config --global user.email <span class="string">&quot;1197225628@qq.com&quot;</span>   <span class="comment"># your email</span></span><br><span class="line">git config --global core.editor vim                 <span class="comment"># your favorite editor</span></span><br><span class="line">git config --global color.ui <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h2><h2 id="安装npm和hexo-搭建博客"><a href="#安装npm和hexo-搭建博客" class="headerlink" title="安装npm和hexo,搭建博客"></a>安装npm和hexo,搭建博客</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34654952">知乎</a></p>
 <h3 id="简要过程"><a href="#简要过程" class="headerlink" title="简要过程"></a>简要过程</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install nodejs <span class="comment"># ubuntu</span></span><br><span class="line">sudo apt-get install npm <span class="comment"># ubuntu</span></span><br><span class="line">sudo npm install -g hexo</span><br><span class="line"><span class="comment"># 如果出现错误: sudo npm cache clean --force # 一定要加 sudo</span></span><br><span class="line"><span class="comment"># 进入到文件夹</span></span><br><span class="line">hexo init</span><br><span class="line">npm cache clean --force</span><br><span class="line">sudo npm install <span class="comment"># 安装必须的npm包</span></span><br><span class="line"><span class="comment"># npm install hexo-deployer-git --save # 找不到deployer</span></span><br><span class="line"><span class="comment"># npm install hexo-server # hexo s 无效</span></span><br></pre></td></tr></table></figure>
@@ -892,13 +898,14 @@
 </li>
 </ol>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

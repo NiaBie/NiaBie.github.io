@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">数据通信</span>
-  <br>
-  <span class="post_date">2020-05-05</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">数据通信</span>
+    <br>
+    <span class="post_date">2020-05-05</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>$B$:信道带宽(Hz)<br>$B$:信号带宽(Hz)(近似的认为传输速率 = 传输信号的带宽,参考:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cddd21325698">简书</a>)<br>$C$:信道容量(bps)<br>$G$:增益(dB)<br>$N$:噪声功率(W,$N = N_0B$)<br>$N_0$:噪声功率密度(W/Hz)<br>$R$:数据率(bps)(比特率,bit per second)<br>$S$:信号功率(W)</p>
+    <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>$B$:信道带宽(Hz)<br>$B$:信号带宽(Hz)(近似的认为传输速率 = 传输信号的带宽,参考:<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cddd21325698">简书</a>)<br>$C$:信道容量(bps)<br>$G$:增益(dB)<br>$N$:噪声功率(W,$N = N_0B$)<br>$N_0$:噪声功率密度(W/Hz)<br>$R$:数据率(bps)(比特率,bit per second)<br>$S$:信号功率(W)</p>
 <hr>
 <h1 id="1-数据通信-数据网络和因特网"><a href="#1-数据通信-数据网络和因特网" class="headerlink" title="1 数据通信,数据网络和因特网"></a>1 数据通信,数据网络和因特网</h1><ul>
 <li>T-1连接:1.544Mbps</li>
@@ -1242,13 +1248,14 @@
 <li>首部差错控制(HEC)</li>
 </ul>
 <h3 id="11-4-2-一般流量控制"><a href="#11-4-2-一般流量控制" class="headerlink" title="11.4.2 一般流量控制"></a>11.4.2 一般流量控制</h3><h3 id="11-4-3-首部差错控制"><a href="#11-4-3-首部差错控制" class="headerlink" title="11.4.3 首部差错控制"></a>11.4.3 首部差错控制</h3><h2 id="11-5-ATM信元传输"><a href="#11-5-ATM信元传输" class="headerlink" title="11.5 ATM信元传输"></a>11.5 ATM信元传输</h2><h3 id="11-5-1-基于信元的物理层"><a href="#11-5-1-基于信元的物理层" class="headerlink" title="11.5.1 基于信元的物理层"></a>11.5.1 基于信元的物理层</h3><h3 id="11-5-2-基于SDH的物理层"><a href="#11-5-2-基于SDH的物理层" class="headerlink" title="11.5.2 基于SDH的物理层"></a>11.5.2 基于SDH的物理层</h3><h2 id="11-6-ATM服务种类"><a href="#11-6-ATM服务种类" class="headerlink" title="11.6 ATM服务种类"></a>11.6 ATM服务种类</h2><h3 id="11-6-1-实时服务"><a href="#11-6-1-实时服务" class="headerlink" title="11.6.1 实时服务"></a>11.6.1 实时服务</h3><h3 id="11-6-2-非实时服务"><a href="#11-6-2-非实时服务" class="headerlink" title="11.6.2 非实时服务"></a>11.6.2 非实时服务</h3>
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

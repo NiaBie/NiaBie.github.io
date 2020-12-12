@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,31 +854,33 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">python爬虫</span>
-  <br>
-  <span class="post_date">2020-02-11</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">python爬虫</span>
+    <br>
+    <span class="post_date">2020-02-11</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="requests-静态html-json"><a href="#requests-静态html-json" class="headerlink" title="requests(静态html/json)"></a>requests(静态html/json)</h1><h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><h3 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h3><h3 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">headers = &#123;</span><br><span class="line">  <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/79.0.3945.79 Chrome/79.0.3945.79 Safari/537.36&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Host&#x27;</span>:<span class="string">&#x27;music.163.com&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Referer&#x27;</span>:<span class="string">&#x27;https://music.163.com&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <h1 id="requests-静态html-json"><a href="#requests-静态html-json" class="headerlink" title="requests(静态html/json)"></a>requests(静态html/json)</h1><h2 id="参数设置"><a href="#参数设置" class="headerlink" title="参数设置"></a>参数设置</h2><h3 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h3><h3 id="headers"><a href="#headers" class="headerlink" title="headers"></a>headers</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">headers = &#123;</span><br><span class="line">  <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/79.0.3945.79 Chrome/79.0.3945.79 Safari/537.36&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Host&#x27;</span>:<span class="string">&#x27;music.163.com&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;Referer&#x27;</span>:<span class="string">&#x27;https://music.163.com&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="selenium-phantomjs-js渲染"><a href="#selenium-phantomjs-js渲染" class="headerlink" title="selenium + phantomjs(js渲染)"></a>selenium + phantomjs(js渲染)</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install phantomjs</span><br><span class="line">python3 -m pip install selenium <span class="comment"># 不要直接用pip3</span></span><br></pre></td></tr></table></figure>
 
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,32 +846,34 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">krita笔记</span>
-  <br>
-  <span class="post_date">2019-08-08</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">krita笔记</span>
+    <br>
+    <span class="post_date">2019-08-08</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="添加中文"><a href="#添加中文" class="headerlink" title="添加中文"></a>添加中文</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install krita-l10n</span><br></pre></td></tr></table></figure>
+    <h2 id="添加中文"><a href="#添加中文" class="headerlink" title="添加中文"></a>添加中文</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install krita-l10n</span><br></pre></td></tr></table></figure>
 
 <h2 id="笔刷设置"><a href="#笔刷设置" class="headerlink" title="笔刷设置"></a>笔刷设置</h2><ul>
 <li>顶栏<code>编辑笔刷设置</code>-&gt;<code>不透明度</code>-&gt;<code>启用压感笔设置</code></li>
 </ul>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

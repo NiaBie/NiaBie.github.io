@@ -318,6 +318,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -386,16 +401,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -548,6 +553,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -621,11 +631,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -853,20 +858,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">hexo插入latex公式</span>
-  <br>
-  <span class="post_date">2019-01-22</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">hexo插入latex公式</span>
+    <br>
+    <span class="post_date">2019-01-22</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="mathjax"><a href="#mathjax" class="headerlink" title="mathjax"></a>mathjax</h1><p><a target="_blank" rel="noopener" href="http://catx.me/2014/03/09/hexo-mathjax-plugin">参考</a></p>
+    <h1 id="mathjax"><a href="#mathjax" class="headerlink" title="mathjax"></a>mathjax</h1><p><a target="_blank" rel="noopener" href="http://catx.me/2014/03/09/hexo-mathjax-plugin">参考</a></p>
 <h2 id="使用官方cdn-完整版功能-但是写latex公式可能不会都用到"><a href="#使用官方cdn-完整版功能-但是写latex公式可能不会都用到" class="headerlink" title="使用官方cdn(完整版功能,但是写latex公式可能不会都用到)"></a>使用官方cdn(完整版功能,但是写latex公式可能不会都用到)</h2><p>标准使用,<code>layout</code>中插入</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/x-mathjax-config&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span></span></span><br><span class="line">  &#123;</span><br><span class="line">    MathJax.Hub.Config(</span><br><span class="line">    &#123;</span><br><span class="line">      tex2jax:</span><br><span class="line">      &#123;</span><br><span class="line">        inlineMath: [</span><br><span class="line"><span class="javascript">          [<span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;$&#x27;</span>]</span></span><br><span class="line">        ],</span><br><span class="line"><span class="javascript">        processEscapes: <span class="literal">true</span>,</span></span><br><span class="line"><span class="javascript">        skipTags: [<span class="string">&#x27;script&#x27;</span>, <span class="string">&#x27;noscript&#x27;</span>, <span class="string">&#x27;style&#x27;</span>, <span class="string">&#x27;textarea&#x27;</span>, <span class="string">&#x27;pre&#x27;</span>, <span class="string">&#x27;code&#x27;</span>]</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript">    MathJax.Hub.Queue(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)// 重新渲染</span></span></span><br><span class="line"><span class="javascript">    &#123;<span class="comment">// 函数体内部不清楚作用</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> all = MathJax.Hub.getAllJax(),</span></span><br><span class="line">      i;</span><br><span class="line"><span class="handlebars"><span class="xml">      for (i = 0; i <span class="tag">&lt; <span class="attr">all.length</span>; <span class="attr">i</span> += <span class="string">1)</span></span></span></span></span><br><span class="line">      &#123;</span><br><span class="line"><span class="javascript">        all[i].SourceElement().parentNode.className += <span class="string">&#x27; has-jax&#x27;</span>;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -884,13 +890,14 @@
 <li>公式内部<code>_</code>转义:<code>\_</code></li>
 </ul>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

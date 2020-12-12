@@ -318,6 +318,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -386,16 +401,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -548,6 +553,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -621,11 +631,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -853,20 +858,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Android开发笔记</span>
-  <br>
-  <span class="post_date">2019-09-04</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Android开发笔记</span>
+    <br>
+    <span class="post_date">2019-09-04</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="Music开发笔记"><a href="#Music开发笔记" class="headerlink" title="Music开发笔记"></a><code>Music</code>开发笔记</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youxun1312/article/details/80356060">CSDN:实例</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/HDK2016/p/8043247.html">cnblogs:其他几种方式</a></p>
+    <h1 id="Music开发笔记"><a href="#Music开发笔记" class="headerlink" title="Music开发笔记"></a><code>Music</code>开发笔记</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youxun1312/article/details/80356060">CSDN:实例</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/HDK2016/p/8043247.html">cnblogs:其他几种方式</a></p>
 <h2 id="音乐进度"><a href="#音乐进度" class="headerlink" title="音乐进度"></a>音乐进度</h2><h3 id="MediaPlayer"><a href="#MediaPlayer" class="headerlink" title="MediaPlayer"></a><code>MediaPlayer</code></h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/4bd3d91c7813">MediaPlayer参数–简书</a></p>
 <h3 id="时长"><a href="#时长" class="headerlink" title="时长"></a>时长</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aree/article/details/19078445">CSDN:数字格式化</a></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">total_time = MainPlayer.player.getDuration();</span><br><span class="line">SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;mm:ss&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// TODO 更新总时长</span></span><br><span class="line">tmp = <span class="keyword">new</span> Date(total_time);</span><br><span class="line">formatTime = format.format(tmp);</span><br><span class="line">MainPlayer.totalTime.setText(formatTime);</span><br></pre></td></tr></table></figure>
@@ -1016,13 +1022,14 @@
 <li><code>FileProvider</code><a target="_blank" rel="noopener" href="https://www.cnblogs.com/loaderman/p/12107057.html">cnblogs</a></li>
 </ul>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

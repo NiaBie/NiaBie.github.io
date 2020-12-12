@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">php笔记</span>
-  <br>
-  <span class="post_date">2019-04-21</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">php笔记</span>
+    <br>
+    <span class="post_date">2019-04-21</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="关于phpstorm安装"><a href="#关于phpstorm安装" class="headerlink" title="关于phpstorm安装"></a>关于phpstorm安装</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install php7.2-cgi</span><br></pre></td></tr></table></figure>
+    <h1 id="关于phpstorm安装"><a href="#关于phpstorm安装" class="headerlink" title="关于phpstorm安装"></a>关于phpstorm安装</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install php7.2-cgi</span><br></pre></td></tr></table></figure>
 
 <p><a href="idea.lanyus.com">phpstorm注册网站</a></p>
 <h1 id="本地php命令"><a href="#本地php命令" class="headerlink" title="本地php命令"></a>本地php命令</h1><h2 id="本地php服务"><a href="#本地php服务" class="headerlink" title="本地php服务"></a>本地php服务</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">php -S localhost:6060 -t .</span><br></pre></td></tr></table></figure>
@@ -880,13 +886,14 @@
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$str = <span class="string">&quot;&#x27;you&#x27;&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;my_log(&quot;</span> . $str . <span class="string">&quot;);&quot;</span>;</span><br></pre></td></tr></table></figure>
 
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

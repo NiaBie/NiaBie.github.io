@@ -84,7 +84,7 @@
           </span>
         
           <span class="tag_item">
-            <a href="/tags/ndk/">ndk</a>
+            <a href="/tags/ffmpeg/">ffmpeg</a>
           </span>
         
           <span class="tag_item">
@@ -92,7 +92,7 @@
           </span>
         
           <span class="tag_item">
-            <a href="/tags/ffmpeg/">ffmpeg</a>
+            <a href="/tags/ndk/">ndk</a>
           </span>
         
           <span class="tag_item">
@@ -338,6 +338,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -406,16 +421,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -568,6 +573,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -641,11 +651,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -873,20 +878,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">openCV安装</span>
-  <br>
-  <span class="post_date">2019-10-21</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">openCV安装</span>
+    <br>
+    <span class="post_date">2019-10-21</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="AS和cmake笔记"><a href="#AS和cmake笔记" class="headerlink" title="AS和cmake笔记"></a>AS和cmake笔记</h1><h2 id="android的cpu架构"><a href="#android的cpu架构" class="headerlink" title="android的cpu架构"></a>android的cpu架构</h2><ul>
+    <h1 id="AS和cmake笔记"><a href="#AS和cmake笔记" class="headerlink" title="AS和cmake笔记"></a>AS和cmake笔记</h1><h2 id="android的cpu架构"><a href="#android的cpu架构" class="headerlink" title="android的cpu架构"></a>android的cpu架构</h2><ul>
 <li>android查看cpu架构(<code>termux</code>)</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat /proc/cpuinfo</span><br></pre></td></tr></table></figure>
@@ -930,6 +936,7 @@
 </ul>
 <h2 id="只使用java模块"><a href="#只使用java模块" class="headerlink" title="只使用java模块"></a>只使用<code>java</code>模块</h2><h3 id="3-x-3-4-7-3-x版本"><a href="#3-x-3-4-7-3-x版本" class="headerlink" title="3.x-3.4.7-3.x版本"></a><code>3.x</code>-<code>3.4.7</code>-<code>3.x</code>版本</h3><ol>
 <li><code>File</code>-&gt;<code>New</code>-&gt;<code>Import Module</code>-&gt;选择opencv文件夹下的<code>sdk/java</code>文件夹,此时<code>Android Studio</code>会自动加载<code>Module name</code></li>
+<li>将<code>opencv</code>模块的<code>AndroidManifest.xml</code>中<code>&lt;uses-sdk android:minSdkVersion=&quot;8&quot; android:targetSdkVersion=&quot;21&quot; /&gt;</code>删除</li>
 <li><code>File</code>-&gt;<code>Project Structure</code>-&gt;<code>Dependencies</code>-&gt;选择<code>app</code>-&gt;添加<code>Module Dependency</code>-&gt;选择opencv</li>
 <li>将opencv文件夹下的<code>sdk/native/libs</code>下自己手机cpu对应的架构文件夹复制到<code>app/libs</code>下</li>
 <li>将opencv模块的<code>build.gradle</code>的<code>complieSdkVersion</code>,<code>buildToolVersion</code>,<code>minSdkVersion</code>,<code>targetSdkVersion</code>改成和<code>app</code>的<code>build.gradle</code>一样</li>
@@ -1405,13 +1412,14 @@
 </ol>
 <p><strong>TODO</strong>: 需要在安装ffmpeg(以源代码的方式安装, 不要使用apt)之后重新编译OpenCV, <a href="/2020/11/24/ubuntu%E5%AE%89%E8%A3%85ffmpeg/">ffmpeg安装</a></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

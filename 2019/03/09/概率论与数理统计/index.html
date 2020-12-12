@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -856,20 +861,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">概率论与数理统计</span>
-  <br>
-  <span class="post_date">2019-03-09</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">概率论与数理统计</span>
+    <br>
+    <span class="post_date">2019-03-09</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="定理1-1-全概率公式"><a href="#定理1-1-全概率公式" class="headerlink" title="定理1.1 全概率公式"></a>定理1.1 全概率公式</h2><blockquote>
+    <h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="定理1-1-全概率公式"><a href="#定理1-1-全概率公式" class="headerlink" title="定理1.1 全概率公式"></a>定理1.1 全概率公式</h2><blockquote>
 <p>deleted</p>
 </blockquote>
 <h2 id="定理1-2-贝叶斯公式"><a href="#定理1-2-贝叶斯公式" class="headerlink" title="定理1.2 贝叶斯公式"></a>定理1.2 贝叶斯公式</h2><blockquote>
@@ -1140,13 +1146,14 @@
 <p>得到$\dfrac{\sigma_1^2}{\sigma_2^2}$的置信度为$1-\alpha$的置信区间为<br>$$ (\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{\alpha/2}(n_1-1,n_2-1)},\dfrac{S_1^2}{S_2^2}\dfrac{1}{F_{1-\alpha/2}(n_1-1,n_2-1)}) $$</p>
 <h2 id="非正态总体均值的区间估计-大样本法"><a href="#非正态总体均值的区间估计-大样本法" class="headerlink" title="非正态总体均值的区间估计(大样本法)"></a>非正态总体均值的区间估计(大样本法)</h2><p>$$ \dfrac{\sum_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\to N(0,1) $$<br>若$\sigma$未知,用样本标准差$S$代替,得<br>$$ U=\dfrac{\bar{X}-\mu}{S/\sqrt{n}}\approx N(0,1) $$<br>置信区间近似为$(\bar{X}-u_{\alpha/2}\sqrt{\dfrac{\bar{X}(1-\bar{X})}{n}},\bar{X}+u_{\alpha/2}\sqrt{\dfrac{\bar{X}(1-\bar{X})}{n}})$</p>
 <h1 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h1><h2 id="单个正态总体-N-mu-sigma-2-均值-mu-的假设检验"><a href="#单个正态总体-N-mu-sigma-2-均值-mu-的假设检验" class="headerlink" title="单个正态总体$N(\mu,\sigma^2)$均值$\mu$的假设检验"></a>单个正态总体$N(\mu,\sigma^2)$均值$\mu$的假设检验</h2><h3 id="sigma-2-已知-mu-检验"><a href="#sigma-2-已知-mu-检验" class="headerlink" title="$\sigma^2$已知($\mu$检验)"></a>$\sigma^2$已知($\mu$检验)</h3><h3 id="sigma-2-未知-t-检验"><a href="#sigma-2-未知-t-检验" class="headerlink" title="$\sigma^2$未知($t$检验)"></a>$\sigma^2$未知($t$检验)</h3><h2 id="两个正态总体的均值差的检验"><a href="#两个正态总体的均值差的检验" class="headerlink" title="两个正态总体的均值差的检验"></a>两个正态总体的均值差的检验</h2><h3 id="sigma-2-1-sigma-2-2-均已知"><a href="#sigma-2-1-sigma-2-2-均已知" class="headerlink" title="$\sigma^2_1,\sigma^2_2$均已知"></a>$\sigma^2_1,\sigma^2_2$均已知</h3><h2 id="单个正态总体方差的假设检验-chi-2-检验法"><a href="#单个正态总体方差的假设检验-chi-2-检验法" class="headerlink" title="单个正态总体方差的假设检验($\chi^2$检验法)"></a>单个正态总体方差的假设检验($\chi^2$检验法)</h2><h2 id="两个正态总体的方差比的假设检验-F-检验法"><a href="#两个正态总体的方差比的假设检验-F-检验法" class="headerlink" title="两个正态总体的方差比的假设检验($F$检验法)"></a>两个正态总体的方差比的假设检验($F$检验法)</h2>
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

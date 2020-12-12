@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">tikz笔记</span>
-  <br>
-  <span class="post_date">2019-03-21</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">tikz笔记</span>
+    <br>
+    <span class="post_date">2019-03-21</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <p>overleaf:<code>https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)%E2%80%94Creating_Flowcharts</code></p>
+    <p>overleaf:<code>https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_3)%E2%80%94Creating_Flowcharts</code></p>
 <embed src="/pdf/venn.pdf#zoom=100&scrollbar=0&toolbar=0" class="tikz_sample">
 
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span><span class="string">[very thick]</span></span></span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[style=&#123;draw=blue!50, fill=blue!20,&#125;]</span></span> (0,0) ellipse [x radius=2cm, y radius=2cm];</span><br><span class="line"><span class="tag">\<span class="name">coordinate</span></span> [label=center:&#123;<span class="formula">$G$</span>&#125;] (A) at (-1.2,0);</span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[style=&#123;draw=red!50, fill=red!20, opacity=0.7,&#125;]</span></span> (0.2,-0.7) ellipse [x radius=1.2cm, y radius=1.1cm];</span><br><span class="line"><span class="tag">\<span class="name">coordinate</span></span> [label=center:&#123;<span class="formula">$N$</span>&#125;] (A) at (0.2,-0.9);</span><br><span class="line"><span class="tag">\<span class="name">draw</span><span class="string">[style=&#123;draw=green!50, fill=green!20, opacity=0.7,&#125;]</span></span> (0.2,0.7) ellipse [x radius=1.2cm, y radius=1.1cm];</span><br><span class="line"><span class="tag">\<span class="name">coordinate</span></span> [label=center:&#123;<span class="formula">$H$</span>&#125;] (A) at (0.2,0.9);</span><br><span class="line"><span class="tag">\<span class="name">coordinate</span></span> [label=center:&#123;<span class="formula">$H<span class="tag">\<span class="name">cap</span></span> N$</span>&#125;] (A) at (0.2,0);</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br></pre></td></tr></table></figure>
@@ -875,13 +881,14 @@
 
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">newfontfamily</span></span><span class="tag">\<span class="name">DejaVu</span><span class="string">&#123;DejaVu Sans Mono for Powerline&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">def</span></span><span class="tag">\<span class="name">Font</span></span>#1&#123;<span class="tag">\<span class="name">fontsize</span><span class="string">&#123;#1&#125;</span><span class="string">&#123;\baselineskip&#125;</span></span><span class="tag">\<span class="name">DejaVu</span></span><span class="tag">\<span class="name">textbf</span></span>&#125;</span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span><span class="string">[remember picture, overlay]</span></span></span><br><span class="line">  <span class="tag">\<span class="name">node</span></span> [shift=&#123;(0cm,-3cm)&#125;]  at (current page.north west)</span><br><span class="line">  &#123;<span class="comment">%</span></span><br><span class="line">  <span class="tag">\<span class="name">begin</span><span class="string">&#123;tikzpicture&#125;</span><span class="string">[remember picture, overlay]</span></span></span><br><span class="line">    <span class="tag">\<span class="name">draw</span></span> [fill=gray] (0,3) -- (3,3) -- (0,0) -- cycle ;</span><br><span class="line">    <span class="tag">\<span class="name">draw</span></span> [fill=white] (0,3) -- (2,3) -- (0,1) -- cycle ;</span><br><span class="line">    <span class="tag">\<span class="name">draw</span></span> (0,0) to node[midway, above, rotate=45] &#123;<span class="tag">\<span class="name">textcolor</span><span class="string">&#123;white&#125;</span><span class="string">&#123;\Font&#123;9&#125;</span><span class="string">&#123;fork me on github&#125;</span></span>&#125;&#125; (3,3) ;</span><br><span class="line">    <span class="tag">\<span class="name">draw</span></span> (0,1) to node[midway, above, rotate=45] &#123;<span class="tag">\<span class="name">includegraphics</span><span class="string">[width=.05\textwidth]</span><span class="string">&#123;pictures/github&#125;</span></span>&#125; (2,3) ;</span><br><span class="line">  <span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br><span class="line">  &#125;;</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;tikzpicture&#125;</span></span></span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

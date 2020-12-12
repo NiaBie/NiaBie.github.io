@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -856,20 +861,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Abstract Algebra</span>
-  <br>
-  <span class="post_date">2019-03-05</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Abstract Algebra</span>
+    <br>
+    <span class="post_date">2019-03-05</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="2-The-Integers"><a href="#2-The-Integers" class="headerlink" title="2. The Integers"></a>2. The Integers</h2><h3 id="Theorem-2-10"><a href="#Theorem-2-10" class="headerlink" title="Theorem 2.10"></a>Theorem 2.10</h3><p>Let $a$ and $b$ be nonzero integers. Then there exist integers $r$ and $s$ such that<br>$$ \gcd(a,b)=ar+bs $$<br>Furthermore, the greatest common divisor of $a$ and $b$ is unique</p>
+    <h2 id="2-The-Integers"><a href="#2-The-Integers" class="headerlink" title="2. The Integers"></a>2. The Integers</h2><h3 id="Theorem-2-10"><a href="#Theorem-2-10" class="headerlink" title="Theorem 2.10"></a>Theorem 2.10</h3><p>Let $a$ and $b$ be nonzero integers. Then there exist integers $r$ and $s$ such that<br>$$ \gcd(a,b)=ar+bs $$<br>Furthermore, the greatest common divisor of $a$ and $b$ is unique</p>
 <h2 id="3-Groups"><a href="#3-Groups" class="headerlink" title="3.Groups"></a>3.Groups</h2><h3 id="Theorem-3-23"><a href="#Theorem-3-23" class="headerlink" title="Theorem 3.23"></a>Theorem 3.23</h3><p>In a group, the usual laws of exponents hold; that is, for all $g, h\in G$</p>
 <ol>
 <li><p>$g^mg^n=g^{m+n}$ for all $m, n\in\mathbb{Z}$</p>
@@ -993,13 +999,14 @@
 <h3 id="Theorem-11-13-Correspondence-Theorem"><a href="#Theorem-11-13-Correspondence-Theorem" class="headerlink" title="Theorem 11.13 Correspondence Theorem"></a>Theorem 11.13 Correspondence Theorem</h3><p>Let $N$ be a normal subgroup of a group $G$. Then $H\mapsto H/N$ is a one-to-one correspondence between the set of subgroups $H$ containing $N$ and the set of subgroups of $G/N$. Furthermore, the normal subgroups of $G$ containing $N$ correspond to normal subgroups of $G/N$</p>
 <h3 id="Third-Isomorphism-Theorem"><a href="#Third-Isomorphism-Theorem" class="headerlink" title="Third Isomorphism Theorem"></a>Third Isomorphism Theorem</h3><p>Let $G$ be a group and $N$ and $H$ be normal subgroups of $G$ with $N\subset H$. Then $$G/H\cong\dfrac{G/N}{H/N}$$</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

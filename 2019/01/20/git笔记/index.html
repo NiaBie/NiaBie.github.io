@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">git笔记</span>
-  <br>
-  <span class="post_date">2019-01-20</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">git笔记</span>
+    <br>
+    <span class="post_date">2019-01-20</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><h2 id="不同版本文件对比"><a href="#不同版本文件对比" class="headerlink" title="不同版本文件对比"></a>不同版本文件对比</h2><ul>
+    <h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><h2 id="不同版本文件对比"><a href="#不同版本文件对比" class="headerlink" title="不同版本文件对比"></a>不同版本文件对比</h2><ul>
 <li>同一文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git diff branch1 branch2 file</span><br></pre></td></tr></table></figure>
@@ -910,13 +916,14 @@
 <h2 id="强制覆盖本地"><a href="#强制覆盖本地" class="headerlink" title="强制覆盖本地"></a>强制覆盖本地</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改remote"><a href="#修改remote" class="headerlink" title="修改remote"></a>修改remote</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin [url]</span><br></pre></td></tr></table></figure>
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

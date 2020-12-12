@@ -72,7 +72,7 @@
           </span>
         
           <span class="tag_item">
-            <a href="/tags/jni/">jni</a>
+            <a href="/tags/opencv/">opencv</a>
           </span>
         
           <span class="tag_item">
@@ -80,7 +80,7 @@
           </span>
         
           <span class="tag_item">
-            <a href="/tags/opencv/">opencv</a>
+            <a href="/tags/jni/">jni</a>
           </span>
         
       
@@ -318,6 +318,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -386,16 +401,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -548,6 +553,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -621,11 +631,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -853,20 +858,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">jni笔记</span>
-  <br>
-  <span class="post_date">2019-11-21</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">jni笔记</span>
+    <br>
+    <span class="post_date">2019-11-21</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="jni与java间的交互"><a href="#jni与java间的交互" class="headerlink" title="jni与java间的交互"></a><code>jni</code>与<code>java</code>间的交互</h1><h2 id="jni获取-修改jobject成员"><a href="#jni获取-修改jobject成员" class="headerlink" title="jni获取/修改jobject成员"></a><code>jni</code>获取/修改<code>jobject</code>成员</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiangwei0910410003/article/details/17465457">参考:CSDN</a></p>
+    <h1 id="jni与java间的交互"><a href="#jni与java间的交互" class="headerlink" title="jni与java间的交互"></a><code>jni</code>与<code>java</code>间的交互</h1><h2 id="jni获取-修改jobject成员"><a href="#jni获取-修改jobject成员" class="headerlink" title="jni获取/修改jobject成员"></a><code>jni</code>获取/修改<code>jobject</code>成员</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jiangwei0910410003/article/details/17465457">参考:CSDN</a></p>
 <h2 id="java与c变量转换"><a href="#java与c变量转换" class="headerlink" title="java与c变量转换"></a><code>java</code>与<code>c</code>变量转换</h2><ul>
 <li><code>jstring</code>-&gt;<code>char *</code>:<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4181934/jni-converting-jstring-to-char">stackoverflow</a></li>
 </ul>
@@ -888,13 +894,14 @@
 <li>使用<code>Message</code>回调进行UI修改:<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4b650d650100moda.html">sina</a></li>
 </ul>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

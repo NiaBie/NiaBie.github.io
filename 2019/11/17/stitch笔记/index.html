@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">stitch笔记</span>
-  <br>
-  <span class="post_date">2019-11-17</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">stitch笔记</span>
+    <br>
+    <span class="post_date">2019-11-17</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h1><h2 id="特征点查找"><a href="#特征点查找" class="headerlink" title="特征点查找"></a>特征点查找</h2><p>默认使用<code>orb</code>算法,默认情况下还能够支持<code>akaze</code>算法.在安装了扩展模块后还能选择<code>surf</code>和<code>sift</code>算法</p>
+    <h1 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h1><h2 id="特征点查找"><a href="#特征点查找" class="headerlink" title="特征点查找"></a>特征点查找</h2><p>默认使用<code>orb</code>算法,默认情况下还能够支持<code>akaze</code>算法.在安装了扩展模块后还能选择<code>surf</code>和<code>sift</code>算法</p>
 <p><code>computeImageFeatures</code></p>
 <h2 id="特征点匹配"><a href="#特征点匹配" class="headerlink" title="特征点匹配"></a>特征点匹配</h2><h3 id="匹配方法的选择"><a href="#匹配方法的选择" class="headerlink" title="匹配方法的选择"></a>匹配方法的选择</h3><ul>
 <li><code>homography</code></li>
@@ -916,13 +922,14 @@
 <p>多频段融合</p>
 <h1 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h1><p><code>matcher</code>:匹配方式?<br><code>rangewidth</code>:限制图片匹配的数目?<br><code>ba</code>:拼接图像时的cost函数?<br><code>warp</code>:投影变换<br><code>wave_correct</code>:波形矫正<br><code>seam</code>:寻找接缝线的方法<br><code>blend</code>:图像融合方式</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

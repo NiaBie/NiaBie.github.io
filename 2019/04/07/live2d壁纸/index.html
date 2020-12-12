@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -841,20 +846,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">live2d壁纸</span>
-  <br>
-  <span class="post_date">2019-04-07</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">live2d壁纸</span>
+    <br>
+    <span class="post_date">2019-04-07</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root&#x2F;-+-$&#123;name1&#125;&#x2F;-+-motions&#x2F;</span><br><span class="line">      |           |</span><br><span class="line">      |           +-textures&#x2F;</span><br><span class="line">      |           |</span><br><span class="line">      |           +-model.moc</span><br><span class="line">      |           |</span><br><span class="line">      |           +$&#123;name1&#125;.model.json</span><br><span class="line">      |           |</span><br><span class="line">      |           &#96;-...</span><br><span class="line">      |</span><br><span class="line">      +-$&#123;name2&#125;&#x2F;---...</span><br><span class="line">      | # 以下为手动打包时需要的文件</span><br><span class="line">      +-config.mlve</span><br><span class="line">      |</span><br><span class="line">      &#96;-last.mlve # 这个不知道干嘛的,长得和上面那个一模一样</span><br></pre></td></tr></table></figure>
+    <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">root&#x2F;-+-$&#123;name1&#125;&#x2F;-+-motions&#x2F;</span><br><span class="line">      |           |</span><br><span class="line">      |           +-textures&#x2F;</span><br><span class="line">      |           |</span><br><span class="line">      |           +-model.moc</span><br><span class="line">      |           |</span><br><span class="line">      |           +$&#123;name1&#125;.model.json</span><br><span class="line">      |           |</span><br><span class="line">      |           &#96;-...</span><br><span class="line">      |</span><br><span class="line">      +-$&#123;name2&#125;&#x2F;---...</span><br><span class="line">      | # 以下为手动打包时需要的文件</span><br><span class="line">      +-config.mlve</span><br><span class="line">      |</span><br><span class="line">      &#96;-last.mlve # 这个不知道干嘛的,长得和上面那个一模一样</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>手动</li>
@@ -882,13 +888,14 @@
 </ul>
 <p>(未开坑),见<a target="_blank" rel="noopener" href="http://www.bilibili.com/video/av7904265?p=2&share_medium=android&share_source=qq&bbid=XY69FCA600698489D9FFA223DD6F27B4C9601&ts=1554626603503">bilibili</a></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

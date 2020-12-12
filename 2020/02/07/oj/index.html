@@ -358,6 +358,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -426,16 +441,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -588,6 +593,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -661,11 +671,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -893,20 +898,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">oj</span>
-  <br>
-  <span class="post_date">2020-02-07</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">oj</span>
+    <br>
+    <span class="post_date">2020-02-07</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h1><h2 id="morris算法-中序遍历"><a href="#morris算法-中序遍历" class="headerlink" title="morris算法(中序遍历)"></a>morris算法(中序遍历)</h2><p>空间复杂度$O(1)$</p>
+    <h1 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h1><h2 id="morris算法-中序遍历"><a href="#morris算法-中序遍历" class="headerlink" title="morris算法(中序遍历)"></a>morris算法(中序遍历)</h2><p>空间复杂度$O(1)$</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_out</span><span class="params">(node *cur)</span></span>;<span class="comment">// 输出节点</span></span><br><span class="line"></span><br><span class="line"><span class="function">node *<span class="title">find_prev</span><span class="params">(node *cur)</span></span>;<span class="comment">// 寻找前驱节点</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">morris</span><span class="params">(node *root)</span> </span>&#123;</span><br><span class="line">  node *cur = root;</span><br><span class="line">  <span class="keyword">while</span> (cur != <span class="literal">NULL</span>) &#123;<span class="comment">// 没有遍历完</span></span><br><span class="line">    <span class="keyword">if</span> (cur-&gt;left == <span class="literal">NULL</span>) &#123;<span class="comment">// 1: cur没有左子节点</span></span><br><span class="line">      print_out(cur);</span><br><span class="line">      cur = cur-&gt;right;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      node *prev = find_prev(cur);</span><br><span class="line">      <span class="keyword">if</span> (prev-&gt;right == <span class="literal">NULL</span>) &#123;<span class="comment">// 2.1: prev没有右子节点</span></span><br><span class="line">        prev-&gt;right = cur;<span class="comment">// 修改树结构</span></span><br><span class="line">        cur = cur-&gt;left</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (prev-&gt;right == cur) &#123;<span class="comment">// 2.2: prev的右子节点为cur</span></span><br><span class="line">        prev-&gt;right = <span class="literal">NULL</span>;<span class="comment">// 恢复树结构</span></span><br><span class="line">        print_out(cur);</span><br><span class="line">        cur = cur-&gt;right;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        assert(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h1><h2 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(node u)</span> </span>&#123;</span><br><span class="line">  u.visit = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; u.adj.size(); i ++) &#123;</span><br><span class="line">    node v = u.adj[i];</span><br><span class="line">    <span class="keyword">if</span> (v.visit == <span class="number">0</span>) &#123;</span><br><span class="line">      dfs(v);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -931,13 +937,14 @@
 
 <h1 id="字符串匹配"><a href="#字符串匹配" class="headerlink" title="字符串匹配"></a>字符串匹配</h1><h2 id="KMP算法"><a href="#KMP算法" class="headerlink" title="KMP算法"></a>KMP算法</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">kmp</span><span class="params">()</span> </span>&#123;<span class="comment">// a[1], b[1]为起始项</span></span><br><span class="line">  <span class="comment">// 计算前缀表</span></span><br><span class="line">  p_len = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= m; i ++) &#123;<span class="comment">// 注意初始赋值</span></span><br><span class="line">    <span class="keyword">while</span> (p_len &amp;&amp; b[p_len + <span class="number">1</span>] != b[i]) &#123;</span><br><span class="line">      p_len = kmp[p_len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (b[p_len + <span class="number">1</span>] == b[i]) &#123;</span><br><span class="line">      p_len ++;</span><br><span class="line">      kmp[i] = p_len;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 进行匹配</span></span><br><span class="line">  p_len = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i ++) &#123;<span class="comment">// 注意初始赋值</span></span><br><span class="line">    <span class="keyword">while</span> (p_len &amp;&amp; b[p_len + <span class="number">1</span>] != a[i]) &#123;</span><br><span class="line">      p_len = kmp[p_len];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (b[p_len + <span class="number">1</span>] == a[i]) &#123;</span><br><span class="line">      p_len ++;</span><br><span class="line">      <span class="keyword">if</span> (p_len == m) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, i - p_len + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

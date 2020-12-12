@@ -310,6 +310,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -378,16 +393,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -540,6 +545,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -613,11 +623,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -845,20 +850,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">ubuntu英雄联盟</span>
-  <br>
-  <span class="post_date">2020-02-27</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">ubuntu英雄联盟</span>
+    <br>
+    <span class="post_date">2020-02-27</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="lutris运行美服等服务器-不包含国服-韩服"><a href="#lutris运行美服等服务器-不包含国服-韩服" class="headerlink" title="lutris运行美服等服务器(不包含国服,韩服)"></a>lutris运行美服等服务器(不包含国服,韩服)</h1><ol>
+    <h1 id="lutris运行美服等服务器-不包含国服-韩服"><a href="#lutris运行美服等服务器-不包含国服-韩服" class="headerlink" title="lutris运行美服等服务器(不包含国服,韩服)"></a>lutris运行美服等服务器(不包含国服,韩服)</h1><ol>
 <li>安装<code>lutris</code>,并注册账号</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://lutris.net/downloads/">https://lutris.net/downloads/</a></p>
@@ -916,13 +922,14 @@
 <h1 id="国服"><a href="#国服" class="headerlink" title="国服"></a>国服</h1><p><a target="_blank" rel="noopener" href="https://forum.ubuntu.com.cn/viewtopic.php?t=416235">forum.ubuntu</a><br><a target="_blank" rel="noopener" href="https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=371">ubuntukylin</a><br><a target="_blank" rel="noopener" href="https://bbs.deepin.org/forum.php?mod=viewthread&tid=11754">bbs.deepin</a></p>
 <p><strong>TODO</strong></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

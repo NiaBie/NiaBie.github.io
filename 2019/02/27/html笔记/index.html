@@ -314,6 +314,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -382,16 +397,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -544,6 +549,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -617,11 +627,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -849,20 +854,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">html笔记</span>
-  <br>
-  <span class="post_date">2019-02-27</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">html笔记</span>
+    <br>
+    <span class="post_date">2019-02-27</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="lt-canvas-gt-放缩及调整位置"><a href="#lt-canvas-gt-放缩及调整位置" class="headerlink" title="&lt;canvas&gt;放缩及调整位置"></a><code>&lt;canvas&gt;</code>放缩及调整位置</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span> = <span class="string">&quot;canvas&quot;</span> <span class="attr">width</span> = <span class="string">&quot;300&quot;</span> <span class="attr">height</span> = <span class="string">&quot;300&quot;</span> <span class="attr">style</span> = <span class="string">&quot;width:200px; height:200px; left:60px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <h2 id="lt-canvas-gt-放缩及调整位置"><a href="#lt-canvas-gt-放缩及调整位置" class="headerlink" title="&lt;canvas&gt;放缩及调整位置"></a><code>&lt;canvas&gt;</code>放缩及调整位置</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span> = <span class="string">&quot;canvas&quot;</span> <span class="attr">width</span> = <span class="string">&quot;300&quot;</span> <span class="attr">height</span> = <span class="string">&quot;300&quot;</span> <span class="attr">style</span> = <span class="string">&quot;width:200px; height:200px; left:60px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="表格固定宽度"><a href="#表格固定宽度" class="headerlink" title="表格固定宽度"></a>表格固定宽度</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">  table</span><br><span class="line"><span class="css">    <span class="selector-tag">th</span><span class="selector-pseudo">:first-of-type</span> &#123;<span class="attribute">width</span>: <span class="number">200px</span>;&#125;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">th</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;<span class="attribute">width</span>: <span class="number">200px</span>;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -875,13 +881,14 @@
 <p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/61737.htm">js提取元素</a></p>
 <h2 id="div大小放缩示例"><a href="#div大小放缩示例" class="headerlink" title="div大小放缩示例"></a><code>div</code>大小放缩示例</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">mouse</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> direct = <span class="number">0</span>;</span></span><br><span class="line"><span class="javascript">      e = <span class="built_in">window</span>.event;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (e.wheelDelta) &#123; <span class="comment">//判断浏览器IE，谷歌滑轮事件             </span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (e.wheelDelta &gt; <span class="number">0</span>) &#123; <span class="comment">//当滑轮向上滚动时</span></span></span><br><span class="line">          change(1);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (e.wheelDelta &lt; <span class="number">0</span>) &#123; <span class="comment">//当滑轮向下滚动时</span></span></span><br><span class="line">          change(-1);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.detail) &#123; <span class="comment">//Firefox滑轮事件</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (e.detail &gt; <span class="number">0</span>) &#123; <span class="comment">//当滑轮向上滚动时</span></span></span><br><span class="line">          change(1);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (e.detail &lt; <span class="number">0</span>) &#123; <span class="comment">//当滑轮向下滚动时</span></span></span><br><span class="line">          change(-1);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params">num</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> b1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;b1&#x27;</span>);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> bit = b1.width/b1.height;</span></span><br><span class="line">  if (num == 1) &#123;</span><br><span class="line"><span class="javascript">    b1.src = <span class="string">&quot;/i/eg_mouse.jpg&quot;</span>;</span></span><br><span class="line">    b1.width += 2*bit;</span><br><span class="line">    b1.height += 2;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (b1.style.left == <span class="string">&quot;&quot;</span>) &#123;</span></span><br><span class="line"><span class="javascript">      b1.style.left = <span class="string">&quot;-&quot;</span> + bit + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">      b1.style.top = <span class="string">&quot;-1px&quot;</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> temp = (<span class="built_in">Number</span>(b1.style.left.replace(<span class="regexp">/px/</span>, <span class="string">&quot;&quot;</span>)) - <span class="number">1</span>*bit).toString() + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 注意toString加括号</span></span></span><br><span class="line">      b1.style.left = temp;</span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> temp = (<span class="built_in">Number</span>(b1.style.top.replace(<span class="regexp">/px/</span>, <span class="string">&quot;&quot;</span>)) - <span class="number">1</span>).toString() + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line">      b1.style.top = temp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">  &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">    b1.src = <span class="string">&quot;/i/eg_mouse2.jpg&quot;</span></span></span><br><span class="line">    b1.width -= 2*bit;</span><br><span class="line">    b1.height -= 2;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (b1.style.left == <span class="string">&quot;&quot;</span>) &#123;</span></span><br><span class="line"><span class="javascript">      b1.style.left = bit + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">      b1.style.top = <span class="string">&quot;1px&quot;</span>;</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> temp = (<span class="built_in">Number</span>(b1.style.left.replace(<span class="regexp">/px/</span>, <span class="string">&quot;&quot;</span>)) + <span class="number">1</span>*bit).toString() + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line">      b1.style.left = temp;</span><br><span class="line"><span class="javascript">      <span class="keyword">var</span> temp = (<span class="built_in">Number</span>(b1.style.top.replace(<span class="regexp">/px/</span>, <span class="string">&quot;&quot;</span>)) + <span class="number">1</span>).toString() + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line">      b1.style.top = temp;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.w3school.com.cn&quot;</span> <span class="attr">onmousewheel</span>=<span class="string">&quot;mouse()&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">alt</span>=<span class="string">&quot;Visit W3School!&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/i/eg_mouse2.jpg&quot;</span> <span class="attr">id</span>=<span class="string">&quot;b1&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position: fixed; top: 100px; left: 100px;&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100px&quot;</span> /&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 不要把width写进style --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

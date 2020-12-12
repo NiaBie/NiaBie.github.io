@@ -326,6 +326,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -394,16 +409,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -556,6 +561,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -629,11 +639,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -861,20 +866,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Qt笔记</span>
-  <br>
-  <span class="post_date">2019-09-18</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Qt笔记</span>
+    <br>
+    <span class="post_date">2019-09-18</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h2 id="QMainWindow"><a href="#QMainWindow" class="headerlink" title="QMainWindow"></a><code>QMainWindow</code></h2><ul>
+    <h2 id="QMainWindow"><a href="#QMainWindow" class="headerlink" title="QMainWindow"></a><code>QMainWindow</code></h2><ul>
 <li>完全透明:<code>this-&gt;setWindowOpacity(0)</code></li>
 </ul>
 <h2 id="QWebEngineView"><a href="#QWebEngineView" class="headerlink" title="QWebEngineView"></a><code>QWebEngineView</code></h2><ul>
@@ -899,13 +905,14 @@
 <p><a target="_blank" rel="noopener" href="https://www.maketecheasier.com/create-deb-packages-with-debreate/">参考</a></p>
 <h3 id="手动dpkg"><a href="#手动dpkg" class="headerlink" title="手动dpkg"></a>手动<code>dpkg</code></h3><p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000005029385">思否</a></p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   

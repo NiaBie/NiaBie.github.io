@@ -306,6 +306,21 @@
     temp = 'tags/eigen/';
     tags_path.push(temp);
   ''
+    var temp = 'ffmpeg';
+    tags_name.push(temp);
+    temp = 'tags/ffmpeg/';
+    tags_path.push(temp);
+  ''
+    var temp = 'opencv';
+    tags_name.push(temp);
+    temp = 'tags/opencv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'ndk';
+    tags_name.push(temp);
+    temp = 'tags/ndk/';
+    tags_path.push(temp);
+  ''
     var temp = 'gcc';
     tags_name.push(temp);
     temp = 'tags/gcc/';
@@ -374,16 +389,6 @@
     var temp = 'jni';
     tags_name.push(temp);
     temp = 'tags/jni/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ndk';
-    tags_name.push(temp);
-    temp = 'tags/ndk/';
-    tags_path.push(temp);
-  ''
-    var temp = 'opencv';
-    tags_name.push(temp);
-    temp = 'tags/opencv/';
     tags_path.push(temp);
   ''
     var temp = 'jsdelivr';
@@ -536,6 +541,11 @@
     temp = 'tags/matplotlib/';
     tags_path.push(temp);
   ''
+    var temp = '反编译';
+    tags_name.push(temp);
+    temp = 'tags/反编译/';
+    tags_path.push(temp);
+  ''
     var temp = 'slenium';
     tags_name.push(temp);
     temp = 'tags/slenium/';
@@ -609,11 +619,6 @@
     var temp = 'midi';
     tags_name.push(temp);
     temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
-    var temp = 'ffmpeg';
-    tags_name.push(temp);
-    temp = 'tags/ffmpeg/';
     tags_path.push(temp);
   ''
     var temp = 'lol';
@@ -856,20 +861,21 @@
 
   <!-- 文章 -->
 
-<div class="main_box border_box">
-  <span class="post_title" id="post_title">Algorithmics-for-Hard-Problems</span>
-  <br>
-  <span class="post_date">2019-05-01</span>
+<div class="main_container">
+  <div class="main_box border_box">
+    <span class="post_title" id="post_title">Algorithmics-for-Hard-Problems</span>
+    <br>
+    <span class="post_date">2019-05-01</span>
+    
+    <div class="line_box" id="post_line_box"></div>
+    <style>
+      #post_line_box {
+        width: 100%;
+        margin-top: 10px;
+      }
+    </style>
   
-  <div class="line_box" id="post_line_box"></div>
-  <style>
-    #post_line_box {
-      width: 100%;
-      margin-top: 10px;
-    }
-  </style>
-
-  <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><h3 id="Definition-2-3-1-2"><a href="#Definition-2-3-1-2" class="headerlink" title="Definition 2.3.1.2"></a>Definition 2.3.1.2</h3><p>Let $\Sigma$ be an alphabet. A <strong>word</strong> over $\Sigma$ is any finite sequence of symbols of $\Sigma$. The <strong>empty word $\lambda$</strong> is the only word consisting of zero symbols. The set of all words over the alphabet $\Sigma$ is denoted by $\Sigma^{*}$</p>
+    <h1 id="2"><a href="#2" class="headerlink" title="2"></a>2</h1><h2 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h2><h3 id="Definition-2-3-1-2"><a href="#Definition-2-3-1-2" class="headerlink" title="Definition 2.3.1.2"></a>Definition 2.3.1.2</h3><p>Let $\Sigma$ be an alphabet. A <strong>word</strong> over $\Sigma$ is any finite sequence of symbols of $\Sigma$. The <strong>empty word $\lambda$</strong> is the only word consisting of zero symbols. The set of all words over the alphabet $\Sigma$ is denoted by $\Sigma^{*}$</p>
 <h3 id="Definition-2-3-1-3"><a href="#Definition-2-3-1-3" class="headerlink" title="Definition 2.3.1.3"></a>Definition 2.3.1.3</h3><p>The <strong>length of a word $w$</strong> over an alphabet $\Sigma$, denoted by $|w|$, is the number of symbols in $w$. For every word $w\in\Sigma^{*}$, and every symbal $a\in\Sigma$, $\sharp_{a}(w)$ is the number of occurrences of the symbol $a$ in the word $w$</p>
 <h3 id="Definition-2-3-1-4"><a href="#Definition-2-3-1-4" class="headerlink" title="Definition 2.3.1.4"></a>Definition 2.3.1.4</h3><p>Let $\Sigma$ be an alphabet. Then, for any $n\in\mathbb{N}$<br>$$ \Sigma^n=\{x\in\Sigma^{*}||x|=n\} $$<br>We define $\Sigma^+=\Sigma^{*}-\{\lambda\}$</p>
 <h3 id="Definition-2-3-1-5-concatenation"><a href="#Definition-2-3-1-5-concatenation" class="headerlink" title="Definition 2.3.1.5 (concatenation)"></a>Definition 2.3.1.5 (concatenation)</h3><p>For every word $w\in\Sigma^{*}$, we define</p>
@@ -1001,13 +1007,14 @@
 </ol>
 <p>for every $x\in L_I$</p>
 
-
   
+    
 <script src="/js/guide.js"></script>
 
-  <script>
-    create_guide();
-  </script>
+    <script>
+      create_guide();
+    </script>
+  </div>
 </div>
 
   
