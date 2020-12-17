@@ -240,6 +240,11 @@
     temp = 'tags/debreate/';
     tags_path.push(temp);
   ''
+    var temp = '华为';
+    tags_name.push(temp);
+    temp = 'tags/华为/';
+    tags_path.push(temp);
+  ''
     var temp = 'php';
     tags_name.push(temp);
     temp = 'tags/php/';
@@ -877,9 +882,9 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x <span class="built_in">test</span></span><br><span class="line">to filename? test.pyc</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>补全<code>magic</code>+<code>时间戳</code>, <a target="_blank" rel="noopener" href="https://www.pythonf.cn/read/128730">参考</a><ul>
+<li>补全字节, <a target="_blank" rel="noopener" href="https://www.pythonf.cn/read/128730">参考</a><ul>
 <li>先将<code>struct.pyc</code>也提取出来</li>
-<li>查看待反编译的文件和<code>struct.pyc</code>(十六进制), 将<code>struct.pyc</code>的前16字节加入目标<code>pyc</code>文件</li>
+<li>查看待<code>test.pyc</code>和<code>struct.pyc</code>(十六进制), 将<code>struct.pyc</code>的前16字节加入<code>test.pyc</code>(<strong>具体操作需要根据二进制文件内容进行</strong>)</li>
 </ul>
 </li>
 </ul>
