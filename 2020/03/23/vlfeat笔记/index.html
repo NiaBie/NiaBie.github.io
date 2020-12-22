@@ -150,6 +150,11 @@
     temp = 'tags/cubism/';
     tags_path.push(temp);
   ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
     var temp = 'javascript';
     tags_name.push(temp);
     temp = 'tags/javascript/';
@@ -158,11 +163,6 @@
     var temp = 'live2d';
     tags_name.push(temp);
     temp = 'tags/live2d/';
-    tags_path.push(temp);
-  ''
-    var temp = 'typescript';
-    tags_name.push(temp);
-    temp = 'tags/typescript/';
     tags_path.push(temp);
   ''
     var temp = 'npm';
@@ -871,7 +871,7 @@
   
     <h1 id="cpp-Linux"><a href="#cpp-Linux" class="headerlink" title="cpp(Linux)"></a>cpp(Linux)</h1><p><a target="_blank" rel="noopener" href="https://www.vlfeat.org/api/index.html">官方C API</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.vlfeat.org/gcc.html">参考:https://www.vlfeat.org/gcc.html</a></p>
-<p>向<code>/etc/ld.so.conf.d/</code>下任意一个文件(如<code>opencv.conf</code>)添加so库的路径,然后<code>sudo ldconfig</code></p>
+<p>向<code>/etc/ld.so.conf.d/</code>下任意一个文件(如<code>opencv.conf</code>)添加so库(例如<code>libvl.so</code>)的路径,然后<code>sudo ldconfig</code></p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">include</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</span><br><span class="line">  VL_PRINT (<span class="string">&quot;Hello world!&quot;</span>) ;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">g++ vl_test.cpp -o <span class="built_in">test</span> -I$(VL) -L$(VL)/bin/glnxa64 -lvl</span><br></pre></td></tr></table></figure>
