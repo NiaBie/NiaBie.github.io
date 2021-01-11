@@ -211,6 +211,11 @@
     temp = 'tags/makefile/';
     tags_path.push(temp);
   ''
+    var temp = 'PyQt5';
+    tags_name.push(temp);
+    temp = 'tags/PyQt5/';
+    tags_path.push(temp);
+  ''
     var temp = 'qt';
     tags_name.push(temp);
     temp = 'tags/qt/';
@@ -229,11 +234,6 @@
     var temp = 'debreate';
     tags_name.push(temp);
     temp = 'tags/debreate/';
-    tags_path.push(temp);
-  ''
-    var temp = 'PyQt5';
-    tags_name.push(temp);
-    temp = 'tags/PyQt5/';
     tags_path.push(temp);
   ''
     var temp = '华为';
@@ -1066,13 +1066,64 @@
 </ol>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gfgwxw/p/9439482.html">例子:cnblogs</a></p>
 <h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/subconscious/p/5058741.html">参考:cnblogs</a></p>
-<h2 id="BP学习算法-设计简单例子-数值计算"><a href="#BP学习算法-设计简单例子-数值计算" class="headerlink" title="BP学习算法(设计简单例子, 数值计算)"></a>BP学习算法(设计简单例子, 数值计算)</h2><h3 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h3><h3 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h3><h1 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h1><h2 id="使用遗传算法GA进行编码和模拟-lt-40"><a href="#使用遗传算法GA进行编码和模拟-lt-40" class="headerlink" title="使用遗传算法GA进行编码和模拟(&lt; %40)"></a>使用遗传算法GA进行编码和模拟(&lt; %40)</h2><h1 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h1><blockquote>
+<h2 id="BP学习算法-设计简单例子-数值计算"><a href="#BP学习算法-设计简单例子-数值计算" class="headerlink" title="BP学习算法(设计简单例子, 数值计算)"></a>BP学习算法(设计简单例子, 数值计算)</h2><h3 id="前向传播"><a href="#前向传播" class="headerlink" title="前向传播"></a>前向传播</h3><ul>
+<li>sigmoid(logistic)函数<ul>
+<li>$f(x) = \dfrac{1}{1 + e^{-x}}$</li>
+<li>$f’(x) = f(x)(1 - f(x))$</li>
+</ul>
+</li>
+</ul>
+<h3 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h3><ul>
+<li><p>误差计算</p>
+<ul>
+<li>$Error(n) = \dfrac{1}{2}\sum_{j}(d_j(n) - y_j(n))^2 = \dfrac{1}{2}\sum_{j}e_{j}(n)^2$</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_35570545/article/details/62065343">梯度计算:CSDN</a></p>
+<ul>
+<li>输出层</li>
+<li>隐藏层</li>
+</ul>
+</li>
+<li><p>权值更新</p>
+<ul>
+<li>$w_{new} = w_{old} - \eta\dfrac{\partial E}{\partial w}$</li>
+</ul>
+</li>
+</ul>
+<h1 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010451580/article/details/51178225?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromBaidu-1.control">概览:CSDN</a></p>
+<h2 id="使用遗传算法GA进行编码和模拟-lt-40"><a href="#使用遗传算法GA进行编码和模拟-lt-40" class="headerlink" title="使用遗传算法GA进行编码和模拟(&lt; %40)"></a>使用遗传算法GA进行编码和模拟(&lt; %40)</h2><h1 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h1><blockquote>
 <p>与遗传算法必考其一</p>
 </blockquote>
-<h2 id="MDP运行过程"><a href="#MDP运行过程" class="headerlink" title="MDP运行过程"></a>MDP运行过程</h2><h1 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h1><blockquote>
+<h2 id="MDP运行过程"><a href="#MDP运行过程" class="headerlink" title="MDP运行过程"></a>MDP运行过程</h2><h3 id="MDP"><a href="#MDP" class="headerlink" title="MDP"></a>MDP</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41297934/article/details/105104684">参考:CSDN</a></p>
+<ul>
+<li><p>马尔科夫过程(Markov Process)</p>
+</li>
+<li><p>马尔科夫报酬过程(Markov Reward Process)</p>
+</li>
+<li><p>马尔科夫决策过程(Markov Decision Process)</p>
+</li>
+</ul>
+<h1 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h1><blockquote>
 <p>可能和<code>搜索</code>联动</p>
 </blockquote>
-<h2 id="经典概念"><a href="#经典概念" class="headerlink" title="经典概念"></a>经典概念</h2>
+<h2 id="博弈-1"><a href="#博弈-1" class="headerlink" title="博弈"></a>博弈</h2><ul>
+<li><p>策略式博弈$G$:</p>
+<ul>
+<li>$N$: 玩家集</li>
+<li>$A_i$: 每个玩家$i$的策略集</li>
+<li>$u_i$: 每个玩家$i$的收益函数<br>$$ G = \{ N, \{ A_i \}_{i = 1}^N, \{ u_i \}_{i = 1}^N \} $$</li>
+</ul>
+</li>
+<li><p>纯策略</p>
+</li>
+<li><p>混合策略</p>
+</li>
+</ul>
+<h2 id="帕累托最优-Pareto-Efficiency"><a href="#帕累托最优-Pareto-Efficiency" class="headerlink" title="帕累托最优(Pareto Efficiency)"></a>帕累托最优(Pareto Efficiency)</h2><h2 id="NASH均衡-Nash-Equilibrium"><a href="#NASH均衡-Nash-Equilibrium" class="headerlink" title="NASH均衡(Nash Equilibrium)"></a>NASH均衡(Nash Equilibrium)</h2><ul>
+<li>混合策略纳什均衡: 玩家$i$选任意一种纯策略的期望收益是相同的</li>
+</ul>
+
   
     
 <script src="/js/guide.js"></script>
