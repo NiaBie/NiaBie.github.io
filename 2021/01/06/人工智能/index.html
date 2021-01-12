@@ -1095,13 +1095,19 @@
 <h2 id="使用遗传算法GA进行编码和模拟-lt-40"><a href="#使用遗传算法GA进行编码和模拟-lt-40" class="headerlink" title="使用遗传算法GA进行编码和模拟(&lt; %40)"></a>使用遗传算法GA进行编码和模拟(&lt; %40)</h2><h1 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h1><blockquote>
 <p>与遗传算法必考其一</p>
 </blockquote>
-<h2 id="MDP运行过程"><a href="#MDP运行过程" class="headerlink" title="MDP运行过程"></a>MDP运行过程</h2><h3 id="MDP"><a href="#MDP" class="headerlink" title="MDP"></a>MDP</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41297934/article/details/105104684">参考:CSDN</a></p>
-<ul>
-<li><p>马尔科夫过程(Markov Process)</p>
+<h2 id="MDP运行过程"><a href="#MDP运行过程" class="headerlink" title="MDP运行过程"></a>MDP运行过程</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41297934/article/details/105104684">参考:CSDN</a></p>
+<h3 id="马尔科夫过程-Markov-Process"><a href="#马尔科夫过程-Markov-Process" class="headerlink" title="马尔科夫过程(Markov Process)"></a>马尔科夫过程(Markov Process)</h3><h3 id="马尔科夫报酬过程-Markov-Reward-Process"><a href="#马尔科夫报酬过程-Markov-Reward-Process" class="headerlink" title="马尔科夫报酬过程(Markov Reward Process)"></a>马尔科夫报酬过程(Markov Reward Process)</h3><ul>
+<li><p>报酬函数: $ R_{s} = E[R_{t + 1} | S_t = s] $</p>
 </li>
-<li><p>马尔科夫报酬过程(Markov Reward Process)</p>
+<li><p>折扣因子: $\gamma$</p>
 </li>
-<li><p>马尔科夫决策过程(Markov Decision Process)</p>
+<li><p>回报<br>$$ G_{t} = R_{t + 1} + \gamma R_{t + 2} + \cdots = \sum_{k = 0}^{\infty} \gamma^k R_{t + k + 1} $$</p>
+</li>
+</ul>
+<h3 id="马尔科夫决策过程-Markov-Decision-Process"><a href="#马尔科夫决策过程-Markov-Decision-Process" class="headerlink" title="马尔科夫决策过程(Markov Decision Process)"></a>马尔科夫决策过程(Markov Decision Process)</h3><ul>
+<li><p>状态值函数:<br>$$ v_{\pi}(s) = E_{\pi}[G_t | S_t = s] = E_{\pi}[\sum_{k = 0}^{\infty}\gamma^k R_{t + k + 1} | S_t = s] $$</p>
+</li>
+<li><p>状态-动作值函数:<br>$$ q_{pi}(s, a) = E_{pi}[G_t | S_t = s, A_t = a] = E_{\pi}[\sum_{k = 0}^{\infty}\gamma^k R_{t + k + 1} | S_t = s, A_t = a] $$</p>
 </li>
 </ul>
 <h1 id="博弈"><a href="#博弈" class="headerlink" title="博弈"></a>博弈</h1><blockquote>
