@@ -236,11 +236,6 @@
     temp = 'tags/debreate/';
     tags_path.push(temp);
   ''
-    var temp = '华为';
-    tags_name.push(temp);
-    temp = 'tags/华为/';
-    tags_path.push(temp);
-  ''
     var temp = 'php';
     tags_name.push(temp);
     temp = 'tags/php/';
@@ -249,6 +244,11 @@
     var temp = 'apahce2';
     tags_name.push(temp);
     temp = 'tags/apahce2/';
+    tags_path.push(temp);
+  ''
+    var temp = '华为';
+    tags_name.push(temp);
+    temp = 'tags/华为/';
     tags_path.push(temp);
   ''
     var temp = 'latex';
@@ -876,6 +876,11 @@
     </style>
   
     <h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><ul>
+<li><code>bash</code>命令行运行<code>main.m</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">matlab -nodesktop -nosplash -r main</span><br></pre></td></tr></table></figure>
+
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
 <li>绘制球体</li>
 </ul>
 <figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="comment">% 绘制一个空心球体</span></span><br><span class="line">t=<span class="built_in">linspace</span>(<span class="number">0</span>, <span class="number">2</span>*<span class="built_in">pi</span>, <span class="number">20</span>);</span><br><span class="line">p=<span class="built_in">linspace</span>(<span class="number">0</span>, <span class="number">2</span>*<span class="built_in">pi</span>, <span class="number">20</span>);</span><br><span class="line">[ theta, phi ] = <span class="built_in">meshgrid</span>(t, p);</span><br><span class="line">r=<span class="number">1</span>; <span class="comment">% 半径</span></span><br><span class="line">x=r*<span class="built_in">sin</span>(theta).*<span class="built_in">sin</span>(phi);</span><br><span class="line">y=r*<span class="built_in">sin</span>(theta).*<span class="built_in">cos</span>(phi);</span><br><span class="line">z=r*<span class="built_in">cos</span>(theta);</span><br><span class="line">surf(x, y, z, <span class="string">&#x27;linestyle&#x27;</span>, <span class="string">&#x27;none&#x27;</span>);</span><br><span class="line">axis equal;</span><br><span class="line">alpha(<span class="number">0.1</span>);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br></pre></td></tr></table></figure>
