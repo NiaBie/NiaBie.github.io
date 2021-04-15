@@ -880,6 +880,12 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">matlab -nodesktop -nosplash -r main</span><br></pre></td></tr></table></figure>
 
+<ul>
+<li><code>system</code>命令导致的依赖库错误的情况</li>
+</ul>
+<p>先使用<code>system(&#39;echo $LD_LIBRARY_PATH&#39;)</code>查看目录, 如果和命令行的不一样, 则</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">system([<span class="string">&#x27;export LD_LIBRARY_PATH=;&#x27;</span> sysorder], <span class="string">&#x27;-echo&#x27;</span>); <span class="comment">%% 自己设成命令行的值</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><ul>
 <li>绘制球体</li>
 </ul>
