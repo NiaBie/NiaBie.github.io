@@ -139,16 +139,6 @@
     temp = 'tags/android/';
     tags_path.push(temp);
   ''
-    var temp = 'adb';
-    tags_name.push(temp);
-    temp = 'tags/adb/';
-    tags_path.push(temp);
-  ''
-    var temp = 'java';
-    tags_name.push(temp);
-    temp = 'tags/java/';
-    tags_path.push(temp);
-  ''
     var temp = 'cubism';
     tags_name.push(temp);
     temp = 'tags/cubism/';
@@ -172,6 +162,16 @@
     var temp = 'npm';
     tags_name.push(temp);
     temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
     tags_path.push(temp);
   ''
     var temp = 'linux';
@@ -202,6 +202,16 @@
     var temp = 'pip';
     tags_name.push(temp);
     temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'FL Studio';
+    tags_name.push(temp);
+    temp = 'tags/FL-Studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
     tags_path.push(temp);
   ''
     var temp = 'gnome';
@@ -259,11 +269,6 @@
     temp = 'tags/apahce2/';
     tags_path.push(temp);
   ''
-    var temp = 'latex';
-    tags_name.push(temp);
-    temp = 'tags/latex/';
-    tags_path.push(temp);
-  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -272,6 +277,11 @@
     var temp = 'css';
     tags_name.push(temp);
     temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
     tags_path.push(temp);
   ''
     var temp = 'bucket';
@@ -634,11 +644,6 @@
     temp = 'tags/wlan/';
     tags_path.push(temp);
   ''
-    var temp = 'midi';
-    tags_name.push(temp);
-    temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
     var temp = 'lol';
     tags_name.push(temp);
     temp = 'tags/lol/';
@@ -922,6 +927,8 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定长宽</span></span><br><span class="line">ffmpeg -i input.jpg -vf scale=320:240 output.png</span><br><span class="line"><span class="comment"># 等比例缩放</span></span><br><span class="line">ffmpeg -i input.jpg -vf scale=320:-1 output.png</span><br><span class="line"><span class="comment"># 倍数缩放</span></span><br><span class="line">ffmpeg -i input.jpg -vf scale=iw*2:ih output.png</span><br><span class="line">ffmpeg -i input.jpg -vf <span class="string">&quot;scale=iw*.5:ih*.5&quot;</span> output.png</span><br><span class="line">ffmpeg -i input.jpg -vf <span class="string">&quot;scale=iw/2:ih/2&quot;</span> output.png</span><br></pre></td></tr></table></figure>
 
 <h2 id="提取音频"><a href="#提取音频" class="headerlink" title="提取音频"></a>提取音频</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取完整音频</span></span><br><span class="line">ffmpeg -i test.mp4 -q:a 0 -map a test.mp3</span><br><span class="line"><span class="comment"># 只提取音频流而不重新编码(不能是mp3格式, 只能是aac或m4a)</span></span><br><span class="line">ffmpeg -i test.mp4 -vn -acodec copy test.m4a</span><br></pre></td></tr></table></figure>
+
+<h2 id="倒放"><a href="#倒放" class="headerlink" title="倒放"></a>倒放</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 视频倒放, 音频不变</span></span><br><span class="line">ffmpeg -i input.mp4 -vf reverse output.mp4</span><br><span class="line"><span class="comment"># 音频倒放, 视频不变</span></span><br><span class="line">ffmpeg -i input.mp4 -map 0 -c:v copy -af areverse output.mp4</span><br><span class="line"><span class="comment"># 音视频倒放</span></span><br><span class="line">ffmpeg -i input.mp4 -vf reverse -af areverse -preset superfast output.mp4</span><br></pre></td></tr></table></figure>
 
 <h3 id="常见错误-1"><a href="#常见错误-1" class="headerlink" title="常见错误"></a>常见错误</h3><ol>
 <li><code> Default encoder for format mp3 (codec mp3) is probably disabled. Please choose an encoder manually.</code>(<strong>TODO</strong>)<ol>

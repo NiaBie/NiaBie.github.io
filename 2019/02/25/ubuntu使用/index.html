@@ -135,16 +135,6 @@
     temp = 'tags/android/';
     tags_path.push(temp);
   ''
-    var temp = 'adb';
-    tags_name.push(temp);
-    temp = 'tags/adb/';
-    tags_path.push(temp);
-  ''
-    var temp = 'java';
-    tags_name.push(temp);
-    temp = 'tags/java/';
-    tags_path.push(temp);
-  ''
     var temp = 'cubism';
     tags_name.push(temp);
     temp = 'tags/cubism/';
@@ -168,6 +158,16 @@
     var temp = 'npm';
     tags_name.push(temp);
     temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
     tags_path.push(temp);
   ''
     var temp = 'linux';
@@ -198,6 +198,16 @@
     var temp = 'pip';
     tags_name.push(temp);
     temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'FL Studio';
+    tags_name.push(temp);
+    temp = 'tags/FL-Studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
     tags_path.push(temp);
   ''
     var temp = 'gnome';
@@ -255,11 +265,6 @@
     temp = 'tags/apahce2/';
     tags_path.push(temp);
   ''
-    var temp = 'latex';
-    tags_name.push(temp);
-    temp = 'tags/latex/';
-    tags_path.push(temp);
-  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -268,6 +273,11 @@
     var temp = 'css';
     tags_name.push(temp);
     temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
     tags_path.push(temp);
   ''
     var temp = 'bucket';
@@ -630,11 +640,6 @@
     temp = 'tags/wlan/';
     tags_path.push(temp);
   ''
-    var temp = 'midi';
-    tags_name.push(temp);
-    temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
     var temp = 'lol';
     tags_name.push(temp);
     temp = 'tags/lol/';
@@ -928,14 +933,8 @@
 <h3 id="共享wifi"><a href="#共享wifi" class="headerlink" title="共享wifi"></a>共享wifi</h3><ul>
 <li><code>create_ap</code>:<a target="_blank" rel="noopener" href="https://github.com/oblique/create_ap">github</a></li>
 </ul>
-<h2 id="误删PATH救急"><a href="#误删PATH救急" class="headerlink" title="误删PATH救急"></a>误删<code>PATH</code>救急</h2><ul>
-<li>Linux通用?</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/sbin:/bin:/usr/sbin:/usr/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<h2 id="误删PATH救急"><a href="#误删PATH救急" class="headerlink" title="误删PATH救急"></a>误删<code>PATH</code>救急</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=/home/lynx/.<span class="built_in">local</span>/bin:/usr/<span class="built_in">local</span>/sbin:/usr/<span class="built_in">local</span>/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/<span class="built_in">local</span>/games:/snap/bin:/home/lynx/.<span class="built_in">local</span>/bin/:/home/lynx/.<span class="built_in">local</span>/lib/python3.8/site-packages/scripts:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>不要忘记加<code>:PATH</code></p>
-</blockquote>
 <h2 id="安装字体"><a href="#安装字体" class="headerlink" title="安装字体"></a>安装字体</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo mkdir /usr/share/fonts/&#123;name&#125;</span><br><span class="line">sudo cp &#123;font&#125;.ttf /usr/share/fonts/&#123;name&#125;</span><br><span class="line"><span class="built_in">cd</span> /usr/share/fonts/&#123;name&#125;</span><br><span class="line">sudo mkfontscale</span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo <span class="built_in">fc</span>-cache -fv</span><br></pre></td></tr></table></figure>
 
 <h2 id="文件编码"><a href="#文件编码" class="headerlink" title="文件编码"></a>文件编码</h2><ul>

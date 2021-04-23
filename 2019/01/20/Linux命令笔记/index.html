@@ -135,16 +135,6 @@
     temp = 'tags/android/';
     tags_path.push(temp);
   ''
-    var temp = 'adb';
-    tags_name.push(temp);
-    temp = 'tags/adb/';
-    tags_path.push(temp);
-  ''
-    var temp = 'java';
-    tags_name.push(temp);
-    temp = 'tags/java/';
-    tags_path.push(temp);
-  ''
     var temp = 'cubism';
     tags_name.push(temp);
     temp = 'tags/cubism/';
@@ -168,6 +158,16 @@
     var temp = 'npm';
     tags_name.push(temp);
     temp = 'tags/npm/';
+    tags_path.push(temp);
+  ''
+    var temp = 'adb';
+    tags_name.push(temp);
+    temp = 'tags/adb/';
+    tags_path.push(temp);
+  ''
+    var temp = 'java';
+    tags_name.push(temp);
+    temp = 'tags/java/';
     tags_path.push(temp);
   ''
     var temp = 'linux';
@@ -198,6 +198,16 @@
     var temp = 'pip';
     tags_name.push(temp);
     temp = 'tags/pip/';
+    tags_path.push(temp);
+  ''
+    var temp = 'FL Studio';
+    tags_name.push(temp);
+    temp = 'tags/FL-Studio/';
+    tags_path.push(temp);
+  ''
+    var temp = 'midi';
+    tags_name.push(temp);
+    temp = 'tags/midi/';
     tags_path.push(temp);
   ''
     var temp = 'gnome';
@@ -255,11 +265,6 @@
     temp = 'tags/apahce2/';
     tags_path.push(temp);
   ''
-    var temp = 'latex';
-    tags_name.push(temp);
-    temp = 'tags/latex/';
-    tags_path.push(temp);
-  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -268,6 +273,11 @@
     var temp = 'css';
     tags_name.push(temp);
     temp = 'tags/css/';
+    tags_path.push(temp);
+  ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
     tags_path.push(temp);
   ''
     var temp = 'bucket';
@@ -630,11 +640,6 @@
     temp = 'tags/wlan/';
     tags_path.push(temp);
   ''
-    var temp = 'midi';
-    tags_name.push(temp);
-    temp = 'tags/midi/';
-    tags_path.push(temp);
-  ''
     var temp = 'lol';
     tags_name.push(temp);
     temp = 'tags/lol/';
@@ -995,6 +1000,8 @@
 <h2 id="更改用户-权限"><a href="#更改用户-权限" class="headerlink" title="更改用户/权限"></a>更改用户/权限</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo chmod -R 777 *</span><br><span class="line">sudo chown -R user * <span class="comment"># sudo chown -R user:usergroup *</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="parallel并行-TODO"><a href="#parallel并行-TODO" class="headerlink" title="parallel并行(TODO)"></a><code>parallel</code>并行(TODO)</h2><p><a target="_blank" rel="noopener" href="https://www.linuxprobe.com/gnu-parallel-linux.html">参考</a></p>
+<h2 id="软件版本管理"><a href="#软件版本管理" class="headerlink" title="软件版本管理"></a>软件版本管理</h2><p><strong>TODO</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-cache policy gcc-5</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-5 100</span><br><span class="line">sudo update-alternatives --install &#x2F;usr&#x2F;bin&#x2F;gcc gcc &#x2F;usr&#x2F;bin&#x2F;gcc-9 50</span><br></pre></td></tr></table></figure>
 
   
     
