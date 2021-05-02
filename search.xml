@@ -8,7 +8,7 @@
       <link href="/2021/04/23/FLStudio%E7%AC%94%E8%AE%B0/"/>
       <url>/2021/04/23/FLStudio%E7%AC%94%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="新建工程固定步骤"><a href="#新建工程固定步骤" class="headerlink" title="新建工程固定步骤"></a>新建工程固定步骤</h1><h2 id="1-创建固定bpm的midi"><a href="#1-创建固定bpm的midi" class="headerlink" title="1 创建固定bpm的midi"></a>1 创建固定bpm的midi</h2><ol><li><p>新建工程, 调整bpm</p></li><li><p><code>f6</code>打开channel菜单, 删掉所有channel</p></li><li><p>在channel菜单添加<code>MIDI Out</code>音轨</p></li><li><p>在每个midi channel的<code>Piano roll</code>中添加音符, 此时是没有声音的</p></li><li><p>在playlist中添加pattern</p></li><li><p>导出为<code>MIDI file</code>, 不需要保存工程文件</p></li></ol><h2 id="2-导入midi"><a href="#2-导入midi" class="headerlink" title="2 导入midi"></a>2 导入midi</h2><ol><li><p>新建工程, <code>Open</code>之前导出的midi文件</p></li><li><p>在<code>patterns</code>中选择midi对应的pattern, 并<code>Split by channel</code></p></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="新建工程固定步骤"><a href="#新建工程固定步骤" class="headerlink" title="新建工程固定步骤"></a>新建工程固定步骤</h1><h2 id="1-创建固定bpm的midi"><a href="#1-创建固定bpm的midi" class="headerlink" title="1 创建固定bpm的midi"></a>1 创建固定bpm的midi</h2><ol><li><p>新建工程, 调整bpm</p></li><li><p><code>f6</code>打开channel菜单, 删掉所有channel</p></li><li><p>在channel菜单添加<code>MIDI Out</code>音轨</p></li><li><p>在每个midi channel的<code>Piano roll</code>中添加音符, 此时是没有声音的</p></li><li><p>在playlist中添加pattern</p></li><li><p>导出为<code>MIDI file</code>, 不需要保存工程文件</p></li></ol><h2 id="2-导入midi"><a href="#2-导入midi" class="headerlink" title="2 导入midi"></a>2 导入midi</h2><ol><li><p>新建工程, <code>Open</code>之前导出的midi文件</p></li><li><p>在<code>patterns</code>中选择midi对应的pattern, 并<code>Split by channel</code></p></li></ol><h2 id="修改midi的channel"><a href="#修改midi的channel" class="headerlink" title="修改midi的channel"></a>修改midi的channel</h2><ol><li><p>在channel菜单新建<code>MIDI Out</code></p></li><li><p>打开需要转移channel的pattern, 剪切所有音符, 在上部菜单切换channel, 粘贴</p></li></ol><h2 id="打开多midi"><a href="#打开多midi" class="headerlink" title="打开多midi"></a>打开多midi</h2><ol><li><p>打开一个midi的钢琴帘</p></li><li><p>在左上角<code>Snap to grid</code>的左侧下拉菜单中点击: <code>File</code>-&gt;<code>Import MIDI File</code>. 如果源文件有多个音轨, 则会被合并到一个音轨中</p></li></ol><h2 id="修改midi的音色"><a href="#修改midi的音色" class="headerlink" title="修改midi的音色"></a>修改midi的音色</h2><p><strong>TODO</strong></p><p>打开channel菜单, 右键对应channel, <code>replace</code></p><h2 id="修改midi的bpm"><a href="#修改midi的bpm" class="headerlink" title="修改midi的bpm"></a>修改midi的bpm</h2><p><strong>TODO</strong></p>]]></content>
       
       
       
@@ -680,9 +680,9 @@
       
         <tags>
             
-            <tag> javascript </tag>
-            
             <tag> java </tag>
+            
+            <tag> javascript </tag>
             
             <tag> html </tag>
             
@@ -828,11 +828,11 @@
             
             <tag> cubism </tag>
             
+            <tag> typescript </tag>
+            
             <tag> javascript </tag>
             
             <tag> live2d </tag>
-            
-            <tag> typescript </tag>
             
             <tag> npm </tag>
             
