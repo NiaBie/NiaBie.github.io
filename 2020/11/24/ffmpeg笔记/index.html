@@ -154,11 +154,6 @@
     temp = 'tags/cubism/';
     tags_path.push(temp);
   ''
-    var temp = 'typescript';
-    tags_name.push(temp);
-    temp = 'tags/typescript/';
-    tags_path.push(temp);
-  ''
     var temp = 'javascript';
     tags_name.push(temp);
     temp = 'tags/javascript/';
@@ -167,6 +162,11 @@
     var temp = 'live2d';
     tags_name.push(temp);
     temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
     tags_path.push(temp);
   ''
     var temp = 'npm';
@@ -269,6 +269,11 @@
     temp = 'tags/apahce2/';
     tags_path.push(temp);
   ''
+    var temp = 'latex';
+    tags_name.push(temp);
+    temp = 'tags/latex/';
+    tags_path.push(temp);
+  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -277,11 +282,6 @@
     var temp = 'css';
     tags_name.push(temp);
     temp = 'tags/css/';
-    tags_path.push(temp);
-  ''
-    var temp = 'latex';
-    tags_name.push(temp);
-    temp = 'tags/latex/';
     tags_path.push(temp);
   ''
     var temp = 'bucket';
@@ -929,6 +929,8 @@
 <h2 id="提取音频"><a href="#提取音频" class="headerlink" title="提取音频"></a>提取音频</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取完整音频</span></span><br><span class="line">ffmpeg -i test.mp4 -q:a 0 -map a test.mp3</span><br><span class="line"><span class="comment"># 只提取音频流而不重新编码(不能是mp3格式, 只能是aac或m4a)</span></span><br><span class="line">ffmpeg -i test.mp4 -vn -acodec copy test.m4a</span><br></pre></td></tr></table></figure>
 
 <h2 id="倒放"><a href="#倒放" class="headerlink" title="倒放"></a>倒放</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 视频倒放, 音频不变</span></span><br><span class="line">ffmpeg -i input.mp4 -vf reverse output.mp4</span><br><span class="line"><span class="comment"># 音频倒放, 视频不变</span></span><br><span class="line">ffmpeg -i input.mp4 -map 0 -c:v copy -af areverse output.mp4</span><br><span class="line"><span class="comment"># 音视频倒放</span></span><br><span class="line">ffmpeg -i input.mp4 -vf reverse -af areverse -preset superfast output.mp4</span><br></pre></td></tr></table></figure>
+
+<h2 id="旋转与翻转"><a href="#旋转与翻转" class="headerlink" title="旋转与翻转"></a>旋转与翻转</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 水平翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;hflip&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;vflip&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 逆时针旋转90度并垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=0&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 顺时针旋转90度</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=1&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 逆时针旋转90度</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=2&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 顺时针旋转90度并垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=3&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 自定义角度, 但是图像的尺寸不会变, 会有黑边</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;rotate=PI/2&quot;</span> output.mp4</span><br></pre></td></tr></table></figure>
 
 <h3 id="常见错误-1"><a href="#常见错误-1" class="headerlink" title="常见错误"></a>常见错误</h3><ol>
 <li><code> Default encoder for format mp3 (codec mp3) is probably disabled. Please choose an encoder manually.</code>(<strong>TODO</strong>)<ol>
