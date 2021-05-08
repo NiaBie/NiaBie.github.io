@@ -150,6 +150,11 @@
     temp = 'tags/cubism/';
     tags_path.push(temp);
   ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
+    tags_path.push(temp);
+  ''
     var temp = 'javascript';
     tags_name.push(temp);
     temp = 'tags/javascript/';
@@ -158,11 +163,6 @@
     var temp = 'live2d';
     tags_name.push(temp);
     temp = 'tags/live2d/';
-    tags_path.push(temp);
-  ''
-    var temp = 'typescript';
-    tags_name.push(temp);
-    temp = 'tags/typescript/';
     tags_path.push(temp);
   ''
     var temp = 'npm';
@@ -891,6 +891,17 @@
 <li>头文件</li>
 </ul>
 <figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">SRCS    := <span class="variable">$(<span class="built_in">shell</span> find ./src/ -maxdepth 1 -name &quot;*.cpp&quot;)</span></span><br><span class="line">INC     := -I./<span class="keyword">include</span></span><br><span class="line">CFLAGS  := -Wall -Werror</span><br><span class="line"></span><br><span class="line"><span class="section">run:    </span></span><br><span class="line">    g++ <span class="variable">$(CFLAGS)</span> <span class="variable">$(INC)</span> <span class="variable">$(SRCS)</span> -o md_parser</span><br><span class="line">    ./md_parser</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h1><p><code>make</code>默认在某条命令出错而终止</p>
+<ul>
+<li><p><code>-&lt;cmd&gt;</code>: 如果<code>cmd</code>出错但<code>make</code>不会终止</p>
+</li>
+<li><p><code>make -i &lt;targetName&gt;</code>: 全局忽略错误</p>
+</li>
+<li><p><code>make -s &lt;targetName&gt;</code>: 不显示输出</p>
+</li>
+</ul>
 
   
     
