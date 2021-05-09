@@ -150,11 +150,6 @@
     temp = 'tags/cubism/';
     tags_path.push(temp);
   ''
-    var temp = 'typescript';
-    tags_name.push(temp);
-    temp = 'tags/typescript/';
-    tags_path.push(temp);
-  ''
     var temp = 'javascript';
     tags_name.push(temp);
     temp = 'tags/javascript/';
@@ -163,6 +158,11 @@
     var temp = 'live2d';
     tags_name.push(temp);
     temp = 'tags/live2d/';
+    tags_path.push(temp);
+  ''
+    var temp = 'typescript';
+    tags_name.push(temp);
+    temp = 'tags/typescript/';
     tags_path.push(temp);
   ''
     var temp = 'npm';
@@ -897,7 +897,8 @@
 <li>注意字符串比较时为空的情况</li>
 <li><a target="_blank" rel="noopener" href="https://www.jb51.net/article/56553.htm">更多</a></li>
 </ul>
-<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="for"><a href="#for" class="headerlink" title="for"></a>for</h2><p>处理特定前缀的文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> `ls`</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="keyword">if</span> [[ <span class="variable">$img</span> == _* ]]</span><br><span class="line">  <span class="keyword">then</span></span><br><span class="line">    output=<span class="variable">$&#123;img#_&#125;</span></span><br><span class="line">    <span class="comment"># echo $&#123;output&#125;</span></span><br><span class="line">    ffmpeg -i <span class="variable">$&#123;img&#125;</span> -vf <span class="string">&quot;scale=iw/5:ih/5&quot;</span> <span class="variable">$&#123;output&#125;</span> -y</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="while"><a href="#while" class="headerlink" title="while"></a>while</h2><p>一个修改缩进的脚本</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">line_num=$(wc -l <span class="variable">$1</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;line_num&#125;</span></span><br><span class="line">i=0</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$&#123;line_num:$&#123;i&#125;</span>:1&#125; != <span class="string">&quot; &quot;</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  ((i++))<span class="comment"># 寻找空格</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">line_num=<span class="variable">$&#123;line_num:0:$&#123;i&#125;</span>&#125;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;line_num&#125;</span></span><br><span class="line">version=$(uname)</span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$&#123;version&#125;</span>&quot;</span> = <span class="string">&quot;Linux&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  sed -i <span class="string">&#x27;s/\t/  /g&#x27;</span> <span class="variable">$1</span></span><br><span class="line">  sed -i <span class="string">&#x27;s/  / /g&#x27;</span> <span class="variable">$1</span></span><br><span class="line"><span class="keyword">elif</span> [ <span class="string">&quot;<span class="variable">$&#123;version&#125;</span>&quot;</span> = <span class="string">&quot;Darwin&quot;</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  sed -i <span class="string">&#x27;&#x27;</span> <span class="string">&#x27;s/&lt;C-v&gt;&lt;tab&gt;/  /g&#x27;</span> <span class="variable">$1</span> <span class="comment">#这个地方指按下ctrl+v,然后再按一下tab,输出tab字符</span></span><br><span class="line">  sed -i <span class="string">&#x27;&#x27;</span> <span class="string">&#x27;s/  / /g&#x27;</span> <span class="variable">$1</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
