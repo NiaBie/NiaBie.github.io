@@ -880,9 +880,53 @@
       }
     </style>
   
-    <h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">type(a)</span><br></pre></td></tr></table></figure>
+    <h1 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h1><h2 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h2><p>直接停留在第一行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m pdb test.py</span><br></pre></td></tr></table></figure>
 
-<h2 id="判断文件存在"><a href="#判断文件存在" class="headerlink" title="判断文件存在"></a>判断文件存在</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = str(<span class="string">&quot;&quot;</span>%(...))</span><br><span class="line">os.path.exists(name)</span><br></pre></td></tr></table></figure>
+<h2 id="断点设置"><a href="#断点设置" class="headerlink" title="断点设置"></a>断点设置</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pdb</span><br><span class="line">pdb.set_trace()</span><br></pre></td></tr></table></figure>
+
+<h2 id="调试命令"><a href="#调试命令" class="headerlink" title="调试命令"></a>调试命令</h2><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>break</code>,<code>b</code></td>
+<td align="center">设置断点</td>
+</tr>
+<tr>
+<td align="center"><code>continue</code>,<code>c</code></td>
+<td align="center">继续执行程序</td>
+</tr>
+<tr>
+<td align="center"><code>list</code>,<code>l</code></td>
+<td align="center">查看当前行的代码段</td>
+</tr>
+<tr>
+<td align="center"><code>step</code>,<code>s</code></td>
+<td align="center">进入函数</td>
+</tr>
+<tr>
+<td align="center"><code>return</code>,<code>r</code></td>
+<td align="center">从当前函数返回</td>
+</tr>
+<tr>
+<td align="center"><code>exit</code>,<code>q</code></td>
+<td align="center">退出</td>
+</tr>
+<tr>
+<td align="center"><code>next</code>,<code>n</code></td>
+<td align="center">执行下一行</td>
+</tr>
+</tbody></table>
+<p><strong>TODO</strong></p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="同一行输出"><a href="#同一行输出" class="headerlink" title="同一行输出"></a>同一行输出</h2><ul>
+<li><code>print</code>不能以<code>\n</code>结尾</li>
+<li>输出的字符串需要以<code>\r</code>开头来回到行首</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&#x27;\rfuck&#x27;</span>, end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
   
     
