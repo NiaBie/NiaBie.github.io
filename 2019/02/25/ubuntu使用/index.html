@@ -270,6 +270,16 @@
     temp = 'tags/latex/';
     tags_path.push(temp);
   ''
+    var temp = 'blender';
+    tags_name.push(temp);
+    temp = 'tags/blender/';
+    tags_path.push(temp);
+  ''
+    var temp = '3D建模';
+    tags_name.push(temp);
+    temp = 'tags/3D建模/';
+    tags_path.push(temp);
+  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -1073,26 +1083,15 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install byzanz </span><br><span class="line">byzanz-record --duration=50 --delay=3 --x=1030 --y=100 --height=500 demo1.gif</span><br></pre></td></tr></table></figure>
 
+<h2 id="网速限制"><a href="#网速限制" class="headerlink" title="网速限制"></a>网速限制</h2><ul>
+<li>wondershaper</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install wondershaper</span><br><span class="line"># 限制eth0下载速度100k, 上传速度20k</span><br><span class="line">sudo wondershaper eth0 100 20</span><br></pre></td></tr></table></figure>
+
 <h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><ul>
 <li>mpv</li>
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/mpv-player/mpv/blob/master/etc/input.conf">快捷键:https://github.com/mpv-player/mpv/blob/master/etc/input.conf</a></p>
-<h2 id="视频转换"><a href="#视频转换" class="headerlink" title="视频转换"></a>视频转换</h2><ul>
-<li>ffmpeg</li>
-</ul>
-<h3 id="gif转视频"><a href="#gif转视频" class="headerlink" title="gif转视频"></a>gif转视频</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f gif -i draw1.gif draw1.mpg</span><br></pre></td></tr></table></figure>
-
-<h3 id="视频合并"><a href="#视频合并" class="headerlink" title="视频合并"></a>视频合并</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;concat:draw1.mpg|draw2.mpg|pen.mpg|edit.mpg|clip.mpg&quot;</span> demo.mp4</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>注意添加<code>concat</code></li>
-<li>只有特定格式的视频才能合并</li>
-</ul>
-<h3 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h3><ul>
-<li><strong>TODO</strong>:视频关键帧会影响剪切的时长</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -ss 00:00:00 -t 00:01:15 -i del.mpg -vcodec copy -acodec copy del.mp4</span><br></pre></td></tr></table></figure>
-
 <h2 id="桌面便签-Indicator-Stickynotes"><a href="#桌面便签-Indicator-Stickynotes" class="headerlink" title="桌面便签(Indicator Stickynotes)"></a>桌面便签(Indicator Stickynotes)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:umang/indicator-stickynotes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install indicator-stickynotes</span><br></pre></td></tr></table></figure>
 
 <h2 id="下载器-TODO"><a href="#下载器-TODO" class="headerlink" title="下载器(TODO)"></a>下载器(TODO)</h2><ul>

@@ -270,6 +270,16 @@
     temp = 'tags/latex/';
     tags_path.push(temp);
   ''
+    var temp = 'blender';
+    tags_name.push(temp);
+    temp = 'tags/blender/';
+    tags_path.push(temp);
+  ''
+    var temp = '3D建模';
+    tags_name.push(temp);
+    temp = 'tags/3D建模/';
+    tags_path.push(temp);
+  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -1150,6 +1160,7 @@
 <h2 id="insert去重"><a href="#insert去重" class="headerlink" title="insert去重"></a><code>insert</code>去重</h2><ul>
 <li><code>ignore</code></li>
 </ul>
+<p>遇到重复的不进行<code>insert</code></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">ignore</span> <span class="keyword">into</span> <span class="keyword">table</span> (<span class="keyword">column</span>)</span><br><span class="line"> <span class="keyword">values</span></span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
 
 <ul>
@@ -1159,7 +1170,9 @@
 <ul>
 <li><code>replace into</code></li>
 </ul>
-<p><strong>TODO</strong></p>
+<p>遇到重复的, 将完全覆盖</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">ignore</span> <span class="keyword">into</span> <span class="keyword">table</span> (<span class="keyword">column</span>)</span><br><span class="line"> <span class="keyword">values</span></span><br><span class="line"> ...</span><br></pre></td></tr></table></figure>
+
 <h2 id="更新表数据"><a href="#更新表数据" class="headerlink" title="更新表数据"></a>更新表数据</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> table_name <span class="keyword">set</span> item=<span class="string">&quot;shit&quot;</span> <span class="keyword">where</span> fuck=<span class="string">&quot;fuck&quot;</span>;</span><br></pre></td></tr></table></figure>
 
 <h2 id="每组前n"><a href="#每组前n" class="headerlink" title="每组前n"></a>每组前n</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/softidea/p/10268811.html">参考</a></p>

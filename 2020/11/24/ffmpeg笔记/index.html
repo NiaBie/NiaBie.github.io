@@ -274,6 +274,16 @@
     temp = 'tags/latex/';
     tags_path.push(temp);
   ''
+    var temp = 'blender';
+    tags_name.push(temp);
+    temp = 'tags/blender/';
+    tags_path.push(temp);
+  ''
+    var temp = '3D建模';
+    tags_name.push(temp);
+    temp = 'tags/3D建模/';
+    tags_path.push(temp);
+  ''
     var temp = 'html';
     tags_name.push(temp);
     temp = 'tags/html/';
@@ -915,7 +925,15 @@
 <h1 id="Android端动态ffmpeg库与OpenCV交叉编译"><a href="#Android端动态ffmpeg库与OpenCV交叉编译" class="headerlink" title="Android端动态ffmpeg库与OpenCV交叉编译"></a>Android端动态ffmpeg库与OpenCV交叉编译</h1><h2 id="编写ffmpeg的编译脚本-1"><a href="#编写ffmpeg的编译脚本-1" class="headerlink" title="编写ffmpeg的编译脚本"></a>编写ffmpeg的编译脚本</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_29221887/article/details/88655217">参考:CSDN</a></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">TOOLCHAIN=/home/lynx/fuck_mount/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/linux-x86_64</span><br><span class="line"></span><br><span class="line">./configure \</span><br><span class="line">  --target-os=android \</span><br><span class="line">  --prefix=/home/lynx/fuck_mount/ffmpeg/android_shared \</span><br><span class="line">  --<span class="built_in">enable</span>-cross-compile --<span class="built_in">enable</span>-runtime-cpudetect \</span><br><span class="line">  --<span class="built_in">enable</span>-jni --<span class="built_in">enable</span>-mediacodec --<span class="built_in">enable</span>-avresample \</span><br><span class="line">  --<span class="built_in">disable</span>-asm --<span class="built_in">disable</span>-x86asm --<span class="built_in">disable</span>-network --<span class="built_in">disable</span>-doc \</span><br><span class="line">  --<span class="built_in">disable</span>-stripping --<span class="built_in">disable</span>-ffprobe --<span class="built_in">disable</span>-ffplay --<span class="built_in">disable</span>-debug \</span><br><span class="line">  --<span class="built_in">enable</span>-gpl --<span class="built_in">enable</span>-shared \</span><br><span class="line">  --arch=aarch64 \</span><br><span class="line">  --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/aarch64-linux-android- \</span><br><span class="line">  --cc=<span class="variable">$TOOLCHAIN</span>/bin/aarch64-linux-android30-clang \</span><br><span class="line">  --cxx=<span class="variable">$TOOLCHAIN</span>/bin/aarch64-linux-android30-clang++ \</span><br><span class="line">  --nm=<span class="variable">$TOOLCHAIN</span>/bin/aarch64-linux-android-nm \</span><br><span class="line">  --sysroot=<span class="variable">$TOOLCHAIN</span>/sysroot \</span><br><span class="line">  --extra-cflags=<span class="string">&quot;-fPIC -D__thumb__ -mthumb -Wfatal-errors -Wno-deprecated -mfloat-abi=softfp -marm -march=armv8-a&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4</span><br></pre></td></tr></table></figure>
+<h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><h2 id="视频转换"><a href="#视频转换" class="headerlink" title="视频转换"></a>视频转换</h2><h3 id="gif转视频"><a href="#gif转视频" class="headerlink" title="gif转视频"></a>gif转视频</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f gif -i draw1.gif draw1.mpg</span><br></pre></td></tr></table></figure>
+
+<h2 id="视频合并"><a href="#视频合并" class="headerlink" title="视频合并"></a>视频合并</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i <span class="string">&quot;concat:draw1.mpg|draw2.mpg|pen.mpg|edit.mpg|clip.mpg&quot;</span> demo.mp4</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意添加<code>concat</code></li>
+<li>只有特定格式的视频才能合并</li>
+</ul>
+<h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4</span><br></pre></td></tr></table></figure>
 
 <h2 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定时长</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -t 00:57:45 -c copy output.mp4</span><br><span class="line"><span class="comment"># 指定结束时间</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -to 00:57:45 -c copy output.mp4</span><br></pre></td></tr></table></figure>
 
