@@ -735,6 +735,11 @@
     temp = 'tags/航位推算/';
     tags_path.push(temp);
   ''
+    var temp = 'socket';
+    tags_name.push(temp);
+    temp = 'tags/socket/';
+    tags_path.push(temp);
+  ''
     var temp = '百度网盘';
     tags_name.push(temp);
     temp = 'tags/百度网盘/';
@@ -1156,6 +1161,10 @@
 <h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> customers(</span><br><span class="line">    cid <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    cname <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    city <span class="built_in">char</span>(<span class="number">20</span>),</span><br><span class="line">    discnt <span class="built_in">real</span>,</span><br><span class="line">    primary <span class="keyword">key</span> ( cid )</span><br><span class="line">) <span class="built_in">character</span> <span class="keyword">set</span> = utf8 <span class="comment">-- 支持中文;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="修改并查看注释-comment"><a href="#修改并查看注释-comment" class="headerlink" title="修改并查看注释(comment)"></a>修改并查看注释(<code>comment</code>)</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> customers</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> cid</span><br><span class="line">cid <span class="built_in">char</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;编号&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> cname</span><br><span class="line">cname <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">comment</span> <span class="string">&#x27;姓名&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> city</span><br><span class="line">city <span class="built_in">char</span>(<span class="number">20</span>) <span class="keyword">comment</span> <span class="string">&#x27;城市&#x27;</span>,</span><br><span class="line"><span class="keyword">change</span> <span class="keyword">column</span> discnt</span><br><span class="line">discnt <span class="built_in">real</span> <span class="keyword">comment</span> <span class="string">&#x27;折扣&#x27;</span>;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">full</span> <span class="keyword">columns</span> <span class="keyword">from</span> customers;</span><br></pre></td></tr></table></figure>
+
+<h2 id="复制表"><a href="#复制表" class="headerlink" title="复制表"></a>复制表</h2><h3 id="复制结构"><a href="#复制结构" class="headerlink" title="复制结构"></a>复制结构</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> table_new <span class="keyword">like</span> table_old</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制数据"><a href="#复制数据" class="headerlink" title="复制数据"></a>复制数据</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> table_new <span class="keyword">select</span> * <span class="keyword">from</span> table_old</span><br></pre></td></tr></table></figure>
 
 <h2 id="insert去重"><a href="#insert去重" class="headerlink" title="insert去重"></a><code>insert</code>去重</h2><ul>
 <li><code>ignore</code></li>

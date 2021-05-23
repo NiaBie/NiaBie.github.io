@@ -735,6 +735,11 @@
     temp = 'tags/航位推算/';
     tags_path.push(temp);
   ''
+    var temp = 'socket';
+    tags_name.push(temp);
+    temp = 'tags/socket/';
+    tags_path.push(temp);
+  ''
     var temp = '百度网盘';
     tags_name.push(temp);
     temp = 'tags/百度网盘/';
@@ -1086,7 +1091,7 @@
 <h2 id="网速限制"><a href="#网速限制" class="headerlink" title="网速限制"></a>网速限制</h2><ul>
 <li>wondershaper</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install wondershaper</span><br><span class="line"># 限制eth0下载速度100k, 上传速度20k</span><br><span class="line">sudo wondershaper eth0 100 20</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt install wondershaper</span><br><span class="line"># 限制eth0下载速度100k, 上传速度20k</span><br><span class="line">sudo wondershaper eth0 100 20</span><br><span class="line"># 清除eth0网速限制</span><br><span class="line">sudo wondershaper clear eth0</span><br></pre></td></tr></table></figure>
 
 <h2 id="视频播放"><a href="#视频播放" class="headerlink" title="视频播放"></a>视频播放</h2><ul>
 <li>mpv</li>
