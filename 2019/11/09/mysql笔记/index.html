@@ -1198,6 +1198,9 @@
 </ul>
 <h2 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> season_id, <span class="keyword">id</span>, title, p_year, c_year <span class="keyword">from</span> season</span><br><span class="line"><span class="keyword">where</span> title <span class="keyword">like</span> <span class="string">&#x27;%鲁路修%&#x27;</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> p_year;</span><br></pre></td></tr></table></figure>
 
+<h1 id="数据回滚"><a href="#数据回滚" class="headerlink" title="数据回滚"></a>数据回滚</h1><h2 id="binlog2sql"><a href="#binlog2sql" class="headerlink" title="binlog2sql"></a>binlog2sql</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/danfengcao/binlog2sql.git</span><br><span class="line"><span class="built_in">cd</span> binlog2sql</span><br><span class="line">python3 -m pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><p>用不了, <code>pymysql</code>版本冲突</p>
 
   
     
