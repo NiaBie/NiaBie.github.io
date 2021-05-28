@@ -260,9 +260,9 @@
     temp = 'tags/php/';
     tags_path.push(temp);
   ''
-    var temp = 'apahce';
+    var temp = 'apache';
     tags_name.push(temp);
-    temp = 'tags/apahce/';
+    temp = 'tags/apache/';
     tags_path.push(temp);
   ''
     var temp = 'https';
@@ -385,16 +385,6 @@
     temp = 'tags/grub/';
     tags_path.push(temp);
   ''
-    var temp = 'mathjax';
-    tags_name.push(temp);
-    temp = 'tags/mathjax/';
-    tags_path.push(temp);
-  ''
-    var temp = 'katex';
-    tags_name.push(temp);
-    temp = 'tags/katex/';
-    tags_path.push(temp);
-  ''
     var temp = 'hexo';
     tags_name.push(temp);
     temp = 'tags/hexo/';
@@ -408,6 +398,16 @@
     var temp = 'ejs';
     tags_name.push(temp);
     temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
     tags_path.push(temp);
   ''
     var temp = '阿里云';
@@ -720,11 +720,6 @@
     temp = 'tags/wordpress/';
     tags_path.push(temp);
   ''
-    var temp = 'apache';
-    tags_name.push(temp);
-    temp = 'tags/apache/';
-    tags_path.push(temp);
-  ''
     var temp = 'xampp';
     tags_name.push(temp);
     temp = 'tags/xampp/';
@@ -904,7 +899,7 @@
       }
     </style>
   
-    <h2 id="声卡驱动"><a href="#声卡驱动" class="headerlink" title="声卡驱动"></a>声卡驱动</h2><ul>
+    <h1 id="驱动-服务"><a href="#驱动-服务" class="headerlink" title="驱动/服务"></a>驱动/服务</h1><h2 id="声卡驱动"><a href="#声卡驱动" class="headerlink" title="声卡驱动"></a>声卡驱动</h2><ul>
 <li>重启声卡</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /sbin/alsa force-reload</span><br></pre></td></tr></table></figure>
@@ -919,13 +914,18 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/gdm3 restart</span><br></pre></td></tr></table></figure>
 
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><ul>
+<li>更新hosts</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/network-manager restart</span><br></pre></td></tr></table></figure>
+
 <h2 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h2><p>在sudo模式下使用用户的<code>.vimrc</code></p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo -E vim file</span><br></pre></td></tr></table></figure>
 
-<h2 id="当前目录-只保留file"><a href="#当前目录-只保留file" class="headerlink" title="当前目录,只保留file"></a>当前目录,只保留file</h2><ul>
+<h1 id="命令行"><a href="#命令行" class="headerlink" title="命令行"></a>命令行</h1><h2 id="删除当前目录所有文件-只保留file"><a href="#删除当前目录所有文件-只保留file" class="headerlink" title="删除当前目录所有文件, 只保留file"></a>删除当前目录所有文件, 只保留file</h2><ul>
 <li><code>xargs</code></li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find /当前目录 -<span class="built_in">type</span> f ! -name <span class="string">&quot;file&quot;</span>|xargs rm -f</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">find /当前目录 -<span class="built_in">type</span> f ! -name <span class="string">&quot;file&quot;</span> | xargs rm -f</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>find</code>自带命令</li>
@@ -939,26 +939,14 @@
 
 <h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar czvf FileName.tar DirName</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>计算目录大小</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -h --max-depth=1 .</span><br></pre></td></tr></table></figure>
+<h2 id="计算目录大小"><a href="#计算目录大小" class="headerlink" title="计算目录大小"></a>计算目录大小</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -h --max-depth=1 .</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>合并文件夹</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp -frp new/* old/</span><br></pre></td></tr></table></figure>
+<h2 id="合并文件夹"><a href="#合并文件夹" class="headerlink" title="合并文件夹"></a>合并文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp -frp new/* old/</span><br></pre></td></tr></table></figure>
 
 <p><code>-f</code>强制覆盖,<code>-r</code>递归,<code>-p</code>保持新文件的属性不变</p>
-<h2 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h2><ul>
-<li>查找已装软件?</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l|grep filename</span><br></pre></td></tr></table></figure>
+<h2 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h2><h3 id="查找已装软件"><a href="#查找已装软件" class="headerlink" title="查找已装软件?"></a>查找已装软件?</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l|grep filename</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>卸载软件</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -r filename</span><br></pre></td></tr></table></figure>
+<h3 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -r filename</span><br></pre></td></tr></table></figure>
 
 <p>或?</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -P filename</span><br></pre></td></tr></table></figure>

@@ -72,7 +72,7 @@
           </span>
         
           <span class="tag_item">
-            <a href="/tags/apahce/">apahce</a>
+            <a href="/tags/apache/">apache</a>
           </span>
         
           <span class="tag_item">
@@ -264,9 +264,9 @@
     temp = 'tags/php/';
     tags_path.push(temp);
   ''
-    var temp = 'apahce';
+    var temp = 'apache';
     tags_name.push(temp);
-    temp = 'tags/apahce/';
+    temp = 'tags/apache/';
     tags_path.push(temp);
   ''
     var temp = 'https';
@@ -389,16 +389,6 @@
     temp = 'tags/grub/';
     tags_path.push(temp);
   ''
-    var temp = 'mathjax';
-    tags_name.push(temp);
-    temp = 'tags/mathjax/';
-    tags_path.push(temp);
-  ''
-    var temp = 'katex';
-    tags_name.push(temp);
-    temp = 'tags/katex/';
-    tags_path.push(temp);
-  ''
     var temp = 'hexo';
     tags_name.push(temp);
     temp = 'tags/hexo/';
@@ -412,6 +402,16 @@
     var temp = 'ejs';
     tags_name.push(temp);
     temp = 'tags/ejs/';
+    tags_path.push(temp);
+  ''
+    var temp = 'mathjax';
+    tags_name.push(temp);
+    temp = 'tags/mathjax/';
+    tags_path.push(temp);
+  ''
+    var temp = 'katex';
+    tags_name.push(temp);
+    temp = 'tags/katex/';
     tags_path.push(temp);
   ''
     var temp = '阿里云';
@@ -724,11 +724,6 @@
     temp = 'tags/wordpress/';
     tags_path.push(temp);
   ''
-    var temp = 'apache';
-    tags_name.push(temp);
-    temp = 'tags/apache/';
-    tags_path.push(temp);
-  ''
     var temp = 'xampp';
     tags_name.push(temp);
     temp = 'tags/xampp/';
@@ -896,7 +891,7 @@
 
 <div class="main_container">
   <div class="main_box border_box">
-    <span class="post_title" id="post_title">apahce笔记</span>
+    <span class="post_title" id="post_title">apache笔记</span>
     <br>
     <span class="post_date">2019-04-18</span>
     
@@ -908,18 +903,18 @@
       }
     </style>
   
-    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install php7.2 <span class="comment"># php的版本可改</span></span><br><span class="line">sudo apt install apahce2</span><br><span class="line">sudo apt install php7.2-mysql <span class="comment"># php支持mysql, 好像不需要</span></span><br><span class="line">sudo apt install mysql-server mysql-client <span class="comment"># 安装数据库</span></span><br></pre></td></tr></table></figure>
+    <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install php7.2 <span class="comment"># php的版本可改</span></span><br><span class="line">sudo apt install apache2</span><br><span class="line">sudo apt install php7.2-mysql <span class="comment"># php支持mysql, 好像不需要</span></span><br><span class="line">sudo apt install mysql-server mysql-client <span class="comment"># 安装数据库</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service mysql start <span class="comment"># 启动数据库服务</span></span><br><span class="line">sudo service apache2 restart <span class="comment"># http</span></span><br><span class="line">sudo /usr/sbin/apache2ctl start <span class="comment"># http</span></span><br></pre></td></tr></table></figure>
 
-<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><code>apahce2</code>配置目录<code>/etc/apahce2</code></p>
-<h2 id="修改apahce2默认目录"><a href="#修改apahce2默认目录" class="headerlink" title="修改apahce2默认目录"></a>修改<code>apahce2</code>默认目录</h2><ul>
-<li>修改<code>/etc/apahce2/sites-available/000-default.conf</code>(本地服务器提供的目录)</li>
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><code>apache2</code>配置目录<code>/etc/apache2</code></p>
+<h2 id="修改apache2默认目录"><a href="#修改apache2默认目录" class="headerlink" title="修改apache2默认目录"></a>修改<code>apache2</code>默认目录</h2><ul>
+<li>修改<code>/etc/apache2/sites-available/000-default.conf</code>(本地服务器提供的目录)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DocumentRoot &#x2F;&#123;不要带&#x2F;&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>修改<code>/etc/apahce2/apahce2.conf</code>(为本地服务器的目录提供权限)</li>
+<li>修改<code>/etc/apache2/apache2.conf</code>(为本地服务器的目录提供权限)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Directory &#x2F;&#123;你的目录,不要加&#x2F;&#125;&gt;</span><br><span class="line">  Require all granted</span><br><span class="line">&lt;Directory&gt;</span><br></pre></td></tr></table></figure>
 
@@ -928,30 +923,55 @@
 </ul>
 <h2 id="开启浏览目录权限"><a href="#开启浏览目录权限" class="headerlink" title="开启浏览目录权限"></a>开启浏览目录权限</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Directory &#x2F;&#123;你的目录,不要加&#x2F;&#125;&gt;</span><br><span class="line">  Options Indexes</span><br><span class="line">&lt;Directory&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="修改apahce2默认端口"><a href="#修改apahce2默认端口" class="headerlink" title="修改apahce2默认端口"></a>修改<code>apahce2</code>默认端口</h2><ul>
-<li>修改<code>/etc/apahce2/sites-available/000-default.conf</code></li>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><h3 id="修改apache2默认端口"><a href="#修改apache2默认端口" class="headerlink" title="修改apache2默认端口"></a>修改<code>apache2</code>默认端口</h3><ul>
+<li>修改<code>/etc/apache2/sites-available/000-default.conf</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost *:&#123;端口号&#125;&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>修改<code>/etc/apahce2/ports.conf</code></li>
+<li>修改<code>/etc/apache2/ports.conf</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Listen &#123;端口&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>注意<code>https</code>和<code>http</code>的区别</p>
 </blockquote>
-<h2 id="多端口"><a href="#多端口" class="headerlink" title="多端口"></a>多端口</h2><ul>
+<h3 id="多端口"><a href="#多端口" class="headerlink" title="多端口"></a>多端口</h3><ul>
 <li><code>ports.conf</code>增加<code>Listen</code></li>
-<li><code>apahce2.conf</code>增加<code>&lt;VirtualHost *:&#123;端口&#125;&gt;&lt;/VirtualHost&gt;</code></li>
+<li><code>apache2.conf</code>增加<code>&lt;VirtualHost *:&#123;端口&#125;&gt;&lt;/VirtualHost&gt;</code></li>
 </ul>
-<h2 id="添加SSL证书"><a href="#添加SSL证书" class="headerlink" title="添加SSL证书"></a>添加SSL证书</h2><h3 id="仅localhost"><a href="#仅localhost" class="headerlink" title="仅localhost"></a>仅localhost</h3><ul>
+<h2 id="启用https"><a href="#启用https" class="headerlink" title="启用https"></a>启用https</h2><h3 id="仅localhost"><a href="#仅localhost" class="headerlink" title="仅localhost"></a>仅localhost</h3><ul>
 <li>chrome</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate">参考: stackoverflow</a>, 输入网址<code>chrome://flags/#allow-insecure-localhost</code>进行设置</p>
-<h3 id="导入自签名SSL证书"><a href="#导入自签名SSL证书" class="headerlink" title="导入自签名SSL证书"></a>导入自签名SSL证书</h3><p><a target="_blank" rel="noopener" href="https://majing.io/posts/10000050311000">参考: https://majing.io/posts/10000050311000</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sites-available&#x2F;default-ssl.conf</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/7580508/getting-chrome-to-accept-self-signed-localhost-certificate">参考: stackoverflow</a>, 输入网址<code>chrome://flags/#allow-insecure-localhost</code>进行设置, 此外还需要清除缓存之类(<strong>TODO</strong>)</p>
+<h3 id="自签名SSL证书"><a href="#自签名SSL证书" class="headerlink" title="自签名SSL证书"></a>自签名SSL证书</h3><ul>
+<li>创建证书</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://majing.io/posts/10000050311000">参考: https://majing.io/posts/10000050311000</a></p>
+<ol>
+<li>创建认证中心, Certificate Authority(CA)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">openssl genrsa -des3 -out myCA.key 2048</span><br><span class="line">openssl req -x509 -new -nodes -key myCA.key -sha256 -days 825 -out myCA.pem</span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>创建<code>localhost.ext</code></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">authorityKeyIdentifier&#x3D;keyid,issuer</span><br><span class="line">basicConstraints&#x3D;CA:FALSE</span><br><span class="line">keyUsage &#x3D; digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment</span><br><span class="line">subjectAltName &#x3D; @alt_names</span><br><span class="line">[alt_names]</span><br><span class="line">DNS.1 &#x3D; localhost</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>创建证书</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">openssl genrsa -out localhost.key 2048</span><br><span class="line">openssl req -new -key localhost.key -out localhost.csr</span><br><span class="line">openssl x509 -req -in localhost.csr -CA myCA.pem -CAkey myCA.key -CAcreateserial -out localhost.crt -days 825 -sha256 -extfile localhost.ext</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启SSL模块(一个步骤都不能少)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo a2enmod ssl</span><br><span class="line">sudo systemctl restart apache2</span><br><span class="line">sudo a2ensite default-ssl</span><br><span class="line">sudo systemctl reload apache2</span><br></pre></td></tr></table></figure>
+
+<p>修改<code>/etc/apache2/sites-available/default-ssl.conf</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSLEngine on</span><br><span class="line">SSLCertificateFile     &#x2F;home&#x2F;lynx&#x2F;darkin_blade&#x2F;m3u8&#x2F;https&#x2F;localhost.crt</span><br><span class="line">SSLCertificateKeyFile  &#x2F;home&#x2F;lynx&#x2F;darkin_blade&#x2F;m3u8&#x2F;https&#x2F;localhost.key</span><br></pre></td></tr></table></figure>
+
+<p><strong>TODO</strong></p>
 <h1 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h1><h2 id="无法启动apache-找不到libphpx-x-so"><a href="#无法启动apache-找不到libphpx-x-so" class="headerlink" title="无法启动apache: 找不到libphpx.x.so"></a>无法启动<code>apache</code>: 找不到<code>libphpx.x.so</code></h2><p>以<code>php7.4</code>为例</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt-file search <span class="string">&quot;libphp7.4.so&quot;</span></span><br><span class="line">libapache2-mod-php7.4: /usr/lib/apache2/modules/libphp7.4.so</span><br><span class="line">sudo apt install libapache2-mod-php7.4</span><br></pre></td></tr></table></figure>
 
