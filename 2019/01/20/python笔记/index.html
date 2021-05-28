@@ -256,9 +256,14 @@
     temp = 'tags/php/';
     tags_path.push(temp);
   ''
-    var temp = 'apahce2';
+    var temp = 'apahce';
     tags_name.push(temp);
-    temp = 'tags/apahce2/';
+    temp = 'tags/apahce/';
+    tags_path.push(temp);
+  ''
+    var temp = 'https';
+    tags_name.push(temp);
+    temp = 'tags/https/';
     tags_path.push(temp);
   ''
     var temp = 'latex';
@@ -942,6 +947,14 @@
 <li>输出的字符串需要以<code>\r</code>开头来回到行首</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">&#x27;\rfuck&#x27;</span>, end = <span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="打印行号"><a href="#打印行号" class="headerlink" title="打印行号"></a>打印行号</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6810999/how-to-determine-file-function-and-line-number">参考: stackoverflow</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> inspect</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">PrintFrame</span>():</span></span><br><span class="line">  callerframerecord = inspect.stack()[<span class="number">1</span>]    <span class="comment"># 0 represents this line</span></span><br><span class="line">                                            <span class="comment"># 1 represents line at caller</span></span><br><span class="line">  frame = callerframerecord[<span class="number">0</span>]</span><br><span class="line">  info = inspect.getframeinfo(frame)</span><br><span class="line">  print(info.filename)                      <span class="comment"># __FILE__     -&gt; Test.py</span></span><br><span class="line">  print(info.function)                      <span class="comment"># __FUNCTION__ -&gt; Main</span></span><br><span class="line">  print(info.lineno)                        <span class="comment"># __LINE__     -&gt; 13</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span>():</span></span><br><span class="line">  PrintFrame()                              <span class="comment"># for this line</span></span><br><span class="line"></span><br><span class="line">Main()</span><br></pre></td></tr></table></figure>
+
+<h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h2><ul>
+<li>由<code>sudo</code>导致<code>sys.path</code>的差异问题, 使得模块找不到</li>
+</ul>
+<p>在<code>/usr/local/lib/python3.8/dist-packages</code>下创建<code>xxx.pth</code>, 添加需要添加的module路径如<code>/home/lynx/.local/lib/python3.8/site-packages</code></p>
 
   
     
