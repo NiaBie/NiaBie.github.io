@@ -234,6 +234,11 @@
     temp = 'tags/PyQt5/';
     tags_path.push(temp);
   ''
+    var temp = '华为';
+    tags_name.push(temp);
+    temp = 'tags/华为/';
+    tags_path.push(temp);
+  ''
     var temp = 'qt';
     tags_name.push(temp);
     temp = 'tags/qt/';
@@ -252,11 +257,6 @@
     var temp = 'debreate';
     tags_name.push(temp);
     temp = 'tags/debreate/';
-    tags_path.push(temp);
-  ''
-    var temp = '华为';
-    tags_name.push(temp);
-    temp = 'tags/华为/';
     tags_path.push(temp);
   ''
     var temp = 'php';
@@ -908,8 +908,9 @@
 <h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo service mysql start <span class="comment"># 启动数据库服务</span></span><br><span class="line">sudo service apache2 restart <span class="comment"># http</span></span><br><span class="line">sudo /usr/sbin/apache2ctl start <span class="comment"># http</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><p><code>apache2</code>配置目录<code>/etc/apache2</code></p>
+<p>目录说明: <code>xxx-available</code>是apache2可用的模块, <code>xxx-enabled</code>是已经开启的模块, 如果模块开启了, 则<code>xxx-enabled</code>下会有一个指向<code>xxx-available</code>对应模块的软连接, 如果没有则说明没有开启</p>
 <h2 id="修改apache2默认目录"><a href="#修改apache2默认目录" class="headerlink" title="修改apache2默认目录"></a>修改<code>apache2</code>默认目录</h2><ul>
-<li>修改<code>/etc/apache2/sites-available/000-default.conf</code>(本地服务器提供的目录)</li>
+<li>修改<code>/etc/apache2/sites-enabled/000-default.conf</code>(本地服务器提供的目录)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">DocumentRoot &#x2F;&#123;不要带&#x2F;&#125;</span><br></pre></td></tr></table></figure>
 
@@ -924,7 +925,7 @@
 <h2 id="开启浏览目录权限"><a href="#开启浏览目录权限" class="headerlink" title="开启浏览目录权限"></a>开启浏览目录权限</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Directory &#x2F;&#123;你的目录,不要加&#x2F;&#125;&gt;</span><br><span class="line">  Options Indexes</span><br><span class="line">&lt;Directory&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><h3 id="修改apache2默认端口"><a href="#修改apache2默认端口" class="headerlink" title="修改apache2默认端口"></a>修改<code>apache2</code>默认端口</h3><ul>
-<li>修改<code>/etc/apache2/sites-available/000-default.conf</code></li>
+<li>修改<code>/etc/apache2/sites-enabled/000-default.conf</code></li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;VirtualHost *:&#123;端口号&#125;&gt;</span><br></pre></td></tr></table></figure>
 
@@ -938,7 +939,7 @@
 </blockquote>
 <h3 id="多端口"><a href="#多端口" class="headerlink" title="多端口"></a>多端口</h3><ul>
 <li><code>ports.conf</code>增加<code>Listen</code></li>
-<li><code>apache2.conf</code>增加<code>&lt;VirtualHost *:&#123;端口&#125;&gt;&lt;/VirtualHost&gt;</code></li>
+<li><code>sites-enabled/000-default.conf</code>增加<code>&lt;VirtualHost *:&#123;端口&#125;&gt;&lt;/VirtualHost&gt;</code></li>
 </ul>
 <h2 id="启用https"><a href="#启用https" class="headerlink" title="启用https"></a>启用https</h2><h3 id="仅localhost"><a href="#仅localhost" class="headerlink" title="仅localhost"></a>仅localhost</h3><ul>
 <li>chrome</li>
@@ -968,7 +969,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo a2enmod ssl</span><br><span class="line">sudo systemctl restart apache2</span><br><span class="line">sudo a2ensite default-ssl</span><br><span class="line">sudo systemctl reload apache2</span><br></pre></td></tr></table></figure>
 
-<p>修改<code>/etc/apache2/sites-available/default-ssl.conf</code>:</p>
+<p>修改<code>/etc/apache2/sites-enabled/default-ssl.conf</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SSLEngine on</span><br><span class="line">SSLCertificateFile     &#x2F;home&#x2F;lynx&#x2F;darkin_blade&#x2F;m3u8&#x2F;https&#x2F;localhost.crt</span><br><span class="line">SSLCertificateKeyFile  &#x2F;home&#x2F;lynx&#x2F;darkin_blade&#x2F;m3u8&#x2F;https&#x2F;localhost.key</span><br></pre></td></tr></table></figure>
 
 <p><strong>TODO</strong></p>

@@ -230,6 +230,11 @@
     temp = 'tags/PyQt5/';
     tags_path.push(temp);
   ''
+    var temp = '华为';
+    tags_name.push(temp);
+    temp = 'tags/华为/';
+    tags_path.push(temp);
+  ''
     var temp = 'qt';
     tags_name.push(temp);
     temp = 'tags/qt/';
@@ -248,11 +253,6 @@
     var temp = 'debreate';
     tags_name.push(temp);
     temp = 'tags/debreate/';
-    tags_path.push(temp);
-  ''
-    var temp = '华为';
-    tags_name.push(temp);
-    temp = 'tags/华为/';
     tags_path.push(temp);
   ''
     var temp = 'php';
@@ -937,13 +937,15 @@
 
 <h2 id="批量修改文件名"><a href="#批量修改文件名" class="headerlink" title="批量修改文件名"></a>批量修改文件名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rename <span class="string">&#x27;s/原内容/改后内容/&#x27;</span> *</span><br></pre></td></tr></table></figure>
 
-<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar czvf FileName.tar DirName</span><br></pre></td></tr></table></figure>
-
 <h2 id="计算目录大小"><a href="#计算目录大小" class="headerlink" title="计算目录大小"></a>计算目录大小</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">du -h --max-depth=1 .</span><br></pre></td></tr></table></figure>
 
 <h2 id="合并文件夹"><a href="#合并文件夹" class="headerlink" title="合并文件夹"></a>合并文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp -frp new/* old/</span><br></pre></td></tr></table></figure>
 
 <p><code>-f</code>强制覆盖,<code>-r</code>递归,<code>-p</code>保持新文件的属性不变</p>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar czvf FileName.tar DirName</span><br></pre></td></tr></table></figure>
+
+<h3 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zip 1.zip 1.mp4 1.ass -P your_password -0</span><br></pre></td></tr></table></figure>
+
 <h2 id="dpkg"><a href="#dpkg" class="headerlink" title="dpkg"></a>dpkg</h2><h3 id="查找已装软件"><a href="#查找已装软件" class="headerlink" title="查找已装软件?"></a>查找已装软件?</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -l|grep filename</span><br></pre></td></tr></table></figure>
 
 <h3 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">dpkg -r filename</span><br></pre></td></tr></table></figure>
