@@ -234,11 +234,6 @@
     temp = 'tags/PyQt5/';
     tags_path.push(temp);
   ''
-    var temp = '华为';
-    tags_name.push(temp);
-    temp = 'tags/华为/';
-    tags_path.push(temp);
-  ''
     var temp = 'qt';
     tags_name.push(temp);
     temp = 'tags/qt/';
@@ -257,6 +252,11 @@
     var temp = 'debreate';
     tags_name.push(temp);
     temp = 'tags/debreate/';
+    tags_path.push(temp);
+  ''
+    var temp = '华为';
+    tags_name.push(temp);
+    temp = 'tags/华为/';
     tags_path.push(temp);
   ''
     var temp = 'php';
@@ -941,6 +941,8 @@
 <h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4</span><br></pre></td></tr></table></figure>
 
 <h2 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定时长</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -t 00:57:45 -c copy output.mp4</span><br><span class="line"><span class="comment"># 指定结束时间</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -to 00:57:45 -c copy output.mp4</span><br></pre></td></tr></table></figure>
+
+<h2 id="视频截图"><a href="#视频截图" class="headerlink" title="视频截图"></a>视频截图</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 截取单帧</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:00:00 -vframes 1 output.jpg</span><br><span class="line"><span class="comment"># 固定时间开始连续截取多张</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:00:00 -vframes 10 output.jpg</span><br></pre></td></tr></table></figure>
 
 <h2 id="质量调整"><a href="#质量调整" class="headerlink" title="质量调整"></a>质量调整</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 码率</span></span><br><span class="line">ffmpeg -i input.mp4 -b 1.5M output.mp4</span><br><span class="line"><span class="comment"># 帧率(fps)</span></span><br><span class="line">ffmpeg -i input.mp4 -r 25 output.mp4</span><br><span class="line"><span class="comment"># 分辨率, 必须是2的整数倍</span></span><br><span class="line">ffmpeg -i input.mp4 -vf scale=400:600 output.mp4 <span class="comment"># 保持比例</span></span><br><span class="line">ffmpeg -i input.mp4 -vf scale=400:-2 output.mp4</span><br><span class="line"><span class="comment"># 直接控制输出文件大小, 有bug, 视频的时长不对</span></span><br><span class="line">ffmpeg -i input.mp4 -fs 10000k output.mp4</span><br></pre></td></tr></table></figure>
 
