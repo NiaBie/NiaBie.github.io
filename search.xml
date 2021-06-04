@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>javascript笔记</title>
+      <link href="/2021/06/04/javascript%E7%AC%94%E8%AE%B0/"/>
+      <url>/2021/06/04/javascript%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="call-apply-bind"><a href="#call-apply-bind" class="headerlink" title="call, apply, bind"></a><code>call</code>, <code>apply</code>, <code>bind</code></h2><ul><li><a href="https://www.cnblogs.com/libin-1/p/6069031.html">cnblogs: 理解js中call, apply, bind方法</a></li><li><a href="https://www.cnblogs.com/donghezi/p/9742778.html">cnblogs: call函数原理</a></li></ul><h1 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h1><h2 id=""><a href="#" class="headerlink" title=","></a><code>,</code></h2><h2 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h2><h2 id="function-window-undefined-window"><a href="#function-window-undefined-window" class="headerlink" title="(function(window, undefined) {})(window)"></a><code>(function(window, undefined) &#123;&#125;)(window)</code></h2><h1 id="常见技巧"><a href="#常见技巧" class="headerlink" title="常见技巧"></a>常见技巧</h1><h2 id="打印堆栈"><a href="#打印堆栈" class="headerlink" title="打印堆栈"></a>打印堆栈</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>();</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>抓包</title>
       <link href="/2021/05/21/%E6%8A%93%E5%8C%85/"/>
       <url>/2021/05/21/%E6%8A%93%E5%8C%85/</url>
