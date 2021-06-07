@@ -938,6 +938,8 @@
 <li>注意添加<code>concat</code></li>
 <li>只有特定格式的视频才能合并</li>
 </ul>
+<h2 id="合并音视频-添加音轨"><a href="#合并音视频-添加音轨" class="headerlink" title="合并音视频(添加音轨)"></a>合并音视频(添加音轨)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.aac -i input.mp4 output.mp4</span><br></pre></td></tr></table></figure>
+
 <h2 id="查看文件信息"><a href="#查看文件信息" class="headerlink" title="查看文件信息"></a>查看文件信息</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i test.mp4</span><br></pre></td></tr></table></figure>
 
 <h2 id="视频剪切"><a href="#视频剪切" class="headerlink" title="视频剪切"></a>视频剪切</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 指定时长</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -t 00:57:45 -c copy output.mp4</span><br><span class="line"><span class="comment"># 指定结束时间</span></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:46:26 -to 00:57:45 -c copy output.mp4</span><br></pre></td></tr></table></figure>
