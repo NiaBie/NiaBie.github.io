@@ -655,6 +655,11 @@
     temp = 'tags/tmux/';
     tags_path.push(temp);
   ''
+    var temp = 'tikz';
+    tags_name.push(temp);
+    temp = 'tags/tikz/';
+    tags_path.push(temp);
+  ''
     var temp = 'ubuntu';
     tags_name.push(temp);
     temp = 'tags/ubuntu/';
@@ -967,7 +972,7 @@
 <li><a target="_blank" rel="noopener" href="https://linux.cn/article-7959-1.html">iconv</a></li>
 </ul>
 <hr>
-<h1 id="安装软件"><a href="#安装软件" class="headerlink" title="安装软件"></a>安装软件</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><ul>
+<h1 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h1><h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.sublimetext.com/docs/3/linux_repositories.html">sublime</a></li>
 <li>chromium:注意数据备份<code>.config/chromium</code><ul>
 <li><code>tamper monkey</code></li>
@@ -1108,6 +1113,17 @@
 </ul>
 <p><a target="_blank" rel="noopener" href="https://github.com/mpv-player/mpv/blob/master/etc/input.conf">快捷键:https://github.com/mpv-player/mpv/blob/master/etc/input.conf</a></p>
 <h2 id="桌面便签-Indicator-Stickynotes"><a href="#桌面便签-Indicator-Stickynotes" class="headerlink" title="桌面便签(Indicator Stickynotes)"></a>桌面便签(Indicator Stickynotes)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:umang/indicator-stickynotes</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install indicator-stickynotes</span><br></pre></td></tr></table></figure>
+
+<h2 id="pdf编辑"><a href="#pdf编辑" class="headerlink" title="pdf编辑"></a>pdf编辑</h2><h3 id="pdftk"><a href="#pdftk" class="headerlink" title="pdftk"></a>pdftk</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_33850015/article/details/88678877">命令参考: CSDN</a></p>
+<ul>
+<li>提取页面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 提取1至15页</span></span><br><span class="line">pdftk input.pdf cat 1-15 output output.pdf</span><br><span class="line"><span class="comment"># 去除第13页</span></span><br><span class="line">pdftk input.pdf cat 1-12 14-end output output.pdf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>合并pdf</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pdftk 1.pdf 2.pdf cat output output.pdf</span><br></pre></td></tr></table></figure>
 
 <h2 id="下载器-TODO"><a href="#下载器-TODO" class="headerlink" title="下载器(TODO)"></a>下载器(TODO)</h2><ul>
 <li>wget:单线程</li>
