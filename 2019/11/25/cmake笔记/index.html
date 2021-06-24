@@ -131,6 +131,21 @@
     temp = 'tags/android/';
     tags_path.push(temp);
   ''
+    var temp = 'cv';
+    tags_name.push(temp);
+    temp = 'tags/cv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cgal';
+    tags_name.push(temp);
+    temp = 'tags/cgal/';
+    tags_path.push(temp);
+  ''
+    var temp = 'delaunary';
+    tags_name.push(temp);
+    temp = 'tags/delaunary/';
+    tags_path.push(temp);
+  ''
     var temp = 'adb';
     tags_name.push(temp);
     temp = 'tags/adb/';
@@ -931,9 +946,16 @@
 </li>
 <li><p>编译选项</p>
 <ul>
-<li><code>CMAKE_CXX_FLAGS</code></li>
+<li><code>CMAKE_CXX_FLAGS</code><ul>
 <li>为不同的目标文件设置不同编译选项:<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6665887/different-compile-flags-for-same-file-in-different-targets">stackoverflow</a><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">add_executable</span>(project1 myfile.cpp)</span><br><span class="line"><span class="keyword">set_target_properties</span>(project1 PROPERTIES COMPILE_FLAGS <span class="string">&quot;flags1&quot;</span>)</span><br><span class="line"><span class="keyword">add_executable</span>(project2 myfile.cpp)</span><br><span class="line"><span class="keyword">set_target_properties</span>(project2 PROPERTIES COMPILE_FLAGS <span class="string">&quot;flags2&quot;</span>)</span><br></pre></td></tr></table></figure>
 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>链接器选项</p>
+<ul>
+<li><code>target_link_libraries</code>: 直接在后面添加<code>-l&#123;library_name&#125;</code>(如<code>-lgmp</code>)</li>
 </ul>
 </li>
 <li><p>输出目录</p>

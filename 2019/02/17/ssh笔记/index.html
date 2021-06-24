@@ -151,6 +151,21 @@
     temp = 'tags/android/';
     tags_path.push(temp);
   ''
+    var temp = 'cv';
+    tags_name.push(temp);
+    temp = 'tags/cv/';
+    tags_path.push(temp);
+  ''
+    var temp = 'cgal';
+    tags_name.push(temp);
+    temp = 'tags/cgal/';
+    tags_path.push(temp);
+  ''
+    var temp = 'delaunary';
+    tags_name.push(temp);
+    temp = 'tags/delaunary/';
+    tags_path.push(temp);
+  ''
     var temp = 'adb';
     tags_name.push(temp);
     temp = 'tags/adb/';
@@ -918,7 +933,7 @@
 
 <div class="main_container">
   <div class="main_box border_box">
-    <span class="post_title" id="post_title">远程控制</span>
+    <span class="post_title" id="post_title">ssh笔记</span>
     <br>
     <span class="post_date">2019-02-17</span>
     
@@ -930,30 +945,41 @@
       }
     </style>
   
-    <h1 id="本地局域网ssh"><a href="#本地局域网ssh" class="headerlink" title="本地局域网ssh"></a>本地局域网<code>ssh</code></h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><ul>
+    <h1 id="本地局域网ssh"><a href="#本地局域网ssh" class="headerlink" title="本地局域网ssh"></a>本地局域网<code>ssh</code></h1><h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="启动本地服务"><a href="#启动本地服务" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><ul>
 <li>准备</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br><span class="line">sudo apt-get install net-tools</span><br><span class="line">sudo ifconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br><span class="line">sudo apt-get install net-tools</span><br><span class="line">sudo service ssh start</span><br><span class="line">sudo ifconfig</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>配置文件(修改<code>ssh</code>端口号):<code>/etc/ssh/sshd_config</code></p>
 </li>
-<li><p>检查</p>
+<li><p><del>检查</del></p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">netstat -tlp</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps -e | grep ssh</span><br></pre></td></tr></table></figure>
 
+<h3 id="访问远程服务"><a href="#访问远程服务" class="headerlink" title="访问远程服务"></a>访问远程服务</h3><ul>
+<li>连接远程服务</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh 172.27.152.19 -p 2222</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>运行图形界面程序</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh -X lynx@192.168.1.100</span><br></pre></td></tr></table></figure>
 
-<h2 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h2><p><code>设置</code>$\to$<code>共享</code>$\to$<code>远程登录</code></p>
-<h2 id="termux"><a href="#termux" class="headerlink" title="termux"></a>termux</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install openssh</span><br><span class="line">sshd</span><br><span class="line">sshd -p 22222</span><br><span class="line">whoami</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+<h2 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h2><h3 id="启动本地服务-1"><a href="#启动本地服务-1" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><p><strong>TODO</strong></p>
+<h3 id="访问远程服务-1"><a href="#访问远程服务-1" class="headerlink" title="访问远程服务"></a>访问远程服务</h3><p><code>设置</code>-&gt;<code>共享</code>-&gt;<code>远程登录</code></p>
+<h2 id="termux"><a href="#termux" class="headerlink" title="termux"></a>termux</h2><h3 id="启动本地服务-2"><a href="#启动本地服务-2" class="headerlink" title="启动本地服务"></a>启动本地服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pkg install openssh</span><br><span class="line"><span class="comment"># 或</span></span><br><span class="line">apt install openssh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动ssh服务</span></span><br><span class="line">sshd</span><br><span class="line">sshd -p 22222</span><br></pre></td></tr></table></figure>
 
-<h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a><del>windows</del></h2><ul>
+<ul>
+<li>查看用户和密码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">whoami</span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问远程服务-2"><a href="#访问远程服务-2" class="headerlink" title="访问远程服务"></a>访问远程服务</h3><h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a><del>windows</del></h2><ul>
 <li>安装<code>freeSSHd</code></li>
 <li><code>Users</code>$\to$<code>Add</code>,设置密码</li>
 <li>开启<code>Shell</code>等</li>
