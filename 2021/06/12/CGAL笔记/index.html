@@ -945,20 +945,20 @@
 <li><code>$&#123;ARCH&#125;</code>: <code>arm64</code></li>
 <li><code>$&#123;TOOLCHAIN_PATH&#125;</code>: 安装位置</li>
 </ul>
-<h3 id="安装GMP"><a href="#安装GMP" class="headerlink" title="安装GMP"></a>安装GMP</h3><p><a target="_blank" rel="noopener" href="https://gmplib.org/#DOWNLOAD">官网下载</a></p>
+<h3 id="编译GMP"><a href="#编译GMP" class="headerlink" title="编译GMP"></a>编译GMP</h3><p><a target="_blank" rel="noopener" href="https://gmplib.org/#DOWNLOAD">官网下载</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export CC&#x3D;$&#123;TOOLCHAIN_PATH&#125;&#x2F;bin&#x2F;clang</span><br><span class="line">export PATH&#x3D;&quot;$&#123;TOOLCHAIN_PATH&#125;:$&#123;PATH&#125;&quot;</span><br><span class="line">.&#x2F;configure --prefix&#x3D;$&#123;GMP_PATH&#125; --enable-shared --host&#x3D;$&#123;TARGET_TRIPLET&#125;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>$&#123;GMP_PATH&#125;</code>: 安装位置</li>
 <li><code>$&#123;TARGET_TRIPLET&#125;</code>: <code>aarch64-linux-android</code></li>
 </ul>
-<h3 id="安装MPFR"><a href="#安装MPFR" class="headerlink" title="安装MPFR"></a>安装MPFR</h3><p><a target="_blank" rel="noopener" href="https://www.mpfr.org/mpfr-current/#download">官网下载</a></p>
+<h3 id="编译MPFR"><a href="#编译MPFR" class="headerlink" title="编译MPFR"></a>编译MPFR</h3><p><a target="_blank" rel="noopener" href="https://www.mpfr.org/mpfr-current/#download">官网下载</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export CC&#x3D;$&#123;TOOLCHAIN_PATH&#125;&#x2F;bin&#x2F;clang</span><br><span class="line">export PATH&#x3D;&quot;$&#123;TOOLCHAIN_PATH&#125;:$&#123;PATH&#125;&quot;</span><br><span class="line">.&#x2F;configure --prefix&#x3D;$&#123;MPFR_PATH&#125; --enable-shared --host&#x3D;$&#123;TARGET_TRIPLET&#125; --with-gmp&#x3D;$&#123;GMP_PATH&#125;</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>$&#123;MPFR_PATH&#125;</code>: 安装位置</li>
 </ul>
-<h3 id="下载boost源码"><a href="#下载boost源码" class="headerlink" title="下载boost源码"></a>下载boost源码</h3><p><a target="_blank" rel="noopener" href="https://www.boost.org/">官网下载</a></p>
+<h3 id="编译boost"><a href="#编译boost" class="headerlink" title="编译boost"></a>编译boost</h3><p><a target="_blank" rel="noopener" href="https://www.boost.org/">官网下载</a></p>
 <h3 id="下载cgal源码"><a href="#下载cgal源码" class="headerlink" title="下载cgal源码"></a>下载cgal源码</h3><p><a target="_blank" rel="noopener" href="https://hub.fastgit.org/CGAL/cgal/releases/tag/v5.3">github镜像</a></p>
 <p>选择<code>Source code</code></p>
 <h3 id="cmake编译"><a href="#cmake编译" class="headerlink" title="cmake编译"></a>cmake编译</h3><p>先创建<code>toolchain.cmake</code></p>
@@ -978,6 +978,10 @@
 <li>编译GMP时出现: <code>could not find a working compiler, see config.log for details</code></li>
 </ol>
 <p><code>clang</code>路径不对</p>
+<ol start="2">
+<li>安装CGAL时出现: <code>&quot;/usr/local/include/CGAL/Qt&quot;: No such file or directory.</code></li>
+</ol>
+<p>默认安装路径<code>/usr/local</code>, <code>make install</code>需要sudo权限</p>
 
   
     

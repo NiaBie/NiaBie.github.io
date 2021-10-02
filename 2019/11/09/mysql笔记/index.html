@@ -1173,10 +1173,7 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl start mysql</span><br><span class="line">sudo systemctl status mysql</span><br><span class="line"><span class="comment"># sudo rm -Rf /var/lib/mysql.bak</span></span><br><span class="line"><span class="comment"># sudo systemctl restart mysql</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h2><ul>
-<li>创建数据库并选择</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> homework3;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="keyword">use</span> homework3;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建数据库</span></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> homework3;</span><br><span class="line"><span class="comment"># 查看所有数据库</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br><span class="line"><span class="comment"># 选择数据库</span></span><br><span class="line"><span class="keyword">use</span> homework3;</span><br><span class="line"><span class="comment"># 查看所有表</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br><span class="line"><span class="comment"># 重命名表</span></span><br><span class="line"><span class="keyword">rename</span> <span class="keyword">table</span> old_table_name <span class="keyword">to</span> new_table_name;</span><br></pre></td></tr></table></figure>
 
 <h2 id="查看相关信息"><a href="#查看相关信息" class="headerlink" title="查看相关信息"></a>查看相关信息</h2><ul>
 <li>查看版本等</li>
