@@ -329,6 +329,16 @@
     temp = 'tags/css/';
     tags_path.push(temp);
   ''
+    var temp = 'chrome';
+    tags_name.push(temp);
+    temp = 'tags/chrome/';
+    tags_path.push(temp);
+  ''
+    var temp = 'qqbrowser';
+    tags_name.push(temp);
+    temp = 'tags/qqbrowser/';
+    tags_path.push(temp);
+  ''
     var temp = 'bucket';
     tags_name.push(temp);
     temp = 'tags/bucket/';
@@ -342,16 +352,6 @@
     var temp = 'cdn';
     tags_name.push(temp);
     temp = 'tags/cdn/';
-    tags_path.push(temp);
-  ''
-    var temp = 'chrome';
-    tags_name.push(temp);
-    temp = 'tags/chrome/';
-    tags_path.push(temp);
-  ''
-    var temp = 'qqbrowser';
-    tags_name.push(temp);
-    temp = 'tags/qqbrowser/';
     tags_path.push(temp);
   ''
     var temp = 'cmake';
@@ -933,7 +933,8 @@
       }
     </style>
   
-    <h1 id="adb卸载预装软件"><a href="#adb卸载预装软件" class="headerlink" title="adb卸载预装软件"></a>adb卸载预装软件</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107371855">参考</a><br><a target="_blank" rel="noopener" href="https://club.huawei.com/thread-17725003-1-1.html">参考</a></p>
+    <h1 id="命令参考"><a href="#命令参考" class="headerlink" title="命令参考"></a>命令参考</h1><p><a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-683104-1-1.html">吾爱破解</a></p>
+<h1 id="adb卸载预装软件"><a href="#adb卸载预装软件" class="headerlink" title="adb卸载预装软件"></a>adb卸载预装软件</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107371855">参考</a><br><a target="_blank" rel="noopener" href="https://club.huawei.com/thread-17725003-1-1.html">参考</a></p>
 <ol>
 <li>adb连接</li>
 </ol>
@@ -998,7 +999,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adb shell pm path com.huawei.android.hwouc</span><br><span class="line"><span class="comment"># package:/system/app/HwOUC/HwOUC.apk</span></span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>到处apk文件到当前目录</li>
+<li>导出apk文件到当前目录</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">adb pull /system/app/HwOUC/HwOUC.apk .</span><br></pre></td></tr></table></figure>
 
