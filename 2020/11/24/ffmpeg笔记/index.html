@@ -804,6 +804,21 @@
     temp = 'tags/微电子/';
     tags_path.push(temp);
   ''
+    var temp = 'apktool';
+    tags_name.push(temp);
+    temp = 'tags/apktool/';
+    tags_path.push(temp);
+  ''
+    var temp = 'auto-sign';
+    tags_name.push(temp);
+    temp = 'tags/auto-sign/';
+    tags_path.push(temp);
+  ''
+    var temp = 'root';
+    tags_name.push(temp);
+    temp = 'tags/root/';
+    tags_path.push(temp);
+  ''
   // 因为path和name只有前缀不同,所以分别排序之后相对顺序还是一样的
   tags_name.sort();
   tags_path.sort();
@@ -989,7 +1004,9 @@
 
 <h2 id="旋转与翻转"><a href="#旋转与翻转" class="headerlink" title="旋转与翻转"></a>旋转与翻转</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 水平翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;hflip&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;vflip&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 逆时针旋转90度并垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=0&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 顺时针旋转90度</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=1&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 逆时针旋转90度</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=2&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 顺时针旋转90度并垂直翻转</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;transpose=3&quot;</span> output.mp4</span><br><span class="line"><span class="comment"># 自定义角度, 但是图像的尺寸不会变, 会有黑边</span></span><br><span class="line">ffmpeg -i input.mp4 -vf <span class="string">&quot;rotate=PI/2&quot;</span> output.mp4</span><br></pre></td></tr></table></figure>
 
-<h3 id="常见错误-1"><a href="#常见错误-1" class="headerlink" title="常见错误"></a>常见错误</h3><ol>
+<h2 id="裁剪图片"><a href="#裁剪图片" class="headerlink" title="裁剪图片"></a>裁剪图片</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.jpg -vf crop=width:height:from_x:from_y output.jpg</span><br></pre></td></tr></table></figure>
+
+<h1 id="常见错误-1"><a href="#常见错误-1" class="headerlink" title="常见错误"></a>常见错误</h1><ol>
 <li><code> Default encoder for format mp3 (codec mp3) is probably disabled. Please choose an encoder manually.</code>(<strong>TODO</strong>)<ol>
 <li>先安装<code>libmp3lame-dev</code></li>
 <li>再重新编译ffmpeg: 添加<code>--enable-libmp3lame</code>参数</li>
